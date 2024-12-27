@@ -8,8 +8,11 @@ globalStyle('html, body', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  position: 'relative',
+})
+
+globalStyle('body', {
   padding: `0 ${ComponentVariable.Spacing._16}`,
+  position: 'relative',
 })
 
 globalStyle('a', {

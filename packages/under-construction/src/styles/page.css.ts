@@ -7,4 +7,5 @@ export const copyrightStyle = style({
   left: '50%',
   transform: 'translateX(-50%)',
   color: ColorVariable.Content.Muted,
+  whiteSpace: 'nowrap',
 })
