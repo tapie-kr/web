@@ -24,6 +24,7 @@ ENV PORT=$PORT
 WORKDIR /app
 COPY --from=builder /app/packages/under-construction/package.json /app/package.json
 COPY --from=builder /app/packages/under-construction/.next /app/.next
+COPY --from=builder /app/packages/under-construction/src/public /app/public
 
 RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
