@@ -1,0 +1,26 @@
+{
+  "name": "@tapie-kr/web-shared",
+  "version": "1.0.0",
+  "description": "Shared Codes for tapie.kr",
+  "author": {
+    "name": "Taeyeong Kim",
+    "email": "taeyeong.kim@algorix.io",
+    "url": "https://github.com/cottons-kr"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://tapie.kr/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tapie-kr/web.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vanilla-extract/next-plugin": "^2.4.8",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
