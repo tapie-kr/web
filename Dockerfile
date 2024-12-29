@@ -4,7 +4,7 @@ COPY . /app
 WORKDIR /app
 
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm --activate
 RUN pnpm install --frozen-lockfile
 
 WORKDIR /app/packages/under-construction
