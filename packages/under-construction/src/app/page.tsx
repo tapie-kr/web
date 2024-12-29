@@ -1,5 +1,5 @@
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { TAPIESymbol, TAPIESymbolSize, Typo } from '@tapie-kr/inspire-react'
+import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
 import { copyrightStyle } from '@/styles/page.css'
@@ -15,9 +15,9 @@ export default function Page() {
       <VStack gap={ComponentVariable.Spacing._28}>
         <VStack align='start' gap={ComponentVariable.Spacing._12}>
           <TAPIESymbol size={TAPIESymbolSize._32} withLabel />
-          <Typo.Display>Under Construction</Typo.Display>
+          <Typo.Jumbo weight={TypographyWeight.Semibold}>Under Construction</Typo.Jumbo>
         </VStack>
-        <Typo.Body>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Body>
+        <Typo.Base>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Base>
       </VStack>
       <HStack align='center' gap={ComponentVariable.Spacing._24}>
         <Link href='https://github.com/tapie-kr' target='_blank' aria-label='Github'>
@@ -29,6 +29,6 @@ export default function Page() {
       </HStack>
     </VStack>
 
-    <Typo.Footnote className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Footnote>
+    <Typo.Micro className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Micro>
   </>
 }
