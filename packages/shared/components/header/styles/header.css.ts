@@ -2,7 +2,12 @@ import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variab
 import { style } from '@vanilla-extract/css'
 
 export const headerStyle = style({
+  position: 'fixed',
   padding: `22px 30px`,
+  top: 0,
+  left: 0,
+  background: ColorVariable.Surface.Default,
+  zIndex: 100,
 })
 
 export const menuButtonStyle = style({

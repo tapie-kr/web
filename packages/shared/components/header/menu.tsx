@@ -16,7 +16,7 @@ type LinkListProps = {
 
 function LinkList(props: LinkListProps) {
   return <>
-    <VStack fitContent gap={ComponentVariable.Spacing.Moderate}>
+    <VStack fitContent gap={ComponentVariable.Spacing.Base}>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}
         transition={getTransition(0.4, 0.15)}
@@ -33,7 +33,7 @@ function LinkList(props: LinkListProps) {
             onClick={props.hide}
           >
             <Link href={href}>
-              <Typo.Medium tag={TypographyTag.Span} weight={TypographyWeight.Bold}>{label}</Typo.Medium>
+              <Typo.Medium tag={TypographyTag.Span} weight={TypographyWeight.Semibold}>{label}</Typo.Medium>
             </Link>
           </motion.div>
         ))

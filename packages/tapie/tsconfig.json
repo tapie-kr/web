@@ -25,7 +25,7 @@
     }
   },
   "include": [
-    "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts",
+    "next-env.d.ts", "**/*.ts", "**/*.tsx", "src/types/**/*.d.ts", ".next/types/**/*.ts",
     "../shared/**/*.ts", "../shared/**/*.tsx"
   ],
   "exclude": ["node_modules"]

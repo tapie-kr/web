@@ -5,10 +5,10 @@ export const backdropStyle = style({
   position: 'fixed',
   width: '100%',
   height: '100dvh',
-  background: ColorVariable.Solid.Translucent.Black._20,
+  background: ColorVariable.Solid.Translucent.Black._40,
   top: 0,
   left: 0,
-  zIndex: 2,
+  zIndex: 150,
 })
 
 export const frameStyle = style({
@@ -17,7 +17,7 @@ export const frameStyle = style({
   height: 383,
   top: 0,
   left: 0,
-  zIndex: 3,
+  zIndex: 200,
   '@media': {
     'screen and (max-width: 768px)': {
       height: '100dvh',
