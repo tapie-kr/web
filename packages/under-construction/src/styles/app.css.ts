@@ -11,7 +11,7 @@ globalStyle('html, body', {
 })
 
 globalStyle('body', {
-  padding: `0 ${ComponentVariable.Spacing._16}`,
+  padding: `0 ${ComponentVariable.Spacing.Base}`,
   position: 'relative',
 })
 
