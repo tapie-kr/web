@@ -11,15 +11,15 @@ export default function Page() {
   const ICON_SIZE = 28
 
   return <>
-    <VStack fitContent gap={52}>
-      <VStack gap={ComponentVariable.Spacing._28}>
-        <VStack align='start' gap={ComponentVariable.Spacing._12}>
+    <VStack fitContent gap={ComponentVariable.Spacing.Jumbo}>
+      <VStack gap={ComponentVariable.Spacing.Moderate}>
+        <VStack align='start' gap={ComponentVariable.Spacing.Petite}>
           <TAPIESymbol size={TAPIESymbolSize._32} withLabel />
           <Typo.Jumbo weight={TypographyWeight.Semibold}>Under Construction</Typo.Jumbo>
         </VStack>
         <Typo.Base>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Base>
       </VStack>
-      <HStack align='center' gap={ComponentVariable.Spacing._24}>
+      <HStack align='center' gap={ComponentVariable.Spacing.Moderate}>
         <Link href='https://github.com/tapie-kr' target='_blank' aria-label='Github'>
           <Github width={ICON_SIZE} height={ICON_SIZE} />
         </Link>

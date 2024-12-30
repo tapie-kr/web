@@ -5,8 +5,10 @@ import { headerStyle, menuButtonStyle } from './styles/header.css'
 import { HStack } from '@cottons-kr/react-foundation'
 import { GlyphIcon, Icon, TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
 import { useToggle } from '~/hooks/use-toggle'
-import { AnimatePresence } from 'framer-motion'
-import HeaderMenu from './menu'
+import { AnimatePresence, motion } from 'framer-motion'
+import { getTransition } from '~/lib/animation'
+import { backdropStyle, frameStyle, menuStyle, contentStyle } from './styles/menu.css'
+import DesktopMenu from './desktop-menu'
 
 export default function Header() {
   const [showMenu, toggleMenu] = useToggle()
@@ -23,5 +25,30 @@ export default function Header() {
     <AnimatePresence>{
       showMenu && <HeaderMenu hide={toggleMenu} />
     }</AnimatePresence>
+  </>
+}
+
+type HeaderMenuProps = {
+  hide: () => unknown
+}
+
+function HeaderMenu(props: HeaderMenuProps) {
+  return <>
+    <motion.div
+      className={backdropStyle} onClick={props.hide}
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+    />
+    <div className={frameStyle}>
+      <motion.div
+        data-theme='dark'
+        className={menuStyle}
+        initial={{ height: 0 }} animate={{ height: '100%' }} exit={{ height: 0 }}
+        transition={getTransition(0.4)}
+      >
+        <div className={contentStyle}>
+          <DesktopMenu hide={props.hide} />
+        </div>
+      </motion.div>
+    </div>
   </>
 }

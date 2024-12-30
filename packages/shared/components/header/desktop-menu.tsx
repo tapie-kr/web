@@ -1,26 +1,13 @@
 'use client'
 
 import { getTransition } from '~/lib/animation'
-import { backdropStyle, contentStyle, frameStyle, linkStyle, menuStyle } from './styles/menu.css'
+import { linkStyle } from './styles/menu.css'
 
 import { motion } from 'framer-motion'
-import { VStack } from '@cottons-kr/react-foundation'
+import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
-
-type BackdropProps = {
-  onClick: () => unknown
-}
-
-function Backdrop(props: BackdropProps) {
-  return <>
-    <motion.div
-      className={backdropStyle} onClick={props.onClick}
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-    />
-  </>
-}
 
 type LinkListProps = {
   links: Array<{ label: string, href: string }>
@@ -55,33 +42,23 @@ function LinkList(props: LinkListProps) {
   </>
 }
 
-type HeaderMenuProps = {
+type DesktopMenuProps = {
   hide: () => unknown
 }
 
-export default function HeaderMenu(props: HeaderMenuProps) {
+export default function DesktopMenu(props: DesktopMenuProps) {
   return <>
-    <Backdrop onClick={props.hide} />
-    <div className={frameStyle}>
-      <motion.div
-        data-theme='dark'
-        className={menuStyle}
-        initial={{ height: 0 }} animate={{ height: '100%' }} exit={{ height: 0 }}
-        transition={getTransition(0.4)}
-      >
-        <div className={contentStyle}>
-          <LinkList
-            links={[
-              { label: '홈', href: '/' },
-              { label: '프로젝트', href: '#projects' },
-              { label: '수상실적', href: '#awards' },
-              { label: 'FAQ', href: '#faq' },
-              { label: 'INSPIRE', href: 'https://inspire.tapie.kr/' },
-            ]}
-            hide={props.hide}
-          />
-        </div>
-      </motion.div>
-    </div>
+    <HStack>
+      <LinkList
+        links={[
+          { label: '홈', href: '/' },
+          { label: '프로젝트', href: '#projects' },
+          { label: '수상실적', href: '#awards' },
+          { label: 'FAQ', href: '#faq' },
+          { label: 'INSPIRE', href: 'https://inspire.tapie.kr/' },
+        ]}
+        hide={props.hide}
+      />
+    </HStack>
   </>
 }
