@@ -8,7 +8,7 @@ import { useToggle } from '~/hooks/use-toggle'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getTransition } from '~/lib/animation'
 import { backdropStyle, frameStyle, menuStyle, contentStyle } from './styles/menu.css'
-import DesktopMenu from './desktop-menu'
+import Menu from './menu'
 
 export default function Header() {
   const [showMenu, toggleMenu] = useToggle()
@@ -18,7 +18,7 @@ export default function Header() {
       <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
       <button className={menuButtonStyle} onClick={toggleMenu}>
         <Icon name={GlyphIcon.Menu} size={18} />
-        <Typo.Callout weight={TypographyWeight.Semibold}>메뉴</Typo.Callout>
+        <Typo.Petite weight={TypographyWeight.Semibold}>메뉴</Typo.Petite>
       </button>
     </HStack>
 
@@ -46,7 +46,7 @@ function HeaderMenu(props: HeaderMenuProps) {
         transition={getTransition(0.4)}
       >
         <div className={contentStyle}>
-          <DesktopMenu hide={props.hide} />
+          <Menu hide={props.hide} />
         </div>
       </motion.div>
     </div>

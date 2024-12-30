@@ -16,7 +16,7 @@ type LinkListProps = {
 
 function LinkList(props: LinkListProps) {
   return <>
-    <VStack fitContent gap={ComponentVariable.Spacing._20}>
+    <VStack fitContent gap={ComponentVariable.Spacing.Moderate}>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}
         transition={getTransition(0.4, 0.15)}
@@ -28,12 +28,12 @@ function LinkList(props: LinkListProps) {
           <motion.div
             key={label}
             className={linkStyle}
-            initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
-            transition={getTransition(0.35, i * 0.03 + 0.16)}
+            initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
+            transition={getTransition(0.4, i * 0.04 + 0.16)}
             onClick={props.hide}
           >
             <Link href={href}>
-              <Typo.Title tag={TypographyTag.Span} weight={TypographyWeight.Bold}>{label}</Typo.Title>
+              <Typo.Medium tag={TypographyTag.Span} weight={TypographyWeight.Bold}>{label}</Typo.Medium>
             </Link>
           </motion.div>
         ))
@@ -46,7 +46,7 @@ type DesktopMenuProps = {
   hide: () => unknown
 }
 
-export default function DesktopMenu(props: DesktopMenuProps) {
+export default function Menu(props: DesktopMenuProps) {
   return <>
     <HStack>
       <LinkList

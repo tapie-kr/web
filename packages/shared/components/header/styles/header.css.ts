@@ -11,10 +11,10 @@ export const menuButtonStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: ComponentVariable.Spacing._8,
+  gap: ComponentVariable.Spacing.Micro,
   background: ColorVariable.Surface.Default,
   border: `1.5px solid ${ColorVariable.Grayscale.Solid._90}`,
-  borderRadius: ComponentVariable.Radius._32,
+  borderRadius: ComponentVariable.Radius.Pill,
   transition: 'background 0.2s, color 0.2s',
   ':hover': {
     background: ColorVariable.Surface.Inverted.Default,
