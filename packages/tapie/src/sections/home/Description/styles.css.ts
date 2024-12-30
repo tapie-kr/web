@@ -22,10 +22,26 @@ export const contentStyle = style({
 
 export const paragraphStyle = style({
   lineHeight: '200%',
+  '@media': {
+    '(max-width: 768px)': {
+      fontSize: 20,
+    },
+  },
 })
 
 export const clubsStyle = style({
   columnGap: ComponentVariable.Spacing.Base,
+})
+
+export const clubIconStyle = style({
+  width: 38,
+  height: 38,
+  '@media': {
+    '(max-width: 768px)': {
+      width: 24,
+      height: 24,
+    },
+  },
 })
 
 export const statsStyle = style({

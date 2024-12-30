@@ -1,4 +1,4 @@
-import { clubsStyle, contentStyle, paragraphStyle, sectionStyle, statsStyle } from './styles.css'
+import { clubIconStyle, clubsStyle, contentStyle, paragraphStyle, sectionStyle, statsStyle } from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
@@ -27,7 +27,7 @@ export default function HomeDescriptionSection() {
         <Typo.Large className={paragraphStyle} weight={Weight.Medium}>세상에 존재하는 다양한 간극을 소프트웨어로 이어붙이자는 신념 아래, 우리들의 전공을 활용하여 오늘도 노력하고 있습니다.</Typo.Large>
       </VStack>
 
-      <HStack className={statsStyle} gap={ComponentVariable.Spacing.Large}>
+      <HStack className={statsStyle} gap={ComponentVariable.Spacing.Large} wrap>
         <StatsCard label='지금까지' content='24년' />
         <StatsCard label='동아리 부원' content='725명' />
         <StatsCard label='포트폴리오' content='372개' />
@@ -45,8 +45,8 @@ type ClubProps = {
 function Club(props: ClubProps) {
   return <>
     <HStack align='center' fitContent gap={ComponentVariable.Spacing.Micro}>
-      <props.icon />
-      <Typo.Large weight={Weight.Medium}>{props.name}</Typo.Large>
+      <props.icon className={clubIconStyle} />
+      <Typo.Large className={paragraphStyle} weight={Weight.Medium}>{props.name}</Typo.Large>
     </HStack>
   </>
 }
@@ -59,8 +59,8 @@ type StatsCardProps = {
 function StatsCard(props: StatsCardProps) {
   return <>
     <VStack fitContent gap={ComponentVariable.Spacing.Tiny}>
-      <Typo.Moderate weight={Weight.Semibold} color={ColorVariable.Content.Muted}>{props.label}</Typo.Moderate>
-      <Typo.Medium weight={Weight.Medium}>{props.content}</Typo.Medium>
+      <Typo.Moderate weight={Weight.Semibold} color={ColorVariable.Content.Muted} nowrap>{props.label}</Typo.Moderate>
+      <Typo.Medium weight={Weight.Medium} nowrap>{props.content}</Typo.Medium>
     </VStack>
   </>
 }

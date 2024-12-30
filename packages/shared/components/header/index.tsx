@@ -14,7 +14,7 @@ export default function Header() {
   const [showMenu, toggleMenu] = useToggle()
 
   return <>
-    <HStack tag='header' className={headerStyle} justify='between'>
+    <HStack tag='header' className={headerStyle} align='center' justify='between'>
       <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
       <button className={menuButtonStyle} onClick={toggleMenu}>
         <Icon name={GlyphIcon.Menu} size={18} />
