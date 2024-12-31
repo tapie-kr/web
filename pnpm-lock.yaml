@@ -11,8 +11,8 @@ importers:
   packages/shared:
     dependencies:
       '@cottons-kr/react-foundation':
-        specifier: ^0.3.0
-        version: 0.3.0(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.3.1
+        version: 0.3.1(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/inspire-react':
         specifier: ^0.0.30
         version: 0.0.30(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -48,8 +48,8 @@ importers:
   packages/tapie:
     dependencies:
       '@cottons-kr/react-foundation':
-        specifier: ^0.3.0
-        version: 0.3.0(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.3.1
+        version: 0.3.1(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -103,8 +103,8 @@ importers:
   packages/under-construction:
     dependencies:
       '@cottons-kr/react-foundation':
-        specifier: ^0.3.0
-        version: 0.3.0(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.3.1
+        version: 0.3.1(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -694,8 +694,8 @@ packages:
     resolution: {integrity: sha512-vN5p+1kl59GVKMvTHt55NzzmYVxprfJD+ql7U9NFIfKCBkYE55LYtS+WtPlaYOyzydrKI8Nezd+aZextrd+FMA==}
     engines: {node: '>=6.9.0'}
 
-  '@cottons-kr/react-foundation@0.3.0':
-    resolution: {integrity: sha512-1Zc6b/McYPQRO3JAO12W+rtCpllw5K8+1HVSucwJgTqMMhpP5o1dl52WRJrIjhqm8Ds0CNd3/BmfO1xXmLwOMA==}
+  '@cottons-kr/react-foundation@0.3.1':
+    resolution: {integrity: sha512-Usihp6/5Kk5FpgPIG2RZuMi0X6Y1qf9FhP3YOsLmos6rU8QshCuKD7FmjdbDM2cpqIBGMd4YytzbZG+9iHkHkw==}
     peerDependencies:
       next: '>=14.0.0'
       react: '>=18.0.0'
@@ -3115,7 +3115,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@cottons-kr/react-foundation@0.3.0(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@cottons-kr/react-foundation@0.3.1(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       next: 15.1.3(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
       react: 19.0.0
