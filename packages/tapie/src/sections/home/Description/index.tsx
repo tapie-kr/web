@@ -3,10 +3,10 @@ import { clubIconStyle, clubsStyle, contentStyle, paragraphStyle, sectionStyle, 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
+
 import AppplePi from './assets/appplepi.svg'
 import Edcan from './assets/edcan.svg'
 import Iwop from './assets/iwop.svg'
-import { FunctionComponent, SVGProps } from 'react'
 
 export default function HomeDescriptionSection() {
   return <>
@@ -38,7 +38,7 @@ export default function HomeDescriptionSection() {
 }
 
 type ClubProps = {
-  icon: FunctionComponent<SVGProps<SVGSVGElement>>
+  icon: SVGComponent
   name: string
 }
 
