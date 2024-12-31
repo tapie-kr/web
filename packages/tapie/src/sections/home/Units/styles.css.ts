@@ -2,8 +2,14 @@ import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variab
 import { style } from '@vanilla-extract/css'
 
 export const templateStyle = style({
-  padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
   background: ColorVariable.Surface.Elevated,
+  '@media': {
+    '(max-width: 768px)': {
+      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      flexDirection: 'column',
+    },
+  },
 })
 
 export const invertedTemplateStyle = style([templateStyle, {

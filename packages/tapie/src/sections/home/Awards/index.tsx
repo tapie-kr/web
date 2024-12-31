@@ -15,17 +15,19 @@ export default function HomeAwardsSection() {
 
   return <>
     <HomeAwardsSectionContext.Provider value={{ selectedYear, setSelectedYear }}>
-      <Flex className={sectionStyle} gap={ComponentVariable.Spacing.Base}>
-        <VStack gap={ComponentVariable.Spacing.Moderate}>
-          <Typo.Jumbo weight={Weight.Semibold}>2024년 테이피의 항해</Typo.Jumbo>
-          <Typo.Medium className={countStyle} color={ColorVariable.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
-        </VStack>
+      <VStack align='center'>
+        <Flex className={sectionStyle} fullWidth gap={ComponentVariable.Spacing.Base}>
+          <VStack gap={ComponentVariable.Spacing.Moderate}>
+            <Typo.Jumbo weight={Weight.Semibold}>2024년 테이피의 항해</Typo.Jumbo>
+            <Typo.Medium className={countStyle} color={ColorVariable.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
+          </VStack>
 
-        <VStack align='end' gap={ComponentVariable.Spacing.Petite}>
-          <YearSelector />
-          <AwardList />
-        </VStack>
-      </Flex>
+          <VStack align='end' gap={ComponentVariable.Spacing.Petite}>
+            <YearSelector />
+            <AwardList />
+          </VStack>
+        </Flex>
+      </VStack>
     </HomeAwardsSectionContext.Provider>
   </>
 }

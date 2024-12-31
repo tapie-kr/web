@@ -2,20 +2,19 @@ import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const sectionStyle = style({
-  padding: `100px 0`,
+  maxWidth: 1400,
+  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} 0`,
+      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
     },
   },
 })
 
 export const titleStyle = style({
-  padding: `0 ${ComponentVariable.Spacing.Jumbo}`,
   flexDirection: 'row',
   '@media': {
-    '(max-width: 768px)': {
-      padding: `0 ${ComponentVariable.Spacing.Moderate}`,
+    '(max-width: 1000px)': {
       flexDirection: 'column',
     },
   },
@@ -24,4 +23,9 @@ export const titleStyle = style({
 export const viewMoreStyle = style({
   width: '100%',
   maxWidth: 375,
+  '@media': {
+    '(max-width: 1000px)': {
+      maxWidth: '100%',
+    },
+  },
 })
