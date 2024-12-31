@@ -4,7 +4,7 @@ import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { GlyphIcon, Icon, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import { motion } from 'framer-motion'
 import cn from 'classnames'
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle'
@@ -25,10 +25,10 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
         initial={{ height: 26 }} animate={{ height: isOpened ? 'auto' : 26 }}
         transition={getTransition()}
       >
-        <VStack gap={ComponentVariable.Spacing.Moderate}>
+        <VStack gap={Spacing.Moderate}>
           <HStack justify='between'>
             <Typo.Moderate
-              color={ColorVariable.Content[isOpened ? 'Emphasized' : 'Default']}
+              color={Color.Content[isOpened ? 'Emphasized' : 'Default']}
               weight={TypographyWeight[isOpened ? 'Medium' : 'Regular']}
             >{props.question}</Typo.Moderate>
             <Icon className={cn(s.icon, isOpened ? '' : s.rotatedIcon)} name={GlyphIcon.KeyboardArrowUp} />

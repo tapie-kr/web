@@ -6,12 +6,12 @@ import { HStack } from '@cottons-kr/react-foundation'
 import { useContext, useMemo } from 'react'
 import { HomeAwardsSectionContext } from './shared'
 import { Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
-import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 import cn from 'classnames'
 
 export default function HomeAwardsSectionYearSelector() {
   return <>
-    <HStack className={yearSelector} gap={ComponentVariable.Spacing.Petite} wrap>{
+    <HStack className={yearSelector} gap={Spacing.Petite} wrap>{
       Array.from({ length: 6 }, (_, i) => {
         return <YearItem key={i} year={2024 - i} />
       })

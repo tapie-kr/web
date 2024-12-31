@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css'
-import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 export const section = style({
   paddingTop: 76
 })
 
 export const hero = style({
-  padding: `${ComponentVariable.Spacing.Base} ${ComponentVariable.Spacing.Moderate}`
+  padding: `${Spacing.Base} ${Spacing.Moderate}`
 })
 
 export const text = style({
@@ -15,7 +15,7 @@ export const text = style({
 })
 
 export const upperText = style({
-  columnGap: ComponentVariable.Spacing.Base,
+  columnGap: Spacing.Base,
 })
 
 export const tapeContainer = style({

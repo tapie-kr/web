@@ -4,7 +4,7 @@ import * as s from './styles.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
 import { Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import { HomeAwardsSectionContext } from './shared'
 import { useState } from 'react'
 import YearSelector from './year-selector'
@@ -16,13 +16,13 @@ export default function HomeAwardsSection() {
   return <>
     <HomeAwardsSectionContext.Provider value={{ selectedYear, setSelectedYear }}>
       <VStack align='center'>
-        <Flex className={s.section} fullWidth gap={ComponentVariable.Spacing.Base}>
-          <VStack gap={ComponentVariable.Spacing.Moderate}>
+        <Flex className={s.section} fullWidth gap={Spacing.Base}>
+          <VStack gap={Spacing.Moderate}>
             <Typo.Jumbo weight={Weight.Semibold}>2024년 테이피의 항해</Typo.Jumbo>
-            <Typo.Medium className={s.count} color={ColorVariable.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
+            <Typo.Medium className={s.count} color={Color.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
           </VStack>
 
-          <VStack align='end' gap={ComponentVariable.Spacing.Petite}>
+          <VStack align='end' gap={Spacing.Petite}>
             <YearSelector />
             <AwardList />
           </VStack>

@@ -1,12 +1,12 @@
-import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
   maxWidth: 1400,
-  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
+  padding: `100px ${Spacing.Jumbo}`,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
     },
   },
 })

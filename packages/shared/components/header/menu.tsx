@@ -1,13 +1,13 @@
 'use client'
 
-import { getTransition } from '~/lib/animation'
 import { linkStyle } from './styles/menu.css'
 
 import { motion } from 'framer-motion'
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
+import { getTransition } from '~/lib/animation'
 
 type LinkListProps = {
   links: Array<{ label: string, href: string }>
@@ -16,7 +16,7 @@ type LinkListProps = {
 
 function LinkList(props: LinkListProps) {
   return <>
-    <VStack fitContent gap={ComponentVariable.Spacing.Base}>
+    <VStack fitContent gap={Spacing.Base}>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}
         transition={getTransition({ duration: 0.4, delay: 0.16 })}

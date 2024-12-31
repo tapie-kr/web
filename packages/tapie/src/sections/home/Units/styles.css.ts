@@ -1,19 +1,19 @@
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const template = style({
-  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
-  background: ColorVariable.Surface.Elevated,
+  padding: `100px ${Spacing.Jumbo}`,
+  background: Color.Surface.Elevated,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
       flexDirection: 'column',
     },
   },
 })
 
 export const invertedTemplate = style([template, {
-  background: ColorVariable.Surface.Default,
+  background: Color.Surface.Default,
 }])
 
 export const content = style({
@@ -25,7 +25,7 @@ export const title = style({
   '@media': {
     'screen and (max-width: 768px)': {
       flexDirection: 'column',
-      gap: ComponentVariable.Spacing.Moderate,
+      gap: Spacing.Moderate,
     },
   },
 })
@@ -40,11 +40,11 @@ export const description = style({
 })
 
 export const featureCard = style({
-  width: `calc(50% - ${ComponentVariable.Spacing.Base} / 2)`,
-  padding: ComponentVariable.Spacing.Medium,
-  background: ColorVariable.Surface.Default,
-  border: `1px solid ${ColorVariable.Line.Border}`,
-  borderRadius: ComponentVariable.Radius.Smooth,
+  width: `calc(50% - ${Spacing.Base} / 2)`,
+  padding: Spacing.Medium,
+  background: Color.Surface.Default,
+  border: `1px solid ${Color.Line.Border}`,
+  borderRadius: Radius.Smooth,
   '@media': {
     'screen and (max-width: 768px)': {
       width: '100%',
@@ -53,7 +53,7 @@ export const featureCard = style({
 })
 
 export const invertedFeatureCard = style([featureCard, {
-  background: ColorVariable.Surface.Elevated,
+  background: Color.Surface.Elevated,
 }])
 
 export const featureCardIcon = style({

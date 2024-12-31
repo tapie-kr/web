@@ -4,7 +4,7 @@ import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
 import { Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
 import MetallicTape from './assets/metallic-tape.png'
 import TapieGroup from './assets/tapie-group.webp'
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import Image from 'next/image'
 
 export default function HomeHeroSection() {
@@ -12,11 +12,11 @@ export default function HomeHeroSection() {
     className: s.text,
     tag: TypographyTag.Span,
     weight: TypographyWeight.Semibold,
-    color: ColorVariable.Content.Default,
+    color: Color.Content.Default,
   }
 
   return <>
-    <VStack className={s.section} gap={ComponentVariable.Spacing.Large}>
+    <VStack className={s.section} gap={Spacing.Large}>
       <VStack tag='h1' className={s.hero} aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'>
         <HStack className={s.upperText} fitContent wrap align='center' aria-hidden>
           <Typo.Giant {...heroProps}>세상의 간극을</Typo.Giant>
@@ -31,7 +31,7 @@ export default function HomeHeroSection() {
 
         <Typo.Giant
           {...heroProps}
-          color={ColorVariable.Content.Emphasized}
+          color={Color.Content.Emphasized}
           aria-hidden
         >
           <span className={s.desktopOnlyTapie}>TAPIE </span>

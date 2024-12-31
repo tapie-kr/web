@@ -1,12 +1,12 @@
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
   maxWidth: 1400,
-  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
+  padding: `100px ${Spacing.Jumbo}`,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
       flexDirection: 'column',
     },
   },
@@ -15,10 +15,10 @@ export const section = style({
 export const dropdown = style({
   width: '100%',
   maxWidth: 650,
-  padding: `${ComponentVariable.Spacing.Base} ${ComponentVariable.Spacing.Moderate}`,
-  background: ColorVariable.Surface.Elevated,
-  border: `1px solid ${ColorVariable.Line.Border}`,
-  borderRadius: ComponentVariable.Radius.Default,
+  padding: `${Spacing.Base} ${Spacing.Moderate}`,
+  background: Color.Surface.Elevated,
+  border: `1px solid ${Color.Line.Border}`,
+  borderRadius: Radius.Default,
   cursor: 'pointer',
   '@media': {
     '(max-width: 768px)': {

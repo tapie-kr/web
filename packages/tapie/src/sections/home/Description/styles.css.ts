@@ -1,11 +1,11 @@
-import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
-  padding: `140px ${ComponentVariable.Spacing.Moderate}`,
+  padding: `140px ${Spacing.Moderate}`,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
     },
   },
 })
@@ -15,7 +15,7 @@ export const content = style({
   maxWidth: 988,
   '@media': {
     '(max-width: 768px)': {
-      gap: ComponentVariable.Spacing.Large,
+      gap: Spacing.Large,
     },
   },
 })
@@ -30,7 +30,7 @@ export const paragraph = style({
 })
 
 export const clubs = style({
-  columnGap: ComponentVariable.Spacing.Base,
+  columnGap: Spacing.Base,
 })
 
 export const clubIconStyle = style({

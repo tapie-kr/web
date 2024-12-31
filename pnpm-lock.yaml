@@ -14,8 +14,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/inspire-react':
-        specifier: ^0.0.28
-        version: 0.0.28(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.0.30
+        version: 0.0.30(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@vanilla-extract/css':
         specifier: ^1.17.0
         version: 1.17.0
@@ -54,8 +54,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
       '@tapie-kr/inspire-react':
-        specifier: ^0.0.28
-        version: 0.0.28(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.0.30
+        version: 0.0.30(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/web-shared':
         specifier: workspace:*
         version: link:../shared
@@ -1435,8 +1435,8 @@ packages:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  '@tapie-kr/inspire-react@0.0.28':
-    resolution: {integrity: sha512-YTopY+o49r5oZujqs1ZUNz61j7s23j//ctP3achwNEtEitHL3QRLHiLSieWyeARQKGwMN0El6JpQKIODS+tf7w==}
+  '@tapie-kr/inspire-react@0.0.30':
+    resolution: {integrity: sha512-JMQ3gBo2o99J8eobd9ISPxqebDwhbNSRDkXCsonFlX3p8RZ5xCuWT1KEVursGcTuohAZX1U0sH0t/X/elDrwPg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       classnames: ^2.5.1
@@ -3615,7 +3615,7 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@tapie-kr/inspire-react@0.0.28(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tapie-kr/inspire-react@0.0.30(classnames@2.5.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       classnames: 2.5.1
       react: 19.0.0

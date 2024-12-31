@@ -1,15 +1,15 @@
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
   maxWidth: 1400,
-  padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
+  padding: `100px ${Spacing.Jumbo}`,
   '@media': {
     '(max-width: 1000px)': {
       flexDirection: 'column',
     },
     '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Giant} ${ComponentVariable.Spacing.Moderate}`,
+      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
     },
   },
 })
@@ -24,7 +24,7 @@ export const count = style({
 
 export const yearSelector = style({
   maxWidth: 800,
-  padding: `${ComponentVariable.Spacing.Micro} 0`,
+  padding: `${Spacing.Micro} 0`,
   '@media': {
     '(max-width: 1000px)': {
       maxWidth: '100%',
@@ -33,15 +33,14 @@ export const yearSelector = style({
 })
 
 export const yearItem = style({
-  padding: `${ComponentVariable.Spacing.Micro} ${ComponentVariable.Spacing.Moderate}`,
-  background: ColorVariable.Surface.Elevated,
-  borderRadius: ComponentVariable.Radius.Smooth,
-  transition: 'background-color 0.2s, color 0.2s',
+  padding: `${Spacing.Micro} ${Spacing.Moderate}`,
+  background: Color.Surface.Elevated,
+  borderRadius: Radius.Smooth,
 })
 
 export const yearItemActive = style({
-  background: ColorVariable.Surface.Inverted.Elevated,
-  color: ColorVariable.Content.Inverted.Emphasized,
+  background: Color.Surface.Inverted.Elevated,
+  color: Color.Content.Inverted.Emphasized,
 })
 
 export const awardList = style({
@@ -56,9 +55,9 @@ export const awardList = style({
 export const awardItem = style({
   width: 'fit-content',
   flexDirection: 'column',
-  padding: `${ComponentVariable.Spacing.Base} ${ComponentVariable.Spacing.Moderate}`,
-  border: `1px solid ${ColorVariable.Line.Border}`,
-  borderRadius: ComponentVariable.Radius.Rounded,
+  padding: `${Spacing.Base} ${Spacing.Moderate}`,
+  border: `1px solid ${Color.Line.Border}`,
+  borderRadius: Radius.Rounded,
   '@media': {
     '(max-width: 500px)': {
       width: '100%',
