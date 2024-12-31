@@ -3,7 +3,7 @@
 import { contentStyle, dropdown, icon, rotatedIcon } from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { GlyphIcon, Icon, Typo } from '@tapie-kr/inspire-react'
+import { GlyphIcon, Icon, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -28,7 +28,10 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
       >
         <VStack gap={ComponentVariable.Spacing.Moderate}>
           <HStack justify='between'>
-            <Typo.Moderate color={ColorVariable.Content.Default}>{props.question}</Typo.Moderate>
+            <Typo.Moderate
+              color={ColorVariable.Content[isOpened ? 'Emphasized' : 'Default']}
+              weight={TypographyWeight[isOpened ? 'Medium' : 'Regular']}
+            >{props.question}</Typo.Moderate>
             <Icon className={cn(icon, isOpened ? '' : rotatedIcon)} name={GlyphIcon.KeyboardArrowUp} />
           </HStack>
 
@@ -37,7 +40,7 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
               opacity: isOpened ? 1 : 0,
               y: isOpened ? 0 : -20,
             }}
-            transition={getTransition({ delay: isOpened ? 0.08 : 0 })}
+            transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
           >
             <Typo.Base>{props.answer}</Typo.Base>
           </motion.div>
