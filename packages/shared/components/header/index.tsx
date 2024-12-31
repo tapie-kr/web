@@ -1,6 +1,6 @@
 'use client'
 
-import { headerStyle, menuButtonStyle } from './styles/header.css'
+import * as s from './styles/header.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
 import { GlyphIcon, Icon, TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
@@ -14,9 +14,9 @@ export default function Header() {
   const [showMenu, toggleMenu] = useToggle()
 
   return <>
-    <HStack tag='header' className={headerStyle} align='center' justify='between'>
+    <HStack tag='header' className={s.headerStyle} align='center' justify='between'>
       <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
-      <button className={menuButtonStyle} onClick={toggleMenu}>
+      <button className={s.menuButtonStyle} onClick={toggleMenu}>
         <Icon name={GlyphIcon.Menu} size={18} />
         <Typo.Petite weight={TypographyWeight.Semibold}>메뉴</Typo.Petite>
       </button>

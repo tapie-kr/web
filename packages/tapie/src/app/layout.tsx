@@ -11,9 +11,11 @@ export default function RootLayout(props: ILayoutProps) {
   return <>
     <html lang='ko' suppressHydrationWarning>
       <body>
-        <Header />
-        <ThemeProvider>{props.children}</ThemeProvider>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {props.children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   </>

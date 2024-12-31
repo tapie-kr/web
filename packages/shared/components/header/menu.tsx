@@ -8,6 +8,7 @@ import { Spacing } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
 import { getTransition } from '~/lib/animation'
+import ThemeSwitch from './theme-switch'
 
 type LinkListProps = {
   links: Array<{ label: string, href: string }>
@@ -49,16 +50,19 @@ type DesktopMenuProps = {
 export default function Menu(props: DesktopMenuProps) {
   return <>
     <HStack>
-      <LinkList
-        links={[
-          { label: '홈', href: '/' },
-          { label: '프로젝트', href: '#projects' },
-          { label: '수상실적', href: '#awards' },
-          { label: 'FAQ', href: '#faq' },
-          { label: 'INSPIRE', href: 'https://inspire.tapie.kr/' },
-        ]}
-        hide={props.hide}
-      />
+      <VStack fitContent gap={Spacing.Medium}>
+        <LinkList
+          links={[
+            { label: '홈', href: '/' },
+            { label: '프로젝트', href: '#projects' },
+            { label: '수상실적', href: '#awards' },
+            { label: 'FAQ', href: '#faq' },
+            { label: 'INSPIRE', href: 'https://inspire.tapie.kr/' },
+          ]}
+          hide={props.hide}
+        />
+        <ThemeSwitch />
+      </VStack>
     </HStack>
   </>
 }

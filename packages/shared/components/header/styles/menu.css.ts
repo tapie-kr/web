@@ -15,7 +15,7 @@ export const backdropStyle = style({
 export const frameStyle = style({
   position: 'fixed',
   width: '100%',
-  height: 383,
+  height: 407,
   top: 0,
   left: 0,
   zIndex: 200,
