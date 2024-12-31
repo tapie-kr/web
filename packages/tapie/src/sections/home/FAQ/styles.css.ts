@@ -27,7 +27,7 @@ export const dropdown = style({
   },
 })
 
-export const contentStyle = style({
+export const content = style({
   overflow: 'hidden',
 })
 

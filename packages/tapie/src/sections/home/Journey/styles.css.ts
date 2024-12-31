@@ -1,7 +1,7 @@
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
-export const sectionStyle = style({
+export const section = style({
   maxWidth: 1400,
   padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
   '@media': {
@@ -11,7 +11,7 @@ export const sectionStyle = style({
   },
 })
 
-export const titleStyle = style({
+export const title = style({
   flexDirection: 'row',
   '@media': {
     '(max-width: 1000px)': {
@@ -20,7 +20,7 @@ export const titleStyle = style({
   },
 })
 
-export const viewMoreStyle = style({
+export const viewMore = style({
   width: '100%',
   maxWidth: 375,
   '@media': {

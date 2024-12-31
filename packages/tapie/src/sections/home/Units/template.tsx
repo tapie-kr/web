@@ -1,4 +1,4 @@
-import { contentStyle, featureCardIconStyle, featureCardStyle, invertedFeatureCardStyle, invertedTemplateStyle, templateStyle, titleStyle } from './styles.css'
+import * as s from './styles.css'
 
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
@@ -18,14 +18,14 @@ type HomeUnitsSectionTemplateProps = {
 
 export default function HomeUnitsSectionTemplate(props: HomeUnitsSectionTemplateProps) {
   return <>
-    <VStack className={cn(templateStyle, props.inverted && ['inverted', invertedTemplateStyle])} align='center'>
-      <VStack className={contentStyle} gap={ComponentVariable.Spacing.Jumbo}>
-        <Flex className={titleStyle} justify='between'>
+    <VStack className={cn(s.template, props.inverted && ['inverted', s.invertedTemplate])} align='center'>
+      <VStack className={s.content} gap={ComponentVariable.Spacing.Jumbo}>
+        <Flex className={s.title} justify='between'>
           <VStack fitContent align='start' gap={ComponentVariable.Spacing.Petite}>
             <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
             <Typo.Jumbo color={ColorVariable.Content.Emphasized} weight={Weight.Semibold}>{props.title}</Typo.Jumbo>
           </VStack>
-          <Typo.Moderate color={ColorVariable.Content.Default}>{props.description}</Typo.Moderate>
+          <Typo.Moderate className={s.description} color={ColorVariable.Content.Default}>{props.description}</Typo.Moderate>
         </Flex>
         
         <HStack wrap gap={ComponentVariable.Spacing.Base}>{
@@ -38,12 +38,12 @@ export default function HomeUnitsSectionTemplate(props: HomeUnitsSectionTemplate
 
 function FeatureCard(props: HomeUnitsSectionTemplateProps['features'][0] & { inverted?: boolean }) {
   return <>
-    <Flex className={cn(featureCardStyle, props.inverted && invertedFeatureCardStyle)} align='center' gap={ComponentVariable.Spacing.Moderate}>
+    <Flex className={cn(s.featureCard, props.inverted && s.invertedFeatureCard)} align='center' gap={ComponentVariable.Spacing.Moderate}>
       <VStack gap={ComponentVariable.Spacing.Micro}>
         <Typo.Medium color={ColorVariable.Content.Emphasized} weight={Weight.Semibold}>{props.title}</Typo.Medium>
         <Typo.Base color={ColorVariable.Content.Default}>{props.description}</Typo.Base>
       </VStack>
-      <props.icon className={featureCardIconStyle} />
+      <props.icon className={s.featureCardIcon} />
     </Flex>
   </>
 }

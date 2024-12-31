@@ -1,11 +1,10 @@
 'use client'
 
-import { contentStyle, dropdown, icon, rotatedIcon } from './styles.css'
+import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { GlyphIcon, Icon, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import cn from 'classnames'
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle'
@@ -20,9 +19,9 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
   const [isOpened, toggleOpened] = useToggle()
 
   return <>
-    <div className={dropdown} onClick={toggleOpened}>
+    <div className={s.dropdown} onClick={toggleOpened}>
       <motion.div
-        className={contentStyle}
+        className={s.content}
         initial={{ height: 26 }} animate={{ height: isOpened ? 'auto' : 26 }}
         transition={getTransition()}
       >
@@ -32,7 +31,7 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
               color={ColorVariable.Content[isOpened ? 'Emphasized' : 'Default']}
               weight={TypographyWeight[isOpened ? 'Medium' : 'Regular']}
             >{props.question}</Typo.Moderate>
-            <Icon className={cn(icon, isOpened ? '' : rotatedIcon)} name={GlyphIcon.KeyboardArrowUp} />
+            <Icon className={cn(s.icon, isOpened ? '' : s.rotatedIcon)} name={GlyphIcon.KeyboardArrowUp} />
           </HStack>
 
           <motion.div

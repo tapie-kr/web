@@ -1,6 +1,6 @@
 'use client'
 
-import { countStyle, sectionStyle } from './styles.css'
+import * as s from './styles.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
 import { Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
@@ -16,10 +16,10 @@ export default function HomeAwardsSection() {
   return <>
     <HomeAwardsSectionContext.Provider value={{ selectedYear, setSelectedYear }}>
       <VStack align='center'>
-        <Flex className={sectionStyle} fullWidth gap={ComponentVariable.Spacing.Base}>
+        <Flex className={s.section} fullWidth gap={ComponentVariable.Spacing.Base}>
           <VStack gap={ComponentVariable.Spacing.Moderate}>
             <Typo.Jumbo weight={Weight.Semibold}>2024년 테이피의 항해</Typo.Jumbo>
-            <Typo.Medium className={countStyle} color={ColorVariable.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
+            <Typo.Medium className={s.count} color={ColorVariable.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
           </VStack>
 
           <VStack align='end' gap={ComponentVariable.Spacing.Petite}>

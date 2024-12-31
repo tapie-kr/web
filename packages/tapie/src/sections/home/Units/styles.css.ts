@@ -1,7 +1,7 @@
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
-export const templateStyle = style({
+export const template = style({
   padding: `100px ${ComponentVariable.Spacing.Jumbo}`,
   background: ColorVariable.Surface.Elevated,
   '@media': {
@@ -12,15 +12,15 @@ export const templateStyle = style({
   },
 })
 
-export const invertedTemplateStyle = style([templateStyle, {
+export const invertedTemplate = style([template, {
   background: ColorVariable.Surface.Default,
 }])
 
-export const contentStyle = style({
+export const content = style({
   maxWidth: 1400,
 })
 
-export const titleStyle = style({
+export const title = style({
   flexDirection: 'row',
   '@media': {
     'screen and (max-width: 768px)': {
@@ -30,7 +30,16 @@ export const titleStyle = style({
   },
 })
 
-export const featureCardStyle = style({
+export const description = style({
+  textAlign: 'right',
+  '@media': {
+    'screen and (max-width: 768px)': {
+      textAlign: 'left',
+    },
+  },
+})
+
+export const featureCard = style({
   width: `calc(50% - ${ComponentVariable.Spacing.Base} / 2)`,
   padding: ComponentVariable.Spacing.Medium,
   background: ColorVariable.Surface.Default,
@@ -43,11 +52,11 @@ export const featureCardStyle = style({
   },
 })
 
-export const invertedFeatureCardStyle = style([featureCardStyle, {
+export const invertedFeatureCard = style([featureCard, {
   background: ColorVariable.Surface.Elevated,
 }])
 
-export const featureCardIconStyle = style({
+export const featureCardIcon = style({
   width: 60,
   height: 60,
   '@media': {

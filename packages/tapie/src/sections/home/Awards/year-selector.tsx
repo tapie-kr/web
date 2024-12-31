@@ -1,6 +1,6 @@
 'use client'
 
-import { yearItemActiveStyle, yearItemStyle, yearSelectorStyle } from './styles.css'
+import { yearItemActive, yearItem, yearSelector } from './styles.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
 import { useContext, useMemo } from 'react'
@@ -11,7 +11,7 @@ import cn from 'classnames'
 
 export default function HomeAwardsSectionYearSelector() {
   return <>
-    <HStack className={yearSelectorStyle} gap={ComponentVariable.Spacing.Petite} wrap>{
+    <HStack className={yearSelector} gap={ComponentVariable.Spacing.Petite} wrap>{
       Array.from({ length: 6 }, (_, i) => {
         return <YearItem key={i} year={2024 - i} />
       })
@@ -29,7 +29,7 @@ function YearItem(props: YearSelectorItemProps) {
 
   return <>
     <button
-      className={cn(yearItemStyle, isSelected && yearItemActiveStyle)}
+      className={cn(yearItem, isSelected && yearItemActive)}
       onClick={() => setSelectedYear(props.year)}
     >
       <Typo.Base weight={Weight.Semibold}>{props.year}</Typo.Base>

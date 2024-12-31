@@ -1,24 +1,24 @@
 import { style } from '@vanilla-extract/css'
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 
-export const sectionStyle = style({
+export const section = style({
   paddingTop: 76
 })
 
-export const heroStyle = style({
+export const hero = style({
   padding: `${ComponentVariable.Spacing.Base} ${ComponentVariable.Spacing.Moderate}`
 })
 
-export const textStyle = style({
+export const text = style({
   wordBreak: 'keep-all',
   whiteSpace: 'nowrap',
 })
 
-export const upperTextStyle = style({
+export const upperText = style({
   columnGap: ComponentVariable.Spacing.Base,
 })
 
-export const tapeContainerStyle = style({
+export const tapeContainer = style({
   width: 129,
   height: 60,
   zIndex: 2,
@@ -29,7 +29,7 @@ export const tapeContainerStyle = style({
   },
 })
 
-export const tapeImageStyle = style({
+export const tapeImage = style({
   width: 180,
   aspectRatio: '180/89',
   '@media': {
@@ -39,7 +39,7 @@ export const tapeImageStyle = style({
   },
 })
 
-export const desktopOnlyTapieStyle = style({
+export const desktopOnlyTapie = style({
   '@media': {
     '(max-width: 768px)': {
       display: 'none',
@@ -47,7 +47,7 @@ export const desktopOnlyTapieStyle = style({
   },
 })
 
-export const tapieImageStyle = style({
+export const tapieImage = style({
   width: '100%',
   height: 1000,
   objectFit: 'cover',
