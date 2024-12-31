@@ -22,7 +22,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   const [cardWidth, setCardWidth] = useState(370)
   const [gapWidth, setGapWidth] = useState(16)
   const [visibleCards, setVisibleCards] = useState<Array<CardData>>([])
-  const [speed] = useState(props.speed)
+  const [speed, setSpeed] = useState(props.speed)
   const animationRef = useRef<number | null>(null)
   const lastTimestamp = useRef<number>(null)
 
@@ -32,9 +32,11 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
       if (window.innerWidth <= 768) {
         setCardWidth(176)
         setGapWidth(14)
+        setSpeed(props.speed * 0.6)
       } else {
         setCardWidth(370)
         setGapWidth(16)
+        setSpeed(props.speed)
       }
     }
     window.addEventListener('resize', handleResize)
