@@ -19,7 +19,7 @@ function LinkList(props: LinkListProps) {
     <VStack fitContent gap={ComponentVariable.Spacing.Base}>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}
-        transition={getTransition(0.4, 0.15)}
+        transition={getTransition({ duration: 0.4, delay: 0.16 })}
       >
         <TAPIESymbol size={TAPIESymbolSize._20} withLabel />
       </motion.div>
@@ -29,7 +29,7 @@ function LinkList(props: LinkListProps) {
             key={label}
             className={linkStyle}
             initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
-            transition={getTransition(0.4, i * 0.04 + 0.16)}
+            transition={getTransition({ duration: 0.4, delay: i * 0.04 + 0.16 })}
             onClick={props.hide}
           >
             <Link href={href}>

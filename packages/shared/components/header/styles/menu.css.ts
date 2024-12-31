@@ -6,6 +6,7 @@ export const backdropStyle = style({
   width: '100%',
   height: '100dvh',
   background: ColorVariable.Grayscale.Translucent._20,
+  backdropFilter: 'blur(10px)',
   top: 0,
   left: 0,
   zIndex: 150,
