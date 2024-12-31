@@ -7,7 +7,6 @@ import { GlyphIcon, Icon, TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight }
 import { useToggle } from '~/hooks/use-toggle'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getTransition } from '~/lib/animation'
-import { backdropStyle, frameStyle, menuStyle, contentStyle } from './styles/menu.css'
 import Menu from './menu'
 
 export default function Header() {
@@ -35,17 +34,17 @@ type HeaderMenuProps = {
 function HeaderMenu(props: HeaderMenuProps) {
   return <>
     <motion.div
-      className={backdropStyle} onClick={props.hide}
+      className={s.backdrop} onClick={props.hide}
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
     />
-    <div className={frameStyle}>
+    <div className={s.frame}>
       <motion.div
         data-theme='dark'
-        className={menuStyle}
+        className={s.menu}
         initial={{ height: 0 }} animate={{ height: '100%' }} exit={{ height: 0 }}
         transition={getTransition({ duration: 0.4 })}
       >
-        <div className={contentStyle}>
+        <div className={s.content}>
           <Menu hide={props.hide} />
         </div>
       </motion.div>

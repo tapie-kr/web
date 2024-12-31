@@ -1,12 +1,12 @@
 'use client'
 
-import { linkStyle } from './styles/menu.css'
+import * as s from './styles/menu.css'
 
 import { motion } from 'framer-motion'
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
-import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
+import { TAPIESymbol, TAPIESymbolSize, Typo, Tag, Weight, Icon, GlyphIcon } from '@tapie-kr/inspire-react'
 import { getTransition } from '~/lib/animation'
 import ThemeSwitch from './theme-switch'
 
@@ -16,25 +16,36 @@ type LinkListProps = {
 }
 
 function LinkList(props: LinkListProps) {
+  const headerMotionProps = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 1 },
+    transition: getTransition({ duration: 0.4, delay: 0.16 }),
+  }
+
   return <>
-    <VStack fitContent gap={Spacing.Base}>
-      <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 1 }}
-        transition={getTransition({ duration: 0.4, delay: 0.16 })}
-      >
-        <TAPIESymbol size={TAPIESymbolSize._20} withLabel />
-      </motion.div>
+    <VStack className={s.linkList}>
+      <HStack align='center' justify='between'>
+        <motion.div {...headerMotionProps}>
+          <TAPIESymbol className={s.desktopOnly} size={TAPIESymbolSize._20} withLabel />
+          <TAPIESymbol className={s.mobileOnly} size={TAPIESymbolSize._32} />
+        </motion.div>
+
+        <motion.div className={s.mobileOnly} onClick={props.hide} {...headerMotionProps}>
+          <Icon name={GlyphIcon.Close} color={Color.Content.Emphasized} size={32} />
+        </motion.div>
+      </HStack>
       {
         props.links.map(({ label, href }, i) => (
           <motion.div
             key={label}
-            className={linkStyle}
+            className={s.link}
             initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
             transition={getTransition({ duration: 0.4, delay: i * 0.04 + 0.16 })}
             onClick={props.hide}
           >
             <Link href={href}>
-              <Typo.Medium tag={TypographyTag.Span} weight={TypographyWeight.Semibold}>{label}</Typo.Medium>
+              <Typo.Medium tag={Tag.Span} weight={Weight.Semibold}>{label}</Typo.Medium>
             </Link>
           </motion.div>
         ))
@@ -50,7 +61,7 @@ type DesktopMenuProps = {
 export default function Menu(props: DesktopMenuProps) {
   return <>
     <HStack>
-      <VStack fitContent gap={Spacing.Medium}>
+      <VStack gap={Spacing.Medium}>
         <LinkList
           links={[
             { label: '홈', href: '/' },
