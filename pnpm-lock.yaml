@@ -62,6 +62,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.17.0
         version: 1.17.0
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       framer-motion:
         specifier: ^11.15.0
         version: 11.15.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
