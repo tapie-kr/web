@@ -24,5 +24,9 @@ export const titleStyle = style({
 export const viewMoreStyle = style({
   width: 412,
   flexDirection: 'column',
+  '@media': {
+    '(max-width: 768px)': {
+      width: '100%',
+    },
+  },
 })
-

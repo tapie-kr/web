@@ -5,7 +5,7 @@ export const backdropStyle = style({
   position: 'fixed',
   width: '100%',
   height: '100dvh',
-  background: ColorVariable.Solid.Translucent.Black._40,
+  background: ColorVariable.Grayscale.Translucent._20,
   top: 0,
   left: 0,
   zIndex: 150,
