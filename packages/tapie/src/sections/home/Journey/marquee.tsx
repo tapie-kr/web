@@ -3,7 +3,7 @@
 import * as s from './styles/marquee.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 type CardData = {
@@ -25,6 +25,17 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   const [speed, setSpeed] = useState(props.speed)
   const animationRef = useRef<number | null>(null)
   const lastTimestamp = useRef<number>(null)
+  const requiredCardCount = useMemo(() => Math.ceil(viewportWidth / cardWidth) + 1, [viewportWidth, cardWidth])
+
+  const getInitialCards = useCallback(() => {
+    return Array.from({ length: requiredCardCount }, (_, i) => ({
+      id: i.toString(),
+      x: props.direction === 'left' ?
+        i * (cardWidth + gapWidth) :
+        viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
+      isVisible: true,
+    }))
+  }, [requiredCardCount, cardWidth, gapWidth])
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,14 +56,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   }, [])
 
   useEffect(() => {
-    const requiredCardCount = Math.ceil(viewportWidth / cardWidth) + 1
-    setVisibleCards(Array.from({ length: requiredCardCount }, (_, i) => ({
-      id: i.toString(),
-      x: props.direction === 'left' ?
-        i * (cardWidth + gapWidth) :
-        viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
-      isVisible: true,
-    })))
+    setVisibleCards(getInitialCards())
 
     const animate = () => {
       if (!lastTimestamp.current) {
@@ -77,6 +81,9 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
 
         if (updated.length < requiredCardCount) {
           const lastCard = updated[updated.length - 1]
+          if (!lastCard) {
+            return getInitialCards()
+          }
           updated.push({
             id: (parseInt(lastCard.id) + 1).toString(),
             x: props.direction === 'left' ?

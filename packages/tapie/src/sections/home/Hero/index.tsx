@@ -1,45 +1,54 @@
+'use client'
+
 import * as s from './styles.css'
 
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
-import { Typo, TypographyTag, TypographyWeight } from '@tapie-kr/inspire-react'
+import { Typo } from '@tapie-kr/inspire-react'
 import MetallicTape from './assets/metallic-tape.png'
 import TapieGroup from './assets/tapie-group.webp'
 import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import Image from 'next/image'
+import { useState } from 'react'
+import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
+import { AnimatedText, HeroContext, HeroText, heroTextProps } from './shared'
 
 export default function HomeHeroSection() {
-  const heroProps = {
-    className: s.text,
-    tag: TypographyTag.Span,
-    weight: TypographyWeight.Semibold,
-    color: Color.Content.Default,
-  }
+  const [shouldAnimate, setShouldAnimate] = useState(false)
 
   return <>
-    <VStack className={s.section} gap={Spacing.Large}>
-      <VStack tag='h1' className={s.hero} aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'>
-        <HStack className={s.upperText} fitContent wrap align='center' aria-hidden>
-          <Typo.Giant {...heroProps}>세상의 간극을</Typo.Giant>
-          <HStack align='center' fitContent>
-            <Typo.Giant {...heroProps}>이</Typo.Giant>
-            <Flex className={s.tapeContainer} align='center' justify='center'>
-              <img className={s.tapeImage} src={MetallicTape.src} alt='' />
-            </Flex>
-            <Typo.Giant {...heroProps}>어 붙이는</Typo.Giant>
-          </HStack>
-        </HStack>
+    <HeroContext.Provider value={{ shouldAnimate, setShouldAnimate }}>
+      <ViewportDetector toggle={setShouldAnimate}>
+        <VStack className={s.section} gap={Spacing.Large}>
+          <VStack tag='h1' className={s.hero} aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'>
+            <HStack className={s.upperText} fitContent wrap align='center' aria-hidden>
+              <AnimatedText direction='up'>
+                <HeroText>세상의 간극을</HeroText>
+              </AnimatedText>
+              <AnimatedText direction='down' delay={0.25}>
+                <HStack align='center' fitContent>
+                  <HeroText>이</HeroText>
+                  <Flex className={s.tapeContainer} align='center' justify='center'>
+                    <img className={s.tapeImage} src={MetallicTape.src} alt='' />
+                  </Flex>
+                  <HeroText>어 붙이는</HeroText>
+                </HStack>
+              </AnimatedText>
+            </HStack>
 
-        <Typo.Giant
-          {...heroProps}
-          color={Color.Content.Emphasized}
-          aria-hidden
-        >
-          <span className={s.desktopOnlyTapie}>TAPIE </span>
-          우리의 이야기들
-        </Typo.Giant>
-      </VStack>
+            <Typo.Giant
+              {...heroTextProps}
+              className={s.lowerText}
+              color={Color.Content.Emphasized}
+              aria-hidden
+            >
+              <AnimatedText className={s.desktopOnlyTapie} delay={0.5}>TAPIE </AnimatedText>
+              <AnimatedText delay={0.8}>우리의 이야기들</AnimatedText>
+            </Typo.Giant>
+          </VStack>
 
-      <Image className={s.tapieImage} src={TapieGroup} alt='TAPIE 단체 사진' />
-    </VStack>
+          <Image className={s.tapieImage} src={TapieGroup} alt='TAPIE 단체 사진' />
+        </VStack>
+      </ViewportDetector>
+    </HeroContext.Provider>
   </>
 }

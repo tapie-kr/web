@@ -9,13 +9,15 @@ export const hero = style({
   padding: `${Spacing.Base} ${Spacing.Moderate}`
 })
 
-export const text = style({
-  wordBreak: 'keep-all',
-  whiteSpace: 'nowrap',
-})
-
 export const upperText = style({
   columnGap: Spacing.Base,
+  overflow: 'hidden',
+})
+
+export const lowerText = style({
+  display: 'flex',
+  columnGap: Spacing.Base,
+  overflow: 'hidden',
 })
 
 export const tapeContainer = style({
@@ -40,6 +42,7 @@ export const tapeImage = style({
 })
 
 export const desktopOnlyTapie = style({
+  display: 'block',
   '@media': {
     '(max-width: 768px)': {
       display: 'none',
