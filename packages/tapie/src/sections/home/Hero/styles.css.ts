@@ -45,11 +45,12 @@ export const tapeImage = style({
 
 export const tapieImage = style({
   width: '100%',
-  height: 1000,
+  height: 'calc(100vh - 200px)',
+  minHeight: 1000,
   objectFit: 'cover',
   '@media': {
     '(max-width: 768px)': {
-      height: 477,
+      minHeight: 477,
     },
   },
 })

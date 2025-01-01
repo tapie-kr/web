@@ -1,5 +1,6 @@
 'use client'
 
+import { Spacing } from '@tapie-kr/inspire-react/variables'
 import * as s from './styles.css'
 
 import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
@@ -29,7 +30,7 @@ export function Animate(props: AnimateProps) {
   const transition = getTransition({ duration: 0.85, delay: props.order * 0.07 + 0.2 })
   const resetTransition = getTransition({ duration: 0 })
   const initial = {
-    y: -50, opacity: 0, scale: 1,
+    y: `calc(${Spacing.Large} * -1)`, opacity: 0, scale: 1,
     transition: resetTransition,
   }
   const animate = isInView ?
