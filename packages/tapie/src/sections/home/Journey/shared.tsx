@@ -14,16 +14,16 @@ type AnimateProps = {
 export function Animate(props: AnimateProps) {
   const { isInView } = useContext(ViewportDetectorContext)
 
-  const transition = getTransition({ duration: 0.65, delay: props.order * 0.075 })
+  const transition = getTransition({ duration: 0.65, delay: props.order * 0.2 + 0.2 })
   const resetTransition = getTransition({ duration: 0 })
   const animate = isInView ?
     { y: 0, transition  } :
-    { y: '-100%', transition: resetTransition }
+    { y: '100%', transition: resetTransition }
   
   return <>
     <motion.div
       className={props.className}
-      initial={{ y: '-100%' }}
+      initial={{ y: '100%' }}
       animate={animate}
     >{props.children}</motion.div>
   </>

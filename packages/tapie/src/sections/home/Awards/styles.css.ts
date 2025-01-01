@@ -54,14 +54,16 @@ export const awardList = style({
 
 export const awardItem = style({
   width: 'fit-content',
+  display: 'flex',
   flexDirection: 'column',
+  gap: Spacing.Micro,
   padding: `${Spacing.Base} ${Spacing.Moderate}`,
   border: `1px solid ${Color.Line.Border}`,
   borderRadius: Radius.Rounded,
   '@media': {
     '(max-width: 500px)': {
       width: '100%',
-      alignItems: 'center',
+      textAlign: 'center',
     },
   },
 })
