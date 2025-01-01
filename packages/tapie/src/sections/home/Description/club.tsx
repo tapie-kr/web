@@ -5,11 +5,11 @@ import * as s from './styles.css'
 import { HStack } from '@cottons-kr/react-foundation'
 import { Tag } from '@tapie-kr/inspire-react'
 import { Spacing } from '@tapie-kr/inspire-react/variables'
-import { ParagraphText } from './shared'
 import { motion } from 'framer-motion'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { useContext } from 'react'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
+import { ParagraphText } from '.'
 
 type ClubProps = {
   order: number

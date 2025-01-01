@@ -14,11 +14,13 @@ export const title = style({
   maxWidth: 1400,
   padding: `0 ${Spacing.Jumbo}`,
   flexDirection: 'row',
+  alignItems: 'end',
   overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
       padding: `0 ${Spacing.Moderate}`,
       flexDirection: 'column',
+      alignItems: 'start',
     },
   },
 })
