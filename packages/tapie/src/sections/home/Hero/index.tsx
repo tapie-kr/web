@@ -6,7 +6,7 @@ import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
 import { Typo } from '@tapie-kr/inspire-react'
 import MetallicTape from './assets/metallic-tape.png'
 import TapieGroup from './assets/tapie-group.webp'
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
 import Image from 'next/image'
 import { useState } from 'react'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
@@ -41,8 +41,8 @@ export default function HomeHeroSection() {
               color={Color.Content.Emphasized}
               aria-hidden
             >
-              <AnimatedText className={s.desktopOnlyTapie} delay={0.5}>TAPIE </AnimatedText>
-              <AnimatedText delay={0.8}>우리의 이야기들</AnimatedText>
+              <AnimatedText className={UtilityClass.DesktopOnly} direction='up' delay={0.5}>TAPIE </AnimatedText>
+              <AnimatedText delay={0.75}>우리의 이야기들</AnimatedText>
             </Typo.Giant>
           </VStack>
 

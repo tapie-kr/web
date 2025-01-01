@@ -4,7 +4,7 @@ import * as s from './styles/menu.css'
 
 import { motion } from 'framer-motion'
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
 import { TAPIESymbol, TAPIESymbolSize, Typo, Tag, Weight, Icon, GlyphIcon } from '@tapie-kr/inspire-react'
 import { getTransition } from '~/lib/animation'
@@ -27,11 +27,11 @@ function LinkList(props: LinkListProps) {
     <VStack className={s.linkList}>
       <HStack align='center' justify='between'>
         <motion.div {...headerMotionProps}>
-          <TAPIESymbol className={s.desktopOnly} size={TAPIESymbolSize._20} withLabel />
-          <TAPIESymbol className={s.mobileOnly} size={TAPIESymbolSize._32} />
+          <TAPIESymbol className={UtilityClass.DesktopOnly} size={TAPIESymbolSize._20} withLabel />
+          <TAPIESymbol className={UtilityClass.MobileOnly} size={TAPIESymbolSize._32} />
         </motion.div>
 
-        <motion.div className={s.mobileOnly} onClick={props.hide} {...headerMotionProps}>
+        <motion.div className={UtilityClass.MobileOnly} onClick={props.hide} {...headerMotionProps}>
           <Icon name={GlyphIcon.Close} color={Color.Content.Emphasized} size={32} />
         </motion.div>
       </HStack>

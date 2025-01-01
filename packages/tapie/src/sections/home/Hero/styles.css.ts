@@ -41,15 +41,6 @@ export const tapeImage = style({
   },
 })
 
-export const desktopOnlyTapie = style({
-  display: 'block',
-  '@media': {
-    '(max-width: 768px)': {
-      display: 'none',
-    },
-  },
-})
-
 export const tapieImage = style({
   width: '100%',
   height: 1000,
