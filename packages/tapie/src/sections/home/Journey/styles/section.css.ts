@@ -25,9 +25,11 @@ export const title = style({
 export const viewMore = style({
   width: '100%',
   maxWidth: 375,
+  textAlign: 'right',
   '@media': {
     '(max-width: 1000px)': {
       maxWidth: '100%',
+      textAlign: 'left',
     },
   },
 })

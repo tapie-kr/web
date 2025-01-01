@@ -17,14 +17,14 @@ export default function HomeHeroSection() {
 
   return <>
     <HeroContext.Provider value={{ shouldAnimate, setShouldAnimate }}>
-      <ViewportDetector toggle={setShouldAnimate}>
+      <ViewportDetector toggle={setShouldAnimate} once>
         <VStack className={s.section} gap={Spacing.Large}>
           <VStack tag='h1' className={s.hero} aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'>
             <HStack className={s.upperText} fitContent wrap align='center' aria-hidden>
-              <AnimatedText direction='up'>
+              <AnimatedText order={0} direction='up'>
                 <HeroText>세상의 간극을</HeroText>
               </AnimatedText>
-              <AnimatedText direction='down' delay={0.25}>
+              <AnimatedText order={1} direction='down'>
                 <HStack align='center' fitContent>
                   <HeroText>이</HeroText>
                   <Flex className={s.tapeContainer} align='center' justify='center'>
@@ -41,8 +41,8 @@ export default function HomeHeroSection() {
               color={Color.Content.Emphasized}
               aria-hidden
             >
-              <AnimatedText className={UtilityClass.DesktopOnly} direction='up' delay={0.5}>TAPIE </AnimatedText>
-              <AnimatedText delay={0.75}>우리의 이야기들</AnimatedText>
+              <AnimatedText className={UtilityClass.DesktopOnly} order={2} direction='up'>TAPIE </AnimatedText>
+              <AnimatedText order={3}>우리의 이야기들</AnimatedText>
             </Typo.Giant>
           </VStack>
 

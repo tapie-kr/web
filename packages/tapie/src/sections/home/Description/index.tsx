@@ -12,7 +12,7 @@ export default function HomeDescriptionSection() {
   return <>
     <VStack className={s.section} align='center' gap={Spacing.Jumbo}>
       <VStack className={s.content}>
-        <VStack>
+        <VStack aria-labelledby=''>
           <Typo.Large className={s.paragraph} weight={Weight.Medium}>TAPIE는 기존 선린인터넷고등학교에 있던</Typo.Large>
           <HStack className={s.clubs} wrap>
             <Typo.Large className={s.paragraph} weight={Weight.Medium}>3개의 웹, 앱 동아리 </Typo.Large>

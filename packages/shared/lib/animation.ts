@@ -12,7 +12,6 @@ export function getTransition(options: TransitionOptions = {}): Transition {
 
   return {
     duration: duration ?? 0.35,
-    ease,
-    delay,
-  }
+    ease, delay,
+  } satisfies Transition
 }

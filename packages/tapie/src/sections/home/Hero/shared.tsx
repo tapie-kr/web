@@ -25,7 +25,7 @@ export function HeroText(props: ChildrenProp) {
 }
 
 type AnimatedTextProps = {
-  delay?: number
+  order: number
   direction?: 'up' | 'down'
   className?: string
   children?: Children
@@ -35,7 +35,7 @@ export function AnimatedText(props: AnimatedTextProps) {
   const { shouldAnimate } = useContext(HeroContext)
 
   const initialY = props.direction === 'up' ? '-100%' : '100%'
-  const transition = getTransition({ duration: 0.6, delay: props.delay })
+  const transition = getTransition({ duration: 0.7, delay: props.order * 0.15 })
   const resetTransition = getTransition({ duration: 0 })
   const animate = shouldAnimate ?
     { y: 0, transition  } :
