@@ -1,50 +1,44 @@
+'use client'
+
 import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 import { Color } from '@tapie-kr/inspire-react/variables'
+import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { motion } from 'framer-motion'
-import { createContext, Dispatch, SetStateAction, useContext } from 'react'
-
-type HeroContextType = {
-  shouldAnimate: boolean
-  setShouldAnimate: Dispatch<SetStateAction<boolean>>
-}
-
-export const HeroContext = createContext({} as HeroContextType)
-
-export const heroTextProps = {
-  tag: Tag.Span,
-  weight: Weight.Semibold,
-  color: Color.Content.Default,
-  nowrap: true,
-}
+import { useContext } from 'react'
 
 export function HeroText(props: ChildrenProp) {
+  const heroTextProps = {
+    tag: Tag.Span,
+    weight: Weight.Semibold,
+    color: Color.Content.Default,
+    nowrap: true,
+  }
+
   return <>
     <Typo.Giant {...heroTextProps}>{props.children}</Typo.Giant>
   </>
 }
 
-type AnimatedTextProps = {
+type AnimateProps = {
   order: number
-  direction?: 'up' | 'down'
   className?: string
   children?: Children
 }
 
-export function AnimatedText(props: AnimatedTextProps) {
-  const { shouldAnimate } = useContext(HeroContext)
+export function Animate(props: AnimateProps) {
+  const { isInView } = useContext(ViewportDetectorContext)
 
-  const initialY = props.direction === 'up' ? '-100%' : '100%'
-  const transition = getTransition({ duration: 0.7, delay: props.order * 0.15 })
+  const transition = getTransition({ duration: 0.65, delay: props.order * 0.075 })
   const resetTransition = getTransition({ duration: 0 })
-  const animate = shouldAnimate ?
+  const animate = isInView ?
     { y: 0, transition  } :
-    { y: initialY, transition: resetTransition }
+    { y: '100%', transition: resetTransition }
   
   return <>
     <motion.div
       className={props.className}
-      initial={{ y: initialY }}
+      initial={{ y: '100%' }}
       animate={animate}
     >{props.children}</motion.div>
   </>

@@ -20,7 +20,7 @@ function LinkList(props: LinkListProps) {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 1 },
-    transition: getTransition({ duration: 0.4, delay: 0.16 }),
+    transition: getTransition({ duration: 0.4, delay: 0.18 }),
   }
 
   return <>
@@ -40,8 +40,8 @@ function LinkList(props: LinkListProps) {
           <motion.div
             key={label}
             className={s.link}
-            initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
-            transition={getTransition({ duration: 0.4, delay: i * 0.04 + 0.16 })}
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 1, y: 0 }}
+            transition={getTransition({ duration: 0.4, delay: i * 0.035 + 0.18 })}
             onClick={props.hide}
           >
             <Link href={href}>

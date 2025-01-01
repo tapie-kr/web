@@ -9,16 +9,18 @@ export const hero = style({
   padding: `${Spacing.Base} ${Spacing.Moderate}`
 })
 
-export const upperText = style({
-  columnGap: Spacing.Base,
+export const overflowHidden = style({
   overflow: 'hidden',
 })
 
-export const lowerText = style({
+export const upperText = style([overflowHidden, {
+  columnGap: Spacing.Base,
+}])
+
+export const lowerText = style([overflowHidden, {
   display: 'flex',
   columnGap: Spacing.Base,
-  overflow: 'hidden',
-})
+}])
 
 export const tapeContainer = style({
   width: 129,

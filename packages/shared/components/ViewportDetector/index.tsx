@@ -1,19 +1,23 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Dispatch, ReactNode, SetStateAction } from 'react'
+import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import { ViewportDetectorContext } from './context'
 
 type ViewportDetectorProps = {
-  toggle: Dispatch<SetStateAction<boolean>>
   once?: boolean
   children?: ReactNode
 }
 
 export default function ViewportDetector(props: ViewportDetectorProps) {
+  const [isInView, setIsInView] = useState(false)
+
   return <>
-    <motion.div
-      onViewportEnter={() => props.toggle(true)}
-      onViewportLeave={() => !props.once && props.toggle(false)}
-    >{props.children}</motion.div>
+    <ViewportDetectorContext.Provider value={{ isInView, setIsInView }}>
+      <motion.div
+        onViewportEnter={() => setIsInView(true)}
+        onViewportLeave={() => !props.once && setIsInView(false)}
+      >{props.children}</motion.div>
+    </ViewportDetectorContext.Provider>
   </>
 }

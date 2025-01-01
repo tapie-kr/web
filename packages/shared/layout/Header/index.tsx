@@ -42,7 +42,7 @@ function HeaderMenu(props: HeaderMenuProps) {
         data-theme='dark'
         className={s.menu}
         initial={{ height: 0 }} animate={{ height: '100%' }} exit={{ height: 0 }}
-        transition={getTransition({ duration: 0.4 })}
+        transition={getTransition({ duration: 0.5 })}
       >
         <div className={s.content}>
           <Menu hide={props.hide} />
