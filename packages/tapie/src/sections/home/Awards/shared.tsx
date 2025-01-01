@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, Dispatch, SetStateAction } from 'react'
 
 type HomeAwardsSectionContextValue = {
@@ -6,3 +8,4 @@ type HomeAwardsSectionContextValue = {
 }
 
 export const HomeAwardsSectionContext = createContext({} as HomeAwardsSectionContextValue)
+

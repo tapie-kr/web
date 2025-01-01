@@ -14,6 +14,7 @@ export const title = style({
   maxWidth: 1400,
   padding: `0 ${Spacing.Jumbo}`,
   flexDirection: 'row',
+  overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
       padding: `0 ${Spacing.Moderate}`,
@@ -26,6 +27,7 @@ export const viewMore = style({
   width: '100%',
   maxWidth: 375,
   textAlign: 'right',
+  overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
       maxWidth: '100%',

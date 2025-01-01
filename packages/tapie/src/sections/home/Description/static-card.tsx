@@ -23,7 +23,7 @@ export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
   const transition = getTransition({ duration: 0.5, delay: props.order * 0.1 + 0.9 })
   const resetTransition = getTransition({ duration: 0 })
   const initial = {
-    y: -30, opacity: 0,
+    y: -20, opacity: 0,
     transition: resetTransition,
   }
   const animate = isInView ?
