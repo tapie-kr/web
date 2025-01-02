@@ -7,24 +7,28 @@ export const section = style({
   '@media': {
     '(max-width: 768px)': {
       flexDirection: 'column',
+      gap: Spacing.Large,
     },
   },
 })
 
-export const dropdown = style({
-  width: '100%',
+export const maxWidth = style({
   maxWidth: 650,
-  padding: `${Spacing.Base} ${Spacing.Moderate}`,
-  background: Color.Surface.Elevated,
-  border: `1px solid ${Color.Line.Border}`,
-  borderRadius: Radius.Default,
-  cursor: 'pointer',
   '@media': {
     '(max-width: 768px)': {
       maxWidth: '100%',
     },
   },
 })
+
+export const dropdown = style([maxWidth, {
+  width: '100%',
+  padding: 20,
+  background: Color.Surface.Elevated,
+  border: `1px solid ${Color.Line.Border}`,
+  borderRadius: Radius.Default,
+  cursor: 'pointer',
+}])
 
 export const content = style({
   overflow: 'hidden',
