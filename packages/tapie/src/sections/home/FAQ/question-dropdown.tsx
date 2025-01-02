@@ -50,7 +50,9 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
                   color={Color.Content[isOpened ? 'Emphasized' : 'Default']}
                   weight={TypographyWeight[isOpened ? 'Medium' : 'Regular']}
                 >{props.question}</Typo.Moderate>
-                <Icon className={cn(s.icon, isOpened ? '' : s.rotatedIcon)} name={GlyphIcon.KeyboardArrowUp} />
+                <motion.div animate={{ rotate: isOpened ? 180 : 0 }} transition={getTransition()}>
+                  <Icon name={GlyphIcon.KeyboardArrowUp} />
+                </motion.div>
               </HStack>
             </div>
 

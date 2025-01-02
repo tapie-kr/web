@@ -30,7 +30,7 @@ export const backdrop = style({
   position: 'fixed',
   width: '100%',
   height: '100dvh',
-  background: Color.Grayscale.Translucent._20,
+  background: Color.Solid.Translucent.Black._20,
   backdropFilter: 'blur(10px)',
   top: 0,
   left: 0,

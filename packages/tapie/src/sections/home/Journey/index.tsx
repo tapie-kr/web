@@ -1,7 +1,7 @@
 import * as s from './styles/section.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
+import { Color, Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
 import { Typo, Tag, Weight } from '@tapie-kr/inspire-react'
 import Marquee from './marquee'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
@@ -21,14 +21,17 @@ export default function HomeJourneySection() {
             <Animate order={1}>
               <Typo.Jumbo weight={Weight.Semibold}>그동안 우리들의 여정</Typo.Jumbo>
             </Animate>
-            <Flex className={s.viewMore} gap={Spacing.Moderate}>
+            <VStack className={s.viewMore} gap={Spacing.Moderate}>
               <Animate order={2}>
                 <Typo.Moderate tag={Tag.P} color={Color.Content.Default} weight={Weight.Medium}>
                   TAPIE의 부원들이 제작해온 멋진 작품들입니다.
                   자유롭게 관람해주세요!
                 </Typo.Moderate>
               </Animate>
-            </Flex>
+              <Animate order={3} className={UtilityClass.ForceHide}>
+                <Typo.Petite>포트폴리오 구경하기</Typo.Petite>
+              </Animate>
+            </VStack>
           </Flex>
           <VStack className={s.marqueeGroup} gap={Spacing.Base}>
             <Marquee direction='left' speed={55} />

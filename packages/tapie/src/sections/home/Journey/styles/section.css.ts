@@ -14,12 +14,10 @@ export const title = style({
   maxWidth: 1400,
   padding: `0 ${Spacing.Moderate}`,
   flexDirection: 'row',
-  alignItems: 'end',
   overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
       flexDirection: 'column',
-      alignItems: 'start',
     },
   },
 })
@@ -28,11 +26,13 @@ export const viewMore = style({
   width: '100%',
   maxWidth: 375,
   textAlign: 'right',
+  alignItems: 'end',
   overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
       maxWidth: '100%',
       textAlign: 'left',
+      alignItems: 'start',
     },
   },
 })

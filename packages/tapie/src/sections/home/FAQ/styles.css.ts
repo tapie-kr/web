@@ -33,11 +33,6 @@ export const dropdown = style([maxWidth, {
 export const content = style({
   overflow: 'hidden',
 })
-
-export const icon = style({
-  transition: 'transform 0.2s',
-})
-
 export const rotatedIcon = style({
   transform: 'rotate(180deg)',
 })
