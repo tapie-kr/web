@@ -11,6 +11,7 @@ import cn from 'classnames'
 
 type AnimateProps = {
   order?: number
+  fullWidth?: boolean
   className?: string
   children?: ReactNode
 }
@@ -23,10 +24,17 @@ export default function Animate(props: AnimateProps) {
     delay: (initialDelay || 0) + (props.order || 0) * (delayGap || 0),
   })
 
+  const classNames = [
+    s.animate,
+    props.fullWidth && s.fullWidth,
+    hideOverflow && UtilityClass.HideOverflow,
+    props.className,
+  ]
+
   return <>
-    <span className={cn(s.animate, hideOverflow && UtilityClass.HideOverflow, props.className)}>
+    <span className={cn(classNames)}>
       <motion.span
-        className={s.animate}
+        className={cn(s.animate, props.fullWidth && s.fullWidth)}
         initial={initial} animate={animate} transition={transition}
       >{props.children}</motion.span>
     </span>

@@ -4,3 +4,7 @@ export const animate = style({
   display: 'block',
   width: 'fit-content',
 })
+
+export const fullWidth = style({
+  width: '100%',
+})
