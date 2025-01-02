@@ -41,7 +41,7 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
         <motion.div
           className={s.content}
           initial={{ height: titleHeight }} animate={{ height: isOpened ? 'auto' : titleHeight }}
-          transition={getTransition()}
+          transition={getTransition({ duration: 0.35 })}
         >
           <VStack gap={Spacing.Moderate}>
             <div ref={titleRef}>
