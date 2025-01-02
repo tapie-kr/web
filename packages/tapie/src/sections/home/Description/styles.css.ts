@@ -12,7 +12,7 @@ export const section = style({
 
 export const content = style({
   width: `100%`,
-  maxWidth: 988,
+  maxWidth: 1000,
   '@media': {
     '(max-width: 768px)': {
       gap: Spacing.Large,

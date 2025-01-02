@@ -34,7 +34,7 @@ type AwardItemProps = {
 function AwardItem(props: AwardItemProps) {
   const { isInView } = useContext(ViewportDetectorContext)
 
-  const transition = getTransition({ duration: 0.85, delay: props.order * 0.035 + 0.1 })
+  const transition = getTransition({ duration: 0.85, delay: props.order * 0.03 + 0.7 })
   const resetTransition = getTransition({ duration: 0 })
   const initial = {
     y: 20, opacity: 0, scale: 0.98,

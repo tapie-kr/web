@@ -20,7 +20,7 @@ type ClubProps = {
 export default function HomeDescriptionSectionClub(props: ClubProps) {
   const { isInView } = useContext(ViewportDetectorContext)
 
-  const transition = getTransition({ duration: 0.5, delay: props.order * 0.18 + 0.7 })
+  const transition = getTransition({ duration: 0.5, delay: props.order * 0.12 + 0.5 })
   const resetTransition = getTransition({ duration: 0 })
   const initial = {
     x: -30, opacity: 0,

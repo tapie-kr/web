@@ -10,10 +10,10 @@ import Animate from '@tapie-kr/web-shared/components/Animate'
 
 export default function HomeJourneySection() {
   return <>
-    <ViewportDetector>
+    <ViewportDetector once>
       <AnimateProvider
         initial={{ y: '100%' }} animate={{ y: 0 }}
-        initialDelay={0.2} delayGap={0.2} duration={0.65}
+        initialDelay={0.1} delayGap={0.2} duration={0.65}
         hideOverflow
       >
         <VStack className={s.section} gap={Spacing.Medium} align='center'>

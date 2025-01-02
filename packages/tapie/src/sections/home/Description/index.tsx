@@ -17,11 +17,11 @@ import Iwop from './assets/iwop.svg'
 
 export default function HomeDescriptionSection() {
   return <>
-    <ViewportDetector>
+    <ViewportDetector once>
       <AnimateProvider
         initial={{ y: `calc(${Spacing.Jumbo} * -1)`, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        initialDelay={0.2} delayGap={0.07} duration={0.9}
+        initialDelay={0.2} delayGap={0.035} duration={0.9}
       >
         <VStack className={s.section} align='center' gap={Spacing.Jumbo}>
           <VStack className={s.content}>
@@ -43,9 +43,14 @@ export default function HomeDescriptionSection() {
               </Animate>
             </VStack>
 
-            <Animate order={3}>
-              <ParagraphText>세상에 존재하는 다양한 간극을 소프트웨어로 이어붙이자는 신념 아래, 우리들의 전공을 활용하여 오늘도 노력하고 있습니다.</ParagraphText>
-            </Animate>
+            <VStack>
+              <Animate order={3}>
+                <ParagraphText>세상에 존재하는 다양한 간극을 소프트웨어로 이어붙이자는 신념 아래, </ParagraphText>
+              </Animate>
+              <Animate order={4}>
+                <ParagraphText>우리들의 전공을 활용하여 오늘도 노력하고 있습니다.</ParagraphText>
+              </Animate>
+            </VStack>
           </VStack>
 
           <AnimateProvider
