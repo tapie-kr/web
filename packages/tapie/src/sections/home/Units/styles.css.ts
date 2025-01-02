@@ -1,46 +1,38 @@
 import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
 import { style } from '@vanilla-extract/css'
 
-export const template = style({
-  padding: `100px ${Spacing.Jumbo}`,
+export const section = style({
+  padding: `${Spacing.Giant} 0`,
   background: Color.Surface.Elevated,
-  '@media': {
-    '(max-width: 768px)': {
-      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
-      flexDirection: 'column',
-    },
-  },
-})
-
-export const invertedTemplate = style([template, {
-  background: Color.Surface.Default,
-}])
-
-export const content = style({
-  maxWidth: 1400,
 })
 
 export const title = style({
-  flexDirection: 'row',
+  maxWidth: 1400,
+  padding: `0 ${Spacing.Moderate}`
+})
+
+export const content = style({
+  maxWidth: 1400,
+  padding: `0 ${Spacing.Moderate}`,
+  gap: Spacing.Moderate,
   '@media': {
     'screen and (max-width: 768px)': {
       flexDirection: 'column',
-      gap: Spacing.Moderate,
+      gap: Spacing.Giant,
     },
   },
 })
 
-export const description = style({
-  textAlign: 'right',
+export const list = style({
+  maxWidth: 624,
   '@media': {
     'screen and (max-width: 768px)': {
-      textAlign: 'left',
+      maxWidth: '100%',
     },
   },
 })
 
 export const featureCard = style({
-  width: `calc(50% - ${Spacing.Base} / 2)`,
   padding: Spacing.Medium,
   background: Color.Surface.Default,
   border: `1px solid ${Color.Line.Border}`,
@@ -51,10 +43,6 @@ export const featureCard = style({
     },
   },
 })
-
-export const invertedFeatureCard = style([featureCard, {
-  background: Color.Surface.Elevated,
-}])
 
 export const featureCardIcon = style({
   width: 60,

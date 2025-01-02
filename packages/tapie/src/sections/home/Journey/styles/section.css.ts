@@ -12,13 +12,12 @@ export const section = style({
 
 export const title = style({
   maxWidth: 1400,
-  padding: `0 ${Spacing.Jumbo}`,
+  padding: `0 ${Spacing.Moderate}`,
   flexDirection: 'row',
   alignItems: 'end',
   overflow: 'hidden',
   '@media': {
     '(max-width: 1000px)': {
-      padding: `0 ${Spacing.Moderate}`,
       flexDirection: 'column',
       alignItems: 'start',
     },

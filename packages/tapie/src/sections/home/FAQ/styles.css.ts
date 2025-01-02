@@ -3,10 +3,9 @@ import { style } from '@vanilla-extract/css'
 
 export const section = style({
   maxWidth: 1400,
-  padding: `100px ${Spacing.Jumbo}`,
+  padding: `${Spacing.Giant} ${Spacing.Moderate}`,
   '@media': {
     '(max-width: 768px)': {
-      padding: `${Spacing.Giant} ${Spacing.Moderate}`,
       flexDirection: 'column',
     },
   },
