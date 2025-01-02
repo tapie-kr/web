@@ -11,7 +11,7 @@ import Animate from '@tapie-kr/web-shared/components/Animate'
 export default function HomeFAQSection() {
   return <>
     <ViewportDetector once>
-      <VStack align='center'>
+      <VStack id='faq' align='center'>
         <Flex className={s.section} fullWidth justify='between'>
           <Flex fullWidth>
             <AnimateProvider

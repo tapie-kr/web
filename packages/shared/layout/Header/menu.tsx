@@ -65,7 +65,7 @@ export default function Menu(props: DesktopMenuProps) {
         <LinkList
           links={[
             { label: '홈', href: '/' },
-            { label: '프로젝트', href: '#projects' },
+            { label: '포트폴리오', href: '/portfolios' },
             { label: '수상실적', href: '#awards' },
             { label: 'FAQ', href: '#faq' },
             { label: 'INSPIRE', href: 'https://inspire.tapie.kr/' },

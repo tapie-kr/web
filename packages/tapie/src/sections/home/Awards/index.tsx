@@ -20,7 +20,7 @@ export default function HomeAwardsSection() {
   return <>
     <HomeAwardsSectionContext.Provider value={{ selectedYear, setSelectedYear }}>
       <ViewportDetector once>
-        <VStack align='center'>
+        <VStack id='awards' align='center'>
           <Flex className={s.section} fullWidth gap={Spacing.Base}>
             <AnimateProvider
               initial={{ y: '100%' }} animate={{ y: 0 }}
