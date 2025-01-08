@@ -7,5 +7,7 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": false
-  }
+  },
+  "typescript.format.semicolons": "remove",
+  "javascript.format.semicolons": "remove"
 }

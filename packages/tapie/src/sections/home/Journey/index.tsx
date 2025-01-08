@@ -16,7 +16,7 @@ export default function HomeJourneySection() {
         initialDelay={0.1} delayGap={0.1} duration={0.65}
         hideOverflow
       >
-        <VStack className={s.section} gap={Spacing.Medium} align='center'>
+        <VStack id='journey' className={s.section} gap={Spacing.Medium} align='center'>
           <Flex className={s.title} fullWidth gap={Spacing.Base} justify='between'>
             <Animate order={1}>
               <Typo.Jumbo weight={Weight.Semibold}>그동안 우리들의 여정</Typo.Jumbo>
