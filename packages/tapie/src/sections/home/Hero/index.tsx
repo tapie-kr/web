@@ -2,7 +2,7 @@ import * as s from './styles.css'
 
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
 import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import MetallicTape from './assets/metallic-tape.png'
+import MetallicTape from './assets/metallic-tape.webp'
 import TapieGroup from './assets/tapie-group.webp'
 import { Color, Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
 import Image from 'next/image'

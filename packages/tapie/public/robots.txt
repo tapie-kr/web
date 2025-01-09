@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /_next/
+Disallow: /_awards.json
+Disallow: /thumbnails/
