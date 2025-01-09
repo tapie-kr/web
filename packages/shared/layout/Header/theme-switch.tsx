@@ -12,8 +12,8 @@ import { getTransition } from '~/lib/animation'
 import { useMemo } from 'react'
 
 export default function ThemeSwitch() {
-  const { theme, setTheme } = useTheme()
-  const isDark = useMemo(() => theme === 'dark', [theme])
+  const { resolvedTheme, setTheme } = useTheme()
+  const isDark = useMemo(() => resolvedTheme === 'dark', [resolvedTheme])
 
   const iconProps = {
     size: 20,
@@ -27,7 +27,7 @@ export default function ThemeSwitch() {
       transition={getTransition({ duration: 0.4, delay: 0.4 })}
       onClick={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
     >
-      <Flex className={cn(s.thumb, theme === 'dark' ? s.dark : '')} align='center' justify='center'>
+      <Flex className={cn(s.thumb, resolvedTheme === 'dark' ? s.dark : '')} align='center' justify='center'>
         <motion.div className={s.icon} initial={{ opacity: 0 }} animate={{ opacity: isDark ? 0 : 1 }} transition={getTransition()}>
           <Icon name={GlyphIcon.LightMode} {...iconProps} />
         </motion.div>
