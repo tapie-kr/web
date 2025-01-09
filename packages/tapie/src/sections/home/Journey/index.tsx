@@ -7,9 +7,11 @@ import Marquee from './marquee'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import Animate from '@tapie-kr/web-shared/components/Animate'
+import { splitArray, shuffle } from '@/utils/array'
 
 export default async function HomeJourneySection() {
-  const { default: thumbnailList } = await import('../../../../public/thumbnails/_list.json')
+  const { default: thumbnailList } = await import('@/../public/thumbnails/_list.json')
+  const [first, second] = splitArray(thumbnailList, thumbnailList.length / 2).map(shuffle)
 
   return <>
     <ViewportDetector once>
@@ -36,23 +38,11 @@ export default async function HomeJourneySection() {
             </VStack>
           </Flex>
           <VStack className={s.marqueeGroup} gap={Spacing.Base}>
-            <Marquee assets={shuffle(thumbnailList)} direction='left' speed={55} />
-            <Marquee assets={shuffle(thumbnailList)} direction='right' speed={40} />
-            <Marquee assets={shuffle(thumbnailList)} direction='left' speed={80} />
+            <Marquee assets={first} direction='left' speed={55} />
+            <Marquee assets={second} direction='right' speed={40} />
           </VStack>
         </VStack>
       </AnimateProvider>
     </ViewportDetector>
   </>
-}
-
-function shuffle<T>(array: Array<T>) {
-  const newArray = [...array]
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const temp = newArray[i]
-    newArray[i] = newArray[j]
-    newArray[j] = temp
-  }
-  return newArray
 }
