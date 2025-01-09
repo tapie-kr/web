@@ -26,7 +26,7 @@ export default function HomeFAQSection() {
           </Flex>
           <AnimateProvider
             initial={{ y: 20, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }}
-            initialDelay={0.55} delayGap={0.06} duration={0.8}
+            initialDelay={0.25} delayGap={0.06} duration={0.8}
           >
             <VStack align='end' gap={Spacing.Base}>
               <QuestionDropdown order={0} question='포트폴리오는 필수인가요?'>

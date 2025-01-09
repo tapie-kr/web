@@ -41,7 +41,7 @@ export default function HomeUnitsSection() {
         <Flex className={s.content} fullWidth justify='between'>
           <AnimateProvider
             initial={{ y: 20, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }}
-            initialDelay={0.55} delayGap={0.06} duration={0.8}
+            initialDelay={0.4} delayGap={0.06} duration={0.8}
           >
             <List
               order={0}
@@ -72,7 +72,7 @@ export default function HomeUnitsSection() {
           </AnimateProvider>
           <AnimateProvider
             initial={{ y: 20, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }}
-            initialDelay={0.95} delayGap={0.06} duration={0.8}
+            initialDelay={0.7} delayGap={0.06} duration={0.8}
           >
             <List
               order={1}

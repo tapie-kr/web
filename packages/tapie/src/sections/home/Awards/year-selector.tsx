@@ -29,7 +29,7 @@ function YearItem(props: YearSelectorItemProps) {
   const { selectedYear, setSelectedYear } = useContext(HomeAwardsSectionContext)
   const isSelected = useMemo(() => selectedYear === props.year, [selectedYear, props.year])
 
-  const transition = getTransition({ duration: 0.65, delay: (2024 - props.year) * 0.05 + 0.5 })
+  const transition = getTransition({ duration: 0.65, delay: (2024 - props.year) * 0.05 + 0.4 })
   const resetTransition = getTransition({ duration: 0 })
   const animate = isInView ?
     { x: 0, opacity: 1, transition } :

@@ -21,7 +21,7 @@ export default function HomeDescriptionSection() {
       <AnimateProvider
         initial={{ y: `calc(${Spacing.Jumbo} * -1)`, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        initialDelay={0.2} delayGap={0.035} duration={0.9}
+        initialDelay={0.1} delayGap={0.035} duration={0.9}
       >
         <VStack className={s.section} align='center' gap={Spacing.Jumbo}>
           <VStack className={s.content}>
@@ -55,7 +55,7 @@ export default function HomeDescriptionSection() {
 
           <AnimateProvider
             initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}
-            initialDelay={0.9} delayGap={0.1} duration={0.5}
+            initialDelay={0.5} delayGap={0.1} duration={0.5}
           >
             <HStack className={s.stats} gap={Spacing.Large} wrap>
               <StatsCard order={0} label='동아리 창설' value={25} unit='년' />

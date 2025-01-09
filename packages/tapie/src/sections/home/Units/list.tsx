@@ -30,7 +30,7 @@ export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
           { opacity: 1 } :
           { opacity: 0, transition: resetTransition }
         }
-        transition={getTransition({ delay: props.order * 0.3 + 0.45, duration: 0.7 })}
+        transition={getTransition({ delay: props.order * 0.3 + 0.4, duration: 0.7 })}
       >
         <Typo.Large tag={Tag.H3} weight={Weight.Semibold}>{props.title}</Typo.Large>
       </motion.div>

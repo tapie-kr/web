@@ -18,7 +18,7 @@ type AwardItemProps = {
 export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
   const { isInView } = useContext(ViewportDetectorContext)
 
-  const transition = getTransition({ duration: 0.85, delay: props.order * 0.03 + 0.7 })
+  const transition = getTransition({ duration: 0.85, delay: props.order * 0.03 + 0.55 })
   const resetTransition = getTransition({ duration: 0 })
   const initial = {
     y: 20, opacity: 0, scale: 0.98,
