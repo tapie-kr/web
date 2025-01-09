@@ -43,7 +43,7 @@ export default function HomeFAQSection() {
               </QuestionDropdown>
               <QuestionDropdown order={2} question='소프트웨어과나 콘텐츠디자인과가 아니어도 지원할 수 있나요?'>
                 <Typo.Base>
-                  현재 TAPIE는 소프트웨어과와 콘텐츠디자이너과를 제외한 다른 학과의 지원이 불가능합니다.
+                  현재 TAPIE는 소프트웨어과와 콘텐츠디자인과를 제외한 다른 학과의 지원이 불가능합니다.
                 </Typo.Base>
               </QuestionDropdown>
               <QuestionDropdown order={3} question='대회 참여는 필수인가요?'>
