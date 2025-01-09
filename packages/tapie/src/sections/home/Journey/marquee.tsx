@@ -3,7 +3,7 @@
 import * as s from './styles/marquee.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
-import { use, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 type CardData = {
