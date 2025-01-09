@@ -8,7 +8,9 @@ import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 
-export default function HomeJourneySection() {
+export default async function HomeJourneySection() {
+  const { default: thumbnailList } = await import('../../../../public/thumbnails/_list.json')
+
   return <>
     <ViewportDetector once>
       <AnimateProvider
@@ -34,12 +36,23 @@ export default function HomeJourneySection() {
             </VStack>
           </Flex>
           <VStack className={s.marqueeGroup} gap={Spacing.Base}>
-            <Marquee direction='left' speed={55} />
-            <Marquee direction='right' speed={40} />
-            <Marquee direction='left' speed={80} />
+            <Marquee assets={shuffle(thumbnailList)} direction='left' speed={55} />
+            <Marquee assets={shuffle(thumbnailList)} direction='right' speed={40} />
+            <Marquee assets={shuffle(thumbnailList)} direction='left' speed={80} />
           </VStack>
         </VStack>
       </AnimateProvider>
     </ViewportDetector>
   </>
+}
+
+function shuffle<T>(array: Array<T>) {
+  const newArray = [...array]
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const temp = newArray[i]
+    newArray[i] = newArray[j]
+    newArray[j] = temp
+  }
+  return newArray
 }

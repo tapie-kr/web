@@ -3,7 +3,7 @@
 import * as s from './styles/marquee.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { use, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 type CardData = {
@@ -13,6 +13,7 @@ type CardData = {
 }
 
 type HomeJourneySectionMarqueeProps = {
+  assets: Array<string>
   direction: 'left' | 'right'
   speed: number
 }
@@ -109,13 +110,14 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
 
   return <>
     <HStack className={s.marquee} gap={Spacing.Base}>{
-      visibleCards.map(card => <Card key={card.id} x={card.x} />)
+      visibleCards.map(card => <Card key={card.id} x={card.x} path={props.assets[parseInt(card.id) % props.assets.length]} />)
     }</HStack>
   </>
 }
 
 type CardProps = {
   x: number
+  path: string
 }
 
 function Card(props: CardProps) {
@@ -123,6 +125,8 @@ function Card(props: CardProps) {
     <div
       className={s.card}
       style={{ transform: `translateX(${props.x}px)` }}
-    />
+    >
+      <img className={s.thumbnail} src={`/thumbnails/${props.path}`} alt={props.path.replace('.webp', '')} />
+    </div>
   </>
 }
