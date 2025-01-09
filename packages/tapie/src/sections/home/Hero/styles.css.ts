@@ -51,6 +51,7 @@ export const tapieImage = style({
   '@media': {
     '(max-width: 768px)': {
       minHeight: 477,
+      maxHeight: 700,
     },
   },
 })

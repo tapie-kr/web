@@ -17,13 +17,13 @@ type StatsCardProps = {
 
 export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
   const { isInView } = useContext(ViewportDetectorContext)
-  const rawValue = useMotionValue(props.value / 2)
+  const rawValue = useMotionValue(0)
   const value = useTransform(rawValue, Math.round)
 
   useEffect(() => {
     if (isInView) {
       const controls = animateValue(rawValue, props.value, {
-        duration: 3.5,
+        duration: 3,
         ease: 'easeOut'
       })
       return controls.stop

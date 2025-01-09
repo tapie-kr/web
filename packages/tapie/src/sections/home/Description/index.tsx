@@ -58,10 +58,10 @@ export default function HomeDescriptionSection() {
             initialDelay={0.9} delayGap={0.1} duration={0.5}
           >
             <HStack className={s.stats} gap={Spacing.Large} wrap>
-              <StatsCard order={0} label='지금까지' value={24} unit='년' />
-              <StatsCard order={1} label='동아리 부원' value={725} unit='명' />
-              <StatsCard order={2} label='포트폴리오' value={372} unit='개' />
-              <StatsCard order={3} label='대회 수상' value={192} unit='회' />
+              <StatsCard order={0} label='동아리 창설' value={25} unit='년' />
+              <StatsCard order={1} label='동아리 부원' value={42} unit='명' />
+              <StatsCard order={2} label='연 평균 포트폴리오' value={20} unit='개' />
+              <StatsCard order={3} label='연 평균 수상' value={22} unit='회' />
             </HStack>
           </AnimateProvider>
         </VStack>

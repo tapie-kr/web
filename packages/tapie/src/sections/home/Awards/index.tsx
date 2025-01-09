@@ -34,7 +34,7 @@ export default function HomeAwardsSection() {
                 </div>
                 <div className={cn(UtilityClass.HideOverflow, s.count)}>
                   <Animate order={1}>
-                    <Typo.Medium color={Color.Content.Muted} weight={Weight.Semibold}>총 420개+</Typo.Medium>
+                    <Typo.Medium color={Color.Content.Muted} weight={Weight.Semibold}>연 평균 22개</Typo.Medium>
                   </Animate>
                 </div>
               </VStack>
