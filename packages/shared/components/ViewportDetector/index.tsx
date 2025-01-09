@@ -13,7 +13,7 @@ type ViewportDetectorProps = {
 export default function ViewportDetector(props: ViewportDetectorProps) {
   const containerRef = useRef<HTMLElement>(null)
   const isInView = useInView(props.ref ?? containerRef, {
-    amount: 0.1,
+    amount: 0.07,
     once: props.once,
   })
 

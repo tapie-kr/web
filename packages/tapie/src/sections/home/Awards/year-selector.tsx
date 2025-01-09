@@ -15,9 +15,6 @@ import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 export default function HomeAwardsSectionYearSelector() {
   return <>
     <HStack className={yearSelector} gap={Spacing.Petite} wrap>{
-      // Array.from({ length: 6 }, (_, i) => {
-      //   return <YearItem key={i} year={2024 - i} />
-      // })
       <YearItem year={2024} />
     }</HStack>
   </>
