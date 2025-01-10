@@ -20,10 +20,10 @@
     "url": "https://github.com/tapie-kr/web.git"
   },
   "dependencies": {
-    "@cottons-kr/react-foundation": "^0.3.4",
+    "@cottons-kr/react-foundation": "^0.3.9",
     "@svgr/webpack": "^8.1.0",
     "@tapie-kr/api-database": "^0.0.3",
-    "@tapie-kr/inspire-react": "^0.0.47",
+    "@tapie-kr/inspire-react": "^0.0.49",
     "@tapie-kr/web-shared": "workspace:*",
     "@vanilla-extract/css": "^1.17.0",
     "classnames": "^2.5.1",

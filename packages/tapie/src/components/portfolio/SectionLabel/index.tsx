@@ -11,6 +11,6 @@ export default function PortfolioSectionLabel(props: SectionLabelProps) {
   const color = props.emphasized ? Color.Content.Emphasized : Color.Content.Default
 
   return <>
-    <Text tag={Tag.Span} weight={Weight.SEMIBOLD} color={color}>{props.children}</Text>
+    <Text tag={Tag.H2} weight={Weight.SEMIBOLD} color={color}>{props.children}</Text>
   </>
 }

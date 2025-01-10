@@ -20,6 +20,7 @@ export default function ContentSection(props: ContentSectionProps) {
 
   return <>
     <VStack
+      tag='section'
       fullWidth align='center'
       style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
     >
