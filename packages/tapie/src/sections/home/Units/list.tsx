@@ -32,7 +32,7 @@ export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
         }
         transition={getTransition({ delay: props.order * 0.3 + 0.4, duration: 0.7 })}
       >
-        <Typo.Large tag={Tag.H3} weight={Weight.Semibold}>{props.title}</Typo.Large>
+        <Typo.Large tag={Tag.H3} weight={Weight.SEMIBOLD}>{props.title}</Typo.Large>
       </motion.div>
       <VStack fullWidth gap={Spacing.Petite}>{
         props.features.map((feature, i) => <FeatureCard key={i} order={i} {...feature} />)
@@ -50,7 +50,7 @@ function FeatureCard(props: FeatureCardProps) {
     <Animate order={props.order} fullWidth>
       <Flex className={s.featureCard} fullWidth align='center' gap={Spacing.Moderate}>
         <VStack gap={Spacing.Micro}>
-          <Typo.Medium color={Color.Content.Emphasized} tag={Tag.H4} weight={Weight.Semibold}>{props.title}</Typo.Medium>
+          <Typo.Medium color={Color.Content.Emphasized} tag={Tag.H4} weight={Weight.SEMIBOLD}>{props.title}</Typo.Medium>
           <Typo.Base color={Color.Content.Default}>{props.description}</Typo.Base>
         </VStack>
         <props.icon className={s.featureCardIcon} />

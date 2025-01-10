@@ -16,8 +16,8 @@ export default function Header() {
     <HStack tag='header' className={s.headerStyle} align='center' justify='between'>
       <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
       <button className={s.menuButtonStyle} onClick={toggleMenu}>
-        <Icon name={GlyphIcon.Menu} size={18} />
-        <Typo.Petite weight={TypographyWeight.Semibold}>메뉴</Typo.Petite>
+        <Icon name={GlyphIcon.MENU} size={18} />
+        <Typo.Petite weight={TypographyWeight.SEMIBOLD}>메뉴</Typo.Petite>
       </button>
     </HStack>
 

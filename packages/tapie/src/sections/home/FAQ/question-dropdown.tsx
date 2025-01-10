@@ -3,10 +3,9 @@
 import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { GlyphIcon, Icon, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
+import { GlyphIcon, Icon, Typo, Weight } from '@tapie-kr/inspire-react'
 import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import { motion } from 'framer-motion'
-import cn from 'classnames'
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { useEffect, useRef, useState } from 'react'
@@ -48,10 +47,10 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
               <HStack align='center' justify='between'>
                 <Typo.Moderate
                   color={Color.Content[isOpened ? 'Emphasized' : 'Default']}
-                  weight={TypographyWeight[isOpened ? 'Medium' : 'Regular']}
+                  weight={isOpened ? Weight.SEMIBOLD : Weight.REGULAR}
                 >{props.question}</Typo.Moderate>
                 <motion.div animate={{ rotate: isOpened ? 180 : 0 }} transition={getTransition()}>
-                  <Icon name={GlyphIcon.KeyboardArrowUp} />
+                  <Icon name={GlyphIcon.KEYBOARD_ARROW_UP} />
                 </motion.div>
               </HStack>
             </div>

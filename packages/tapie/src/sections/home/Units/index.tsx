@@ -33,7 +33,7 @@ export default function HomeUnitsSection() {
               <TAPIESymbol size={Size._24} withLabel />
             </Animate>
             <Animate order={1}>
-              <Typo.Jumbo tag={Tag.H2} weight={Weight.Semibold}>유닛 소개</Typo.Jumbo>
+              <Typo.Jumbo tag={Tag.H2} weight={Weight.SEMIBOLD}>유닛 소개</Typo.Jumbo>
             </Animate>
           </VStack>
         </AnimateProvider>

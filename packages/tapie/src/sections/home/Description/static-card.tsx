@@ -33,8 +33,8 @@ export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
   return <>
     <Animate order={props.order}>
       <VStack fitContent gap={Spacing.Tiny}>
-        <Typo.Moderate weight={Weight.Semibold} tag={Tag.P} color={Color.Content.Muted} nowrap>{props.label}</Typo.Moderate>
-        <Typo.Medium weight={Weight.Medium} tag={Tag.Span} nowrap>
+        <Typo.Moderate weight={Weight.SEMIBOLD} tag={Tag.P} color={Color.Content.Muted} nowrap>{props.label}</Typo.Moderate>
+        <Typo.Medium weight={Weight.MEDIUM} tag={Tag.Span} nowrap>
           <motion.span>{value}</motion.span>
           {props.unit}
         </Typo.Medium>

@@ -29,10 +29,10 @@ export default function ThemeSwitch() {
     >
       <Flex className={cn(s.thumb, resolvedTheme === 'dark' ? s.dark : '')} align='center' justify='center'>
         <motion.div className={s.icon} initial={{ opacity: 0 }} animate={{ opacity: isDark ? 0 : 1 }} transition={getTransition()}>
-          <Icon name={GlyphIcon.LightMode} {...iconProps} />
+          <Icon name={GlyphIcon.LIGHT_MODE} {...iconProps} />
         </motion.div>
         <motion.div className={s.icon} initial={{ opacity: 0 }} animate={{ opacity: isDark ? 1 : 0 }} transition={getTransition()}>
-          <Icon name={GlyphIcon.DarkMode} {...iconProps} />
+          <Icon name={GlyphIcon.DARK_MODE} {...iconProps} />
         </motion.div>
       </Flex>
     </motion.div>

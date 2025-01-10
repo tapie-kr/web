@@ -32,7 +32,7 @@ function LinkList(props: LinkListProps) {
         </motion.div>
 
         <motion.div className={UtilityClass.MobileOnly} onClick={props.hide} {...headerMotionProps}>
-          <Icon name={GlyphIcon.Close} color={Color.Content.Emphasized} size={32} />
+          <Icon name={GlyphIcon.CLOSE} color={Color.Content.Emphasized} size={32} />
         </motion.div>
       </HStack>
       {
@@ -45,7 +45,7 @@ function LinkList(props: LinkListProps) {
             onClick={props.hide}
           >
             <Link href={href}>
-              <Typo.Medium tag={Tag.Span} weight={Weight.Semibold}>{label}</Typo.Medium>
+              <Typo.Medium tag={Tag.Span} weight={Weight.SEMIBOLD}>{label}</Typo.Medium>
             </Link>
           </motion.div>
         ))

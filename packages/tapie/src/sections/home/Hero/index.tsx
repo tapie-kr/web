@@ -33,7 +33,7 @@ export default function HomeHeroSection() {
 
           <Typo.Giant
             className={s.lowerText}
-            tag={Tag.Span} weight={Weight.Semibold}
+            tag={Tag.Span} weight={Weight.SEMIBOLD}
             color={Color.Content.Emphasized}
             aria-hidden
           >

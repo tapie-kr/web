@@ -41,7 +41,7 @@ function YearItem(props: YearSelectorItemProps) {
       initial={{ x: 15, opacity: 0, }} animate={animate}
       onClick={() => setSelectedYear(props.year)}
     >
-      <Typo.Base weight={Weight.Semibold}>{props.year}</Typo.Base>
+      <Typo.Base weight={Weight.SEMIBOLD}>{props.year}</Typo.Base>
     </motion.button>
   </>
 }

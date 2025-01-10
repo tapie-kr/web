@@ -29,12 +29,12 @@ export default function HomeAwardsSection() {
               <VStack gap={Spacing.Moderate}>
                 <div className={UtilityClass.HideOverflow}>
                   <Animate order={0}>
-                    <Typo.Jumbo weight={Weight.Semibold}>2024년 테이피의 항해</Typo.Jumbo>
+                    <Typo.Jumbo weight={Weight.SEMIBOLD}>2024년 테이피의 항해</Typo.Jumbo>
                   </Animate>
                 </div>
                 <div className={cn(UtilityClass.HideOverflow, s.count)}>
                   <Animate order={1}>
-                    <Typo.Medium color={Color.Content.Muted} weight={Weight.Semibold}>연 평균 22개</Typo.Medium>
+                    <Typo.Medium color={Color.Content.Muted} weight={Weight.SEMIBOLD}>연 평균 22개</Typo.Medium>
                   </Animate>
                 </div>
               </VStack>

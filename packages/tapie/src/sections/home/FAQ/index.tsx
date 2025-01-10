@@ -20,7 +20,7 @@ export default function HomeFAQSection() {
               hideOverflow
             >
               <Animate fullWidth>
-                <Typo.Jumbo tag={Tag.H2} weight={Weight.Semibold}>자주 묻는 질문</Typo.Jumbo>
+                <Typo.Jumbo tag={Tag.H2} weight={Weight.SEMIBOLD}>자주 묻는 질문</Typo.Jumbo>
               </Animate>
             </AnimateProvider>
           </Flex>

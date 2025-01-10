@@ -16,7 +16,7 @@ export const thumb = style({
   width: 30,
   height: 30,
   background: Color.Surface.Raised,
-  borderRadius: Radius.Circle,
+  borderRadius: Radius.Full,
   top: 4,
   left: 4,
   overflow: 'hidden',

@@ -75,7 +75,7 @@ export function ParagraphText(props: ChildrenProp) {
     <Typo.Large
       className={s.paragraph}
       tag={Tag.Span}
-      weight={Weight.Medium}
+      weight={Weight.MEDIUM}
     >{props.children}</Typo.Large>
   </>
 }

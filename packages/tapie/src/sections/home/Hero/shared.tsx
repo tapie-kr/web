@@ -10,7 +10,7 @@ import { useContext } from 'react'
 export function HeroText(props: ChildrenProp) {
   const heroTextProps = {
     tag: Tag.Span,
-    weight: Weight.Semibold,
+    weight: Weight.SEMIBOLD,
     color: Color.Content.Default,
     nowrap: true,
   }

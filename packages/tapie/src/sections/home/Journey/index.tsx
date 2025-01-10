@@ -23,11 +23,11 @@ export default async function HomeJourneySection() {
         <VStack id='journey' className={s.section} gap={Spacing.Medium} align='center'>
           <Flex className={s.title} fullWidth gap={Spacing.Base} justify='between'>
             <Animate order={1}>
-              <Typo.Jumbo weight={Weight.Semibold}>그동안 우리들의 여정</Typo.Jumbo>
+              <Typo.Jumbo weight={Weight.SEMIBOLD}>그동안 우리들의 여정</Typo.Jumbo>
             </Animate>
             <VStack className={s.viewMore} gap={Spacing.Moderate}>
               <Animate order={2}>
-                <Typo.Moderate tag={Tag.P} color={Color.Content.Default} weight={Weight.Medium}>
+                <Typo.Moderate tag={Tag.P} color={Color.Content.Default} weight={Weight.MEDIUM}>
                   TAPIE의 부원들이 제작해온 멋진 작품들입니다.
                   자유롭게 관람해주세요!
                 </Typo.Moderate>

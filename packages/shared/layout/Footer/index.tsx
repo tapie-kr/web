@@ -11,7 +11,7 @@ export default function Footer() {
       <VStack gap={Spacing.Moderate}>
         <VStack fitContent align='start' gap={Spacing.Petite}>
           <TAPIESymbol size={TAPIESymbolSize._20} withLabel />
-          <Typo.Base color={Color.Content.Muted} weight={Weight.Medium}>
+          <Typo.Base color={Color.Content.Muted} weight={Weight.MEDIUM}>
             서울특별시 용산구 원효로97길 33-4 <br />
             선린인터넷고등학교 343실
           </Typo.Base>
@@ -22,17 +22,17 @@ export default function Footer() {
       <HStack className={linkList} wrap gap={Spacing.Base} align='end'>
         <LinkChip
           href='https://www.instagram.com/sunrin_tapie/'
-          icon={BrandIcon.Instagram}
+          icon={BrandIcon.INSTAGRAM}
           label='sunrin_tapie'
         />
         <LinkChip
           href='https://github.com/tapie-kr'
-          icon={BrandIcon.Github}
+          icon={BrandIcon.GITHUB}
           label='tapie-kr'
         />
         <LinkChip
           href='https://www.npmjs.com/org/tapie-kr'
-          icon={BrandIcon.Npm}
+          icon={BrandIcon.NPM}
           label='@tapie-kr'
         />
       </HStack>
@@ -51,7 +51,7 @@ function LinkChip(props: LinkChipProps) {
     <Link href={props.href} target='_blank'>
       <HStack className={linkChip} align='center' gap={Spacing.Tiny}>
         <Icon name={props.icon} />
-        <Typo.Petite weight={Weight.Medium}>{props.label}</Typo.Petite>
+        <Typo.Petite weight={Weight.MEDIUM}>{props.label}</Typo.Petite>
       </HStack>
     </Link>
   </>

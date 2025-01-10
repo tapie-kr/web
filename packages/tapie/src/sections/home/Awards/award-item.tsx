@@ -30,8 +30,8 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
 
   return <>
     <motion.div className={s.awardItem} initial={initial} animate={animate} transition={transition}>
-      <Typo.Base weight={Weight.Medium}>{props.label}</Typo.Base>
-      <Typo.Petite color={Color.Content.Muted} weight={Weight.Semibold}>{props.name}</Typo.Petite>
+      <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
+      <Typo.Petite color={Color.Content.Muted} weight={Weight.SEMIBOLD}>{props.name}</Typo.Petite>
     </motion.div>
   </>
 }
