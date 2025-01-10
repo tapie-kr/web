@@ -8,13 +8,16 @@ import { useToggle } from '~/hooks/use-toggle'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getTransition } from '~/lib/animation'
 import Menu from './menu'
+import Link from 'next/link'
 
 export default function Header() {
   const [showMenu, toggleMenu] = useToggle()
 
   return <>
     <HStack tag='header' className={s.headerStyle} align='center' justify='between'>
-      <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
+      <Link href='/'>
+        <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
+      </Link>
       <button className={s.menuButtonStyle} onClick={toggleMenu}>
         <Icon name={GlyphIcon.MENU} size={18} />
         <Typo.Petite weight={TypographyWeight.SEMIBOLD}>메뉴</Typo.Petite>

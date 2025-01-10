@@ -1,10 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { Spacing } from '@tapie-kr/inspire-react/variables'
 
-export const section = style({
-  paddingTop: 76
-})
-
 export const hero = style({
   padding: `${Spacing.Base} ${Spacing.Moderate}`
 })

@@ -12,7 +12,7 @@ import { Animate, HeroText } from './shared'
 export default function HomeHeroSection() {
   return <>
     <ViewportDetector once>
-      <VStack className={s.section} gap={Spacing.Large}>
+      <VStack gap={Spacing.Large}>
         <VStack tag='h1' className={s.hero} aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'>
           <HStack className={s.upperText} fitContent wrap align='center' aria-hidden>
             <div className={s.overflowHidden}>

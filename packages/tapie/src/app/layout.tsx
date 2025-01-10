@@ -1,4 +1,4 @@
-import { ILayoutProps } from '@cottons-kr/react-foundation'
+import { ILayoutProps, Spacer } from '@cottons-kr/react-foundation'
 import { ThemeProvider } from 'next-themes'
 import { Metadata, Viewport } from 'next'
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png'
@@ -52,6 +52,7 @@ export default function RootLayout(props: ILayoutProps) {
       <body>
         <ThemeProvider>
           <Header />
+          <Spacer height='76px' />
           {props.children}
           <Footer />
         </ThemeProvider>
