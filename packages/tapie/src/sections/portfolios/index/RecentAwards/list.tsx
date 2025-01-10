@@ -9,7 +9,7 @@ export default function PortfoliosRecentAwardsSectionList() {
   
   return <>
     <Scroll direction='row'>
-      <HStack gap={Spacing.Giant}>
+      <HStack fitContent gap={Spacing.Giant}>
         <AwardCard />
         <AwardCard />
         <AwardCard />
