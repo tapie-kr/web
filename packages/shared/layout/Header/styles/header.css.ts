@@ -19,7 +19,7 @@ export const menuButtonStyle = style({
   justifyContent: 'center',
   gap: spacingVars.micro,
   background: colorVars.surface.default,
-  border: getShorthandedValue('1.5px', 'solid', colorVars.line.border),
+  border: getShorthandedValue('1.5px', 'solid', colorVars.grayscale.solid._90),
   borderRadius: radiusVars.pill,
   ':hover': {
     background: colorVars.surface.inverted.default,

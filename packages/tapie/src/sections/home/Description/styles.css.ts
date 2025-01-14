@@ -3,7 +3,7 @@ import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-reac
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
-  padding: getShorthandedValue(140, spacingVars.moderate),
+  padding: getShorthandedValue('140px', spacingVars.moderate),
   ...getMobileMediaQuery({
     padding: getShorthandedValue(spacingVars.giant, spacingVars.moderate),
   }),
