@@ -5,11 +5,11 @@ import * as s from './styles/theme-switch.css'
 import { useTheme } from 'next-themes'
 import { Flex } from '@cottons-kr/react-foundation'
 import { Icon, GlyphIcon } from '@tapie-kr/inspire-react'
-import { Color } from '@tapie-kr/inspire-react/variables'
 import cn from 'classnames'
 import { motion } from 'framer-motion'
 import { getTransition } from '~/lib/animation'
 import { useMemo } from 'react'
+import { colorVars } from '@tapie-kr/inspire-react/lib'
 
 export default function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -17,7 +17,7 @@ export default function ThemeSwitch() {
 
   const iconProps = {
     size: 20,
-    color: Color.Content.Emphasized,
+    color: colorVars.content.emphasized,
   }
 
   return <>

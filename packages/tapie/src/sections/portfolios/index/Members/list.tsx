@@ -3,14 +3,13 @@
 import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
+import { spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 import Scroll from '@tapie-kr/web-shared/components/Scroll'
 
 export default function PortfoliosMembersSectionList() {
   return <>
     <Scroll direction='row'>
-      <HStack fitContent gap={Spacing.Moderate}>
+      <HStack fitContent gap={spacingVars.moderate}>
         <Member />
         <Member />
         <Member />
@@ -28,9 +27,9 @@ export default function PortfoliosMembersSectionList() {
 
 function Member() {
   return <>
-    <VStack align='center' fitContent gap={Spacing.Micro}>
+    <VStack align='center' fitContent gap={spacingVars.micro}>
       <div className={s.profileImage} />
-      <Typo.Base tag={Tag.Span} weight={Weight.MEDIUM}>이름</Typo.Base>
+      <Typo.Base tag={Tag.SPAN} weight={Weight.MEDIUM}>이름</Typo.Base>
     </VStack>
   </>
 }

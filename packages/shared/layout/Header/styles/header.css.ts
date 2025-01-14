@@ -1,4 +1,5 @@
-import { Color, Spacing, Radius } from '@tapie-kr/inspire-react/variables'
+import { colorVars, spacingVars, radiusVars } from '@tapie-kr/inspire-react/lib'
+import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const headerStyle = style({
@@ -6,7 +7,7 @@ export const headerStyle = style({
   padding: `22px 30px`,
   top: 0,
   left: 0,
-  background: Color.Surface.Default,
+  background: colorVars.surface.default,
   zIndex: 100,
 })
 
@@ -16,13 +17,13 @@ export const menuButtonStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: Spacing.Micro,
-  background: Color.Surface.Default,
-  border: `1.5px solid ${Color.Grayscale.Solid._90}`,
-  borderRadius: Radius.Pill,
+  gap: spacingVars.micro,
+  background: colorVars.surface.default,
+  border: getShorthandedValue('1.5px', 'solid', colorVars.line.border),
+  borderRadius: radiusVars.pill,
   ':hover': {
-    background: Color.Surface.Inverted.Default,
-    color: Color.Content.Inverted.Emphasized,
+    background: colorVars.surface.inverted.default,
+    color: colorVars.content.inverted.emphasized,
   },
 })
 
@@ -30,7 +31,7 @@ export const backdrop = style({
   position: 'fixed',
   width: '100%',
   height: '100dvh',
-  background: Color.Solid.Translucent.Black._20,
+  background: colorVars.solid.translucent.black._20,
   backdropFilter: 'blur(10px)',
   top: 0,
   left: 0,
@@ -44,16 +45,14 @@ export const frame = style({
   top: 0,
   left: 0,
   zIndex: 200,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      height: '100dvh',
-    },
-  },
+  ...getMobileMediaQuery({
+    height: '100dvh',
+  }),
 })
 
 export const menu = style({
-  background: Color.Solid.Black,
-  padding: `0 ${Spacing.Large}`,
+  background: colorVars.surface.default,
+  padding: getShorthandedValue(0, spacingVars.large),
   display: 'flex',
   justifyContent: 'center',
   overflow: 'hidden',
@@ -63,5 +62,5 @@ export const content = style({
   width: '100%',
   maxWidth: 1200,
   height: '100%',
-  padding: `${Spacing.Large} 0`,
+  padding: getShorthandedValue(spacingVars.large, 0),
 })

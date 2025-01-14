@@ -1,13 +1,14 @@
-import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
+import { colorVars, radiusVars, getCSSTransition } from '@tapie-kr/inspire-react/lib'
+import { getShorthandedValue } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const container = style({
   position: 'relative',
   width: 60,
   height: 38,
-  background: Color.Surface.Elevated,
-  border: `1px solid ${Color.Line.Border}`,
-  borderRadius: Radius.Pill,
+  background: colorVars.surface.elevated,
+  border: getShorthandedValue('1px', 'solid', colorVars.line.border),
+  borderRadius: radiusVars.pill,
   cursor: 'pointer',
 })
 
@@ -15,12 +16,12 @@ export const thumb = style({
   position: 'absolute',
   width: 30,
   height: 30,
-  background: Color.Surface.Raised,
-  borderRadius: Radius.Full,
+  background: colorVars.surface.default,
+  borderRadius: radiusVars.pill,
   top: 4,
   left: 4,
   overflow: 'hidden',
-  transition: 'left 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  transition: getCSSTransition('left', 0.3),
 })
 
 export const dark = style({

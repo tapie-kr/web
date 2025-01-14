@@ -2,12 +2,12 @@
 
 import * as s from './styles.css'
 
-import { Typo, Weight } from '@tapie-kr/inspire-react'
-import { Color } from '@tapie-kr/inspire-react/variables'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
+import { Typo, Weight } from '@tapie-kr/inspire-react'
+import { colorVars } from '@tapie-kr/inspire-react/lib'
 
 type AwardItemProps = {
   order: number
@@ -31,7 +31,7 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
   return <>
     <motion.div className={s.awardItem} initial={initial} animate={animate} transition={transition}>
       <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
-      <Typo.Petite color={Color.Content.Muted} weight={Weight.SEMIBOLD}>{props.name}</Typo.Petite>
+      <Typo.Petite color={colorVars.content.muted} weight={Weight.SEMIBOLD}>{props.name}</Typo.Petite>
     </motion.div>
   </>
 }

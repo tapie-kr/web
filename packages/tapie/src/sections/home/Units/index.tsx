@@ -3,8 +3,8 @@
 import * as s from './styles.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 import { TAPIESymbol, Size, Typo, Tag, Weight } from '@tapie-kr/inspire-react'
 import List from './list'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
@@ -22,15 +22,15 @@ import Artist from './assets/artist.svg'
 export default function HomeUnitsSection() {
   return <>
     <ViewportDetector once>
-      <VStack className={s.section} align='center' gap={Spacing.Jumbo}>
+      <VStack className={s.section} align='center' gap={spacingVars.jumbo}>
         <AnimateProvider
           initial={{ y: '100%' }} animate={{ y: 0 }}
           initialDelay={0.1} delayGap={0.1} duration={0.65}
           hideOverflow
         >
-          <VStack className={s.title} align='start' gap={Spacing.Base}>
+          <VStack className={s.title} align='start' gap={spacingVars.base}>
             <Animate order={0}>
-              <TAPIESymbol size={Size._24} withLabel />
+              <TAPIESymbol size={Size._24} hasLabel />
             </Animate>
             <Animate order={1}>
               <Typo.Jumbo tag={Tag.H2} weight={Weight.SEMIBOLD}>유닛 소개</Typo.Jumbo>

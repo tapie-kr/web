@@ -5,16 +5,16 @@ import { yearItemActive, yearItem, yearSelector } from './styles.css'
 import { HStack } from '@cottons-kr/react-foundation'
 import { useContext, useMemo } from 'react'
 import { HomeAwardsSectionContext } from './shared'
-import { Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 import cn from 'classnames'
 import { motion } from 'framer-motion'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
+import { Typo, Weight } from '@tapie-kr/inspire-react'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 export default function HomeAwardsSectionYearSelector() {
   return <>
-    <HStack className={yearSelector} gap={Spacing.Petite} wrap>{
+    <HStack className={yearSelector} gap={spacingVars.petite} wrap>{
       <YearItem year={2024} />
     }</HStack>
   </>

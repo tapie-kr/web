@@ -4,12 +4,12 @@ import * as s from './styles.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
 import { Tag } from '@tapie-kr/inspire-react'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 import { motion } from 'framer-motion'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { useContext } from 'react'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { ParagraphText } from '.'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 type ClubProps = {
   order: number
@@ -31,7 +31,7 @@ export default function HomeDescriptionSectionClub(props: ClubProps) {
     initial
 
   return <>
-    <HStack tag={Tag.Span} align='center' fitContent gap={Spacing.Micro}>
+    <HStack tag={Tag.SPAN} align='center' fitContent gap={spacingVars.micro}>
       <motion.span initial={initial} animate={animate} transition={transition}>
         <props.icon className={s.clubIconStyle} aria-hidden />
       </motion.span>

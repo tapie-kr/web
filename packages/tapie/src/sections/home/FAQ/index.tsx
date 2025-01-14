@@ -2,11 +2,11 @@ import * as s from './styles.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
 import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 import QuestionDropdown from './question-dropdown'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import Animate from '@tapie-kr/web-shared/components/Animate'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 export default function HomeFAQSection() {
   return <>
@@ -28,7 +28,7 @@ export default function HomeFAQSection() {
             initial={{ y: 20, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }}
             initialDelay={0.25} delayGap={0.06} duration={0.8}
           >
-            <VStack align='end' gap={Spacing.Base}>
+            <VStack align='end' gap={spacingVars.base}>
               <QuestionDropdown order={0} question='포트폴리오는 필수인가요?'>
                 <Typo.Base>
                   개발자 직군은 필수가 아니지만, 제출 시 가산점이 큽니다. 웬만하면 제출하시는게 좋습니다.

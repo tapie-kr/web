@@ -1,4 +1,4 @@
-import { Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
+import { utilityClass, spacingVars } from '@tapie-kr/inspire-react/lib'
 import { style } from '@vanilla-extract/css'
 
 export const container = style({
@@ -9,7 +9,7 @@ export const hide = style({
   display: 'none',
 })
 
-export const button = style([UtilityClass.DesktopOnly, {
+export const button = style([utilityClass.desktopOnly, {
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
@@ -17,9 +17,9 @@ export const button = style([UtilityClass.DesktopOnly, {
 }])
 
 export const leftButton = style([button, {
-  left: Spacing.Mini,
+  left: spacingVars.mini,
 }])
 
 export const rightButton = style([button, {
-  right: Spacing.Mini,
+  right: spacingVars.mini,
 }])

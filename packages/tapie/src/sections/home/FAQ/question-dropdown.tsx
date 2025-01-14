@@ -4,12 +4,12 @@ import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
 import { GlyphIcon, Icon, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
 import { motion } from 'framer-motion'
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { useEffect, useRef, useState } from 'react'
 import Animate from '@tapie-kr/web-shared/components/Animate'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 
 type HomeFAQSectionQuestionDropdownProps = {
   order: number
@@ -42,11 +42,11 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
           initial={{ height: titleHeight }} animate={{ height: isOpened ? 'auto' : titleHeight }}
           transition={getTransition({ duration: 0.35 })}
         >
-          <VStack gap={Spacing.Moderate}>
+          <VStack gap={spacingVars.moderate}>
             <div ref={titleRef}>
               <HStack align='center' justify='between'>
                 <Typo.Moderate
-                  color={Color.Content[isOpened ? 'Emphasized' : 'Default']}
+                  color={colorVars.content[isOpened ? 'emphasized' : 'default']}
                   weight={isOpened ? Weight.SEMIBOLD : Weight.REGULAR}
                 >{props.question}</Typo.Moderate>
                 <motion.div animate={{ rotate: isOpened ? 180 : 0 }} transition={getTransition()}>

@@ -16,7 +16,7 @@ export default function Header() {
   return <>
     <HStack tag='header' className={s.headerStyle} align='center' justify='between'>
       <Link href='/'>
-        <TAPIESymbol size={TAPIESymbolSize._24} withLabel />
+        <TAPIESymbol size={TAPIESymbolSize._24} hasLabel />
       </Link>
       <button className={s.menuButtonStyle} onClick={toggleMenu}>
         <Icon name={GlyphIcon.MENU} size={18} />

@@ -3,8 +3,8 @@
 import * as s from './styles/marquee.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 type CardData = {
   id: string
@@ -109,7 +109,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   }, [props.direction, speed, viewportWidth, cardWidth])
 
   return <>
-    <HStack className={s.marquee} gap={Spacing.Base}>{
+    <HStack className={s.marquee} gap={spacingVars.base}>{
       visibleCards.map(card => <Card key={card.id} x={card.x} path={props.assets[parseInt(card.id) % props.assets.length]} />)
     }</HStack>
   </>

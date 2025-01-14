@@ -1,7 +1,7 @@
 'use client'
 
-import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Color } from '@tapie-kr/inspire-react/variables'
+import { Tag, Weight, Typo } from '@tapie-kr/inspire-react'
+import { colorVars } from '@tapie-kr/inspire-react/lib'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { motion } from 'framer-motion'
@@ -9,9 +9,9 @@ import { useContext } from 'react'
 
 export function HeroText(props: ChildrenProp) {
   const heroTextProps = {
-    tag: Tag.Span,
+    tag: Tag.SPAN,
     weight: Weight.SEMIBOLD,
-    color: Color.Content.Default,
+    color: colorVars.content.default,
     nowrap: true,
   }
 

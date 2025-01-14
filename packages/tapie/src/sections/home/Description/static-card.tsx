@@ -2,7 +2,7 @@
 
 import { VStack } from '@cottons-kr/react-foundation'
 import { Typo, Weight, Tag } from '@tapie-kr/inspire-react'
-import { Spacing, Color } from '@tapie-kr/inspire-react/variables'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { motion, useMotionValue, animate as animateValue, useTransform } from 'framer-motion'
@@ -32,9 +32,9 @@ export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
 
   return <>
     <Animate order={props.order}>
-      <VStack fitContent gap={Spacing.Tiny}>
-        <Typo.Moderate weight={Weight.SEMIBOLD} tag={Tag.P} color={Color.Content.Muted} nowrap>{props.label}</Typo.Moderate>
-        <Typo.Medium weight={Weight.MEDIUM} tag={Tag.Span} nowrap>
+      <VStack fitContent gap={spacingVars.tiny}>
+        <Typo.Moderate weight={Weight.SEMIBOLD} tag={Tag.P} color={colorVars.content.muted} nowrap>{props.label}</Typo.Moderate>
+        <Typo.Medium weight={Weight.MEDIUM} tag={Tag.SPAN} nowrap>
           <motion.span>{value}</motion.span>
           {props.unit}
         </Typo.Medium>

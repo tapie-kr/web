@@ -1,28 +1,25 @@
-import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { colorVars, radiusVars, spacingVars } from '@tapie-kr/inspire-react/lib'
+import { getMobileMediaQuery, getShorthandedValue } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const footer = style({
-  padding: ComponentVariable.Spacing.Jumbo,
-  background: ColorVariable.Surface.Default,
-  '@media': {
-    '(max-width: 768px)': {
-      padding: `${ComponentVariable.Spacing.Jumbo} ${ComponentVariable.Spacing.Moderate}`,
-      flexDirection: 'column',
-    },
-  },
+  padding: spacingVars.jumbo,
+  background: colorVars.surface.default,
+  ...getMobileMediaQuery({
+    padding: getShorthandedValue(spacingVars.jumbo, spacingVars.moderate),
+    flexDirection: 'column',
+  }),
 })
 
 export const linkList = style({
   justifyContent: 'flex-end',
-  '@media': {
-    '(max-width: 768px)': {
-      justifyContent: 'flex-start',
-    },
-  },
+  ...getMobileMediaQuery({
+    justifyContent: 'flex-start',
+  }),
 })
 
 export const linkChip = style({
-  padding: `${ComponentVariable.Spacing.Micro} ${ComponentVariable.Spacing.Base}`,
-  border: `1px solid ${ColorVariable.Line.Border}`,
-  borderRadius: ComponentVariable.Radius.Pill,
+  padding: getShorthandedValue(spacingVars.micro, spacingVars.base),
+  border: getShorthandedValue('1px', 'solid', colorVars.line.border),
+  borderRadius: radiusVars.pill,
 })

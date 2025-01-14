@@ -1,32 +1,29 @@
-import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
+import { spacingVars, colorVars, radiusVars } from '@tapie-kr/inspire-react/lib'
+import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
   maxWidth: 1400,
-  padding: `${Spacing.Giant} ${Spacing.Moderate}`,
-  '@media': {
-    '(max-width: 768px)': {
-      flexDirection: 'column',
-      gap: Spacing.Large,
-    },
-  },
+  padding: getShorthandedValue(spacingVars.giant, spacingVars.moderate),
+  ...getMobileMediaQuery({
+    flexDirection: 'column',
+    gap: spacingVars.large,
+  }),
 })
 
 export const maxWidth = style({
   maxWidth: 650,
-  '@media': {
-    '(max-width: 768px)': {
-      maxWidth: '100%',
-    },
-  },
+  ...getMobileMediaQuery({
+    maxWidth: '100%',
+  }),
 })
 
 export const dropdown = style([maxWidth, {
   width: '100%',
   padding: 20,
-  background: Color.Surface.Elevated,
-  border: `1px solid ${Color.Line.Border}`,
-  borderRadius: Radius.Default,
+  background: colorVars.surface.elevated,
+  border: getShorthandedValue('1px', 'solid', colorVars.line.border),
+  borderRadius: radiusVars.default,
   cursor: 'pointer',
 }])
 

@@ -1,8 +1,9 @@
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
+import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
 
 export const hero = style({
-  padding: `${Spacing.Base} ${Spacing.Moderate}`
+  padding: getShorthandedValue(spacingVars.base, spacingVars.moderate),
 })
 
 export const overflowHidden = style({
@@ -10,33 +11,29 @@ export const overflowHidden = style({
 })
 
 export const upperText = style([overflowHidden, {
-  columnGap: Spacing.Base,
+  columnGap: spacingVars.base,
 }])
 
 export const lowerText = style([overflowHidden, {
   display: 'flex',
-  columnGap: Spacing.Base,
+  columnGap: spacingVars.base
 }])
 
 export const tapeContainer = style({
   width: 129,
   height: 60,
   zIndex: 2,
-  '@media': {
-    '(max-width: 768px)': {
-      width: 70,
-    },
-  },
+  ...getMobileMediaQuery({
+    width: 70,
+  }),
 })
 
 export const tapeImage = style({
   width: 180,
   aspectRatio: '180/89',
-  '@media': {
-    '(max-width: 768px)': {
-      width: 100,
-    },
-  },
+  ...getMobileMediaQuery({
+    width: 100,
+  }),
 })
 
 export const tapieImage = style({
@@ -44,10 +41,8 @@ export const tapieImage = style({
   height: 'calc(100vh - 200px)',
   minHeight: 1000,
   objectFit: 'cover',
-  '@media': {
-    '(max-width: 768px)': {
-      minHeight: 477,
-      maxHeight: 700,
-    },
-  },
+  ...getMobileMediaQuery({
+    minHeight: 477,
+    maxHeight: 700,
+  }),
 })

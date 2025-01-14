@@ -1,25 +1,22 @@
-import { Spacing } from '@tapie-kr/inspire-react/variables'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
+import { getShorthandedValue, getMobileMediaQuery, getResponsiveQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({
-  padding: `100px 0`,
-  '@media': {
-    '(max-width: 768px)': {
-      padding: `${Spacing.Giant} 0`,
-    },
-  },
+  padding: getShorthandedValue('100px', 0),
+  ...getMobileMediaQuery({
+    padding: getShorthandedValue(spacingVars.giant, 0),
+  }),
 })
 
 export const title = style({
   maxWidth: 1400,
-  padding: `0 ${Spacing.Moderate}`,
+  padding: getShorthandedValue('0', spacingVars.moderate),
   flexDirection: 'row',
   overflow: 'hidden',
-  '@media': {
-    '(max-width: 1000px)': {
-      flexDirection: 'column',
-    },
-  },
+  ...getResponsiveQuery(1000, {
+    flexDirection: 'column',
+  }),
 })
 
 export const viewMore = style({
@@ -28,15 +25,13 @@ export const viewMore = style({
   textAlign: 'right',
   alignItems: 'end',
   overflow: 'hidden',
-  '@media': {
-    '(max-width: 1000px)': {
-      maxWidth: '100%',
-      textAlign: 'left',
-      alignItems: 'start',
-    },
-  },
+  ...getResponsiveQuery(1000, {
+    maxWidth: '100%',
+    textAlign: 'left',
+    alignItems: 'start',
+  }),
 })
 
 export const marqueeGroup = style({
-  padding: `${Spacing.Moderate} 0`,
+  padding: getShorthandedValue(spacingVars.moderate, 0),
 })

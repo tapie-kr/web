@@ -1,16 +1,15 @@
 import GradientCard from '@/components/portfolio/GradientCard'
 import PortfolioSectionLabel from '@/components/portfolio/SectionLabel'
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
-import { Badge, GlyphIcon, Icon, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
+import { Badge, colorVars, GlyphIcon, Icon, spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection'
 
 export default function PortfoliosRecentProjectsSection() {
   return <>
-    <ContentSection maxWidth={1400} verticalPadding={Spacing.Moderate}>
-      <VStack gap={Spacing.Base}>
+    <ContentSection maxWidth={1400} verticalPadding={spacingVars.moderate}>
+      <VStack gap={spacingVars.base}>
         <PortfolioSectionLabel emphasized>최신 작품</PortfolioSectionLabel>
-        <Flex gap={Spacing.Petite}>
+        <Flex gap={spacingVars.petite}>
           <RecentProjectCard />
           <RecentProjectCard />
         </Flex>
@@ -21,15 +20,15 @@ export default function PortfoliosRecentProjectsSection() {
 
 function RecentProjectCard() {
   return <>
-    <GradientCard padding={Spacing.Moderate}>
-      <VStack gap={Spacing.Tiny} data-theme='dark'>
+    <GradientCard padding={spacingVars.moderate}>
+      <VStack gap={spacingVars.tiny} data-theme='dark'>
         <Badge.Default leadingIcon={GlyphIcon.TROPHY} label='수상작' />
 
-        <HStack gap={Spacing.Base} align='end'>
-          <Typo.Medium tag={Tag.P} weight={Weight.SEMIBOLD} color={Color.Content.Emphasized}>프로젝트 이름</Typo.Medium>
-          <HStack gap={Spacing.Mini} fitContent align='center'>
-            <Typo.Base tag={Tag.Span} weight={Weight.MEDIUM} color={Color.Content.Default}>프로젝트 설명</Typo.Base>
-            <Icon name={GlyphIcon.ARROW_FORWARD} size={18} color={Color.Content.Default} />
+        <HStack gap={spacingVars.base} align='end'>
+          <Typo.Medium tag={Tag.P} weight={Weight.SEMIBOLD} color={colorVars.content.emphasized}>프로젝트 이름</Typo.Medium>
+          <HStack gap={spacingVars.mini} fitContent align='center'>
+            <Typo.Base tag={Tag.SPAN} weight={Weight.MEDIUM} color={colorVars.content.default}>프로젝트 설명</Typo.Base>
+            <Icon name={GlyphIcon.ARROW_FORWARD} size={18} color={colorVars.content.default} />
           </HStack>
         </HStack>
       </VStack>

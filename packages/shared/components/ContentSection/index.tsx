@@ -1,5 +1,5 @@
 import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 import { ReactNode } from 'react'
 
 type ContentSectionProps = {
@@ -12,8 +12,8 @@ type ContentSectionProps = {
 
 export default function ContentSection(props: ContentSectionProps) {
   const {
-    verticalPadding = Spacing.None,
-    horizontalPadding = Spacing.Base,
+    verticalPadding = spacingVars.none,
+    horizontalPadding = spacingVars.base,
     maxWidth = '100%',
     children,
   } = props

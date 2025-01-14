@@ -4,11 +4,11 @@ import * as s from './styles/menu.css'
 
 import { motion } from 'framer-motion'
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { Color, Spacing, UtilityClass } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
-import { TAPIESymbol, TAPIESymbolSize, Typo, Tag, Weight, Icon, GlyphIcon } from '@tapie-kr/inspire-react'
 import { getTransition } from '~/lib/animation'
 import ThemeSwitch from './theme-switch'
+import { TAPIESymbol, TAPIESymbolSize, Icon, GlyphIcon, Typo, Tag, Weight } from '@tapie-kr/inspire-react'
+import { utilityClass, colorVars, spacingVars } from '@tapie-kr/inspire-react/lib'
 
 type LinkListProps = {
   links: Array<{ label: string, href: string }>
@@ -27,12 +27,12 @@ function LinkList(props: LinkListProps) {
     <VStack className={s.linkList}>
       <HStack align='center' justify='between'>
         <motion.div {...headerMotionProps}>
-          <TAPIESymbol className={UtilityClass.DesktopOnly} size={TAPIESymbolSize._20} withLabel />
-          <TAPIESymbol className={UtilityClass.MobileOnly} size={TAPIESymbolSize._32} />
+          <TAPIESymbol className={utilityClass.desktopOnly} size={TAPIESymbolSize._20} hasLabel />
+          <TAPIESymbol className={utilityClass.mobileOnly} size={TAPIESymbolSize._32} />
         </motion.div>
 
-        <motion.div className={UtilityClass.MobileOnly} onClick={props.hide} {...headerMotionProps}>
-          <Icon name={GlyphIcon.CLOSE} color={Color.Content.Emphasized} size={32} />
+        <motion.div className={utilityClass.mobileOnly} onClick={props.hide} {...headerMotionProps}>
+          <Icon name={GlyphIcon.CLOSE} color={colorVars.content.emphasized} size={32} />
         </motion.div>
       </HStack>
       {
@@ -45,7 +45,7 @@ function LinkList(props: LinkListProps) {
             onClick={props.hide}
           >
             <Link href={href}>
-              <Typo.Medium tag={Tag.Span} weight={Weight.SEMIBOLD}>{label}</Typo.Medium>
+              <Typo.Medium tag={Tag.SPAN} weight={Weight.SEMIBOLD}>{label}</Typo.Medium>
             </Link>
           </motion.div>
         ))
@@ -61,7 +61,7 @@ type DesktopMenuProps = {
 export default function Menu(props: DesktopMenuProps) {
   return <>
     <HStack>
-      <VStack gap={Spacing.Medium}>
+      <VStack gap={spacingVars.medium}>
         <LinkList
           links={[
             { label: '홈', href: '/' },

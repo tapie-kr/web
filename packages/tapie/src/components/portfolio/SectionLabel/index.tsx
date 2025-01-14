@@ -1,5 +1,4 @@
-import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { Color } from '@tapie-kr/inspire-react/variables'
+import { colorVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 
 type SectionLabelProps = {
   emphasized?: boolean
@@ -8,7 +7,7 @@ type SectionLabelProps = {
 
 export default function PortfolioSectionLabel(props: SectionLabelProps) {
   const Text = props.emphasized ? Typo.Moderate : Typo.Petite
-  const color = props.emphasized ? Color.Content.Emphasized : Color.Content.Default
+  const color = props.emphasized ? colorVars.content.emphasized : colorVars.content.default
 
   return <>
     <Text tag={Tag.H2} weight={Weight.SEMIBOLD} color={color}>{props.children}</Text>

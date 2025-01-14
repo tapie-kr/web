@@ -1,18 +1,17 @@
-import { Color, Spacing } from '@tapie-kr/inspire-react/variables'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
+import { getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const linkList = style({
-  gap: Spacing.Base,
-  '@media': {
-    '(max-width: 768px)': {
-      gap: Spacing.Moderate,
-    },
-  },
+  gap: spacingVars.base,
+  ...getMobileMediaQuery({
+    gap: spacingVars.moderate,
+  }),
 })
 
 export const link = style({
-  color: Color.Content.Muted,
+  color: colorVars.content.muted,
   ':hover': {
-    color: Color.Content.Emphasized,
+    color: colorVars.content.emphasized,
   },
 })

@@ -6,8 +6,8 @@ import { motion } from 'framer-motion'
 import { HTMLAttributes, ReactNode, useContext } from 'react'
 import { AnimateContext } from './shared'
 import { getTransition } from '~/lib/animation'
-import { UtilityClass } from '@tapie-kr/inspire-react/variables'
 import cn from 'classnames'
+import { utilityClass } from '@tapie-kr/inspire-react/lib'
 
 type AnimateProps = HTMLAttributes<HTMLSpanElement> & {
   order?: number
@@ -27,7 +27,7 @@ export default function Animate(props: AnimateProps) {
   const classNames = [
     s.animate,
     fullWidth && s.fullWidth,
-    hideOverflow && UtilityClass.HideOverflow,
+    hideOverflow && utilityClass.hideOverflow,
     className,
   ]
 

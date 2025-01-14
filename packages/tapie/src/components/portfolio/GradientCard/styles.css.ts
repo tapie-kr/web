@@ -1,11 +1,11 @@
-import { Radius } from '@tapie-kr/inspire-react/variables'
+import { radiusVars } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const card = style({
   position: 'relative',
   height: 250,
   overflow: 'hidden',
-  borderRadius: Radius.Smooth,
+  borderRadius: radiusVars.smooth,
 })
 
 export const thumbnail = style({

@@ -1,4 +1,4 @@
-import { Color, Radius } from '@tapie-kr/inspire-react/variables'
+import { colorVars, radiusVars } from '@tapie-kr/inspire-react/lib'
 import { style } from '@vanilla-extract/css'
 
 export const marquee = style({
@@ -16,8 +16,8 @@ export const card = style({
   position: 'absolute',
   width: 370,
   height: 200,
-  background: Color.Surface.Elevated,
-  borderRadius: Radius.Smooth,
+  background: colorVars.surface.elevated,
+  borderRadius: radiusVars.smooth,
   flexShrink: 0,
   overflow: 'hidden',
   '@media': {
