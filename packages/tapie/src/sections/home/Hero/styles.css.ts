@@ -1,5 +1,4 @@
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
-import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
+import { getShorthandedValue, spacingVars, getMobileMediaQuery } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const hero = style({

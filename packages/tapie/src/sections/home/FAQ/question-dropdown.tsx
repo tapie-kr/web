@@ -3,13 +3,12 @@
 import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { GlyphIcon, Icon, Typo, Weight } from '@tapie-kr/inspire-react'
+import { colorVars, GlyphIcon, Icon, spacingVars, Typo, Weight } from '@tapie-kr/inspire-react'
 import { motion } from 'framer-motion'
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { useEffect, useRef, useState } from 'react'
 import Animate from '@tapie-kr/web-shared/components/Animate'
-import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 
 type HomeFAQSectionQuestionDropdownProps = {
   order: number

@@ -6,8 +6,7 @@ import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 import { splitArray, shuffle } from '@/utils/array'
-import { Typo, Weight, Tag } from '@tapie-kr/inspire-react'
-import { spacingVars, colorVars, utilityClass } from '@tapie-kr/inspire-react/lib'
+import { Typo, Weight, Tag, colorVars, spacingVars, utilityClass } from '@tapie-kr/inspire-react'
 
 export default async function HomeJourneySection() {
   const { default: thumbnailList } = await import('@/../public/thumbnails/_list.json')

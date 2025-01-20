@@ -3,7 +3,7 @@ import * as s from './styles.css'
 import { HStack } from '@cottons-kr/react-foundation'
 import AwardItem from './award-item'
 import awards from '@/../public/_awards.json'
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
+import { spacingVars } from '@tapie-kr/inspire-react'
 
 export default function HomeAwardsSectionAwardList() {
   return <>
