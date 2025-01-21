@@ -5,7 +5,7 @@ import Favicon from '@tapie-kr/web-shared/assets/favicon.png'
 
 import Header from '@tapie-kr/web-shared/layout/Header'
 import Footer from '@tapie-kr/web-shared/layout/Footer'
-import { InspireProvider } from '@tapie-kr/inspire-react'
+import { InspireProvider } from '@tapie-kr/inspire-react/provider'
 
 import '@cottons-kr/react-foundation/styles.css'
 
