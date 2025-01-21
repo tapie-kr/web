@@ -7,8 +7,7 @@ import { HStack, VStack } from '@cottons-kr/react-foundation'
 import Link from 'next/link'
 import { getTransition } from '~/lib/animation'
 import ThemeSwitch from './theme-switch'
-import { TAPIESymbol, TAPIESymbolSize, Icon, GlyphIcon, Typo, Tag, Weight } from '@tapie-kr/inspire-react'
-import { utilityClass, colorVars, spacingVars } from '@tapie-kr/inspire-react/lib'
+import { TAPIESymbol, TAPIESymbolSize, Icon, GlyphIcon, Typo, Tag, Weight, colorVars, spacingVars, utilityClass } from '@tapie-kr/inspire-react'
 
 type LinkListProps = {
   links: Array<{ label: string, href: string }>

@@ -1,4 +1,4 @@
-import { defaultCubicBezier } from '@tapie-kr/inspire-react/lib'
+import { defaultCubicBezier } from '@tapie-kr/inspire-react'
 import { Transition } from 'framer-motion'
 
 export const resetTransition = getTransition({ delay: 0, duration: 0 })

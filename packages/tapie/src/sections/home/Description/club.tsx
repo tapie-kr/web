@@ -3,13 +3,12 @@
 import * as s from './styles.css'
 
 import { HStack } from '@cottons-kr/react-foundation'
-import { Tag } from '@tapie-kr/inspire-react'
+import { spacingVars, Tag } from '@tapie-kr/inspire-react'
 import { motion } from 'framer-motion'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { useContext } from 'react'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { ParagraphText } from '.'
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 type ClubProps = {
   order: number

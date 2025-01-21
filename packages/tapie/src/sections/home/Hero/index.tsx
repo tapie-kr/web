@@ -6,8 +6,7 @@ import TapieGroup from './assets/tapie-group.webp'
 import Image from 'next/image'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import { Animate, HeroText } from './shared'
-import { Typo, Tag, Weight } from '@tapie-kr/inspire-react'
-import { spacingVars, colorVars, utilityClass } from '@tapie-kr/inspire-react/lib'
+import { Typo, Tag, Weight, colorVars, spacingVars, utilityClass } from '@tapie-kr/inspire-react'
 
 export default function HomeHeroSection() {
   return <>

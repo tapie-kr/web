@@ -1,5 +1,4 @@
-import { colorVars, radiusVars, getCSSTransition } from '@tapie-kr/inspire-react/lib'
-import { getShorthandedValue } from '@tapie-kr/inspire-react/utils'
+import { colorVars, getShorthandedValue, radiusVars, getCSSTransition } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const container = style({
