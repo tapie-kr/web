@@ -1,4 +1,5 @@
 import { ILayoutProps } from '@cottons-kr/react-foundation'
+import ClarityProvider from '@tapie-kr/web-shared/providers/Clarity'
 import { ThemeProvider } from 'next-themes'
 import { Metadata, Viewport } from 'next'
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png'
@@ -55,6 +56,7 @@ export default function RootLayout(props: ILayoutProps) {
           {props.children}
           <Footer />
         </ThemeProvider>
+        <ClarityProvider />
       </body>
     </html>
   </>
