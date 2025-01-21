@@ -6,7 +6,8 @@ import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/Viewpor
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
-import { colorVars, Typo, Weight } from '@tapie-kr/inspire-react'
+import { Typo, Weight } from '@tapie-kr/inspire-react'
+import { colorVars } from '@tapie-kr/inspire-react/lib'
 
 type AwardItemProps = {
   order: number

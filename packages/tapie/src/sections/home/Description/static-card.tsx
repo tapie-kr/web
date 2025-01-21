@@ -1,7 +1,8 @@
 'use client'
 
 import { VStack } from '@cottons-kr/react-foundation'
-import { Typo, Weight, Tag, spacingVars, colorVars } from '@tapie-kr/inspire-react'
+import { Typo, Weight, Tag } from '@tapie-kr/inspire-react'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { motion, useMotionValue, animate as animateValue, useTransform } from 'framer-motion'

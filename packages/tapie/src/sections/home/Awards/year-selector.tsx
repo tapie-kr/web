@@ -9,7 +9,8 @@ import cn from 'classnames'
 import { motion } from 'framer-motion'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
-import { spacingVars, Typo, Weight } from '@tapie-kr/inspire-react'
+import { Typo, Weight } from '@tapie-kr/inspire-react'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 export default function HomeAwardsSectionYearSelector() {
   return <>

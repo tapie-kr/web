@@ -1,7 +1,8 @@
 import { footer, linkChip, linkList } from './styles.css'
 
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation'
-import { BrandIcon, colorVars, Icon, IconName, spacingVars, TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
+import { BrandIcon, Icon, IconName, TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight as Weight } from '@tapie-kr/inspire-react'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 import Link from 'next/link'
 
 export default function Footer() {

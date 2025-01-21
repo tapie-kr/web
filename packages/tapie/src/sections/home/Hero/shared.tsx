@@ -1,6 +1,7 @@
 'use client'
 
-import { Tag, Weight, Typo, colorVars } from '@tapie-kr/inspire-react'
+import { Tag, Weight, Typo } from '@tapie-kr/inspire-react'
+import { colorVars } from '@tapie-kr/inspire-react/lib'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
 import { getTransition } from '@tapie-kr/web-shared/lib/animation'
 import { motion } from 'framer-motion'
