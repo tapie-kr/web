@@ -1,4 +1,5 @@
-import { spacingVars, getMobileMediaQuery, colorVars } from '@tapie-kr/inspire-react'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
+import { getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
 import { style } from '@vanilla-extract/css'
 
 export const linkList = style({

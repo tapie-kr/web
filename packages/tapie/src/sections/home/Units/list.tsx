@@ -6,7 +6,8 @@ import Animate from '@tapie-kr/web-shared/components/Animate'
 import { getTransition, resetTransition } from '@tapie-kr/web-shared/lib/animation'
 import { useContext } from 'react'
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
-import { Typo, Tag, Weight, colorVars, spacingVars } from '@tapie-kr/inspire-react'
+import { Typo, Tag, Weight } from '@tapie-kr/inspire-react'
+import { spacingVars, colorVars } from '@tapie-kr/inspire-react/lib'
 
 type HomeUnitsSectionListProps = {
   order: number

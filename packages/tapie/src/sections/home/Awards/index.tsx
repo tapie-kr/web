@@ -11,7 +11,8 @@ import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 import cn from 'classnames'
-import { colorVars, spacingVars, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react'
+import { Typo, Weight } from '@tapie-kr/inspire-react'
+import { spacingVars, utilityClass, colorVars } from '@tapie-kr/inspire-react/lib'
 
 export default function HomeAwardsSection() {
   const [selectedYear, setSelectedYear] = useState(2024)

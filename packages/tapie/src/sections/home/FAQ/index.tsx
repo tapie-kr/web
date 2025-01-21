@@ -1,11 +1,12 @@
 import * as s from './styles.css'
 
 import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
+import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 import QuestionDropdown from './question-dropdown'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'
 import Animate from '@tapie-kr/web-shared/components/Animate'
+import { spacingVars } from '@tapie-kr/inspire-react/lib'
 
 export default function HomeFAQSection() {
   return <>
