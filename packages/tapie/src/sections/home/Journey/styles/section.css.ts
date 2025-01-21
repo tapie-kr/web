@@ -1,5 +1,4 @@
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
-import { getShorthandedValue, getMobileMediaQuery, getResponsiveQuery } from '@tapie-kr/inspire-react/utils'
+import { getShorthandedValue, getMobileMediaQuery, spacingVars, getResponsiveQuery } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const section = style({

@@ -1,5 +1,4 @@
-import { colorVars, spacingVars, radiusVars } from '@tapie-kr/inspire-react/lib'
-import { getShorthandedValue, getMobileMediaQuery } from '@tapie-kr/inspire-react/utils'
+import { colorVars, spacingVars, getShorthandedValue, radiusVars, getMobileMediaQuery } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const headerStyle = style({

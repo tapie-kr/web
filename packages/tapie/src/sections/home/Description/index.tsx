@@ -3,8 +3,7 @@
 import * as s from './styles.css'
 
 import { HStack, VStack } from '@cottons-kr/react-foundation'
-import { Tag, Typo, Weight } from '@tapie-kr/inspire-react'
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
+import { spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react'
 import Animate from '@tapie-kr/web-shared/components/Animate'
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider'
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector'

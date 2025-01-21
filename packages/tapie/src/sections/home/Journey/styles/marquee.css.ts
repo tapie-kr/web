@@ -1,4 +1,4 @@
-import { colorVars, radiusVars } from '@tapie-kr/inspire-react/lib'
+import { colorVars, radiusVars } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const marquee = style({

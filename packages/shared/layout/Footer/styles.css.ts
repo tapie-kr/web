@@ -1,5 +1,4 @@
-import { colorVars, radiusVars, spacingVars } from '@tapie-kr/inspire-react/lib'
-import { getMobileMediaQuery, getShorthandedValue } from '@tapie-kr/inspire-react/utils'
+import { spacingVars, colorVars, getMobileMediaQuery, getShorthandedValue, radiusVars } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const footer = style({
