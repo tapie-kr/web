@@ -1,4 +1,4 @@
-import { radiusVars } from '@tapie-kr/inspire-react'
+import { radiusVars, spacingVars } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const card = style({
@@ -21,6 +21,7 @@ export const content = style({
   left: 0,
   width: '100%',
   height: '100%',
+  padding: spacingVars.moderate,
   background: 'linear-gradient(180deg, rgba(78, 78, 78, 0.35) 0%, rgba(78, 78, 78, 0.80) 100%)',
   backdropFilter: 'blur(4px)',
 })

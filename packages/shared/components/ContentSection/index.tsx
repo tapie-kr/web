@@ -1,5 +1,5 @@
 import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { spacingVars } from '@tapie-kr/inspire-react/lib'
+import { spacingVars } from '@tapie-kr/inspire-react'
 import { ReactNode } from 'react'
 
 type ContentSectionProps = {

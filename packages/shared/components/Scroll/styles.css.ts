@@ -1,8 +1,9 @@
-import { utilityClass, spacingVars } from '@tapie-kr/inspire-react/lib'
+import { spacingVars, utilityClass } from '@tapie-kr/inspire-react'
 import { style } from '@vanilla-extract/css'
 
 export const container = style({
   position: 'relative',
+  width: '100%',
 })
 
 export const hide = style({
