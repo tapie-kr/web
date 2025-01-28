@@ -1,5 +1,5 @@
-import { colorVars, radiusVars } from '@tapie-kr/inspire-react'
-import { style } from '@vanilla-extract/css'
+import { colorVars, radiusVars } from '@tapie-kr/inspire-react';
+import { style } from '@vanilla-extract/css';
 
 export const marquee = style({
   position: 'relative',
@@ -10,7 +10,7 @@ export const marquee = style({
       height: 95,
     },
   },
-})
+});
 
 export const card = style({
   position: 'absolute',
@@ -26,10 +26,10 @@ export const card = style({
       height: 95,
     },
   },
-})
+});
 
 export const thumbnail = style({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-})
+});

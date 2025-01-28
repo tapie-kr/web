@@ -1,59 +1,93 @@
-import * as s from './styles.css'
+import * as s from './styles.css';
 
-import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { motion } from 'framer-motion'
-import Animate from '@tapie-kr/web-shared/components/Animate'
-import { getTransition, resetTransition } from '@tapie-kr/web-shared/lib/animation'
-import { useContext } from 'react'
-import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context'
-import { Typo, Tag, Weight, colorVars, spacingVars } from '@tapie-kr/inspire-react'
+import { Flex, VStack } from '@cottons-kr/react-foundation';
+
+import { colorVars, spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
+import Animate from '@tapie-kr/web-shared/components/Animate';
+import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
+import { getTransition, resetTransition } from '@tapie-kr/web-shared/lib/animation';
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
 
 type HomeUnitsSectionListProps = {
-  order: number
-  title: string
+  order: number;
+  title: string;
   features: Array<{
-    title: string
-    description: string
-    icon: SVGComponent
-  }>
-}
+    title: string;
+    description: string;
+    icon: SVGComponent;
+  }>;
+};
 
 export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
-  const { isInView } = useContext(ViewportDetectorContext)
+  const { isInView } = useContext(ViewportDetectorContext);
 
-  return <>
-    <VStack className={s.list} fullWidth gap={spacingVars.moderate}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ?
-          { opacity: 1 } :
-          { opacity: 0, transition: resetTransition }
-        }
-        transition={getTransition({ delay: props.order * 0.3 + 0.4, duration: 0.7 })}
+  return (
+    <>
+      <VStack
+        className={s.list}
+        fullWidth
+        gap={spacingVars.moderate}
       >
-        <Typo.Large tag={Tag.H3} weight={Weight.SEMIBOLD}>{props.title}</Typo.Large>
-      </motion.div>
-      <VStack fullWidth gap={spacingVars.petite}>{
-        props.features.map((feature, i) => <FeatureCard key={i} order={i} {...feature} />)
-      }</VStack>
-    </VStack>
-  </>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0, transition: resetTransition }}
+          transition={getTransition({ delay: props.order * 0.3 + 0.4, duration: 0.7 })}
+        >
+          <Typo.Large
+            tag={Tag.H3}
+            weight={Weight.SEMIBOLD}
+          >
+            {props.title}
+          </Typo.Large>
+        </motion.div>
+        <VStack
+          fullWidth
+          gap={spacingVars.petite}
+        >
+          {props.features.map((feature, i) => (
+            <FeatureCard
+              key={i}
+              order={i}
+              {...feature}
+            />
+          ))}
+        </VStack>
+      </VStack>
+    </>
+  );
 }
 
 type FeatureCardProps = HomeUnitsSectionListProps['features'][0] & {
-  order: number
-}
+  order: number;
+};
 
 function FeatureCard(props: FeatureCardProps) {
-  return <>
-    <Animate order={props.order} fullWidth>
-      <Flex className={s.featureCard} fullWidth align='center' gap={spacingVars.moderate}>
-        <VStack gap={spacingVars.micro}>
-          <Typo.Medium color={colorVars.content.emphasized} tag={Tag.H4} weight={Weight.SEMIBOLD}>{props.title}</Typo.Medium>
-          <Typo.Base color={colorVars.content.default}>{props.description}</Typo.Base>
-        </VStack>
-        <props.icon className={s.featureCardIcon} />
-      </Flex>
-    </Animate>
-  </>
+  return (
+    <>
+      <Animate
+        order={props.order}
+        fullWidth
+      >
+        <Flex
+          className={s.featureCard}
+          fullWidth
+          align='center'
+          gap={spacingVars.moderate}
+        >
+          <VStack gap={spacingVars.micro}>
+            <Typo.Medium
+              color={colorVars.content.emphasized}
+              tag={Tag.H4}
+              weight={Weight.SEMIBOLD}
+            >
+              {props.title}
+            </Typo.Medium>
+            <Typo.Base color={colorVars.content.default}>{props.description}</Typo.Base>
+          </VStack>
+          <props.icon className={s.featureCardIcon} />
+        </Flex>
+      </Animate>
+    </>
+  );
 }

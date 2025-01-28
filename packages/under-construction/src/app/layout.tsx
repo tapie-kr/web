@@ -1,10 +1,11 @@
-import { ILayoutProps } from '@cottons-kr/react-foundation'
-import { ThemeProvider } from 'next-themes'
-import { Metadata } from 'next'
-
 import '@tapie-kr/inspire-react/styles.css'
 import '@cottons-kr/react-foundation/styles.css'
 import '@/styles/app.css'
+
+import { type ILayoutProps } from '@cottons-kr/react-foundation'
+
+import { type Metadata } from 'next'
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   title: 'TAPIE',
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout(props: ILayoutProps) {
-  return <>
+  return (<>
     <html lang='ko' suppressHydrationWarning>
       <body>
         <ThemeProvider>{props.children}</ThemeProvider>
       </body>
     </html>
-  </>
+  </>)
 }

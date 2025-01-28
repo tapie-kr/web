@@ -1,5 +1,5 @@
-import { globalStyle } from '@vanilla-extract/css'
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
+import { globalStyle } from '@vanilla-extract/css'
 
 globalStyle('html, body', {
   width: '100%',

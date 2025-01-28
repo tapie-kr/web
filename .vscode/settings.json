@@ -8,6 +8,20 @@
     "**/Thumbs.db": true,
     "**/node_modules": false
   },
-  "typescript.format.semicolons": "remove",
-  "javascript.format.semicolons": "remove"
+  "cSpell.words": ["circlehollow", "multilines"],
+  "eslint.workingDirectories": ["./packages/react"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit",
+  },
+  "prettier.enable": true,
+  "prettier.configPath": "./.prettierrc",
+  "prettier.ignorePath": ".prettierignore",
+  "eslint.enable": true,
+  "eslint.format.enable": false
 }

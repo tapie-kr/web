@@ -5,6 +5,12 @@
   ],
   "version": "1.0.0",
   "description": "TAPIE Website",
+  "scripts": {
+    "format": "pnpm run lint && pnpm run prettier",
+    "prettier": "prettier --write . --log-level warn",
+    "lint": "eslint . --fix",
+    "lint:dry": "eslint . --fix-dry-run --ignore-pattern 'packages/under-construction/'"
+  },
   "author": {
     "name": "Taeyeong Kim",
     "email": "taeyeong.kim@algorix.io",
@@ -17,5 +23,20 @@
     "type": "git",
     "url": "https://github.com/tapie-kr/web.git"
   },
-  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
+  "devDependencies": {
+    "@eslint/compat": "^1.2.5",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^3.4.2"
+  }
 }

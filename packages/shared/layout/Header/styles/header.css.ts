@@ -1,5 +1,11 @@
-import { colorVars, spacingVars, getShorthandedValue, radiusVars, getMobileMediaQuery } from '@tapie-kr/inspire-react'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getShorthandedValue,
+  radiusVars,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+import { style } from '@vanilla-extract/css';
 
 export const headerStyle = style({
   position: 'fixed',
@@ -8,7 +14,7 @@ export const headerStyle = style({
   left: 0,
   background: colorVars.surface.default,
   zIndex: 100,
-})
+});
 
 export const menuButtonStyle = style({
   width: 77,
@@ -24,7 +30,7 @@ export const menuButtonStyle = style({
     background: colorVars.surface.inverted.default,
     color: colorVars.content.inverted.emphasized,
   },
-})
+});
 
 export const backdrop = style({
   position: 'fixed',
@@ -35,7 +41,7 @@ export const backdrop = style({
   top: 0,
   left: 0,
   zIndex: 150,
-})
+});
 
 export const frame = style({
   position: 'fixed',
@@ -47,7 +53,7 @@ export const frame = style({
   ...getMobileMediaQuery({
     height: '100dvh',
   }),
-})
+});
 
 export const menu = style({
   background: colorVars.surface.default,
@@ -55,11 +61,11 @@ export const menu = style({
   display: 'flex',
   justifyContent: 'center',
   overflow: 'hidden',
-})
+});
 
 export const content = style({
   width: '100%',
   maxWidth: 1200,
   height: '100%',
   padding: getShorthandedValue(spacingVars.large, 0),
-})
+});

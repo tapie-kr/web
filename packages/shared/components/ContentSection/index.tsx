@@ -1,14 +1,15 @@
-import { Flex, VStack } from '@cottons-kr/react-foundation'
-import { spacingVars } from '@tapie-kr/inspire-react'
-import { ReactNode } from 'react'
+import { Flex, VStack } from '@cottons-kr/react-foundation';
+
+import { spacingVars } from '@tapie-kr/inspire-react';
+import { type ReactNode } from 'react';
 
 type ContentSectionProps = {
-  order?: number
-  verticalPadding?: string | number
-  horizontalPadding?: string | number
-  maxWidth?: string | number
-  children?: ReactNode
-}
+  order?: number;
+  verticalPadding?: string | number;
+  horizontalPadding?: string | number;
+  maxWidth?: string | number;
+  children?: ReactNode;
+};
 
 export default function ContentSection(props: ContentSectionProps) {
   const {
@@ -16,15 +17,23 @@ export default function ContentSection(props: ContentSectionProps) {
     horizontalPadding = spacingVars.base,
     maxWidth = '100%',
     children,
-  } = props
+  } = props;
 
-  return <>
-    <VStack
-      tag='section'
-      fullWidth align='center'
-      style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
-    >
-      <Flex fullWidth style={{ maxWidth }}>{children}</Flex>
-    </VStack>
-  </>
+  return (
+    <>
+      <VStack
+        tag='section'
+        fullWidth
+        align='center'
+        style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
+      >
+        <Flex
+          fullWidth
+          style={{ maxWidth }}
+        >
+          {children}
+        </Flex>
+      </VStack>
+    </>
+  );
 }

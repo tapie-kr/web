@@ -1,5 +1,12 @@
-import { getShorthandedValue, spacingVars, getResponsiveQuery, getMobileMediaQuery, colorVars, radiusVars } from '@tapie-kr/inspire-react'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getResponsiveQuery,
+  getShorthandedValue,
+  radiusVars,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+import { style } from '@vanilla-extract/css';
 
 export const section = style({
   maxWidth: 1400,
@@ -7,13 +14,13 @@ export const section = style({
   ...getResponsiveQuery(1000, {
     flexDirection: 'column',
   }),
-})
+});
 
 export const count = style({
   ...getMobileMediaQuery({
     display: 'none',
   }),
-})
+});
 
 export const yearSelector = style({
   maxWidth: 800,
@@ -21,25 +28,25 @@ export const yearSelector = style({
   ...getResponsiveQuery(1000, {
     maxWidth: '100%',
   }),
-})
+});
 
 export const yearItem = style({
   padding: getShorthandedValue(spacingVars.micro, spacingVars.moderate),
   background: colorVars.surface.elevated,
   borderRadius: radiusVars.smooth,
-})
+});
 
 export const yearItemActive = style({
   background: colorVars.surface.inverted.elevated,
   color: colorVars.content.inverted.emphasized,
-})
+});
 
 export const awardList = style({
   maxWidth: 800,
   ...getResponsiveQuery(1000, {
     maxWidth: '100%',
   }),
-})
+});
 
 export const awardItem = style({
   width: 'fit-content',
@@ -53,4 +60,4 @@ export const awardItem = style({
     width: '100%',
     textAlign: 'center',
   }),
-})
+});

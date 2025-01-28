@@ -1,16 +1,17 @@
+import { copyrightStyle } from '@/styles/page.css'
+
 import { HStack, VStack } from '@cottons-kr/react-foundation'
+
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react'
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables'
 import Link from 'next/link'
-import { copyrightStyle } from '@/styles/page.css'
-
 import Github from '@/assets/github-mark.svg'
 import Npm from '@/assets/npm-symbol.svg'
 
 export default function Page() {
   const ICON_SIZE = 28
 
-  return <>
+  return (<>
     <VStack fitContent gap={ComponentVariable.Spacing.Jumbo}>
       <VStack gap={ComponentVariable.Spacing.Moderate}>
         <VStack align='start' gap={ComponentVariable.Spacing.Petite}>
@@ -30,5 +31,5 @@ export default function Page() {
     </VStack>
 
     <Typo.Micro className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Micro>
-  </>
+  </>)
 }

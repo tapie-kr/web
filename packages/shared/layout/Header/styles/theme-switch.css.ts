@@ -1,5 +1,10 @@
-import { colorVars, getShorthandedValue, radiusVars, getCSSTransition } from '@tapie-kr/inspire-react'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getCSSTransition,
+  getShorthandedValue,
+  radiusVars,
+} from '@tapie-kr/inspire-react';
+import { style } from '@vanilla-extract/css';
 
 export const container = style({
   position: 'relative',
@@ -9,7 +14,7 @@ export const container = style({
   border: getShorthandedValue('1px', 'solid', colorVars.line.border),
   borderRadius: radiusVars.pill,
   cursor: 'pointer',
-})
+});
 
 export const thumb = style({
   position: 'absolute',
@@ -21,11 +26,11 @@ export const thumb = style({
   left: 4,
   overflow: 'hidden',
   transition: getCSSTransition('left', 0.3),
-})
+});
 
 export const dark = style({
   left: 26,
-})
+});
 
 export const icon = style({
   position: 'absolute',
@@ -34,4 +39,4 @@ export const icon = style({
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-})
+});
