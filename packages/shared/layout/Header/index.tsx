@@ -66,10 +66,10 @@ function HeaderMenu(props: HeaderMenuProps) {
     <>
       <motion.div
         className={s.backdrop}
-        onClick={handleMenuClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        onClick={handleMenuClick}
       />
       <div className={s.frame}>
         <motion.div

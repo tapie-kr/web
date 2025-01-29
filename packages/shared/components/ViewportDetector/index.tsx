@@ -18,10 +18,8 @@ export default function ViewportDetector(props: ViewportDetectorProps) {
   });
 
   return (
-    <>
-      <ViewportDetectorContext.Provider value={{ isInView }}>
-        <section ref={containerRef}>{props.children}</section>
-      </ViewportDetectorContext.Provider>
-    </>
+    <ViewportDetectorContext.Provider value={{ isInView }}>
+      <section ref={containerRef}>{props.children}</section>
+    </ViewportDetectorContext.Provider>
   );
 }

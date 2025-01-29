@@ -19,15 +19,13 @@ export default function AnimateProvider(props: AnimateProviderProps) {
   };
 
   return (
-    <>
-      <AnimateContext.Provider
-        value={{
-          ...props,
-          animate: isInView ? props.animate : initial,
-        }}
-      >
-        {props.children}
-      </AnimateContext.Provider>
-    </>
+    <AnimateContext.Provider
+      value={{
+        ...props,
+        animate: isInView ? props.animate : initial,
+      }}
+    >
+      {props.children}
+    </AnimateContext.Provider>
   );
 }

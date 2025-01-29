@@ -42,28 +42,26 @@ export default function Scroll(props: ViewportProps) {
   }, [viewportRef]);
 
   return (
-    <>
-      <div className={s.container}>
-        <div className={cn(s.leftButton, { [s.hide]: !showLeftEffect })}>
-          <Button.Icon
-            icon={GlyphIcon.ARROW_BACK}
-            variant={ButtonVariant.SECONDARY}
-            onClick={handleClickLeftPage}
-          />
-        </div>
-        <Viewport
-          ref={viewportRef}
-          onScrollChange={handleScrollChangeMiddleware}
-          {...rest}
+    <div className={s.container}>
+      <div className={cn(s.leftButton, { [s.hide]: !showLeftEffect })}>
+        <Button.Icon
+          icon={GlyphIcon.ARROW_BACK}
+          variant={ButtonVariant.SECONDARY}
+          onClick={handleClickLeftPage}
         />
-        <div className={cn(s.rightButton, { [s.hide]: !showRightEffect })}>
-          <Button.Icon
-            icon={GlyphIcon.ARROW_FORWARD}
-            variant={ButtonVariant.SECONDARY}
-            onClick={handleClickRightPage}
-          />
-        </div>
       </div>
-    </>
+      <Viewport
+        ref={viewportRef}
+        onScrollChange={handleScrollChangeMiddleware}
+        {...rest}
+      />
+      <div className={cn(s.rightButton, { [s.hide]: !showRightEffect })}>
+        <Button.Icon
+          icon={GlyphIcon.ARROW_FORWARD}
+          variant={ButtonVariant.SECONDARY}
+          onClick={handleClickRightPage}
+        />
+      </div>
+    </div>
   );
 }

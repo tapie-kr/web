@@ -15,33 +15,31 @@ import List from './list';
 
 export default function PortfolioProjectsSection() {
   return (
-    <>
-      <ContentSection
-        maxWidth={1400}
-        verticalPadding={spacingVars.medium}
+    <ContentSection
+      maxWidth={1400}
+      verticalPadding={spacingVars.medium}
+    >
+      <VStack
+        fullWidth
+        spacing={spacingVars.base}
+        align={StackAlign.START}
       >
+        <Typo.Moderate weight={Weight.SEMIBOLD}>작품</Typo.Moderate>
+        <Filter />
         <VStack
           fullWidth
-          spacing={spacingVars.base}
-          align={StackAlign.START}
+          spacing={spacingVars.medium}
         >
-          <Typo.Moderate weight={Weight.SEMIBOLD}>작품</Typo.Moderate>
-          <Filter />
-          <VStack
+          <List />
+          <Button.Default
+            className={loadMoreButton}
             fullWidth
-            spacing={spacingVars.medium}
+            leadingIcon={GlyphIcon.REFRESH}
           >
-            <List />
-            <Button.Default
-              className={loadMoreButton}
-              fullWidth
-              leadingIcon={GlyphIcon.REFRESH}
-            >
-              더 불러오기
-            </Button.Default>
-          </VStack>
+            더 불러오기
+          </Button.Default>
         </VStack>
-      </ContentSection>
-    </>
+      </VStack>
+    </ContentSection>
   );
 }

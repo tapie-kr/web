@@ -52,29 +52,27 @@ export const viewport: Viewport = {
 
 export default function RootLayout(props: ILayoutProps) {
   return (
-    <>
-      <html
-        lang='ko'
-        suppressHydrationWarning
-      >
-        <head>
-          <link
-            rel='icon'
-            type='image/png'
-            href={Favicon.src}
-          />
-        </head>
-        <body>
-          <ThemeProvider>
-            <InspireProvider>
-              <Header />
-              <Spacer height='76px' />
-              {props.children}
-              <Footer />
-            </InspireProvider>
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html
+      lang='ko'
+      suppressHydrationWarning
+    >
+      <head>
+        <link
+          rel='icon'
+          type='image/png'
+          href={Favicon.src}
+        />
+      </head>
+      <body>
+        <ThemeProvider>
+          <InspireProvider>
+            <Header />
+            <Spacer height='76px' />
+            {props.children}
+            <Footer />
+          </InspireProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

@@ -31,30 +31,28 @@ export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
   }, [isInView, props.value, rawValue]);
 
   return (
-    <>
-      <Animate order={props.order}>
-        <VStack
-          fitContent
-          gap={spacingVars.tiny}
+    <Animate order={props.order}>
+      <VStack
+        fitContent
+        gap={spacingVars.tiny}
+      >
+        <Typo.Moderate
+          weight={Weight.SEMIBOLD}
+          tag={Tag.P}
+          color={colorVars.content.muted}
+          nowrap
         >
-          <Typo.Moderate
-            weight={Weight.SEMIBOLD}
-            tag={Tag.P}
-            color={colorVars.content.muted}
-            nowrap
-          >
-            {props.label}
-          </Typo.Moderate>
-          <Typo.Medium
-            weight={Weight.MEDIUM}
-            tag={Tag.SPAN}
-            nowrap
-          >
-            <motion.span>{value}</motion.span>
-            {props.unit}
-          </Typo.Medium>
-        </VStack>
-      </Animate>
-    </>
+          {props.label}
+        </Typo.Moderate>
+        <Typo.Medium
+          weight={Weight.MEDIUM}
+          tag={Tag.SPAN}
+          nowrap
+        >
+          <motion.span>{value}</motion.span>
+          {props.unit}
+        </Typo.Medium>
+      </VStack>
+    </Animate>
   );
 }

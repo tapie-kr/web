@@ -31,5 +31,5 @@ export default function Page() {
     </VStack>
 
     <Typo.Micro className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Micro>
-  </>)
+          </>)
 }

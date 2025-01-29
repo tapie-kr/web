@@ -11,24 +11,22 @@ type PortfolioGradientCardProps = {
 
 export default function PortfolioGradientCard(props: PortfolioGradientCardProps) {
   return (
-    <>
+    <HStack
+      className={s.card}
+      fullWidth
+    >
+      <img
+        className={s.thumbnail}
+        src={Thumbnail.src}
+        alt='ArtNect'
+      />
       <HStack
-        className={s.card}
-        fullWidth
+        className={s.content}
+        align={StackAlign.END}
+        style={{ padding: props.padding }}
       >
-        <img
-          className={s.thumbnail}
-          src={Thumbnail.src}
-          alt='ArtNect'
-        />
-        <HStack
-          className={s.content}
-          align={StackAlign.END}
-          style={{ padding: props.padding }}
-        >
-          {props.children}
-        </HStack>
+        {props.children}
       </HStack>
-    </>
+    </HStack>
   );
 }

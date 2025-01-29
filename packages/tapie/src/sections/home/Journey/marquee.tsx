@@ -124,20 +124,18 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   ]);
 
   return (
-    <>
-      <HStack
-        className={s.marquee}
-        gap={spacingVars.base}
-      >
-        {visibleCards.map(card => (
-          <Card
-            key={card.id}
-            x={card.x}
-            path={props.assets[parseInt(card.id) % props.assets.length]}
-          />
-        ))}
-      </HStack>
-    </>
+    <HStack
+      className={s.marquee}
+      gap={spacingVars.base}
+    >
+      {visibleCards.map(card => (
+        <Card
+          key={card.id}
+          x={card.x}
+          path={props.assets[parseInt(card.id) % props.assets.length]}
+        />
+      ))}
+    </HStack>
   );
 }
 
@@ -148,17 +146,15 @@ type CardProps = {
 
 function Card(props: CardProps) {
   return (
-    <>
-      <div
-        className={s.card}
-        style={{ transform: `translateX(${props.x}px)` }}
-      >
-        <img
-          className={s.thumbnail}
-          src={`/thumbnails/${props.path}`}
-          alt={props.path.replace('.webp', '')}
-        />
-      </div>
-    </>
+    <div
+      className={s.card}
+      style={{ transform: `translateX(${props.x}px)` }}
+    >
+      <img
+        className={s.thumbnail}
+        src={`/thumbnails/${props.path}`}
+        alt={props.path.replace('.webp', '')}
+      />
+    </div>
   );
 }

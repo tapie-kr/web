@@ -18,11 +18,9 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout(props: ILayoutProps) {
-  return (<>
-    <html lang='ko' suppressHydrationWarning>
+  return (<html lang='ko' suppressHydrationWarning>
       <body>
         <ThemeProvider>{props.children}</ThemeProvider>
       </body>
-    </html>
-  </>)
+          </html>)
 }

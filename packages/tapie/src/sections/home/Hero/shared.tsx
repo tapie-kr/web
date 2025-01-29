@@ -14,11 +14,7 @@ export function HeroText(props: ChildrenProp) {
     nowrap: true,
   };
 
-  return (
-    <>
-      <Typo.Giant {...heroTextProps}>{props.children}</Typo.Giant>
-    </>
-  );
+  return <Typo.Giant {...heroTextProps}>{props.children}</Typo.Giant>;
 }
 
 type AnimateProps = {
@@ -35,14 +31,12 @@ export function Animate(props: AnimateProps) {
   const animate = isInView ? { y: 0, transition } : { y: '100%', transition: resetTransition };
 
   return (
-    <>
-      <motion.div
-        className={props.className}
-        initial={{ y: '100%' }}
-        animate={animate}
-      >
-        {props.children}
-      </motion.div>
-    </>
+    <motion.div
+      className={props.className}
+      initial={{ y: '100%' }}
+      animate={animate}
+    >
+      {props.children}
+    </motion.div>
   );
 }

@@ -26,14 +26,12 @@ export function Animate(props: AnimateProps) {
   const animate = isInView ? { y: 0, transition } : { y: '100%', transition: resetTransition };
 
   return (
-    <>
-      <motion.div
-        className={props.className}
-        initial={{ y: '100%' }}
-        animate={animate}
-      >
-        {props.children}
-      </motion.div>
-    </>
+    <motion.div
+      className={props.className}
+      initial={{ y: '100%' }}
+      animate={animate}
+    >
+      {props.children}
+    </motion.div>
   );
 }

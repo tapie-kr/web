@@ -19,20 +19,18 @@ export default function PortfolioProjectsSectionFilter() {
   const [current, setCurrent] = useState('all');
 
   return (
-    <>
-      <Scroll direction='row'>
-        <HStack spacing={spacingVars.micro}>
-          {Object.entries(options).map(([key, label]) => (
-            <FilterOption
-              key={key}
-              label={label}
-              isActive={key === current}
-              onClick={() => setCurrent(key)}
-            />
-          ))}
-        </HStack>
-      </Scroll>
-    </>
+    <Scroll direction='row'>
+      <HStack spacing={spacingVars.micro}>
+        {Object.entries(options).map(([key, label]) => (
+          <FilterOption
+            key={key}
+            label={label}
+            isActive={key === current}
+            onClick={() => setCurrent(key)}
+          />
+        ))}
+      </HStack>
+    </Scroll>
   );
 }
 
@@ -44,13 +42,11 @@ type FilterOptionProps = {
 
 function FilterOption(props: FilterOptionProps) {
   return (
-    <>
-      <Chip
-        isActive={props.isActive}
-        onClick={props.onClick}
-      >
-        {props.label}
-      </Chip>
-    </>
+    <Chip
+      isActive={props.isActive}
+      onClick={props.onClick}
+    >
+      {props.label}
+    </Chip>
   );
 }

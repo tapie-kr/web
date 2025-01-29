@@ -8,20 +8,18 @@ import AwardItem from './award-item';
 
 export default function HomeAwardsSectionAwardList() {
   return (
-    <>
-      <HStack
-        className={s.awardList}
-        gap={spacingVars.base}
-        wrap
-      >
-        {awards.map((award, i) => (
-          <AwardItem
-            key={i}
-            {...award}
-            order={i}
-          />
-        ))}
-      </HStack>
-    </>
+    <HStack
+      className={s.awardList}
+      gap={spacingVars.base}
+      wrap
+    >
+      {awards.map((award, i) => (
+        <AwardItem
+          key={i}
+          {...award}
+          order={i}
+        />
+      ))}
+    </HStack>
   );
 }

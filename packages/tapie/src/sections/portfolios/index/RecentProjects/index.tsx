@@ -18,73 +18,69 @@ import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosRecentProjectsSection() {
   return (
-    <>
-      <ContentSection
-        maxWidth={1400}
-        verticalPadding={spacingVars.moderate}
+    <ContentSection
+      maxWidth={1400}
+      verticalPadding={spacingVars.moderate}
+    >
+      <VStack
+        fullWidth
+        spacing={spacingVars.base}
+        align={StackAlign.START}
       >
-        <VStack
+        <PortfolioSectionLabel isEmphasized>최신 작품</PortfolioSectionLabel>
+        <HStack
           fullWidth
-          spacing={spacingVars.base}
-          align={StackAlign.START}
+          spacing={spacingVars.petite}
         >
-          <PortfolioSectionLabel isEmphasized>최신 작품</PortfolioSectionLabel>
-          <HStack
-            fullWidth
-            spacing={spacingVars.petite}
-          >
-            <RecentProjectCard />
-            <RecentProjectCard />
-          </HStack>
-        </VStack>
-      </ContentSection>
-    </>
+          <RecentProjectCard />
+          <RecentProjectCard />
+        </HStack>
+      </VStack>
+    </ContentSection>
   );
 }
 
 function RecentProjectCard() {
   return (
-    <>
-      <GradientCard padding={spacingVars.moderate}>
-        <VStack
-          fullWidth
-          spacing={spacingVars.tiny}
-          align={StackAlign.START}
-          data-theme='dark'
-        >
-          <Badge.Default
-            leadingIcon={GlyphIcon.TROPHY}
-            label='수상작'
-          />
+    <GradientCard padding={spacingVars.moderate}>
+      <VStack
+        fullWidth
+        spacing={spacingVars.tiny}
+        align={StackAlign.START}
+        data-theme='dark'
+      >
+        <Badge.Default
+          leadingIcon={GlyphIcon.TROPHY}
+          label='수상작'
+        />
 
-          <HStack
-            spacing={spacingVars.base}
-            align={StackAlign.END}
+        <HStack
+          spacing={spacingVars.base}
+          align={StackAlign.END}
+        >
+          <Typo.Medium
+            tag={Tag.P}
+            weight={Weight.SEMIBOLD}
+            color={colorVars.content.emphasized}
           >
-            <Typo.Medium
-              tag={Tag.P}
-              weight={Weight.SEMIBOLD}
-              color={colorVars.content.emphasized}
+            프로젝트 이름
+          </Typo.Medium>
+          <HStack spacing={spacingVars.mini}>
+            <Typo.Base
+              tag={Tag.SPAN}
+              weight={Weight.MEDIUM}
+              color={colorVars.content.default}
             >
-              프로젝트 이름
-            </Typo.Medium>
-            <HStack spacing={spacingVars.mini}>
-              <Typo.Base
-                tag={Tag.SPAN}
-                weight={Weight.MEDIUM}
-                color={colorVars.content.default}
-              >
-                프로젝트 설명
-              </Typo.Base>
-              <Icon
-                name={GlyphIcon.ARROW_FORWARD}
-                size={18}
-                color={colorVars.content.default}
-              />
-            </HStack>
+              프로젝트 설명
+            </Typo.Base>
+            <Icon
+              name={GlyphIcon.ARROW_FORWARD}
+              size={18}
+              color={colorVars.content.default}
+            />
           </HStack>
-        </VStack>
-      </GradientCard>
-    </>
+        </HStack>
+      </VStack>
+    </GradientCard>
   );
 }

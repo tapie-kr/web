@@ -35,54 +35,52 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
   }, [titleRef]);
 
   return (
-    <>
-      <Animate
-        order={props.order}
-        className={s.maxWidth}
-        fullWidth
-        onClick={() => toggleOpened()}
-      >
-        <div className={s.dropdown}>
-          <motion.div
-            className={s.content}
-            initial={{ height: titleHeight }}
-            animate={{ height: isOpened ? 'auto' : titleHeight }}
-            transition={getTransition({ duration: 0.35 })}
-          >
-            <VStack gap={spacingVars.moderate}>
-              <div ref={titleRef}>
-                <HStack
-                  align='center'
-                  justify='between'
-                >
-                  <Typo.Moderate
-                    color={colorVars.content[isOpened ? 'emphasized' : 'default']}
-                    weight={isOpened ? Weight.SEMIBOLD : Weight.REGULAR}
-                  >
-                    {props.question}
-                  </Typo.Moderate>
-                  <motion.div
-                    animate={{ rotate: isOpened ? 180 : 0 }}
-                    transition={getTransition()}
-                  >
-                    <Icon name={GlyphIcon.KEYBOARD_ARROW_UP} />
-                  </motion.div>
-                </HStack>
-              </div>
-
-              <motion.div
-                animate={{
-                  opacity: isOpened ? 1 : 0,
-                  y: isOpened ? 0 : -20,
-                }}
-                transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
+    <Animate
+      order={props.order}
+      className={s.maxWidth}
+      fullWidth
+      onClick={() => toggleOpened()}
+    >
+      <div className={s.dropdown}>
+        <motion.div
+          className={s.content}
+          initial={{ height: titleHeight }}
+          animate={{ height: isOpened ? 'auto' : titleHeight }}
+          transition={getTransition({ duration: 0.35 })}
+        >
+          <VStack gap={spacingVars.moderate}>
+            <div ref={titleRef}>
+              <HStack
+                align='center'
+                justify='between'
               >
-                {props.children}
-              </motion.div>
-            </VStack>
-          </motion.div>
-        </div>
-      </Animate>
-    </>
+                <Typo.Moderate
+                  color={colorVars.content[isOpened ? 'emphasized' : 'default']}
+                  weight={isOpened ? Weight.SEMIBOLD : Weight.REGULAR}
+                >
+                  {props.question}
+                </Typo.Moderate>
+                <motion.div
+                  animate={{ rotate: isOpened ? 180 : 0 }}
+                  transition={getTransition()}
+                >
+                  <Icon name={GlyphIcon.KEYBOARD_ARROW_UP} />
+                </motion.div>
+              </HStack>
+            </div>
+
+            <motion.div
+              animate={{
+                opacity: isOpened ? 1 : 0,
+                y: isOpened ? 0 : -20,
+              }}
+              transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
+            >
+              {props.children}
+            </motion.div>
+          </VStack>
+        </motion.div>
+      </div>
+    </Animate>
   );
 }

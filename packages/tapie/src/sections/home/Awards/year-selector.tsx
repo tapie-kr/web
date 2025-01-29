@@ -14,15 +14,13 @@ import { HomeAwardsSectionContext } from './shared';
 
 export default function HomeAwardsSectionYearSelector() {
   return (
-    <>
-      <HStack
-        className={yearSelector}
-        gap={spacingVars.petite}
-        wrap
-      >
-        {<YearItem year={2024} />}
-      </HStack>
-    </>
+    <HStack
+      className={yearSelector}
+      gap={spacingVars.petite}
+      wrap
+    >
+      <YearItem year={2024} />
+    </HStack>
   );
 }
 
@@ -42,15 +40,13 @@ function YearItem(props: YearSelectorItemProps) {
     : { x: 25, opacity: 0, transition: resetTransition };
 
   return (
-    <>
-      <motion.button
-        className={cn(yearItem, isSelected && yearItemActive)}
-        initial={{ x: 15, opacity: 0 }}
-        animate={animate}
-        onClick={() => setSelectedYear(props.year)}
-      >
-        <Typo.Base weight={Weight.SEMIBOLD}>{props.year}</Typo.Base>
-      </motion.button>
-    </>
+    <motion.button
+      className={cn(yearItem, isSelected && yearItemActive)}
+      initial={{ x: 15, opacity: 0 }}
+      animate={animate}
+      onClick={() => setSelectedYear(props.year)}
+    >
+      <Typo.Base weight={Weight.SEMIBOLD}>{props.year}</Typo.Base>
+    </motion.button>
   );
 }

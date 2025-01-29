@@ -30,25 +30,23 @@ export default function HomeDescriptionSectionClub(props: ClubProps) {
   const animate = isInView ? { x: 0, opacity: 1 } : initial;
 
   return (
-    <>
-      <HStack
-        tag={Tag.SPAN}
-        align='center'
-        fitContent
-        gap={spacingVars.micro}
+    <HStack
+      tag={Tag.SPAN}
+      align='center'
+      fitContent
+      gap={spacingVars.micro}
+    >
+      <motion.span
+        initial={initial}
+        animate={animate}
+        transition={transition}
       >
-        <motion.span
-          initial={initial}
-          animate={animate}
-          transition={transition}
-        >
-          <props.icon
-            className={s.clubIconStyle}
-            aria-hidden
-          />
-        </motion.span>
-        <ParagraphText>{props.name}</ParagraphText>
-      </HStack>
-    </>
+        <props.icon
+          className={s.clubIconStyle}
+          aria-hidden
+        />
+      </motion.span>
+      <ParagraphText>{props.name}</ParagraphText>
+    </HStack>
   );
 }

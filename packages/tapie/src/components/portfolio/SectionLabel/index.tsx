@@ -10,14 +10,12 @@ export default function PortfolioSectionLabel(props: SectionLabelProps) {
   const color = props.isEmphasized ? colorVars.content.emphasized : colorVars.content.default;
 
   return (
-    <>
-      <Text
-        tag={Tag.H2}
-        weight={Weight.SEMIBOLD}
-        color={color}
-      >
-        {props.children}
-      </Text>
-    </>
+    <Text
+      tag={Tag.H2}
+      weight={Weight.SEMIBOLD}
+      color={color}
+    >
+      {props.children}
+    </Text>
   );
 }

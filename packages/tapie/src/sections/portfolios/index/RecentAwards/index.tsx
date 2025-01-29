@@ -6,20 +6,18 @@ import List from './list';
 
 export default function PortfoliosRecentAwardsSection() {
   return (
-    <>
-      <ContentSection
-        maxWidth={1400}
-        verticalPadding={spacingVars.moderate}
+    <ContentSection
+      maxWidth={1400}
+      verticalPadding={spacingVars.moderate}
+    >
+      <VStack
+        fullWidth
+        spacing={spacingVars.petite}
+        align={StackAlign.START}
       >
-        <VStack
-          fullWidth
-          spacing={spacingVars.petite}
-          align={StackAlign.START}
-        >
-          <PortfolioSectionLabel isEmphasized>최신 수상 내역</PortfolioSectionLabel>
-          <List />
-        </VStack>
-      </ContentSection>
-    </>
+        <PortfolioSectionLabel isEmphasized>최신 수상 내역</PortfolioSectionLabel>
+        <List />
+      </VStack>
+    </ContentSection>
   );
 }

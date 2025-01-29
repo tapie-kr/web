@@ -34,20 +34,18 @@ export default function Animate(props: AnimateProps) {
   ];
 
   return (
-    <>
-      <span
-        className={cn(classNames)}
-        {...restProps}
+    <span
+      className={cn(classNames)}
+      {...restProps}
+    >
+      <motion.span
+        className={cn(s.animate, fullWidth && s.fullWidth)}
+        initial={initial}
+        animate={animate}
+        transition={transition}
       >
-        <motion.span
-          className={cn(s.animate, fullWidth && s.fullWidth)}
-          initial={initial}
-          animate={animate}
-          transition={transition}
-        >
-          {children}
-        </motion.span>
-      </span>
-    </>
+        {children}
+      </motion.span>
+    </span>
   );
 }

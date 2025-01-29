@@ -28,21 +28,19 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
   const animate = isInView ? { y: 0, opacity: 1, scale: 1 } : initial;
 
   return (
-    <>
-      <motion.div
-        className={s.awardItem}
-        initial={initial}
-        animate={animate}
-        transition={transition}
+    <motion.div
+      className={s.awardItem}
+      initial={initial}
+      animate={animate}
+      transition={transition}
+    >
+      <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
+      <Typo.Petite
+        color={colorVars.content.muted}
+        weight={Weight.SEMIBOLD}
       >
-        <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
-        <Typo.Petite
-          color={colorVars.content.muted}
-          weight={Weight.SEMIBOLD}
-        >
-          {props.name}
-        </Typo.Petite>
-      </motion.div>
-    </>
+        {props.name}
+      </Typo.Petite>
+    </motion.div>
   );
 }

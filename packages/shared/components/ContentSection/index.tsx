@@ -20,20 +20,18 @@ export default function ContentSection(props: ContentSectionProps) {
   } = props;
 
   return (
-    <>
-      <VStack
-        tag='section'
+    <VStack
+      tag='section'
+      fullWidth
+      align='center'
+      style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
+    >
+      <Flex
         fullWidth
-        align='center'
-        style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
+        style={{ maxWidth }}
       >
-        <Flex
-          fullWidth
-          style={{ maxWidth }}
-        >
-          {children}
-        </Flex>
-      </VStack>
-    </>
+        {children}
+      </Flex>
+    </VStack>
   );
 }
