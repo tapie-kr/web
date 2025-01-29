@@ -1,5 +1,5 @@
-import { ColorVariable,ComponentVariable } from '@tapie-kr/inspire-react/variables'
-import { style } from '@vanilla-extract/css'
+import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables';
+import { style } from '@vanilla-extract/css';
 
 export const copyrightStyle = style({
   position: 'absolute',
@@ -8,4 +8,4 @@ export const copyrightStyle = style({
   transform: 'translateX(-50%)',
   color: ColorVariable.Content.Muted,
   whiteSpace: 'nowrap',
-})
+});

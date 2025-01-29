@@ -1,3 +1,3 @@
-import { withTAPIEWebConfig } from '../shared/configs/nextjs.mjs'
+import { withTAPIEWebConfig } from '../shared/configs/nextjs.mjs';
 
-export default withTAPIEWebConfig()
+export default withTAPIEWebConfig();

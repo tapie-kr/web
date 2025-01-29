@@ -2,7 +2,6 @@
 **/dist/**
 pnpm-lock.yaml
 README.md
-packages/under-construction
 .vscode/
 .next/
 **/*.svg
