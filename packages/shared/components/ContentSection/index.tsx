@@ -1,4 +1,4 @@
-import { Flex, VStack } from '@cottons-kr/react-foundation';
+import { VStack } from '@cottons-kr/react-foundation';
 
 import { spacingVars } from '@tapie-kr/inspire-react';
 import { type ReactNode } from 'react';
@@ -26,12 +26,14 @@ export default function ContentSection(props: ContentSectionProps) {
       align='center'
       style={{ padding: `${verticalPadding} ${horizontalPadding}` }}
     >
-      <Flex
-        fullWidth
-        style={{ maxWidth }}
+      <div
+        style={{
+          width: '100%',
+          maxWidth,
+        }}
       >
         {children}
-      </Flex>
+      </div>
     </VStack>
   );
 }
