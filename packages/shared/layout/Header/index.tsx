@@ -78,7 +78,6 @@ function HeaderMenu(props: HeaderMenuProps) {
 
       <div className={s.frame}>
         <motion.div
-          data-theme='dark'
           className={s.menu}
           initial={{ height: 0 }}
           animate={{ height: '100%' }}
