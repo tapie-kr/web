@@ -3,13 +3,9 @@ import { copyrightStyle } from '@/styles/page.css';
 import { HStack, VStack } from '@cottons-kr/react-foundation';
 
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react';
-
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables';
-
 import Link from 'next/link';
-
 import Github from '@/assets/github-mark.svg';
-
 import Npm from '@/assets/npm-symbol.svg';
 
 export default function Page() {

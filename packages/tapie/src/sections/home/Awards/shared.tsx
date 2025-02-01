@@ -1,11 +1,8 @@
 'use client';
 
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
-
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
-
 import { motion } from 'framer-motion';
-
 import { createContext, type Dispatch, type SetStateAction, useContext } from 'react';
 
 type HomeAwardsSectionContextValue = {

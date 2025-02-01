@@ -11,7 +11,6 @@ import {
   Typo,
   Weight,
 } from '@tapie-kr/inspire-react';
-
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailDownloadSection() {

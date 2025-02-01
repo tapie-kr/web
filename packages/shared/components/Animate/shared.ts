@@ -1,5 +1,4 @@
 import { type Target, type TargetAndTransition } from 'framer-motion';
-
 import { createContext } from 'react';
 
 export type AnimateContextType = {

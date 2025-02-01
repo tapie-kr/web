@@ -1,5 +1,4 @@
 import { colorVars, getShorthandedValue, spacingVars } from '@tapie-kr/inspire-react';
-
 import { style } from '@vanilla-extract/css';
 
 export const thumbnail = style({ width: 200 });

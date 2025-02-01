@@ -5,13 +5,9 @@ import * as s from './styles/theme-switch.css';
 import { Flex } from '@cottons-kr/react-foundation';
 
 import { colorVars, GlyphIcon, Icon } from '@tapie-kr/inspire-react';
-
 import cn from 'classnames';
-
 import { motion } from 'framer-motion';
-
 import { useTheme } from 'next-themes';
-
 import { useMemo } from 'react';
 
 import { getTransition } from '~/lib/animation';

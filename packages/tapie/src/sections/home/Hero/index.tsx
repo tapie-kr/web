@@ -3,15 +3,10 @@ import * as s from './styles.css';
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, spacingVars, Tag, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react';
-
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
-
 import Image from 'next/image';
-
 import MetallicTape from './assets/metallic-tape.webp';
-
 import TapieGroup from './assets/tapie-group.webp';
-
 import { Animate, HeroText } from './shared';
 
 export default function HomeHeroSection() {

@@ -5,9 +5,7 @@ import * as s from './styles.css';
 import { Viewport, type ViewportProps } from '@cottons-kr/react-foundation';
 
 import { Button, ButtonVariant, GlyphIcon } from '@tapie-kr/inspire-react';
-
 import cn from 'classnames';
-
 import { useCallback, useRef, useState } from 'react';
 
 type OnScrollChangeMiddleware = Exclude<ViewportProps['onScrollChange'], undefined>;

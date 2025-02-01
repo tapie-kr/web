@@ -5,29 +5,17 @@ import * as s from './styles.css';
 import { Flex, VStack } from '@cottons-kr/react-foundation';
 
 import { Size, spacingVars, Tag, TAPIESymbol, Typo, Weight } from '@tapie-kr/inspire-react';
-
 import Animate from '@tapie-kr/web-shared/components/Animate';
-
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
-
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
-
 import Artist from './assets/artist.svg';
-
 import BeachWithUmbrella from './assets/beach_with_umbrella.svg';
-
 import Figma from './assets/figma.svg';
-
 import Git from './assets/git.svg';
-
 import Html5 from './assets/html5.svg';
-
 import MobilePhone from './assets/mobile_phone.svg';
-
 import Notepad from './assets/notepad.svg';
-
 import React from './assets/react.svg';
-
 import List from './list';
 
 export default function HomeUnitsSection() {

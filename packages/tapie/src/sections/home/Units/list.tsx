@@ -3,15 +3,10 @@ import * as s from './styles.css';
 import { Flex, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
-
 import Animate from '@tapie-kr/web-shared/components/Animate';
-
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
-
 import { getTransition, resetTransition } from '@tapie-kr/web-shared/lib/animation';
-
 import { motion } from 'framer-motion';
-
 import { useContext } from 'react';
 
 type HomeUnitsSectionListProps = {

@@ -5,15 +5,10 @@ import * as s from './styles.css';
 import { HStack } from '@cottons-kr/react-foundation';
 
 import { spacingVars, Tag } from '@tapie-kr/inspire-react';
-
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
-
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
-
 import { motion } from 'framer-motion';
-
 import { useContext } from 'react';
-
 import { ParagraphText } from '.';
 
 type ClubProps = {

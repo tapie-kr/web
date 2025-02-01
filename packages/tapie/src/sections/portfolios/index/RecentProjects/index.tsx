@@ -1,5 +1,4 @@
 import GradientCard from '@/components/portfolio/GradientCard';
-
 import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
 
 import {
@@ -15,7 +14,6 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
-
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosRecentProjectsSection() {

@@ -1,13 +1,10 @@
 import '@tapie-kr/inspire-react/styles.css';
-
 import '@cottons-kr/react-foundation/styles.css';
-
 import '@/styles/app.css';
 
 import { type ILayoutProps } from '@cottons-kr/react-foundation';
 
 import { type Metadata } from 'next';
-
 import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {

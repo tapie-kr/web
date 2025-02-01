@@ -7,9 +7,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
-
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
-
 import Search from './search';
 
 export default function PortfoliosHeroSection() {

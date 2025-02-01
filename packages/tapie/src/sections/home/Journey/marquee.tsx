@@ -5,7 +5,6 @@ import * as s from './styles/marquee.css';
 import { HStack } from '@cottons-kr/react-foundation';
 
 import { spacingVars } from '@tapie-kr/inspire-react';
-
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type CardData = {

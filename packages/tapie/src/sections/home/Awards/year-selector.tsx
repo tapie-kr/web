@@ -5,17 +5,11 @@ import { yearItem, yearItemActive, yearSelector } from './styles.css';
 import { HStack } from '@cottons-kr/react-foundation';
 
 import { spacingVars, Typo, Weight } from '@tapie-kr/inspire-react';
-
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
-
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
-
 import cn from 'classnames';
-
 import { motion } from 'framer-motion';
-
 import { useContext, useMemo } from 'react';
-
 import { HomeAwardsSectionContext } from './shared';
 
 export default function HomeAwardsSectionYearSelector() {

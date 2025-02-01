@@ -1,9 +1,7 @@
 'use client';
 
 import { useInView } from 'framer-motion';
-
 import { type ReactNode, type RefObject, useRef } from 'react';
-
 import { ViewportDetectorContext } from './context';
 
 type ViewportDetectorProps = {

@@ -5,21 +5,13 @@ import * as s from './styles.css';
 import { Flex, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, spacingVars, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react';
-
 import Animate from '@tapie-kr/web-shared/components/Animate';
-
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
-
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
-
 import cn from 'classnames';
-
 import { useState } from 'react';
-
 import AwardList from './award-list';
-
 import { HomeAwardsSectionContext } from './shared';
-
 import YearSelector from './year-selector';
 
 export default function HomeAwardsSection() {

@@ -1,5 +1,4 @@
 import { getMobileMediaQuery, getShorthandedValue, spacingVars } from '@tapie-kr/inspire-react';
-
 import { style } from '@vanilla-extract/css';
 
 export const hero = style({ padding: getShorthandedValue(spacingVars.base, spacingVars.moderate) });

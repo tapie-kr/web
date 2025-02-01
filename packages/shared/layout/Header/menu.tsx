@@ -16,11 +16,8 @@ import {
   utilityClass,
   Weight,
 } from '@tapie-kr/inspire-react';
-
 import { motion } from 'framer-motion';
-
 import Link from 'next/link';
-
 import ThemeSwitch from './theme-switch';
 
 import { getTransition } from '~/lib/animation';

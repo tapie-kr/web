@@ -13,7 +13,6 @@ import {
   Typo,
   TypographyWeight as Weight,
 } from '@tapie-kr/inspire-react';
-
 import Link from 'next/link';
 
 export default function Footer() {

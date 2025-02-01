@@ -3,15 +3,10 @@ import '@cottons-kr/react-foundation/styles.css';
 import { type ILayoutProps, Spacer } from '@cottons-kr/react-foundation';
 
 import { InspireProvider } from '@tapie-kr/inspire-react/provider';
-
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png';
-
 import Footer from '@tapie-kr/web-shared/layout/Footer';
-
 import Header from '@tapie-kr/web-shared/layout/Header';
-
 import { type Metadata, type Viewport } from 'next';
-
 import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {

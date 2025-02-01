@@ -1,5 +1,4 @@
 import { ColorVariable, ComponentVariable } from '@tapie-kr/inspire-react/variables';
-
 import { style } from '@vanilla-extract/css';
 
 export const copyrightStyle = style({

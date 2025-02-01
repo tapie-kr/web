@@ -12,15 +12,11 @@ import {
   Typo,
   TypographyWeight,
 } from '@tapie-kr/inspire-react';
-
 import { AnimatePresence, motion } from 'framer-motion';
-
 import Link from 'next/link';
-
 import Menu from './menu';
 
 import { useToggle } from '~/hooks/use-toggle';
-
 import { getTransition } from '~/lib/animation';
 
 export default function Header() {

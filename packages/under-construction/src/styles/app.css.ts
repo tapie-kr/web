@@ -1,5 +1,4 @@
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables';
-
 import { globalStyle } from '@vanilla-extract/css';
 
 globalStyle('html, body', {
