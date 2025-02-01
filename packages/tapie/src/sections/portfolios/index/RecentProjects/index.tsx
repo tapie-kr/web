@@ -1,4 +1,5 @@
 import GradientCard from '@/components/portfolio/GradientCard';
+
 import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
 
 import {
@@ -14,6 +15,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosRecentProjectsSection() {
@@ -28,6 +30,7 @@ export default function PortfoliosRecentProjectsSection() {
         align={StackAlign.START}
       >
         <PortfolioSectionLabel isEmphasized>최신 작품</PortfolioSectionLabel>
+
         <HStack
           fullWidth
           spacing={spacingVars.petite}
@@ -65,6 +68,7 @@ function RecentProjectCard() {
           >
             프로젝트 이름
           </Typo.Medium>
+
           <HStack spacing={spacingVars.mini}>
             <Typo.Base
               tag={Tag.SPAN}
@@ -73,6 +77,7 @@ function RecentProjectCard() {
             >
               프로젝트 설명
             </Typo.Base>
+
             <Icon
               name={GlyphIcon.ARROW_FORWARD}
               size={18}

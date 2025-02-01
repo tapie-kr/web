@@ -7,7 +7,9 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+
 import Search from './search';
 
 export default function PortfoliosHeroSection() {
@@ -17,8 +19,8 @@ export default function PortfoliosHeroSection() {
       verticalPadding={spacingVars.jumbo}
     >
       <VStack
-        spacing={spacingVars.medium}
         fullWidth
+        spacing={spacingVars.medium}
         align={StackAlign.START}
       >
         <VStack
@@ -26,6 +28,7 @@ export default function PortfoliosHeroSection() {
           align={StackAlign.START}
         >
           <Typo.Jumbo weight={Weight.BOLD}>포트폴리오</Typo.Jumbo>
+
           <Typo.Moderate
             tag={Tag.P}
             weight={Weight.MEDIUM}

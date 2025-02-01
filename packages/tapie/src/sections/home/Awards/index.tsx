@@ -5,28 +5,40 @@ import * as s from './styles.css';
 import { Flex, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, spacingVars, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react';
+
 import Animate from '@tapie-kr/web-shared/components/Animate';
+
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
+
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
+
 import cn from 'classnames';
+
 import { useState } from 'react';
+
 import AwardList from './award-list';
+
 import { HomeAwardsSectionContext } from './shared';
+
 import YearSelector from './year-selector';
 
 export default function HomeAwardsSection() {
   const [selectedYear, setSelectedYear] = useState(2024);
 
   return (
-    <HomeAwardsSectionContext.Provider value={{ selectedYear, setSelectedYear }}>
+    <HomeAwardsSectionContext.Provider value={{
+      selectedYear,
+      setSelectedYear,
+    }}
+    >
       <ViewportDetector shouldOnce>
         <VStack
           id='awards'
           align='center'
         >
           <Flex
-            className={s.section}
             fullWidth
+            className={s.section}
             gap={spacingVars.base}
           >
             <AnimateProvider
@@ -42,6 +54,7 @@ export default function HomeAwardsSection() {
                     <Typo.Jumbo weight={Weight.SEMIBOLD}>2024년 테이피의 항해</Typo.Jumbo>
                   </Animate>
                 </div>
+
                 <div className={cn(utilityClass.hideOverflow, s.count)}>
                   <Animate order={1}>
                     <Typo.Medium

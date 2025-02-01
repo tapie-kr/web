@@ -3,10 +3,15 @@ import * as s from './styles.css';
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, spacingVars, Tag, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react';
+
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
+
 import Image from 'next/image';
+
 import MetallicTape from './assets/metallic-tape.webp';
+
 import TapieGroup from './assets/tapie-group.webp';
+
 import { Animate, HeroText } from './shared';
 
 export default function HomeHeroSection() {
@@ -19,23 +24,25 @@ export default function HomeHeroSection() {
           aria-labelledby='세상의 간극을 이어붙이는 TAPIE 우리의 이야기들'
         >
           <HStack
-            className={s.upperText}
             fitContent
             wrap
-            align='center'
             aria-hidden
+            className={s.upperText}
+            align='center'
           >
             <div className={s.overflowHidden}>
               <Animate order={0}>
                 <HeroText>세상의 간극을</HeroText>
               </Animate>
             </div>
+
             <Animate order={1}>
               <HStack
-                align='center'
                 fitContent
+                align='center'
               >
                 <HeroText>이</HeroText>
+
                 <Flex
                   className={s.tapeContainer}
                   align='center'
@@ -47,17 +54,18 @@ export default function HomeHeroSection() {
                     alt=''
                   />
                 </Flex>
+
                 <HeroText>어 붙이는</HeroText>
               </HStack>
             </Animate>
           </HStack>
 
           <Typo.Giant
+            aria-hidden
             className={s.lowerText}
             tag={Tag.SPAN}
             weight={Weight.SEMIBOLD}
             color={colorVars.content.emphasized}
-            aria-hidden
           >
             <Animate
               className={utilityClass.desktopOnly}
@@ -65,6 +73,7 @@ export default function HomeHeroSection() {
             >
               TAPIE{' '}
             </Animate>
+
             <Animate order={3}>우리의 이야기들</Animate>
           </Typo.Giant>
         </VStack>

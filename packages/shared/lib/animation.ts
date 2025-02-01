@@ -1,11 +1,15 @@
 import { defaultCubicBezier } from '@tapie-kr/inspire-react';
+
 import { type Transition } from 'framer-motion';
 
-export const resetTransition = getTransition({ delay: 0, duration: 0 });
+export const resetTransition = getTransition({
+  delay:    0,
+  duration: 0,
+});
 
 type TransitionOptions = {
   duration?: number;
-  delay?: number;
+  delay?:    number;
 };
 
 export function getTransition(options: TransitionOptions = {}): Transition {
@@ -13,7 +17,7 @@ export function getTransition(options: TransitionOptions = {}): Transition {
 
   return {
     duration: duration ?? 0.5,
-    ease: defaultCubicBezier,
+    ease:     defaultCubicBezier,
     delay,
   } satisfies Transition;
 }

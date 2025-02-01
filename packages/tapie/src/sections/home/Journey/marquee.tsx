@@ -5,32 +5,38 @@ import * as s from './styles/marquee.css';
 import { HStack } from '@cottons-kr/react-foundation';
 
 import { spacingVars } from '@tapie-kr/inspire-react';
+
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type CardData = {
-  id: string;
-  x: number;
+  id:        string;
+  x:         number;
   isVisible: boolean;
 };
 
 type HomeJourneySectionMarqueeProps = {
-  assets: Array<string>;
+  assets:    Array<string>;
   direction: 'left' | 'right';
-  speed: number;
+  speed:     number;
 };
 
 export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqueeProps) {
   const [viewportWidth, setViewportWidth] = useState(1400);
+
   const [cardWidth, setCardWidth] = useState(370);
+
   const [gapWidth, setGapWidth] = useState(16);
+
   const [visibleCards, setVisibleCards] = useState<Array<CardData>>([]);
+
   const [speed, setSpeed] = useState(props.speed);
+
   const animationRef = useRef<number | null>(null);
+
   const lastTimestamp = useRef<number>(null);
-  const requiredCardCount = useMemo(
-    () => Math.ceil(viewportWidth / cardWidth) + 1,
-    [viewportWidth, cardWidth],
-  );
+
+  const requiredCardCount = useMemo(() => Math.ceil(viewportWidth / cardWidth) + 1,
+    [viewportWidth, cardWidth]);
 
   const getInitialCards = useCallback(() => {
     return Array.from({ length: requiredCardCount }, (_, i) => ({
@@ -38,7 +44,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
       x:
         props.direction === 'left'
           ? i * (cardWidth + gapWidth)
-          : viewportWidth - (i + 1) * (cardWidth + gapWidth),
+          : viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
       isVisible: true,
     }));
   }, [requiredCardCount, props.direction, cardWidth, gapWidth, viewportWidth]);
@@ -46,18 +52,26 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
+
       if (window.innerWidth <= 768) {
         setCardWidth(176);
+
         setGapWidth(14);
+
         setSpeed(props.speed * 0.6);
       } else {
         setCardWidth(370);
+
         setGapWidth(16);
+
         setSpeed(props.speed);
       }
     };
+
     window.addEventListener('resize', handleResize);
+
     handleResize();
+
     return () => window.removeEventListener('resize', handleResize);
   }, [props.speed]);
 
@@ -68,13 +82,16 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
       if (!lastTimestamp.current) {
         lastTimestamp.current = performance.now();
       }
+
       const delta = performance.now() - lastTimestamp.current;
+
       lastTimestamp.current = performance.now();
 
       setVisibleCards(prev => {
         const updated = prev
           .map(card => {
             const movement = (speed * delta) / 1000;
+
             const nextX = props.direction === 'left' ? card.x - movement : card.x + movement;
 
             const isVisible =
@@ -82,15 +99,21 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
                 ? nextX >= -(cardWidth + gapWidth)
                 : nextX <= viewportWidth;
 
-            return { ...card, x: nextX, isVisible };
+            return {
+              ...card,
+              x: nextX,
+              isVisible,
+            };
           })
           .filter(card => card.isVisible);
 
         if (updated.length < requiredCardCount) {
           const lastCard = updated[updated.length - 1];
+
           if (!lastCard) {
             return getInitialCards();
           }
+
           updated.push({
             id: (parseInt(lastCard.id) + 1).toString(),
             x:
@@ -103,6 +126,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
 
         return updated;
       });
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -140,7 +164,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
 }
 
 type CardProps = {
-  x: number;
+  x:    number;
   path: string;
 };
 

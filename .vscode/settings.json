@@ -11,17 +11,15 @@
   "cSpell.words": ["circlehollow", "multilines"],
   "eslint.workingDirectories": ["./packages/react"],
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "never",
     "source.fixAll.eslint": "explicit",
   },
-  "prettier.enable": true,
-  "prettier.configPath": "./.prettierrc.mjs",
-  "prettier.ignorePath": ".prettierignore",
+  "prettier.enable": false,
   "eslint.enable": true,
   "eslint.format.enable": false
 }

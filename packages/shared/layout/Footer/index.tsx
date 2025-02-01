@@ -13,15 +13,16 @@ import {
   Typo,
   TypographyWeight as Weight,
 } from '@tapie-kr/inspire-react';
+
 import Link from 'next/link';
 
 export default function Footer() {
   return (
     <Flex
+      fullWidth
       tag='footer'
       className={footer}
       justify='between'
-      fullWidth
       gap={spacingVars.large}
     >
       <VStack gap={spacingVars.moderate}>
@@ -31,25 +32,29 @@ export default function Footer() {
           gap={spacingVars.petite}
         >
           <TAPIESymbol
-            size={TAPIESymbolSize._20}
             hasLabel
+            size={TAPIESymbolSize._20}
           />
+
           <Typo.Base
             color={colorVars.content.muted}
             weight={Weight.MEDIUM}
           >
-            서울특별시 용산구 원효로97길 33-4 <br />
+            서울특별시 용산구 원효로97길 33-4
+            {' '}
+            <br />
             선린인터넷고등학교 343실
           </Typo.Base>
         </VStack>
+
         <Typo.Petite color={colorVars.content.muted}>
           ⓒ 2025 TAPIE. All rights reserved.
         </Typo.Petite>
       </VStack>
 
       <HStack
-        className={linkList}
         wrap
+        className={linkList}
         gap={spacingVars.base}
         align='end'
       >
@@ -58,11 +63,13 @@ export default function Footer() {
           icon={BrandIcon.INSTAGRAM}
           label='sunrin_tapie'
         />
+
         <LinkChip
           href='https://github.com/tapie-kr'
           icon={BrandIcon.GITHUB}
           label='tapie-kr'
         />
+
         <LinkChip
           href='https://www.npmjs.com/org/tapie-kr'
           icon={BrandIcon.NPM}
@@ -74,8 +81,8 @@ export default function Footer() {
 }
 
 type LinkChipProps = {
-  href: string;
-  icon: IconName;
+  href:  string;
+  icon:  IconName;
   label: string;
 };
 

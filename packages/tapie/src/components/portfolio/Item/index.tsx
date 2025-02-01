@@ -17,9 +17,7 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-type PortfolioItemProps = {
-  isWinner?: boolean;
-};
+type PortfolioItemProps = { isWinner?: boolean };
 
 export default function PortfolioItem(_props: PortfolioItemProps) {
   return (
@@ -38,11 +36,13 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
             borderRadius={radiusVars.default}
           />
         </AspectRatio>
+
         <VStack
           spacing={spacingVars.mini}
           align={StackAlign.START}
         >
           <Typo.Moderate weight={Weight.MEDIUM}>프로젝트 이름</Typo.Moderate>
+
           <Typo.Base
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
@@ -51,11 +51,13 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           </Typo.Base>
         </VStack>
       </HStack>
+
       <HStack
         className={right}
         spacing={spacingVars.moderate}
       >
         <Typo.Base weight={Weight.MEDIUM}>2025-01-01</Typo.Base>
+
         <Button.Icon
           icon={GlyphIcon.ARROW_FORWARD}
           size={ButtonSize.MEDIUM}

@@ -12,11 +12,15 @@ import {
   Typo,
   TypographyWeight,
 } from '@tapie-kr/inspire-react';
+
 import { AnimatePresence, motion } from 'framer-motion';
+
 import Link from 'next/link';
+
 import Menu from './menu';
 
 import { useToggle } from '~/hooks/use-toggle';
+
 import { getTransition } from '~/lib/animation';
 
 export default function Header() {
@@ -34,10 +38,11 @@ export default function Header() {
       >
         <Link href='/'>
           <TAPIESymbol
-            size={TAPIESymbolSize._24}
             hasLabel
+            size={TAPIESymbolSize._24}
           />
         </Link>
+
         <button
           className={s.menuButtonStyle}
           onClick={handleMenuButtonClick}
@@ -46,6 +51,7 @@ export default function Header() {
             name={GlyphIcon.MENU}
             size={18}
           />
+
           <Typo.Petite weight={TypographyWeight.SEMIBOLD}>메뉴</Typo.Petite>
         </button>
       </HStack>
@@ -55,9 +61,7 @@ export default function Header() {
   );
 }
 
-type HeaderMenuProps = {
-  hide: () => unknown;
-};
+type HeaderMenuProps = { hide: () => unknown };
 
 function HeaderMenu(props: HeaderMenuProps) {
   const handleMenuClick = props.hide;
@@ -71,6 +75,7 @@ function HeaderMenu(props: HeaderMenuProps) {
         exit={{ opacity: 0 }}
         onClick={handleMenuClick}
       />
+
       <div className={s.frame}>
         <motion.div
           data-theme='dark'

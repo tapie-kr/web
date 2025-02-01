@@ -1,18 +1,20 @@
 'use client';
 
 import { Chip, HStack, spacingVars } from '@tapie-kr/inspire-react';
+
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
+
 import { useState } from 'react';
 
 const options = {
-  all: '전체',
-  web: '웹',
-  app: '앱',
-  design: '디자인',
+  all:       '전체',
+  web:       '웹',
+  app:       '앱',
+  design:    '디자인',
   hackathon: '해커톤',
-  winner: '수상작',
-  entry: '출품작',
-  others: '기타',
+  winner:    '수상작',
+  entry:     '출품작',
+  others:    '기타',
 };
 
 export default function PortfolioProjectsSectionFilter() {
@@ -35,9 +37,9 @@ export default function PortfolioProjectsSectionFilter() {
 }
 
 type FilterOptionProps = {
-  label: string;
+  label:     string;
   isActive?: boolean;
-  onClick?: () => void;
+  onClick?:  () => void;
 };
 
 function FilterOption(props: FilterOptionProps) {

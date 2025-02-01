@@ -9,8 +9,11 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+
 import Filter from './filter';
+
 import List from './list';
 
 export default function PortfolioProjectsSection() {
@@ -26,14 +29,16 @@ export default function PortfolioProjectsSection() {
       >
         <Typo.Moderate weight={Weight.SEMIBOLD}>작품</Typo.Moderate>
         <Filter />
+
         <VStack
           fullWidth
           spacing={spacingVars.medium}
         >
           <List />
+
           <Button.Default
-            className={loadMoreButton}
             fullWidth
+            className={loadMoreButton}
             leadingIcon={GlyphIcon.REFRESH}
           >
             더 불러오기

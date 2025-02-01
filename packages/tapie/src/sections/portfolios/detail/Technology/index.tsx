@@ -11,6 +11,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailTechnologySection() {
@@ -33,9 +34,7 @@ export default function PortfoliosDetailTechnologySection() {
   );
 }
 
-type ListProps = {
-  title: string;
-};
+type ListProps = { title: string };
 
 function List(props: ListProps) {
   return (
@@ -44,6 +43,7 @@ function List(props: ListProps) {
       align={StackAlign.START}
     >
       <Typo.Moderate weight={Weight.SEMIBOLD}>{props.title}</Typo.Moderate>
+
       <Grid
         rowGap={spacingVars.base}
         columnGap={spacingVars.moderate}
@@ -58,6 +58,7 @@ function List(props: ListProps) {
               name={GlyphIcon.DEFAULT}
               size={28}
             />
+
             <Typo.Base weight={Weight.MEDIUM}>기술 이름</Typo.Base>
           </HStack>
         ))}

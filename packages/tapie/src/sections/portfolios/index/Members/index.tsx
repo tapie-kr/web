@@ -10,7 +10,9 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+
 import List from './list';
 
 export default function PortfoliosMembersSection() {
@@ -25,6 +27,7 @@ export default function PortfoliosMembersSection() {
       >
         <HStack spacing={spacingVars.petite}>
           <SectionLabel isEmphasized>TAPIE 부원</SectionLabel>
+
           <Typo.Petite
             tag={Tag.SPAN}
             weight={Weight.MEDIUM}
@@ -33,6 +36,7 @@ export default function PortfoliosMembersSection() {
             사진을 눌러 부원들의 프로필을 확인해보세요
           </Typo.Petite>
         </HStack>
+
         <List />
       </VStack>
     </ContentSection>

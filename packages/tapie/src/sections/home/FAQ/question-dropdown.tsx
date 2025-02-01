@@ -5,28 +5,37 @@ import * as s from './styles.css';
 import { HStack, VStack } from '@cottons-kr/react-foundation';
 
 import { colorVars, GlyphIcon, Icon, spacingVars, Typo, Weight } from '@tapie-kr/inspire-react';
+
 import Animate from '@tapie-kr/web-shared/components/Animate';
+
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle';
+
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
+
 import { motion } from 'framer-motion';
+
 import { useEffect, useRef, useState } from 'react';
 
 type HomeFAQSectionQuestionDropdownProps = {
-  order: number;
-  question: string;
+  order:     number;
+  question:  string;
   children?: Children;
 };
 
 export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQuestionDropdownProps) {
   const [isOpened, toggleOpened] = useToggle();
+
   const titleRef = useRef<HTMLDivElement>(null);
+
   const [titleHeight, setTitleHeight] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
       setTitleHeight(titleRef.current?.clientHeight ?? 0);
     };
+
     window.addEventListener('resize', handleResize);
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -36,9 +45,9 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
 
   return (
     <Animate
+      fullWidth
       order={props.order}
       className={s.maxWidth}
-      fullWidth
       onClick={() => toggleOpened()}
     >
       <div className={s.dropdown}>
@@ -60,6 +69,7 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
                 >
                   {props.question}
                 </Typo.Moderate>
+
                 <motion.div
                   animate={{ rotate: isOpened ? 180 : 0 }}
                   transition={getTransition()}
@@ -70,11 +80,11 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
             </div>
 
             <motion.div
+              transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
               animate={{
                 opacity: isOpened ? 1 : 0,
-                y: isOpened ? 0 : -20,
+                y:       isOpened ? 0 : -20,
               }}
-              transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
             >
               {props.children}
             </motion.div>

@@ -20,6 +20,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailHeroSection() {
@@ -29,16 +30,17 @@ export default function PortfoliosDetailHeroSection() {
       verticalPadding={spacingVars.medium}
     >
       <Stack
+        fullWidth
         spacing={spacingVars.base}
         align={StackAlign.START}
-        fullWidth
       >
         <PortfolioCarousel />
+
         <VStack
+          fullHeight
           className={introContainer}
           align={StackAlign.START}
           justify={StackJustify.BETWEEN}
-          fullHeight
         >
           <VStack
             spacing={spacingVars.moderate}
@@ -53,6 +55,7 @@ export default function PortfoliosDetailHeroSection() {
                 align={StackAlign.START}
               >
                 <Typo.Large weight={Weight.BOLD}>Plock</Typo.Large>
+
                 <Typo.Moderate
                   weight={Weight.SEMIBOLD}
                   color={colorVars.content.default}
@@ -60,17 +63,20 @@ export default function PortfoliosDetailHeroSection() {
                   함께하는 사이드프로젝트를 위하여
                 </Typo.Moderate>
               </VStack>
+
               <HStack spacing={spacingVars.tiny}>
                 <Badge.Default
                   theme={BadgeTheme.RED}
                   leadingIcon={GlyphIcon.TROPHY}
                   label='수상작'
                 />
+
                 <Badge.Default label='앱' />
                 <Badge.Default label='출품작' />
                 <Badge.Default label='해커톤' />
               </HStack>
             </VStack>
+
             <Typo.Base
               weight={Weight.MEDIUM}
               color={colorVars.content.default}
@@ -83,25 +89,28 @@ export default function PortfoliosDetailHeroSection() {
               구축했습니다.
             </Typo.Base>
           </VStack>
+
           <VStack
+            fullWidth
             spacing={spacingVars.petite}
             align={StackAlign.START}
-            fullWidth
           >
             <HStack spacing={spacingVars.tiny}>
               <Icon name={BrandIcon.GITHUB} />
               <Typo.Petite weight={Weight.SEMIBOLD}>https://github.com/jijiwon</Typo.Petite>
             </HStack>
+
             <HStack
               fullWidth
               spacing={spacingVars.micro}
             >
               <Button.Default
-                leadingIcon={GlyphIcon.LINK}
                 fullWidth
+                leadingIcon={GlyphIcon.LINK}
               >
                 프로젝트 바로가기
               </Button.Default>
+
               <Button.Icon
                 variant={ButtonVariant.SECONDARY}
                 icon={GlyphIcon.SHARE}

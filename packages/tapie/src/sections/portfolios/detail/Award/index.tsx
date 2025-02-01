@@ -11,6 +11,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailAwardSection() {
@@ -25,12 +26,14 @@ export default function PortfoliosDetailAwardSection() {
       >
         <HStack spacing={spacingVars.petite}>
           <Typo.Medium weight={Weight.SEMIBOLD}>2025 무슨무슨대회</Typo.Medium>
+
           <Badge.Default
             theme={BadgeTheme.RED}
             leadingIcon={GlyphIcon.TROPHY}
             label='최우수상'
           />
         </HStack>
+
         <HStack
           className={description}
           spacing={spacingVars.tiny}

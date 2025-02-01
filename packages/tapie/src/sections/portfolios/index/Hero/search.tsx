@@ -7,14 +7,15 @@ import { Button, GlyphIcon, HStack, Input, spacingVars } from '@tapie-kr/inspire
 export default function PortfoliosHeroSectionSearch() {
   return (
     <HStack
-      className={s.search}
       fullWidth
+      className={s.search}
       spacing={spacingVars.micro}
     >
       <Input.Text
         leadingIcon={GlyphIcon.SEARCH}
         placeholder='작품/수상내역/부원 검색'
       />
+
       <Button.Icon icon={GlyphIcon.ARROW_FORWARD} />
     </HStack>
   );

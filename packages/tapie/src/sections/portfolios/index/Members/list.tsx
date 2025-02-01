@@ -3,6 +3,7 @@
 import * as s from './styles.css';
 
 import { HStack, spacingVars, Tag, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
 export default function PortfoliosMembersSectionList() {
@@ -28,6 +29,7 @@ function Member() {
   return (
     <VStack spacing={spacingVars.micro}>
       <div className={s.profileImage} />
+
       <Typo.Base
         tag={Tag.SPAN}
         weight={Weight.MEDIUM}

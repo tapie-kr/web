@@ -13,7 +13,9 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
 export default function PortfoliosDetailSeeMoreSection() {
@@ -27,6 +29,7 @@ export default function PortfoliosDetailSeeMoreSection() {
         align={StackAlign.START}
       >
         <Typo.Moderate weight={Weight.MEDIUM}>더 많은 작품</Typo.Moderate>
+
         <Scroll direction='row'>
           <HStack
             fullWidth
@@ -53,11 +56,11 @@ function Card() {
       ratio={16 / 9}
     >
       <VStack
+        fullWidth
+        fullHeight
         className={overlay}
         align={StackAlign.START}
         justify={StackJustify.END}
-        fullWidth
-        fullHeight
       >
         <Typo.Moderate
           weight={Weight.SEMIBOLD}
@@ -65,6 +68,7 @@ function Card() {
         >
           Plock
         </Typo.Moderate>
+
         <Typo.Petite
           weight={Weight.MEDIUM}
           color={colorVars.solid.translucent.white._60}
@@ -72,6 +76,7 @@ function Card() {
           함께하는 사이드프로젝트를 위하여
         </Typo.Petite>
       </VStack>
+
       <Skeleton
         fullWidth
         fullHeight

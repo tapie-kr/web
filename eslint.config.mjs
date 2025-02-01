@@ -1,3 +1,3 @@
-import eslintConfig from '@tapie-kr/code-guideline/eslint';
+import config from '@tapie-kr/code-guideline-react';
 
-export default eslintConfig;
+export default config;

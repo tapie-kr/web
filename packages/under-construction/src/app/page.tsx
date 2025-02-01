@@ -3,9 +3,13 @@ import { copyrightStyle } from '@/styles/page.css';
 import { HStack, VStack } from '@cottons-kr/react-foundation';
 
 import { TAPIESymbol, TAPIESymbolSize, Typo, TypographyWeight } from '@tapie-kr/inspire-react';
+
 import { ComponentVariable } from '@tapie-kr/inspire-react/variables';
+
 import Link from 'next/link';
+
 import Github from '@/assets/github-mark.svg';
+
 import Npm from '@/assets/npm-symbol.svg';
 
 export default function Page() {
@@ -23,13 +27,16 @@ export default function Page() {
             gap={ComponentVariable.Spacing.Petite}
           >
             <TAPIESymbol
-              size={TAPIESymbolSize._32}
               withLabel
+              size={TAPIESymbolSize._32}
             />
+
             <Typo.Jumbo weight={TypographyWeight.Semibold}>Under Construction</Typo.Jumbo>
           </VStack>
+
           <Typo.Base>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Base>
         </VStack>
+
         <HStack
           align='center'
           gap={ComponentVariable.Spacing.Moderate}
@@ -44,6 +51,7 @@ export default function Page() {
               height={ICON_SIZE}
             />
           </Link>
+
           <Link
             href='https://www.npmjs.com/org/tapie-kr'
             target='_blank'

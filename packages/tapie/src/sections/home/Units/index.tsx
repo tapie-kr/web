@@ -5,17 +5,29 @@ import * as s from './styles.css';
 import { Flex, VStack } from '@cottons-kr/react-foundation';
 
 import { Size, spacingVars, Tag, TAPIESymbol, Typo, Weight } from '@tapie-kr/inspire-react';
+
 import Animate from '@tapie-kr/web-shared/components/Animate';
+
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
+
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
+
 import Artist from './assets/artist.svg';
+
 import BeachWithUmbrella from './assets/beach_with_umbrella.svg';
+
 import Figma from './assets/figma.svg';
+
 import Git from './assets/git.svg';
+
 import Html5 from './assets/html5.svg';
+
 import MobilePhone from './assets/mobile_phone.svg';
+
 import Notepad from './assets/notepad.svg';
+
 import React from './assets/react.svg';
+
 import List from './list';
 
 export default function HomeUnitsSection() {
@@ -27,12 +39,12 @@ export default function HomeUnitsSection() {
         gap={spacingVars.jumbo}
       >
         <AnimateProvider
+          hideOverflow
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
           initialDelay={0.1}
           delayGap={0.1}
           duration={0.65}
-          hideOverflow
         >
           <VStack
             className={s.title}
@@ -41,10 +53,11 @@ export default function HomeUnitsSection() {
           >
             <Animate order={0}>
               <TAPIESymbol
-                size={Size._24}
                 hasLabel
+                size={Size._24}
               />
             </Animate>
+
             <Animate order={1}>
               <Typo.Jumbo
                 tag={Tag.H2}
@@ -57,25 +70,33 @@ export default function HomeUnitsSection() {
         </AnimateProvider>
 
         <Flex
-          className={s.content}
           fullWidth
+          className={s.content}
           justify='between'
         >
           <AnimateProvider
-            initial={{ y: 20, opacity: 0, scale: 0.98 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
             initialDelay={0.4}
             delayGap={0.06}
             duration={0.8}
+            initial={{
+              y:       20,
+              opacity: 0,
+              scale:   0.98,
+            }}
+            animate={{
+              y:       0,
+              opacity: 1,
+              scale:   1,
+            }}
           >
             <List
               order={0}
               title='개발자'
               features={[
                 {
-                  title: 'HTML CSS JS 기초',
+                  title:       'HTML CSS JS 기초',
                   description: 'React를 본격적으로 시작하기 전에 HTML CSS JS 기초를 배워요.',
-                  icon: Html5,
+                  icon:        Html5,
                 },
                 {
                   title: 'React 생태계',
@@ -98,36 +119,45 @@ export default function HomeUnitsSection() {
               ]}
             />
           </AnimateProvider>
+
           <AnimateProvider
-            initial={{ y: 20, opacity: 0, scale: 0.98 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
             initialDelay={0.7}
             delayGap={0.06}
             duration={0.8}
+            initial={{
+              y:       20,
+              opacity: 0,
+              scale:   0.98,
+            }}
+            animate={{
+              y:       0,
+              opacity: 1,
+              scale:   1,
+            }}
           >
             <List
               order={1}
               title='디자이너'
               features={[
                 {
-                  title: '피그마 기초',
+                  title:       '피그마 기초',
                   description: 'UI·UX 제작 전 툴에 대한 이해도를 높여나가요.',
-                  icon: Figma,
+                  icon:        Figma,
                 },
                 {
-                  title: 'UI·UX 기초',
+                  title:       'UI·UX 기초',
                   description: '앱 UI·UX 제작을 통해 UI에 대한 이해도를 높여나가요.',
-                  icon: MobilePhone,
+                  icon:        MobilePhone,
                 },
                 {
-                  title: '방학 프로젝트',
+                  title:       '방학 프로젝트',
                   description: '여름방학 시즌에 개발자와 함께 프로젝트를 진행해요.',
-                  icon: BeachWithUmbrella,
+                  icon:        BeachWithUmbrella,
                 },
                 {
-                  title: 'UI·UX 심화',
+                  title:       'UI·UX 심화',
                   description: '디자인 시스템 등을 이용하여 UI·UX를 더욱 심화적으로 탐구해요.',
-                  icon: Artist,
+                  icon:        Artist,
                 },
               ]}
             />

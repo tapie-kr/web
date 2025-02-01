@@ -2,8 +2,6 @@
 
 import { createContext } from 'react';
 
-type ViewportDetectorContextType = {
-  isInView: boolean;
-};
+type ViewportDetectorContextType = { isInView: boolean };
 
 export const ViewportDetectorContext = createContext({} as ViewportDetectorContextType);
