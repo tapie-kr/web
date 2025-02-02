@@ -5,15 +5,19 @@ import { type ReactNode } from 'react';
 import Thumbnail from '@/../public/thumbnails/artnect.webp';
 
 type PortfolioGradientCardProps = {
+  height?:   string | number;
   padding?:  string | number;
   children?: ReactNode;
 };
 
 export default function PortfolioGradientCard(props: PortfolioGradientCardProps) {
+  const { height = 250, padding = '1rem', children } = props;
+
   return (
     <HStack
       fullWidth
       className={s.card}
+      style={{ height }}
     >
       <img
         className={s.thumbnail}
@@ -24,9 +28,9 @@ export default function PortfolioGradientCard(props: PortfolioGradientCardProps)
       <HStack
         className={s.content}
         align={StackAlign.END}
-        style={{ padding: props.padding }}
+        style={{ padding }}
       >
-        {props.children}
+        {children}
       </HStack>
     </HStack>
   );

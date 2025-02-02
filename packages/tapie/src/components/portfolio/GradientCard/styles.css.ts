@@ -3,7 +3,6 @@ import { style } from '@vanilla-extract/css';
 
 export const card = style({
   position:     'relative',
-  height:       250,
   overflow:     'hidden',
   borderRadius: radiusVars.smooth,
 });

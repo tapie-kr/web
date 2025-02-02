@@ -8,6 +8,7 @@ type ContentSectionProps = {
   verticalPadding?:   string | number;
   horizontalPadding?: string | number;
   maxWidth?:          string | number;
+  className?:         string;
   children?:          ReactNode;
 };
 
@@ -16,12 +17,14 @@ export default function ContentSection(props: ContentSectionProps) {
     verticalPadding = spacingVars.none,
     horizontalPadding = spacingVars.base,
     maxWidth = '100%',
+    className,
     children,
   } = props;
 
   return (
     <VStack
       fullWidth
+      className={className}
       tag='section'
       align='center'
       style={{ padding: `${verticalPadding} ${horizontalPadding}` }}

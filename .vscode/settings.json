@@ -9,7 +9,7 @@
     "**/node_modules": false
   },
   "cSpell.words": ["circlehollow", "multilines"],
-  "eslint.workingDirectories": ["./packages/react"],
+  "eslint.workingDirectories": ["./packages/tapie"],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "[typescriptreact]": {

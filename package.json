@@ -12,8 +12,8 @@
     "lint:dry": "eslint . --fix-dry-run --ignore-pattern 'packages/under-construction/'"
   },
   "devDependencies": {
-    "@tapie-kr/code-guideline-base": "^0.1.7",
-    "@tapie-kr/code-guideline-react": "^0.0.5",
+    "@tapie-kr/code-guideline-base": "^0.1.8",
+    "@tapie-kr/code-guideline-react": "^0.0.6",
     "eslint": "^9.19.0",
     "prettier": "^3.4.2"
   },
