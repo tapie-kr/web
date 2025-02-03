@@ -1,3 +1,5 @@
+'use client';
+
 import { right, thumbnail } from './styles.css';
 
 import {
@@ -13,6 +15,8 @@ import {
   StackAlign,
   StackJustify,
   Typo,
+  TypographyVariant,
+  useMediaQuery,
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
@@ -20,12 +24,14 @@ import {
 type PortfolioItemProps = { isWinner?: boolean };
 
 export default function PortfolioItem(_props: PortfolioItemProps) {
+  const isMobile = useMediaQuery();
+
   return (
     <HStack
       fullWidth
       justify={StackJustify.BETWEEN}
     >
-      <HStack spacing={spacingVars.moderate}>
+      <HStack spacing={isMobile ? spacingVars.moderate : spacingVars.base}>
         <AspectRatio
           className={thumbnail}
           ratio={16 / 9}
@@ -38,17 +44,22 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
         </AspectRatio>
 
         <VStack
-          spacing={spacingVars.mini}
+          spacing={isMobile ? spacingVars.none : spacingVars.mini}
           align={StackAlign.START}
         >
-          <Typo.Moderate weight={Weight.MEDIUM}>프로젝트 이름</Typo.Moderate>
+          <Typo
+            variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
+            weight={Weight.MEDIUM}
+          >프로젝트 이름
+          </Typo>
 
-          <Typo.Base
+          <Typo
+            variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
           >
             프로젝트 설명
-          </Typo.Base>
+          </Typo>
         </VStack>
       </HStack>
 

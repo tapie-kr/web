@@ -14,6 +14,7 @@ export const headerStyle = style({
   left:       0,
   background: colorVars.surface.default,
   zIndex:     100,
+  ...getMobileMediaQuery({ padding: spacingVars.moderate }),
 });
 
 export const menuButtonStyle = style({

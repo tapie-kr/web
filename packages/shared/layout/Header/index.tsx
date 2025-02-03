@@ -11,6 +11,7 @@ import {
   TAPIESymbolSize,
   Typo,
   TypographyWeight,
+  useMediaQuery,
 } from '@tapie-kr/inspire-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -21,6 +22,8 @@ import { getTransition } from '~/lib/animation';
 
 export default function Header() {
   const [showMenu, toggleMenu] = useToggle();
+
+  const isMobile = useMediaQuery();
 
   const handleMenuButtonClick = toggleMenu;
 
@@ -34,8 +37,8 @@ export default function Header() {
       >
         <Link href='/'>
           <TAPIESymbol
-            hasLabel
-            size={TAPIESymbolSize._24}
+            hasLabel={!isMobile}
+            size={isMobile ? TAPIESymbolSize._32 : TAPIESymbolSize._24}
           />
         </Link>
 
