@@ -56,7 +56,10 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
         className={right}
         spacing={spacingVars.moderate}
       >
-        <Typo.Base weight={Weight.MEDIUM}>2025-01-01</Typo.Base>
+        <Typo.Base
+          weight={Weight.MEDIUM}
+        >2025-01-01
+        </Typo.Base>
 
         <Button.Icon
           icon={GlyphIcon.ARROW_FORWARD}

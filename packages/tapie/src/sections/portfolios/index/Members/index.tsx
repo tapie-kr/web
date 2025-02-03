@@ -20,6 +20,7 @@ export default function PortfoliosMembersSection() {
       verticalPadding={spacingVars.moderate}
     >
       <VStack
+        fullWidth
         spacing={spacingVars.base}
         align={StackAlign.START}
       >

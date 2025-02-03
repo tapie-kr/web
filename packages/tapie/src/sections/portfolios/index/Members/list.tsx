@@ -2,13 +2,17 @@
 
 import * as s from './styles.css';
 
-import { HStack, spacingVars, Tag, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import { HStack, spacingVars, StackJustify, Tag, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
 export default function PortfoliosMembersSectionList() {
   return (
     <Scroll direction='row'>
-      <HStack spacing={spacingVars.moderate}>
+      <HStack
+        fullWidth
+        spacing={spacingVars.moderate}
+        justify={StackJustify.START}
+      >
         <Member />
         <Member />
         <Member />
