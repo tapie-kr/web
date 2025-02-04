@@ -1,6 +1,9 @@
-import { member } from './styles.css';
+import { content, member } from './styles.css';
 
-import { AspectRatio, HStack, radiusVars, Skeleton, spacingVars, StackJustify, Typo, VStack } from '@tapie-kr/inspire-react';
+import { AspectRatio, HStack, radiusVars, Skeleton, spacingVars, StackAlign, StackJustify, Typo, VStack } from '@tapie-kr/inspire-react';
+import HeroActions from '../../components/actions';
+import HeroDescription from '../../components/description';
+import HeroTitle from '../../components/title';
 import Carousel from './carousel';
 
 export default function InstagramHero() {
@@ -8,6 +11,17 @@ export default function InstagramHero() {
     <VStack fullWidth>
       <Member />
       <Carousel />
+
+      <VStack
+        fullWidth
+        className={content}
+        spacing={spacingVars.medium}
+        align={StackAlign.START}
+      >
+        <HeroTitle />
+        <HeroActions />
+        <HeroDescription />
+      </VStack>
     </VStack>
   );
 }
