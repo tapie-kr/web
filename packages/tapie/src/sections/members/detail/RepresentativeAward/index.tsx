@@ -19,7 +19,6 @@ export default function MembersDetailRepresentativeAwardSection() {
         >
           대표 수상 내역
         </Typo.Petite>
-
         <AwardCard />
       </VStack>
     </ContentSection>

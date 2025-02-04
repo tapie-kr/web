@@ -49,7 +49,6 @@ function Member() {
           borderRadius={radiusVars.full}
         />
       </AspectRatio>
-
       <VStack
         spacing={spacingVars.mini}
         align={StackAlign.START}
@@ -57,7 +56,6 @@ function Member() {
         <HStack spacing={spacingVars.mini}>
           <HStack spacing={spacingVars.micro}>
             <Typo.Moderate weight={Weight.SEMIBOLD}>이름</Typo.Moderate>
-
             <Typo.Base
               weight={Weight.SEMIBOLD}
               color={colorVars.content.default}
@@ -65,14 +63,12 @@ function Member() {
               역할
             </Typo.Base>
           </HStack>
-
           <Icon
             name={GlyphIcon.ARROW_FORWARD}
             size={16}
             color={colorVars.content.default}
           />
         </HStack>
-
         <Typo.Petite
           weight={Weight.MEDIUM}
           color={colorVars.content.default}

@@ -31,7 +31,6 @@ export default function DefaultHero() {
         align={StackAlign.START}
       >
         <PortfolioCarousel />
-
         <VStack
           fullHeight
           className={introContainer}
@@ -45,7 +44,6 @@ export default function DefaultHero() {
             <HeroTitle />
             <HeroDescription />
           </VStack>
-
           <VStack
             fullWidth
             spacing={spacingVars.petite}
@@ -55,7 +53,6 @@ export default function DefaultHero() {
               <Icon name={BrandIcon.GITHUB} />
               <Typo.Petite weight={Weight.SEMIBOLD}>https://github.com/jijiwon</Typo.Petite>
             </HStack>
-
             <HeroActions />
           </VStack>
         </VStack>

@@ -27,7 +27,6 @@ export default function PortfoliosDetailSeeMoreSection() {
         align={StackAlign.START}
       >
         <Typo.Moderate weight={Weight.MEDIUM}>더 많은 작품</Typo.Moderate>
-
         <Scroll direction='row'>
           <HStack
             fullWidth
@@ -66,7 +65,6 @@ function Card() {
         >
           Plock
         </Typo.Moderate>
-
         <Typo.Petite
           weight={Weight.MEDIUM}
           color={colorVars.solid.translucent.white._60}
@@ -74,7 +72,6 @@ function Card() {
           함께하는 사이드프로젝트를 위하여
         </Typo.Petite>
       </VStack>
-
       <Skeleton
         fullWidth
         fullHeight

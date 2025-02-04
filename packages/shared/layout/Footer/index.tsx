@@ -34,7 +34,6 @@ export default function Footer() {
             hasLabel
             size={TAPIESymbolSize._20}
           />
-
           <Typo.Base
             color={colorVars.content.muted}
             weight={Weight.MEDIUM}
@@ -45,12 +44,10 @@ export default function Footer() {
             선린인터넷고등학교 343실
           </Typo.Base>
         </VStack>
-
         <Typo.Petite color={colorVars.content.muted}>
           ⓒ 2025 TAPIE. All rights reserved.
         </Typo.Petite>
       </VStack>
-
       <HStack
         wrap
         className={linkList}
@@ -62,13 +59,11 @@ export default function Footer() {
           icon={BrandIcon.INSTAGRAM}
           label='sunrin_tapie'
         />
-
         <LinkChip
           href='https://github.com/tapie-kr'
           icon={BrandIcon.GITHUB}
           label='tapie-kr'
         />
-
         <LinkChip
           href='https://www.npmjs.com/org/tapie-kr'
           icon={BrandIcon.NPM}

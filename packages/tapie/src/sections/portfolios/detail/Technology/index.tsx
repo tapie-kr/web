@@ -42,7 +42,6 @@ function List(props: ListProps) {
       align={StackAlign.START}
     >
       <Typo.Moderate weight={Weight.SEMIBOLD}>{props.title}</Typo.Moderate>
-
       <Grid
         rowGap={spacingVars.base}
         columnGap={spacingVars.moderate}
@@ -57,7 +56,6 @@ function List(props: ListProps) {
               name={GlyphIcon.DEFAULT}
               size={28}
             />
-
             <Typo.Base weight={Weight.MEDIUM}>기술 이름</Typo.Base>
           </HStack>
         ))}

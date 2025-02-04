@@ -26,13 +26,10 @@ export default function Page() {
               withLabel
               size={TAPIESymbolSize._32}
             />
-
             <Typo.Jumbo weight={TypographyWeight.Semibold}>Under Construction</Typo.Jumbo>
           </VStack>
-
           <Typo.Base>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Base>
         </VStack>
-
         <HStack
           align='center'
           gap={ComponentVariable.Spacing.Moderate}
@@ -47,7 +44,6 @@ export default function Page() {
               height={ICON_SIZE}
             />
           </Link>
-
           <Link
             href='https://www.npmjs.com/org/tapie-kr'
             target='_blank'
@@ -60,7 +56,6 @@ export default function Page() {
           </Link>
         </HStack>
       </VStack>
-
       <Typo.Micro className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Micro>
     </>
   );

@@ -20,7 +20,6 @@ export default function HeroTitle() {
         >
           Plock
         </Typo>
-
         <Typo
           variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
           weight={isMobile ? Weight.MEDIUM : Weight.SEMIBOLD}
@@ -29,14 +28,12 @@ export default function HeroTitle() {
           함께하는 사이드프로젝트를 위하여
         </Typo>
       </VStack>
-
       <HStack spacing={spacingVars.tiny}>
         <Badge.Default
           theme={BadgeTheme.RED}
           leadingIcon={GlyphIcon.TROPHY}
           label='수상작'
         />
-
         <Badge.Default label='앱' />
         <Badge.Default label='출품작' />
         <Badge.Default label='해커톤' />

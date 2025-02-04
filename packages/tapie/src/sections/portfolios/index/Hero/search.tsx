@@ -18,7 +18,6 @@ export default function PortfoliosHeroSectionSearch() {
         leadingIcon={GlyphIcon.SEARCH}
         placeholder='작품/수상내역/부원 검색'
       />
-
       <Button.Icon
         icon={GlyphIcon.ARROW_FORWARD}
         size={isMobile ? ButtonSize.MEDIUM : ButtonSize.LARGE}

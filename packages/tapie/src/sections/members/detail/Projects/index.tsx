@@ -20,7 +20,6 @@ export default function MembersDetailProjectsSection() {
         >
           참여 작품
         </Typo.Petite>
-
         <Grid
           fullWidth
           columnCount={2}
@@ -56,13 +55,11 @@ function Project() {
             borderRadius={radiusVars.default}
           />
         </AspectRatio>
-
         <VStack
           spacing={spacingVars.optical}
           align={StackAlign.START}
         >
           <Typo.Base weight={Weight.SEMIBOLD}>프로젝트 이름</Typo.Base>
-
           <Typo.Petite
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
@@ -70,7 +67,6 @@ function Project() {
           </Typo.Petite>
         </VStack>
       </HStack>
-
       <Button.Icon
         icon={GlyphIcon.ARROW_FORWARD}
         size={ButtonSize.SMALL}

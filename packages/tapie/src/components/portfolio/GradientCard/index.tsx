@@ -26,7 +26,6 @@ export default function PortfolioGradientCard(props: PortfolioGradientCardProps)
         src={Thumbnail.src}
         alt='ArtNect'
       />
-
       <HStack
         className={s.content}
         align={StackAlign.END}

@@ -45,7 +45,6 @@ export default function HomeUnitsSection() {
                 size={Size._24}
               />
             </Animate>
-
             <Animate order={1}>
               <Typo.Jumbo
                 tag={Tag.H2}
@@ -56,7 +55,6 @@ export default function HomeUnitsSection() {
             </Animate>
           </VStack>
         </AnimateProvider>
-
         <Flex
           fullWidth
           className={s.content}
@@ -107,7 +105,6 @@ export default function HomeUnitsSection() {
               ]}
             />
           </AnimateProvider>
-
           <AnimateProvider
             initialDelay={0.7}
             delayGap={0.06}

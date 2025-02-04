@@ -22,7 +22,6 @@ export default function PortfoliosDetailDownloadSection() {
       <HStack spacing={spacingVars.medium}>
         <HStack spacing={spacingVars.micro}>
           <Button.Default leadingIcon={GlyphIcon.DOWNLOAD}>발표자료 다운로드</Button.Default>
-
           <Button.Default
             variant={ButtonVariant.SECONDARY}
             leadingIcon={GlyphIcon.CODE}
@@ -30,13 +29,11 @@ export default function PortfoliosDetailDownloadSection() {
             소스코드 다운로드
           </Button.Default>
         </HStack>
-
         <HStack spacing={spacingVars.moderate}>
           <Stat
             icon={GlyphIcon.VISIBILITY}
             value={831}
           />
-
           <Stat
             icon={GlyphIcon.DOWNLOAD}
             value={182}
@@ -62,7 +59,6 @@ function Stat(props: StatProps) {
         name={props.icon}
         size={20}
       />
-
       <Typo.Petite weight={Weight.MEDIUM}>{props.value}</Typo.Petite>
     </HStack>
   );

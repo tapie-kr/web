@@ -27,7 +27,6 @@ export default function MembersDetailPage() {
           borderRadius={radiusVars.full}
         />
       </AspectRatio>
-
       <VStack
         fullWidth
         className={content}

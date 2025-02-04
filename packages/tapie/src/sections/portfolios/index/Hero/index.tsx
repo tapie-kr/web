@@ -36,7 +36,6 @@ export default function PortfoliosHeroSection() {
             weight={Weight.BOLD}
           >포트폴리오
           </Typo>
-
           <Typo
             variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.MEDIUM}
             tag={Tag.P}
@@ -46,7 +45,6 @@ export default function PortfoliosHeroSection() {
             TAPIE의 부원들이 이루어낸 성과들을 관람해보세요
           </Typo>
         </VStack>
-
         <Search />
       </VStack>
     </ContentSection>

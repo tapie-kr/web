@@ -17,7 +17,6 @@ export default function MembersDetailSkillsSection() {
         >
           기술 스택
         </Typo.Petite>
-
         <HStack
           fullWidth
           spacing={spacingVars.moderate}
@@ -46,7 +45,6 @@ function Skill(props: SkillProps) {
     <HStack spacing={spacingVars.tiny}>
       <Icon name={GlyphIcon.DEFAULT} />
       <Typo.Base weight={Weight.MEDIUM}>기술 이름</Typo.Base>
-
       {props.type === SkillType.VERIFIED && (
         <Badge.Default
           theme={BadgeTheme.BLUE}
@@ -54,7 +52,6 @@ function Skill(props: SkillProps) {
           label='인증'
         />
       )}
-
       {props.type === SkillType.LEARNING && (
         <Badge.Default
           theme={BadgeTheme.GREEN}

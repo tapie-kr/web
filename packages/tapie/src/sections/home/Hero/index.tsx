@@ -30,14 +30,12 @@ export default function HomeHeroSection() {
                 <HeroText>세상의 간극을</HeroText>
               </Animate>
             </div>
-
             <Animate order={1}>
               <HStack
                 fitContent
                 align='center'
               >
                 <HeroText>이</HeroText>
-
                 <Flex
                   className={s.tapeContainer}
                   align='center'
@@ -49,12 +47,10 @@ export default function HomeHeroSection() {
                     alt=''
                   />
                 </Flex>
-
                 <HeroText>어 붙이는</HeroText>
               </HStack>
             </Animate>
           </HStack>
-
           <Typo.Giant
             aria-hidden
             className={s.lowerText}
@@ -68,11 +64,9 @@ export default function HomeHeroSection() {
             >
               TAPIE{' '}
             </Animate>
-
             <Animate order={3}>우리의 이야기들</Animate>
           </Typo.Giant>
         </VStack>
-
         <Image
           className={s.tapieImage}
           src={TapieGroup}

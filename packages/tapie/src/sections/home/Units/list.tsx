@@ -48,7 +48,6 @@ export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
           {props.title}
         </Typo.Large>
       </motion.div>
-
       <VStack
         fullWidth
         gap={spacingVars.petite}
@@ -87,10 +86,8 @@ function FeatureCard(props: FeatureCardProps) {
           >
             {props.title}
           </Typo.Medium>
-
           <Typo.Base color={colorVars.content.default}>{props.description}</Typo.Base>
         </VStack>
-
         <props.icon className={s.featureCardIcon} />
       </Flex>
     </Animate>

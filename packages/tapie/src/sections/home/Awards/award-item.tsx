@@ -47,7 +47,6 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
       transition={transition}
     >
       <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
-
       <Typo.Petite
         color={colorVars.content.muted}
         weight={Weight.SEMIBOLD}

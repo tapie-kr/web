@@ -42,7 +42,6 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
             borderRadius={radiusVars.default}
           />
         </AspectRatio>
-
         <VStack
           spacing={isMobile ? spacingVars.none : spacingVars.mini}
           align={StackAlign.START}
@@ -52,7 +51,6 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
             weight={Weight.MEDIUM}
           >프로젝트 이름
           </Typo>
-
           <Typo
             variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
             weight={Weight.MEDIUM}
@@ -62,7 +60,6 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           </Typo>
         </VStack>
       </HStack>
-
       <HStack
         className={right}
         spacing={spacingVars.moderate}
@@ -71,7 +68,6 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           weight={Weight.MEDIUM}
         >2025-01-01
         </Typo.Base>
-
         <Button.Icon
           icon={GlyphIcon.ARROW_FORWARD}
           size={ButtonSize.MEDIUM}

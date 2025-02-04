@@ -39,7 +39,6 @@ export default function HomeFAQSection() {
               </Animate>
             </AnimateProvider>
           </Flex>
-
           <AnimateProvider
             initialDelay={0.25}
             delayGap={0.06}
@@ -72,14 +71,12 @@ export default function HomeFAQSection() {
                   디자이너 직군은 필수입니다.
                 </Typo.Base>
               </QuestionDropdown>
-
               <QuestionDropdown
                 order={1}
                 question='면접 일정은 어떻게 되나요?'
               >
                 <Typo.Base>면접 일정은 입학 후 추후 학사일정이 정해지면 안내합니다.</Typo.Base>
               </QuestionDropdown>
-
               <QuestionDropdown
                 order={2}
                 question='소프트웨어과나 콘텐츠디자인과가 아니어도 지원할 수 있나요?'
@@ -89,7 +86,6 @@ export default function HomeFAQSection() {
                   불가능합니다.
                 </Typo.Base>
               </QuestionDropdown>
-
               <QuestionDropdown
                 order={3}
                 question='대회 참여는 필수인가요?'

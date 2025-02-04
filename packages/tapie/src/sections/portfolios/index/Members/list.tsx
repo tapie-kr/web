@@ -32,7 +32,6 @@ function Member() {
   return (
     <VStack spacing={spacingVars.micro}>
       <div className={s.profileImage} />
-
       <Typo.Base
         tag={Tag.SPAN}
         weight={Weight.MEDIUM}

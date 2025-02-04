@@ -41,7 +41,6 @@ export default function Header() {
             size={isMobile ? TAPIESymbolSize._32 : TAPIESymbolSize._24}
           />
         </Link>
-
         <button
           className={s.menuButtonStyle}
           onClick={handleMenuButtonClick}
@@ -50,11 +49,9 @@ export default function Header() {
             name={GlyphIcon.MENU}
             size={18}
           />
-
           <Typo.Petite weight={TypographyWeight.SEMIBOLD}>메뉴</Typo.Petite>
         </button>
       </HStack>
-
       <AnimatePresence>{showMenu && <HeaderMenu hide={toggleMenu} />}</AnimatePresence>
     </>
   );
@@ -74,7 +71,6 @@ function HeaderMenu(props: HeaderMenuProps) {
         exit={{ opacity: 0 }}
         onClick={handleMenuClick}
       />
-
       <div className={s.frame}>
         <motion.div
           className={s.menu}

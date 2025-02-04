@@ -11,7 +11,6 @@ export default function InstagramHero() {
     <VStack fullWidth>
       <Member />
       <Carousel />
-
       <VStack
         fullWidth
         className={content}
@@ -44,7 +43,6 @@ function Member() {
           borderRadius={radiusVars.full}
         />
       </AspectRatio>
-
       <Typo.Petite>jeewon__k 외 3명</Typo.Petite>
     </HStack>
   );

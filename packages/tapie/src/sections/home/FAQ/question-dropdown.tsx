@@ -64,7 +64,6 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
                 >
                   {props.question}
                 </Typo.Moderate>
-
                 <motion.div
                   animate={{ rotate: isOpened ? 180 : 0 }}
                   transition={getTransition()}
@@ -73,7 +72,6 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
                 </motion.div>
               </HStack>
             </div>
-
             <motion.div
               transition={getTransition({ delay: isOpened ? 0.06 : 0 })}
               animate={{

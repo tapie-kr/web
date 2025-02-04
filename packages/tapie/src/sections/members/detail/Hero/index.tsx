@@ -15,20 +15,17 @@ export default function MembersDetailHeroSection() {
         justify={StackJustify.START}
       >
         <Typo.Large weight={Weight.SEMIBOLD}>이름</Typo.Large>
-
         <Typo.Medium
           weight={Weight.SEMIBOLD}
           color={colorVars.content.default}
         >유닛
         </Typo.Medium>
-
         <Badge.Default
           theme={BadgeTheme.GREEN}
           leadingIcon={GlyphIcon.VERIFIED}
           label='부장'
         />
       </HStack>
-
       <HStack
         fullWidth
         spacing={spacingVars.base}

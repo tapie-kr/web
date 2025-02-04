@@ -25,14 +25,12 @@ export default function MembersDetailRepresentativePortfolioSection() {
             leadingIcon={GlyphIcon.CROWN}
             label='대표작'
           />
-
           <HStack spacing={spacingVars.petite}>
             <Typo.Moderate
               weight={Weight.SEMIBOLD}
               color={colorVars.content.emphasized}
             >프로젝트 이름
             </Typo.Moderate>
-
             <HStack
               spacing={spacingVars.mini}
               className={description}
@@ -41,7 +39,6 @@ export default function MembersDetailRepresentativePortfolioSection() {
                 weight={Weight.MEDIUM}
               >캐치프라이즈
               </Typo.Petite>
-
               <Icon
                 name={GlyphIcon.ARROW_FORWARD}
                 size={16}

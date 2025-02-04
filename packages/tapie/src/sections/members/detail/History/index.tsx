@@ -18,7 +18,6 @@ export default function MembersDetailHistorySection() {
         >
           연혁
         </Typo.Petite>
-
         <VStack
           fullWidth
           spacing={spacingVars.moderate}

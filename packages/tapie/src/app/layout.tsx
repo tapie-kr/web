@@ -63,7 +63,6 @@ export default function RootLayout(props: ILayoutProps) {
           href={Favicon.src}
         />
       </head>
-
       <body>
         <ThemeProvider>
           <InspireProvider>

@@ -57,13 +57,11 @@ function LinkList(props: LinkListProps) {
             className={utilityClass.desktopOnly}
             size={TAPIESymbolSize._20}
           />
-
           <TAPIESymbol
             className={utilityClass.mobileOnly}
             size={TAPIESymbolSize._32}
           />
         </motion.div>
-
         <motion.div
           className={utilityClass.mobileOnly}
           onClick={handleCloseClick}
@@ -76,7 +74,6 @@ function LinkList(props: LinkListProps) {
           />
         </motion.div>
       </HStack>
-
       {props.links.map(({ label, href }, i) => (
         <motion.div
           key={label}
@@ -144,7 +141,6 @@ export default function Menu(props: DesktopMenuProps) {
             },
           ]}
         />
-
         <ThemeSwitch />
       </VStack>
     </HStack>

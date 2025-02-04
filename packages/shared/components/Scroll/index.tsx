@@ -67,13 +67,11 @@ export default function Scroll(props: ViewportProps) {
           onClick={handleClickLeftPage}
         />
       </div>
-
       <Viewport
         ref={viewportRef}
         onScrollChange={handleScrollChangeMiddleware}
         {...rest}
       />
-
       <div className={cn(s.rightButton, { [s.hide]: !showRightEffect })}>
         <Button.Icon
           icon={GlyphIcon.ARROW_FORWARD}

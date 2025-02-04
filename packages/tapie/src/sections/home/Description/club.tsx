@@ -57,7 +57,6 @@ export default function HomeDescriptionSectionClub(props: ClubProps) {
           className={s.clubIconStyle}
         />
       </motion.span>
-
       <ParagraphText>{props.name}</ParagraphText>
     </HStack>
   );

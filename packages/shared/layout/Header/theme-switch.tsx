@@ -59,7 +59,6 @@ export default function ThemeSwitch() {
             {...iconProps}
           />
         </motion.div>
-
         <motion.div
           className={s.icon}
           initial={{ opacity: 0 }}

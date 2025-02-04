@@ -26,7 +26,6 @@ export default function MembersDetailHistorySectionList() {
       align={StackAlign.START}
     >
       <Typo.Moderate weight={Weight.MEDIUM}>2025</Typo.Moderate>
-
       <VStack
         fullWidth
         spacing={spacingVars.petite}
@@ -50,13 +49,11 @@ function Item(props: ItemProps) {
       spacing={spacingVars.petite}
     >
       <Typo.Petite>08-31</Typo.Petite>
-
       <Typo.Base
         color={props.isImportant ? colorVars.content.emphasized : undefined}
         weight={props.isImportant ? Weight.BOLD : undefined}
       >무슨무슨대회
       </Typo.Base>
-
       {props.isImportant && (
         <Badge.Default
           theme={BadgeTheme.RED}
@@ -65,7 +62,6 @@ function Item(props: ItemProps) {
           label='주요'
         />
       )}
-
       <Icon
         name={GlyphIcon.ARROW_FORWARD}
         size={16}

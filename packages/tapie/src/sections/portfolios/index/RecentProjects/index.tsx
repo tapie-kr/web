@@ -35,7 +35,6 @@ export default function PortfoliosRecentProjectsSection() {
         align={StackAlign.START}
       >
         <PortfolioSectionLabel isEmphasized>최신 작품</PortfolioSectionLabel>
-
         <Scroll direction='row'>
           <HStack
             fullWidth
@@ -69,7 +68,6 @@ function RecentProjectCard() {
           leadingIcon={GlyphIcon.TROPHY}
           label='수상작'
         />
-
         <HStack
           spacing={spacingVars.base}
           align={StackAlign.END}
@@ -81,7 +79,6 @@ function RecentProjectCard() {
           >
             프로젝트 이름
           </Typo.Medium>
-
           <HStack spacing={spacingVars.mini}>
             <Typo.Base
               tag={Tag.SPAN}
@@ -90,7 +87,6 @@ function RecentProjectCard() {
             >
               프로젝트 설명
             </Typo.Base>
-
             <Icon
               name={GlyphIcon.ARROW_FORWARD}
               size={18}

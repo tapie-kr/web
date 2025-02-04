@@ -25,14 +25,12 @@ export default function PortfoliosDetailAwardSection() {
       >
         <HStack spacing={spacingVars.petite}>
           <Typo.Medium weight={Weight.SEMIBOLD}>2025 무슨무슨대회</Typo.Medium>
-
           <Badge.Default
             theme={BadgeTheme.RED}
             leadingIcon={GlyphIcon.TROPHY}
             label='최우수상'
           />
         </HStack>
-
         <HStack
           className={description}
           spacing={spacingVars.tiny}

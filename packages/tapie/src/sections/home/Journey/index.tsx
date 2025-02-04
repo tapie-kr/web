@@ -39,7 +39,6 @@ export default async function HomeJourneySection() {
             <Animate order={1}>
               <Typo.Jumbo weight={Weight.SEMIBOLD}>그동안 우리들의 여정</Typo.Jumbo>
             </Animate>
-
             <VStack
               className={s.viewMore}
               gap={spacingVars.moderate}
@@ -53,7 +52,6 @@ export default async function HomeJourneySection() {
                   TAPIE의 부원들이 제작해온 멋진 작품들입니다. 자유롭게 관람해주세요!
                 </Typo.Moderate>
               </Animate>
-
               <Animate
                 order={3}
                 className={utilityClass.forceHide}
@@ -62,7 +60,6 @@ export default async function HomeJourneySection() {
               </Animate>
             </VStack>
           </Flex>
-
           <VStack
             className={s.marqueeGroup}
             gap={spacingVars.base}
@@ -72,7 +69,6 @@ export default async function HomeJourneySection() {
               direction='left'
               speed={55}
             />
-
             <Marquee
               assets={second}
               direction='right'

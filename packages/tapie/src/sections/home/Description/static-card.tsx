@@ -47,7 +47,6 @@ export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
         >
           {props.label}
         </Typo.Moderate>
-
         <Typo.Medium
           nowrap
           weight={Weight.MEDIUM}

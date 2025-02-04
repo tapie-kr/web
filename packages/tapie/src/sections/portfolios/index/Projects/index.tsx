@@ -26,13 +26,11 @@ export default function PortfolioProjectsSection() {
       >
         <Typo.Moderate weight={Weight.SEMIBOLD}>작품</Typo.Moderate>
         <Filter />
-
         <VStack
           fullWidth
           spacing={spacingVars.medium}
         >
           <List />
-
           <Button.Default
             fullWidth
             className={loadMoreButton}

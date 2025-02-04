@@ -30,7 +30,6 @@ export default function AwardCard(_props: AwardCardProps) {
         >
           어디어디재단
         </Typo.Micro>
-
         <HStack spacing={spacingVars.micro}>
           <Typo.Medium
             nowrap
@@ -38,7 +37,6 @@ export default function AwardCard(_props: AwardCardProps) {
           >
             2025 무슨무슨대회
           </Typo.Medium>
-
           <Badge.Default
             theme={BadgeTheme.RED}
             leadingIcon={GlyphIcon.TROPHY}
@@ -46,13 +44,11 @@ export default function AwardCard(_props: AwardCardProps) {
           />
         </HStack>
       </VStack>
-
       <HStack
         spacing={spacingVars.mini}
         style={{ color: colorVars.content.default }}
       >
         <Typo.Base weight={Weight.MEDIUM}>프로젝트 이름</Typo.Base>
-
         <Icon
           name={GlyphIcon.ARROW_FORWARD}
           size={20}

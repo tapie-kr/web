@@ -12,7 +12,6 @@ export default function HeroActions() {
       >
         프로젝트 바로가기
       </Button.Default>
-
       <Button.Icon
         variant={ButtonVariant.SECONDARY}
         icon={GlyphIcon.SHARE}

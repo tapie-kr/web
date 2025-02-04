@@ -46,7 +46,6 @@ export default function HomeAwardsSection() {
                     <Typo.Jumbo weight={Weight.SEMIBOLD}>2024년 테이피의 항해</Typo.Jumbo>
                   </Animate>
                 </div>
-
                 <div className={cn(utilityClass.hideOverflow, s.count)}>
                   <Animate order={1}>
                     <Typo.Medium
@@ -59,7 +58,6 @@ export default function HomeAwardsSection() {
                 </div>
               </VStack>
             </AnimateProvider>
-
             <VStack
               align='end'
               gap={spacingVars.petite}
