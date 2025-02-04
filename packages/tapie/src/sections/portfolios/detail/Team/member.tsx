@@ -1,3 +1,5 @@
+'use client';
+
 import {
   AspectRatio,
   colorVars,
@@ -9,16 +11,20 @@ import {
   spacingVars,
   StackAlign,
   Typo,
+  TypographyVariant,
+  useMediaQuery,
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
 
 export default function TeamMember() {
+  const isMobile = useMediaQuery();
+
   return (
     <HStack spacing={spacingVars.base}>
       <AspectRatio
         ratio={1}
-        width={60}
+        width={isMobile ? 48 : 60}
       >
         <Skeleton
           fullWidth
@@ -27,22 +33,27 @@ export default function TeamMember() {
         />
       </AspectRatio>
       <VStack
-        spacing={spacingVars.mini}
+        spacing={isMobile ? spacingVars.optical : spacingVars.mini}
         align={StackAlign.START}
       >
-        <HStack spacing={spacingVars.mini}>
-          <HStack spacing={spacingVars.micro}>
-            <Typo.Moderate weight={Weight.SEMIBOLD}>이름</Typo.Moderate>
-            <Typo.Base
+        <HStack spacing={isMobile ? spacingVars.optical : spacingVars.mini}>
+          <HStack spacing={isMobile ? spacingVars.tiny : spacingVars.micro}>
+            <Typo
+              variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
+              weight={Weight.SEMIBOLD}
+            >이름
+            </Typo>
+            <Typo
+              variant={isMobile ? TypographyVariant.TINY : TypographyVariant.BASE}
               weight={Weight.SEMIBOLD}
               color={colorVars.content.default}
             >
               역할
-            </Typo.Base>
+            </Typo>
           </HStack>
           <Icon
             name={GlyphIcon.ARROW_FORWARD}
-            size={16}
+            size={isMobile ? 12 : 16}
             color={colorVars.content.default}
           />
         </HStack>

@@ -1,8 +1,19 @@
-import { colorVars, Typo, Weight } from '@tapie-kr/inspire-react';
+'use client';
+
+import {
+  colorVars,
+  Typo,
+  TypographyVariant,
+  useMediaQuery,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
 export default function HeroDescription() {
+  const isMobile = useMediaQuery();
+
   return (
-    <Typo.Base
+    <Typo
+      variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
       weight={Weight.MEDIUM}
       color={colorVars.content.default}
     >
@@ -12,6 +23,6 @@ export default function HeroDescription() {
       앱은 직관적이고 유연한 사용자 경험을 제공하기 위해 React를 사용하여 프론트엔드를
       구현했으며, NestJS를 기반으로 한 백엔드 기술을 통해 안정적이고 확장 가능한 서버 구조를
       구축했습니다.
-    </Typo.Base>
+    </Typo>
   );
 }
