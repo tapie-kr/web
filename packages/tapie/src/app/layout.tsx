@@ -9,6 +9,8 @@ import Header from '@tapie-kr/web-shared/layout/Header';
 import { type Metadata, type Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 
+import 'swiper/css';
+
 export const metadata: Metadata = {
   title:       'TAPIE',
   description: '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE',
