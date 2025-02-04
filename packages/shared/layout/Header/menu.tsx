@@ -74,9 +74,7 @@ function LinkList(props: LinkListProps) {
           />
         </motion.div>
       </HStack>
-      {props.links.map(({
-        label, href,
-      }, i) => (
+      {props.links.map(({ label, href }, i) => (
         <motion.div
           key={label}
           className={s.link}

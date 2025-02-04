@@ -26,9 +26,7 @@ type HomeUnitsSectionListProps = {
 };
 
 export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
   return (
     <VStack

@@ -18,9 +18,7 @@ type ClubProps = {
 };
 
 export default function HomeDescriptionSectionClub(props: ClubProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.5,

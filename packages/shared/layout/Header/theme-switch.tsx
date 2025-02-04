@@ -13,9 +13,7 @@ import { useMemo } from 'react';
 import { getTransition } from '~/lib/animation';
 
 export default function ThemeSwitch() {
-  const {
-    resolvedTheme, setTheme,
-  } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const isDark = useMemo(() => resolvedTheme === 'dark', [resolvedTheme]);
 

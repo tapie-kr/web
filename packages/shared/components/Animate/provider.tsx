@@ -11,9 +11,7 @@ type AnimateProviderProps = AnimateContextType & {
 };
 
 export default function AnimateProvider(props: AnimateProviderProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
   const initial = {
     ...props.initial,

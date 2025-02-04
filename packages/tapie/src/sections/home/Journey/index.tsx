@@ -17,9 +17,7 @@ import { shuffle, splitArray } from '@/utils/array';
 import Marquee from './marquee';
 
 export default async function HomeJourneySection() {
-  const {
-    default: thumbnailList,
-  } = await import('@/../public/thumbnails/_list.json');
+  const { default: thumbnailList } = await import('@/../public/thumbnails/_list.json');
 
   const [first, second] = splitArray(thumbnailList, thumbnailList.length / 2).map(shuffle);
 

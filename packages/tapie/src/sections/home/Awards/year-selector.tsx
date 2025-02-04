@@ -29,13 +29,9 @@ type YearSelectorItemProps = {
 };
 
 function YearItem(props: YearSelectorItemProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
-  const {
-    selectedYear, setSelectedYear,
-  } = useContext(HomeAwardsSectionContext);
+  const { selectedYear, setSelectedYear } = useContext(HomeAwardsSectionContext);
 
   const isSelected = useMemo(() => selectedYear === props.year, [selectedYear, props.year]);
 

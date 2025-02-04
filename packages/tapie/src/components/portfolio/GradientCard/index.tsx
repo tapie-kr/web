@@ -15,7 +15,10 @@ type PortfolioGradientCardProps = {
 
 export default function PortfolioGradientCard(props: PortfolioGradientCardProps) {
   const {
-    height = 250, padding = '1rem', className, children,
+    height = 250,
+    padding = '1rem',
+    className,
+    children,
   } = props;
 
   return (

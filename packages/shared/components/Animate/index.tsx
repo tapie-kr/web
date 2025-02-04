@@ -19,11 +19,20 @@ type AnimateProps = HTMLAttributes<HTMLSpanElement> & {
 
 export default function Animate(props: AnimateProps) {
   const {
-    order, fullWidth, className, children, ...restProps
+    order,
+    fullWidth,
+    className,
+    children,
+    ...restProps
   } = props;
 
   const {
-    initial, animate, duration, initialDelay, delayGap, hideOverflow,
+    initial,
+    animate,
+    duration,
+    initialDelay,
+    delayGap,
+    hideOverflow,
   } =
     useContext(AnimateContext);
 

@@ -27,9 +27,7 @@ type StatsCardProps = {
 };
 
 export default function HomeDescriptionSectionStatsCard(props: StatsCardProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
   const rawValue = useMotionValue(0);
 

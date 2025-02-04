@@ -30,9 +30,7 @@ type AnimateProps = {
 };
 
 export function Animate(props: AnimateProps) {
-  const {
-    isInView,
-  } = useContext(ViewportDetectorContext);
+  const { isInView } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.65,
