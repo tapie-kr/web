@@ -21,7 +21,9 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-type PortfolioItemProps = { isWinner?: boolean };
+type PortfolioItemProps = {
+  isWinner?: boolean;
+};
 
 export default function PortfolioItem(_props: PortfolioItemProps) {
   const isMobile = useMediaQuery();

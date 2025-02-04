@@ -1,4 +1,12 @@
-import { colorVars, spacingVars, StackAlign, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  colorVars,
+  spacingVars,
+  StackAlign,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import List from './list';
 

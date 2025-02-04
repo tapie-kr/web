@@ -1,8 +1,13 @@
 import * as s from './styles.css';
 
 import { Flex, VStack } from '@cottons-kr/react-foundation';
+import {
+  spacingVars,
+  Tag,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
-import { spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
 import Animate from '@tapie-kr/web-shared/components/Animate';
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
@@ -23,11 +28,11 @@ export default function HomeFAQSection() {
           <Flex fullWidth>
             <AnimateProvider
               hideOverflow
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
               initialDelay={0.1}
               delayGap={0.1}
               duration={0.65}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
             >
               <Animate fullWidth>
                 <Typo.Jumbo

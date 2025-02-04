@@ -1,7 +1,5 @@
 import { introContainer } from './styles.css';
 
-import PortfolioCarousel from '@/components/portfolio/Carousel';
-
 import {
   BrandIcon,
   HStack,
@@ -14,6 +12,8 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import PortfolioCarousel from '@/components/portfolio/Carousel';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import HeroActions from '../../components/actions';
 import HeroDescription from '../../components/description';

@@ -2,7 +2,16 @@
 
 import * as s from './styles.css';
 
-import { HStack, spacingVars, StackJustify, Tag, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  HStack,
+  spacingVars,
+  StackJustify,
+  Tag,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
 export default function PortfoliosMembersSectionList() {

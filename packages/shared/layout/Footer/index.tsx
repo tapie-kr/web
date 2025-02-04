@@ -1,7 +1,6 @@
 import { footer, linkChip, linkList } from './styles.css';
 
 import { Flex, HStack, VStack } from '@cottons-kr/react-foundation';
-
 import {
   BrandIcon,
   colorVars,
@@ -13,6 +12,7 @@ import {
   Typo,
   TypographyWeight as Weight,
 } from '@tapie-kr/inspire-react';
+
 import Link from 'next/link';
 
 export default function Footer() {

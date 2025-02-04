@@ -12,7 +12,8 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-type AwardCardProps = {};
+type AwardCardProps = {
+};
 
 export default function AwardCard(_props: AwardCardProps) {
   return (

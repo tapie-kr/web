@@ -3,8 +3,15 @@
 import * as s from './styles.css';
 
 import { Flex, VStack } from '@cottons-kr/react-foundation';
+import {
+  Size,
+  spacingVars,
+  Tag,
+  TAPIESymbol,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
-import { Size, spacingVars, Tag, TAPIESymbol, Typo, Weight } from '@tapie-kr/inspire-react';
 import Animate from '@tapie-kr/web-shared/components/Animate';
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
@@ -28,11 +35,11 @@ export default function HomeUnitsSection() {
       >
         <AnimateProvider
           hideOverflow
-          initial={{ y: '100%' }}
-          animate={{ y: 0 }}
           initialDelay={0.1}
           delayGap={0.1}
           duration={0.65}
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
         >
           <VStack
             className={s.title}

@@ -3,6 +3,7 @@
 import * as s from './styles.css';
 
 import { colorVars, Typo, Weight } from '@tapie-kr/inspire-react';
+
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import { motion } from 'framer-motion';
@@ -15,7 +16,9 @@ type AwardItemProps = {
 };
 
 export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.85,

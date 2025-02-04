@@ -8,4 +8,6 @@ type SVGComponent = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
 type Children = React.ReactNode;
 
-type ChildrenProp = { children?: Children };
+type ChildrenProp = {
+  children?: Children;
+};

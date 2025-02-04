@@ -3,8 +3,8 @@
 import * as s from './styles.css';
 
 import { HStack } from '@cottons-kr/react-foundation';
-
 import { spacingVars, Tag } from '@tapie-kr/inspire-react';
+
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import { motion } from 'framer-motion';
@@ -18,7 +18,9 @@ type ClubProps = {
 };
 
 export default function HomeDescriptionSectionClub(props: ClubProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.5,

@@ -1,4 +1,18 @@
-import { Badge, BadgeTheme, colorVars, GlyphIcon, HStack, Icon, spacingVars, StackAlign, StackWrap, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  Badge,
+  BadgeTheme,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  Icon,
+  spacingVars,
+  StackAlign,
+  StackWrap,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function MembersDetailSkillsSection() {
@@ -38,7 +52,9 @@ enum SkillType {
   LEARNING,
 }
 
-type SkillProps = { type?: SkillType };
+type SkillProps = {
+  type?: SkillType;
+};
 
 function Skill(props: SkillProps) {
   return (

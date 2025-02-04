@@ -1,6 +1,20 @@
 import { section } from './styles.css';
 
-import { Badge, BadgeTheme, colorVars, GlyphIcon, HStack, Icon, spacingVars, StackAlign, StackJustify, StackWrap, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  Badge,
+  BadgeTheme,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  Icon,
+  spacingVars,
+  StackAlign,
+  StackJustify,
+  StackWrap,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
 export default function MembersDetailHeroSection() {
   return (

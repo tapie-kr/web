@@ -1,6 +1,5 @@
-import PortfolioItem from '@/components/portfolio/Item';
-
 import { Grid, spacingVars } from '@tapie-kr/inspire-react';
+import PortfolioItem from '@/components/portfolio/Item';
 
 export default function PortfolioProjectsSectionList() {
   return (

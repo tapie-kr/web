@@ -1,4 +1,5 @@
 import { colorVars, radiusVars } from '@tapie-kr/inspire-react';
+
 import { style } from '@vanilla-extract/css';
 
 export const marquee = style({
@@ -16,12 +17,10 @@ export const card = style({
   borderRadius: radiusVars.smooth,
   flexShrink:   0,
   overflow:     'hidden',
-  '@media':     {
-    '(max-width: 768px)': {
-      width:  176,
-      height: 95,
-    },
-  },
+  '@media':     { '(max-width: 768px)': {
+    width:  176,
+    height: 95,
+  } },
 });
 
 export const thumbnail = style({

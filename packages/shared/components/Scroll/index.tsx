@@ -3,15 +3,17 @@
 import * as s from './styles.css';
 
 import { Viewport, type ViewportProps } from '@cottons-kr/react-foundation';
-
 import { Button, ButtonVariant, GlyphIcon } from '@tapie-kr/inspire-react';
+
 import cn from 'classnames';
 import { useCallback, useRef, useState } from 'react';
 
 type OnScrollChangeMiddleware = Exclude<ViewportProps['onScrollChange'], undefined>;
 
 export default function Scroll(props: ViewportProps) {
-  const { onScrollChange, ...rest } = props;
+  const {
+    onScrollChange, ...rest
+  } = props;
 
   const [showLeftEffect, setShowLeftEffect] = useState(false);
 
@@ -33,7 +35,9 @@ export default function Scroll(props: ViewportProps) {
 
     if (!viewport) return;
 
-    const { scrollLeft, clientWidth } = viewport;
+    const {
+      scrollLeft, clientWidth,
+    } = viewport;
 
     const newScrollLeft = scrollLeft - clientWidth;
 
@@ -48,7 +52,9 @@ export default function Scroll(props: ViewportProps) {
 
     if (!viewport) return;
 
-    const { scrollLeft, clientWidth } = viewport;
+    const {
+      scrollLeft, clientWidth,
+    } = viewport;
 
     const newScrollLeft = scrollLeft + clientWidth;
 

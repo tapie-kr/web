@@ -1,4 +1,9 @@
-import { colorVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
+import {
+  colorVars,
+  Tag,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
 type SectionLabelProps = {
   isEmphasized?: boolean;

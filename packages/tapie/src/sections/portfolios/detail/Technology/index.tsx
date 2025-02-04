@@ -11,6 +11,7 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailTechnologySection() {
@@ -33,7 +34,9 @@ export default function PortfoliosDetailTechnologySection() {
   );
 }
 
-type ListProps = { title: string };
+type ListProps = {
+  title: string;
+};
 
 function List(props: ListProps) {
   return (

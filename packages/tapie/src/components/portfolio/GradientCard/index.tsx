@@ -1,6 +1,7 @@
 import * as s from './styles.css';
 
 import { HStack, StackAlign } from '@tapie-kr/inspire-react';
+
 import cn from 'classnames';
 import { type ReactNode } from 'react';
 import Thumbnail from '@/../public/thumbnails/artnect.webp';
@@ -13,7 +14,9 @@ type PortfolioGradientCardProps = {
 };
 
 export default function PortfolioGradientCard(props: PortfolioGradientCardProps) {
-  const { height = 250, padding = '1rem', className, children } = props;
+  const {
+    height = 250, padding = '1rem', className, children,
+  } = props;
 
   return (
     <HStack

@@ -1,6 +1,19 @@
 import { historyItem } from './styles.css';
 
-import { Badge, BadgeSize, BadgeTheme, colorVars, GlyphIcon, HStack, Icon, spacingVars, StackAlign, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  Badge,
+  BadgeSize,
+  BadgeTheme,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  Icon,
+  spacingVars,
+  StackAlign,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
 /*
  * type Event = {
@@ -40,7 +53,9 @@ export default function MembersDetailHistorySectionList() {
   );
 }
 
-type ItemProps = { isImportant?: boolean };
+type ItemProps = {
+  isImportant?: boolean;
+};
 
 function Item(props: ItemProps) {
   return (

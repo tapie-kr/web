@@ -3,8 +3,8 @@
 import * as s from './styles/theme-switch.css';
 
 import { Flex } from '@cottons-kr/react-foundation';
-
 import { colorVars, GlyphIcon, Icon } from '@tapie-kr/inspire-react';
+
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
@@ -13,7 +13,9 @@ import { useMemo } from 'react';
 import { getTransition } from '~/lib/animation';
 
 export default function ThemeSwitch() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const {
+    resolvedTheme, setTheme,
+  } = useTheme();
 
   const isDark = useMemo(() => resolvedTheme === 'dark', [resolvedTheme]);
 
@@ -50,9 +52,9 @@ export default function ThemeSwitch() {
       >
         <motion.div
           className={s.icon}
+          transition={getTransition()}
           initial={{ opacity: 0 }}
           animate={{ opacity: isDark ? 0 : 1 }}
-          transition={getTransition()}
         >
           <Icon
             name={GlyphIcon.LIGHT_MODE}
@@ -61,9 +63,9 @@ export default function ThemeSwitch() {
         </motion.div>
         <motion.div
           className={s.icon}
+          transition={getTransition()}
           initial={{ opacity: 0 }}
           animate={{ opacity: isDark ? 1 : 0 }}
-          transition={getTransition()}
         >
           <Icon
             name={GlyphIcon.DARK_MODE}

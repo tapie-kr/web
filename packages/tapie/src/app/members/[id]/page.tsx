@@ -1,6 +1,16 @@
 import { container, content } from './page.css';
 
-import { AspectRatio, radiusVars, Skeleton, spacingVars, Stack, StackAlign, StackJustify, VStack } from '@tapie-kr/inspire-react';
+import {
+  AspectRatio,
+  radiusVars,
+  Skeleton,
+  spacingVars,
+  Stack,
+  StackAlign,
+  StackJustify,
+  VStack,
+} from '@tapie-kr/inspire-react';
+
 import Hero from '@/sections/members/detail/Hero';
 import History from '@/sections/members/detail/History';
 import Projects from '@/sections/members/detail/Projects';

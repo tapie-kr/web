@@ -3,7 +3,6 @@
 import * as s from './styles/header.css';
 
 import { HStack } from '@cottons-kr/react-foundation';
-
 import {
   GlyphIcon,
   Icon,
@@ -13,6 +12,7 @@ import {
   TypographyWeight,
   useMediaQuery,
 } from '@tapie-kr/inspire-react';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import Menu from './menu';
@@ -57,7 +57,9 @@ export default function Header() {
   );
 }
 
-type HeaderMenuProps = { hide: () => unknown };
+type HeaderMenuProps = {
+  hide: () => unknown;
+};
 
 function HeaderMenu(props: HeaderMenuProps) {
   const handleMenuClick = props.hide;

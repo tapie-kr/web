@@ -3,8 +3,8 @@
 import { yearItem, yearItemActive, yearSelector } from './styles.css';
 
 import { HStack } from '@cottons-kr/react-foundation';
-
 import { spacingVars, Typo, Weight } from '@tapie-kr/inspire-react';
+
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import cn from 'classnames';
@@ -24,12 +24,18 @@ export default function HomeAwardsSectionYearSelector() {
   );
 }
 
-type YearSelectorItemProps = { year: number };
+type YearSelectorItemProps = {
+  year: number;
+};
 
 function YearItem(props: YearSelectorItemProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
-  const { selectedYear, setSelectedYear } = useContext(HomeAwardsSectionContext);
+  const {
+    selectedYear, setSelectedYear,
+  } = useContext(HomeAwardsSectionContext);
 
   const isSelected = useMemo(() => selectedYear === props.year, [selectedYear, props.year]);
 

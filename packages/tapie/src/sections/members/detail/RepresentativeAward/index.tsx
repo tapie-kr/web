@@ -1,6 +1,13 @@
+import {
+  colorVars,
+  spacingVars,
+  StackAlign,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
 import AwardCard from '@/components/award/Card';
 
-import { colorVars, spacingVars, StackAlign, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function MembersDetailRepresentativeAwardSection() {

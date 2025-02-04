@@ -3,8 +3,15 @@
 import * as s from './styles.css';
 
 import { HStack, VStack } from '@cottons-kr/react-foundation';
+import {
+  colorVars,
+  GlyphIcon,
+  Icon,
+  spacingVars,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
-import { colorVars, GlyphIcon, Icon, spacingVars, Typo, Weight } from '@tapie-kr/inspire-react';
 import Animate from '@tapie-kr/web-shared/components/Animate';
 import { useToggle } from '@tapie-kr/web-shared/hooks/use-toggle';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
@@ -65,8 +72,8 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
                   {props.question}
                 </Typo.Moderate>
                 <motion.div
-                  animate={{ rotate: isOpened ? 180 : 0 }}
                   transition={getTransition()}
+                  animate={{ rotate: isOpened ? 180 : 0 }}
                 >
                   <Icon name={GlyphIcon.KEYBOARD_ARROW_UP} />
                 </motion.div>

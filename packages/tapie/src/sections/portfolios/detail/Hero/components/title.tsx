@@ -1,6 +1,19 @@
 'use client';
 
-import { Badge, BadgeTheme, colorVars, GlyphIcon, HStack, spacingVars, StackAlign, Typo, TypographyVariant, useMediaQuery, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  Badge,
+  BadgeTheme,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  spacingVars,
+  StackAlign,
+  Typo,
+  TypographyVariant,
+  useMediaQuery,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
 export default function HeroTitle() {
   const isMobile = useMediaQuery();

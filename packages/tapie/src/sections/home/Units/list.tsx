@@ -1,8 +1,14 @@
 import * as s from './styles.css';
 
 import { Flex, VStack } from '@cottons-kr/react-foundation';
+import {
+  colorVars,
+  spacingVars,
+  Tag,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
-import { colorVars, spacingVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
 import Animate from '@tapie-kr/web-shared/components/Animate';
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition, resetTransition } from '@tapie-kr/web-shared/lib/animation';
@@ -20,7 +26,9 @@ type HomeUnitsSectionListProps = {
 };
 
 export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
   return (
     <VStack
@@ -64,7 +72,9 @@ export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
   );
 }
 
-type FeatureCardProps = HomeUnitsSectionListProps['features'][0] & { order: number };
+type FeatureCardProps = HomeUnitsSectionListProps['features'][0] & {
+  order: number;
+};
 
 function FeatureCard(props: FeatureCardProps) {
   return (

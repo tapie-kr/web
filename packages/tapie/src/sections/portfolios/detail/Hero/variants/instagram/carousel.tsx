@@ -3,6 +3,7 @@
 import { carousel, carouselItem } from './styles.css';
 
 import { Box, Image } from '@tapie-kr/inspire-react';
+
 import { useState } from 'react';
 import { type Swiper as SwiperType } from 'swiper';
 import { Controller } from 'swiper/modules';

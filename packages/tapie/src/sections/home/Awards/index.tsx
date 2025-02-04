@@ -3,8 +3,14 @@
 import * as s from './styles.css';
 
 import { Flex, VStack } from '@cottons-kr/react-foundation';
+import {
+  colorVars,
+  spacingVars,
+  Typo,
+  utilityClass,
+  Weight,
+} from '@tapie-kr/inspire-react';
 
-import { colorVars, spacingVars, Typo, utilityClass, Weight } from '@tapie-kr/inspire-react';
 import Animate from '@tapie-kr/web-shared/components/Animate';
 import AnimateProvider from '@tapie-kr/web-shared/components/Animate/provider';
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
@@ -34,11 +40,11 @@ export default function HomeAwardsSection() {
             gap={spacingVars.base}
           >
             <AnimateProvider
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
               initialDelay={0.1}
               delayGap={0.2}
               duration={0.65}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
             >
               <VStack gap={spacingVars.moderate}>
                 <div className={utilityClass.hideOverflow}>

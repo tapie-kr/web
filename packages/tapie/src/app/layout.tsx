@@ -1,8 +1,8 @@
 import '@cottons-kr/react-foundation/styles.css';
 
 import { type ILayoutProps, Spacer } from '@cottons-kr/react-foundation';
-
 import { InspireProvider } from '@tapie-kr/inspire-react/provider';
+
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png';
 import Footer from '@tapie-kr/web-shared/layout/Footer';
 import Header from '@tapie-kr/web-shared/layout/Header';
@@ -31,24 +31,20 @@ export const metadata: Metadata = {
     description: '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE',
     locale:      'ko_KR',
     siteName:    'TAPIE',
-    images:      [
-      { url: 'https://raw.githubusercontent.com/tapie-kr/.github/assets/cover.png' },
-    ],
+    images:      [{ url: 'https://raw.githubusercontent.com/tapie-kr/.github/assets/cover.png' }],
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    {
-      color: '#050505',
-      media: '(prefers-color-scheme: light)',
-    },
-    {
-      color: '#FAFAFA',
-      media: '(prefers-color-scheme: dark)',
-    },
-  ],
-};
+export const viewport: Viewport = { themeColor: [
+  {
+    color: '#050505',
+    media: '(prefers-color-scheme: light)',
+  },
+  {
+    color: '#FAFAFA',
+    media: '(prefers-color-scheme: dark)',
+  },
+] };
 
 export default function RootLayout(props: ILayoutProps) {
   return (

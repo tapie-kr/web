@@ -3,6 +3,7 @@
 import * as s from './styles.css';
 
 import { utilityClass } from '@tapie-kr/inspire-react';
+
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { type HTMLAttributes, type ReactNode, useContext } from 'react';
@@ -17,9 +18,13 @@ type AnimateProps = HTMLAttributes<HTMLSpanElement> & {
 };
 
 export default function Animate(props: AnimateProps) {
-  const { order, fullWidth, className, children, ...restProps } = props;
+  const {
+    order, fullWidth, className, children, ...restProps
+  } = props;
 
-  const { initial, animate, duration, initialDelay, delayGap, hideOverflow } =
+  const {
+    initial, animate, duration, initialDelay, delayGap, hideOverflow,
+  } =
     useContext(AnimateContext);
 
   const transition = getTransition({

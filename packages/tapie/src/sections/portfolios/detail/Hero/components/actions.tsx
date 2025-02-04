@@ -1,4 +1,10 @@
-import { Button, ButtonVariant, GlyphIcon, HStack, spacingVars } from '@tapie-kr/inspire-react';
+import {
+  Button,
+  ButtonVariant,
+  GlyphIcon,
+  HStack,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
 
 export default function HeroActions() {
   return (

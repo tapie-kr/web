@@ -1,4 +1,11 @@
-import { colorVars, getMobileMediaQuery, getResponsiveQuery, getShorthandedValue, spacingVars } from '@tapie-kr/inspire-react';
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getResponsiveQuery,
+  getShorthandedValue,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+
 import { style } from '@vanilla-extract/css';
 
 export const thumbnail = style({

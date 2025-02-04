@@ -1,4 +1,5 @@
 import { getMobileMediaQuery, getShorthandedValue, spacingVars } from '@tapie-kr/inspire-react';
+
 import { style } from '@vanilla-extract/css';
 
 export const section = style({

@@ -1,5 +1,3 @@
-import SectionLabel from '@/components/portfolio/SectionLabel';
-
 import {
   colorVars,
   HStack,
@@ -10,6 +8,8 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import SectionLabel from '@/components/portfolio/SectionLabel';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import List from './list';
 

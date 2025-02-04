@@ -1,6 +1,12 @@
 'use client';
 
-import { colorVars, Tag, Typo, Weight } from '@tapie-kr/inspire-react';
+import {
+  colorVars,
+  Tag,
+  Typo,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import { motion } from 'framer-motion';
@@ -24,7 +30,9 @@ type AnimateProps = {
 };
 
 export function Animate(props: AnimateProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.65,
@@ -46,8 +54,8 @@ export function Animate(props: AnimateProps) {
   return (
     <motion.div
       className={props.className}
-      initial={{ y: '100%' }}
       animate={animate}
+      initial={{ y: '100%' }}
     >
       {props.children}
     </motion.div>

@@ -1,8 +1,5 @@
 'use client';
 
-import GradientCard from '@/components/portfolio/GradientCard';
-import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
-
 import {
   Badge,
   colorVars,
@@ -18,6 +15,9 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import GradientCard from '@/components/portfolio/GradientCard';
+import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 

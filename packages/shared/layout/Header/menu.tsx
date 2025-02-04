@@ -3,7 +3,6 @@
 import * as s from './styles/menu.css';
 
 import { HStack, VStack } from '@cottons-kr/react-foundation';
-
 import {
   colorVars,
   GlyphIcon,
@@ -16,6 +15,7 @@ import {
   utilityClass,
   Weight,
 } from '@tapie-kr/inspire-react';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ThemeSwitch from './theme-switch';
@@ -74,7 +74,9 @@ function LinkList(props: LinkListProps) {
           />
         </motion.div>
       </HStack>
-      {props.links.map(({ label, href }, i) => (
+      {props.links.map(({
+        label, href,
+      }, i) => (
         <motion.div
           key={label}
           className={s.link}
@@ -110,7 +112,9 @@ function LinkList(props: LinkListProps) {
   );
 }
 
-type DesktopMenuProps = { hide: () => unknown };
+type DesktopMenuProps = {
+  hide: () => unknown;
+};
 
 export default function Menu(props: DesktopMenuProps) {
   return (

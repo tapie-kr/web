@@ -3,9 +3,15 @@
 import * as s from './styles/marquee.css';
 
 import { HStack } from '@cottons-kr/react-foundation';
-
 import { spacingVars } from '@tapie-kr/inspire-react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 type CardData = {
   id:        string;
@@ -46,7 +52,13 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
           : viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
       isVisible: true,
     }));
-  }, [requiredCardCount, props.direction, cardWidth, gapWidth, viewportWidth]);
+  }, [
+    requiredCardCount,
+    props.direction,
+    cardWidth,
+    gapWidth,
+    viewportWidth,
+  ]);
 
   useEffect(() => {
     const handleResize = () => {

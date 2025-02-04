@@ -1,8 +1,19 @@
 import { description } from './styles.css';
 
+import {
+  Badge,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  Icon,
+  spacingVars,
+  StackAlign,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
 import PortfolioGradientCard from '@/components/portfolio/GradientCard';
 
-import { Badge, colorVars, GlyphIcon, HStack, Icon, spacingVars, StackAlign, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function MembersDetailRepresentativePortfolioSection() {

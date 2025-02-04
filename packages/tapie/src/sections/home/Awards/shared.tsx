@@ -3,7 +3,12 @@
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import { motion } from 'framer-motion';
-import { createContext, type Dispatch, type SetStateAction, useContext } from 'react';
+import {
+  createContext,
+  type Dispatch,
+  type SetStateAction,
+  useContext,
+} from 'react';
 
 type HomeAwardsSectionContextValue = {
   selectedYear:    number;
@@ -19,7 +24,9 @@ type AnimateProps = {
 export const HomeAwardsSectionContext = createContext({} as HomeAwardsSectionContextValue);
 
 export function Animate(props: AnimateProps) {
-  const { isInView } = useContext(ViewportDetectorContext);
+  const {
+    isInView,
+  } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
     duration: 0.65,
@@ -41,8 +48,8 @@ export function Animate(props: AnimateProps) {
   return (
     <motion.div
       className={props.className}
-      initial={{ y: '100%' }}
       animate={animate}
+      initial={{ y: '100%' }}
     >
       {props.children}
     </motion.div>

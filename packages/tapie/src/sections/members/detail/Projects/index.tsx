@@ -1,6 +1,23 @@
 import { project } from './styles.css';
 
-import { AspectRatio, Button, ButtonSize, colorVars, GlyphIcon, Grid, HStack, radiusVars, Skeleton, spacingVars, StackAlign, StackJustify, Typo, VStack, Weight } from '@tapie-kr/inspire-react';
+import {
+  AspectRatio,
+  Button,
+  ButtonSize,
+  colorVars,
+  GlyphIcon,
+  Grid,
+  HStack,
+  radiusVars,
+  Skeleton,
+  spacingVars,
+  StackAlign,
+  StackJustify,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function MembersDetailProjectsSection() {

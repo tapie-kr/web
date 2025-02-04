@@ -1,14 +1,12 @@
 import { getMobileMediaQuery, getShorthandedValue, spacingVars } from '@tapie-kr/inspire-react';
+
 import { style } from '@vanilla-extract/css';
 
 export const hero = style({ padding: getShorthandedValue(spacingVars.base, spacingVars.moderate) });
 
 export const overflowHidden = style({ overflow: 'hidden' });
 
-export const upperText = style([
-  overflowHidden,
-  { columnGap: spacingVars.base },
-]);
+export const upperText = style([overflowHidden, { columnGap: spacingVars.base }]);
 
 export const lowerText = style([
   overflowHidden,

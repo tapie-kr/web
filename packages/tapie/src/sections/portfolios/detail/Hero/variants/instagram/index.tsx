@@ -1,6 +1,17 @@
 import { content, member } from './styles.css';
 
-import { AspectRatio, HStack, radiusVars, Skeleton, spacingVars, StackAlign, StackJustify, Typo, VStack } from '@tapie-kr/inspire-react';
+import {
+  AspectRatio,
+  HStack,
+  radiusVars,
+  Skeleton,
+  spacingVars,
+  StackAlign,
+  StackJustify,
+  Typo,
+  VStack,
+} from '@tapie-kr/inspire-react';
+
 import HeroActions from '../../components/actions';
 import HeroDescription from '../../components/description';
 import HeroTitle from '../../components/title';

@@ -1,6 +1,6 @@
+import { spacingVars, StackAlign, VStack } from '@tapie-kr/inspire-react';
 import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
 
-import { spacingVars, StackAlign, VStack } from '@tapie-kr/inspire-react';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import List from './list';
 

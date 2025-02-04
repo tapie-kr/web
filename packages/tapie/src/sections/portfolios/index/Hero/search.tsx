@@ -2,7 +2,16 @@
 
 import * as s from './styles.css';
 
-import { Button, ButtonSize, GlyphIcon, HStack, Input, InputSize, spacingVars, useMediaQuery } from '@tapie-kr/inspire-react';
+import {
+  Button,
+  ButtonSize,
+  GlyphIcon,
+  HStack,
+  Input,
+  InputSize,
+  spacingVars,
+  useMediaQuery,
+} from '@tapie-kr/inspire-react';
 
 export default function PortfoliosHeroSectionSearch() {
   const isMobile = useMediaQuery();

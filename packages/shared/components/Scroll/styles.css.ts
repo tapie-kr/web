@@ -1,4 +1,5 @@
 import { spacingVars, utilityClass } from '@tapie-kr/inspire-react';
+
 import { style } from '@vanilla-extract/css';
 
 export const container = style({
@@ -18,12 +19,6 @@ export const button = style([
   },
 ]);
 
-export const leftButton = style([
-  button,
-  { left: spacingVars.mini },
-]);
+export const leftButton = style([button, { left: spacingVars.mini }]);
 
-export const rightButton = style([
-  button,
-  { right: spacingVars.mini },
-]);
+export const rightButton = style([button, { right: spacingVars.mini }]);
