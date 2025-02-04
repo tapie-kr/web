@@ -1,3 +1,5 @@
+'use client';
+
 import GradientCard from '@/components/portfolio/GradientCard';
 import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
 
@@ -9,14 +11,19 @@ import {
   Icon,
   spacingVars,
   StackAlign,
+  StackJustify,
   Tag,
   Typo,
+  useMediaQuery,
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
 export default function PortfoliosRecentProjectsSection() {
+  const isMobile = useMediaQuery();
+
   return (
     <ContentSection
       maxWidth={1400}
@@ -29,21 +36,29 @@ export default function PortfoliosRecentProjectsSection() {
       >
         <PortfolioSectionLabel isEmphasized>최신 작품</PortfolioSectionLabel>
 
-        <HStack
-          fullWidth
-          spacing={spacingVars.petite}
-        >
-          <RecentProjectCard />
-          <RecentProjectCard />
-        </HStack>
+        <Scroll direction='row'>
+          <HStack
+            fullWidth
+            spacing={spacingVars.petite}
+            justify={StackJustify.START}
+          >
+            <RecentProjectCard />
+            {!isMobile && <RecentProjectCard />}
+          </HStack>
+        </Scroll>
       </VStack>
     </ContentSection>
   );
 }
 
 function RecentProjectCard() {
+  const isMobile = useMediaQuery();
+
   return (
-    <GradientCard padding={spacingVars.moderate}>
+    <GradientCard
+      height={isMobile ? 200 : 250}
+      padding={spacingVars.moderate}
+    >
       <VStack
         fullWidth
         spacing={spacingVars.tiny}
