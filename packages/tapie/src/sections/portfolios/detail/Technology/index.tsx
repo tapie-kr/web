@@ -1,23 +1,17 @@
 'use client';
 
 import {
-  GlyphIcon,
-  Grid,
-  HStack,
-  Icon,
   spacingVars,
   Stack,
   StackAlign,
   StackDirection,
   StackJustify,
   StackWrap,
-  Typo,
   useMediaQuery,
-  VStack,
-  Weight,
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { List } from './list';
 
 export default function PortfoliosDetailTechnologySection() {
   const isMobile = useMediaQuery();
@@ -39,42 +33,5 @@ export default function PortfoliosDetailTechnologySection() {
         <List title='기타' />
       </Stack>
     </ContentSection>
-  );
-}
-
-type ListProps = {
-  title: string;
-};
-
-function List(props: ListProps) {
-  return (
-    <VStack
-      spacing={spacingVars.petite}
-      align={StackAlign.START}
-    >
-      <Typo.Moderate weight={Weight.SEMIBOLD}>{props.title}</Typo.Moderate>
-      <Grid
-        rowGap={spacingVars.base}
-        columnGap={spacingVars.moderate}
-        columnCount={3}
-      >
-        {Array.from({ length: 5 }).map((_, index) => (
-          <HStack
-            key={index}
-            spacing={spacingVars.tiny}
-          >
-            <Icon
-              name={GlyphIcon.DEFAULT}
-              size={28}
-            />
-            <Typo.Base
-              nowrap
-              weight={Weight.MEDIUM}
-            >기술 이름
-            </Typo.Base>
-          </HStack>
-        ))}
-      </Grid>
-    </VStack>
   );
 }

@@ -5,12 +5,13 @@ import { stat } from './styles.css';
 import {
   Button,
   ButtonVariant,
+  DStack,
   GlyphIcon,
   HStack,
   Icon,
   type IconName,
   spacingVars,
-  Stack,
+  StackAlign,
   StackDirection,
   Typo,
   useMediaQuery,
@@ -27,22 +28,30 @@ export default function PortfoliosDetailDownloadSection() {
       maxWidth={1400}
       verticalPadding={spacingVars.medium}
     >
-      <Stack
-        direction={isMobile ? StackDirection.COLUMN : StackDirection.ROW}
+      <DStack
+        fullWidth={isMobile}
+        defaultDirection={StackDirection.ROW}
         spacing={isMobile ? spacingVars.base : spacingVars.medium}
+        align={isMobile ? StackAlign.START : StackAlign.CENTER}
       >
-        <Stack
-          direction={isMobile ? StackDirection.COLUMN : StackDirection.ROW}
+        <DStack
+          fullWidth={isMobile}
+          defaultDirection={StackDirection.ROW}
           spacing={spacingVars.micro}
         >
-          <Button.Default leadingIcon={GlyphIcon.DOWNLOAD}>발표자료 다운로드</Button.Default>
+          <Button.Default
+            leadingIcon={GlyphIcon.DOWNLOAD}
+            fullWidth={isMobile}
+          >발표자료 다운로드
+          </Button.Default>
           <Button.Default
             variant={ButtonVariant.SECONDARY}
             leadingIcon={GlyphIcon.CODE}
+            fullWidth={isMobile}
           >
             소스코드 다운로드
           </Button.Default>
-        </Stack>
+        </DStack>
         <HStack spacing={spacingVars.moderate}>
           <Stat
             icon={GlyphIcon.VISIBILITY}
@@ -53,7 +62,7 @@ export default function PortfoliosDetailDownloadSection() {
             value={182}
           />
         </HStack>
-      </Stack>
+      </DStack>
     </ContentSection>
   );
 }

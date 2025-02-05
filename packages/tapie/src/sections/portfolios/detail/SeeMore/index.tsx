@@ -24,6 +24,7 @@ export default function PortfoliosDetailSeeMoreSection() {
       verticalPadding={spacingVars.medium}
     >
       <VStack
+        fullWidth
         spacing={spacingVars.petite}
         align={StackAlign.START}
       >
