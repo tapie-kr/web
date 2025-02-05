@@ -27,17 +27,11 @@ type HomeJourneySectionMarqueeProps = {
 
 export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqueeProps) {
   const [viewportWidth, setViewportWidth] = useState(1400);
-
   const [cardWidth, setCardWidth] = useState(370);
-
   const [gapWidth, setGapWidth] = useState(16);
-
   const [visibleCards, setVisibleCards] = useState<Array<CardData>>([]);
-
   const [speed, setSpeed] = useState(props.speed);
-
   const animationRef = useRef<number | null>(null);
-
   const lastTimestamp = useRef<number>(null);
 
   const requiredCardCount = useMemo(() => Math.ceil(viewportWidth / cardWidth) + 1,
@@ -102,7 +96,6 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
         const updated = prev
           .map(card => {
             const movement = (speed * delta) / 1000;
-
             const nextX = props.direction === 'left' ? card.x - movement : card.x + movement;
 
             const isVisible =

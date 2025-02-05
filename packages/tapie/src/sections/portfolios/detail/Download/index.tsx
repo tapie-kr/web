@@ -1,3 +1,5 @@
+'use client';
+
 import { stat } from './styles.css';
 
 import {
@@ -8,20 +10,31 @@ import {
   Icon,
   type IconName,
   spacingVars,
+  Stack,
+  StackDirection,
   Typo,
+  useMediaQuery,
   Weight,
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailDownloadSection() {
+  const isMobile = useMediaQuery();
+
   return (
     <ContentSection
       maxWidth={1400}
       verticalPadding={spacingVars.medium}
     >
-      <HStack spacing={spacingVars.medium}>
-        <HStack spacing={spacingVars.micro}>
+      <Stack
+        direction={isMobile ? StackDirection.COLUMN : StackDirection.ROW}
+        spacing={isMobile ? spacingVars.base : spacingVars.medium}
+      >
+        <Stack
+          direction={isMobile ? StackDirection.COLUMN : StackDirection.ROW}
+          spacing={spacingVars.micro}
+        >
           <Button.Default leadingIcon={GlyphIcon.DOWNLOAD}>발표자료 다운로드</Button.Default>
           <Button.Default
             variant={ButtonVariant.SECONDARY}
@@ -29,7 +42,7 @@ export default function PortfoliosDetailDownloadSection() {
           >
             소스코드 다운로드
           </Button.Default>
-        </HStack>
+        </Stack>
         <HStack spacing={spacingVars.moderate}>
           <Stat
             icon={GlyphIcon.VISIBILITY}
@@ -40,7 +53,7 @@ export default function PortfoliosDetailDownloadSection() {
             value={182}
           />
         </HStack>
-      </HStack>
+      </Stack>
     </ContentSection>
   );
 }

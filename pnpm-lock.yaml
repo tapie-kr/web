@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@tapie-kr/code-guideline-base':
-        specifier: ^0.1.15
-        version: 0.1.15(eslint@9.19.0)(typescript@5.7.3)
+        specifier: ^0.1.17
+        version: 0.1.17(eslint@9.19.0)(typescript@5.7.3)
       '@tapie-kr/code-guideline-react':
         specifier: ^0.0.7
-        version: 0.0.7(@tapie-kr/code-guideline-base@0.1.15(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
+        version: 0.0.7(@tapie-kr/code-guideline-base@0.1.17(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
@@ -27,8 +27,8 @@ importers:
         specifier: ^0.3.9
         version: 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/inspire-react':
-        specifier: ^0.1.42
-        version: 0.1.42(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.1.43
+        version: 0.1.43(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@vanilla-extract/css':
         specifier: ^1.17.0
         version: 1.17.0
@@ -76,8 +76,8 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3(@prisma/client@6.2.1(prisma@6.2.1))(prisma@6.2.1)
       '@tapie-kr/inspire-react':
-        specifier: ^0.1.42
-        version: 0.1.42(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^0.1.43
+        version: 0.1.43(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/web-shared':
         specifier: workspace:*
         version: link:../shared
@@ -1640,8 +1640,8 @@ packages:
       '@prisma/client': ^6.1.0
       prisma: ^6.1.0
 
-  '@tapie-kr/code-guideline-base@0.1.15':
-    resolution: {integrity: sha512-qMenOYOqicOnq2o1+78pegKrOFw7OiNmJkKxOh+1cLBxOEpNFVuagv1UmdfH2Dqooi9thJRtN+CHEJl/Qpy07g==}
+  '@tapie-kr/code-guideline-base@0.1.17':
+    resolution: {integrity: sha512-C0zjQONm1NqC4vH/prQ+AQFjk6Aa2mRuc0dTZcVEhNXsZcg2aa6+8VjgRpflB9PmsvItvYVUDUpLMHJL+ZW39g==}
     peerDependencies:
       eslint: ^9.19.0
 
@@ -1659,8 +1659,8 @@ packages:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  '@tapie-kr/inspire-react@0.1.42':
-    resolution: {integrity: sha512-8rfoZIMte4/7BJZDXsfT8LKZG+GjFRzFv1P5x7FiD9QbglR0Up7Z5h3nrN3E4YMKpMV+c7YgfvKzlfrmwuzioA==}
+  '@tapie-kr/inspire-react@0.1.43':
+    resolution: {integrity: sha512-aZapGxOXeLDsQa0c6uy7SneTUNd55n2B4pRdtimvW23ItUoyJfUijYW/IUsjVm/HibV2ylj7EL7Res06V+7g7g==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       framer-motion: ^12.0.3
@@ -4821,7 +4821,7 @@ snapshots:
       '@prisma/client': 6.2.1(prisma@6.2.1)
       prisma: 6.2.1
 
-  '@tapie-kr/code-guideline-base@0.1.15(eslint@9.19.0)(typescript@5.7.3)':
+  '@tapie-kr/code-guideline-base@0.1.17(eslint@9.19.0)(typescript@5.7.3)':
     dependencies:
       '@stylistic/eslint-plugin': 3.0.1(eslint@9.19.0)(typescript@5.7.3)
       '@typescript-eslint/eslint-plugin': 8.22.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
@@ -4837,10 +4837,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@tapie-kr/code-guideline-react@0.0.7(@tapie-kr/code-guideline-base@0.1.15(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)':
+  '@tapie-kr/code-guideline-react@0.0.7(@tapie-kr/code-guideline-base@0.1.17(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)':
     dependencies:
       '@stylistic/eslint-plugin': 3.0.1(eslint@9.19.0)(typescript@5.7.3)
-      '@tapie-kr/code-guideline-base': 0.1.15(eslint@9.19.0)(typescript@5.7.3)
+      '@tapie-kr/code-guideline-base': 0.1.17(eslint@9.19.0)(typescript@5.7.3)
       '@typescript-eslint/parser': 8.22.0(eslint@9.19.0)(typescript@5.7.3)
       eslint: 9.19.0
     transitivePeerDependencies:
@@ -4853,7 +4853,7 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@tapie-kr/inspire-react@0.1.42(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tapie-kr/inspire-react@0.1.43(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1

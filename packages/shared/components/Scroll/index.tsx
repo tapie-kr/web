@@ -12,11 +12,8 @@ type OnScrollChangeMiddleware = Exclude<ViewportProps['onScrollChange'], undefin
 
 export default function Scroll(props: ViewportProps) {
   const { onScrollChange, ...rest } = props;
-
   const [showLeftEffect, setShowLeftEffect] = useState(false);
-
   const [showRightEffect, setShowRightEffect] = useState(false);
-
   const viewportRef = useRef<HTMLDivElement>(null);
 
   const handleScrollChangeMiddleware: OnScrollChangeMiddleware = useCallback((isStart, isEnd, isMiddle) => {
@@ -34,7 +31,6 @@ export default function Scroll(props: ViewportProps) {
     if (!viewport) return;
 
     const { scrollLeft, clientWidth } = viewport;
-
     const newScrollLeft = scrollLeft - clientWidth;
 
     viewport.scrollTo({
@@ -49,7 +45,6 @@ export default function Scroll(props: ViewportProps) {
     if (!viewport) return;
 
     const { scrollLeft, clientWidth } = viewport;
-
     const newScrollLeft = scrollLeft + clientWidth;
 
     viewport.scrollTo({

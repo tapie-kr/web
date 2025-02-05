@@ -26,9 +26,7 @@ type HomeFAQSectionQuestionDropdownProps = {
 
 export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQuestionDropdownProps) {
   const [isOpened, toggleOpened] = useToggle();
-
   const titleRef = useRef<HTMLDivElement>(null);
-
   const [titleHeight, setTitleHeight] = useState(0);
 
   useEffect(() => {

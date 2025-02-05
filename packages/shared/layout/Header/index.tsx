@@ -22,9 +22,7 @@ import { getTransition } from '~/lib/animation';
 
 export default function Header() {
   const [showMenu, toggleMenu] = useToggle();
-
   const isMobile = useMediaQuery();
-
   const handleMenuButtonClick = toggleMenu;
 
   return (

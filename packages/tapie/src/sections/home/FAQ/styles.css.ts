@@ -35,5 +35,4 @@ export const dropdown = style([
 ]);
 
 export const content = style({ overflow: 'hidden' });
-
 export const rotatedIcon = style({ transform: 'rotate(180deg)' });

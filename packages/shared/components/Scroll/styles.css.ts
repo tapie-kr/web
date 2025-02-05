@@ -20,5 +20,4 @@ export const button = style([
 ]);
 
 export const leftButton = style([button, { left: spacingVars.mini }]);
-
 export const rightButton = style([button, { right: spacingVars.mini }]);

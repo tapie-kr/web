@@ -42,7 +42,6 @@ function LinkList(props: LinkListProps) {
   };
 
   const handleCloseClick = props.hide;
-
   const handleLinkClick = props.hide;
 
   return (
