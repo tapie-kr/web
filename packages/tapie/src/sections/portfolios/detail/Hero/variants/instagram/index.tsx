@@ -12,9 +12,9 @@ import {
   VStack,
 } from '@tapie-kr/inspire-react';
 
-import HeroActions from '../../components/actions';
-import HeroDescription from '../../components/description';
-import HeroTitle from '../../components/title';
+import HeroActions from '@/sections/portfolios/detail/Hero/components/actions';
+import HeroDescription from '@/sections/portfolios/detail/Hero/components/description';
+import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
 import Carousel from './carousel';
 
 export default function InstagramHero() {

@@ -15,9 +15,9 @@ import {
 import PortfolioCarousel from '@/components/portfolio/Carousel';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
-import HeroActions from '../../components/actions';
-import HeroDescription from '../../components/description';
-import HeroTitle from '../../components/title';
+import HeroActions from '@/sections/portfolios/detail/Hero/components/actions';
+import HeroDescription from '@/sections/portfolios/detail/Hero/components/description';
+import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
 
 export default function DefaultHero() {
   return (

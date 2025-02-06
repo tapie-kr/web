@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@tapie-kr/code-guideline-base':
-        specifier: ^0.1.19
-        version: 0.1.19(eslint@9.19.0)(typescript@5.7.3)
+        specifier: ^0.1.20
+        version: 0.1.20(eslint@9.19.0)(typescript@5.7.3)
       '@tapie-kr/code-guideline-react':
         specifier: ^0.0.7
-        version: 0.0.7(@tapie-kr/code-guideline-base@0.1.19(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
+        version: 0.0.7(@tapie-kr/code-guideline-base@0.1.20(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
@@ -1640,8 +1640,8 @@ packages:
       '@prisma/client': ^6.1.0
       prisma: ^6.1.0
 
-  '@tapie-kr/code-guideline-base@0.1.19':
-    resolution: {integrity: sha512-lAxBtWTevsOXjycSd8mLaO88g8WEu0Y9ppJF/pVWJFOjIMOildWMqsh5SebnQWPHtj+HMcRCIZ2OsAQgUTTiqw==}
+  '@tapie-kr/code-guideline-base@0.1.20':
+    resolution: {integrity: sha512-0qxvWAl9WXBZoHEtHQcyq5YmJkKFKRucefK9W/yVuZC/2i3EgzrNzA7znl18GDz9udUQbtDxsZJBrlWPK9HjvQ==}
     peerDependencies:
       eslint: ^9.19.0
 
@@ -4830,7 +4830,7 @@ snapshots:
       '@prisma/client': 6.2.1(prisma@6.2.1)
       prisma: 6.2.1
 
-  '@tapie-kr/code-guideline-base@0.1.19(eslint@9.19.0)(typescript@5.7.3)':
+  '@tapie-kr/code-guideline-base@0.1.20(eslint@9.19.0)(typescript@5.7.3)':
     dependencies:
       '@stylistic/eslint-plugin': 3.0.1(eslint@9.19.0)(typescript@5.7.3)
       '@typescript-eslint/eslint-plugin': 8.22.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
@@ -4847,10 +4847,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@tapie-kr/code-guideline-react@0.0.7(@tapie-kr/code-guideline-base@0.1.19(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)':
+  '@tapie-kr/code-guideline-react@0.0.7(@tapie-kr/code-guideline-base@0.1.20(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)':
     dependencies:
       '@stylistic/eslint-plugin': 3.0.1(eslint@9.19.0)(typescript@5.7.3)
-      '@tapie-kr/code-guideline-base': 0.1.19(eslint@9.19.0)(typescript@5.7.3)
+      '@tapie-kr/code-guideline-base': 0.1.20(eslint@9.19.0)(typescript@5.7.3)
       '@typescript-eslint/parser': 8.22.0(eslint@9.19.0)(typescript@5.7.3)
       eslint: 9.19.0
     transitivePeerDependencies:
