@@ -31,7 +31,17 @@ export function ApplyForm() {
         isEssential
         label='이름'
       >
-        <Input.Text placeholder='이름을 입력해주세요' />
+        <Input.Text
+          disabled
+        />
+      </FormField>
+      <FormField
+        isEssential
+        label='학번'
+      >
+        <Input.Text
+          disabled
+        />
       </FormField>
       <FormField
         isEssential
@@ -46,6 +56,7 @@ export function ApplyForm() {
         <Input.Paragraph
           placeholder='500자 이내로 입력해주세요'
           height={200}
+          maxLength={500}
         />
       </FormField>
       <FormField
@@ -55,6 +66,7 @@ export function ApplyForm() {
         <Input.Paragraph
           placeholder='500자 이내로 입력해주세요'
           height={200}
+          maxLength={500}
         />
       </FormField>
       <FormField
@@ -64,6 +76,7 @@ export function ApplyForm() {
         <Input.Paragraph
           placeholder='500자 이내로 입력해주세요'
           height={200}
+          maxLength={500}
         />
       </FormField>
       <FormField
@@ -73,6 +86,7 @@ export function ApplyForm() {
         <Input.Paragraph
           placeholder='500자 이내로 입력해주세요'
           height={200}
+          maxLength={500}
         />
       </FormField>
       <FormField
