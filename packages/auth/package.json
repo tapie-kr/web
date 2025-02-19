@@ -1,0 +1,39 @@
+{
+  "name": "@tapie-kr/web-auth",
+  "version": "1.0.0",
+  "description": "TAPIE Authentication Page",
+  "scripts": {
+    "start": "next start",
+    "build": "next build",
+    "dev": "next dev -p 9876"
+  },
+  "author": {
+    "name": "Taeyeong Kim",
+    "email": "taeyeong.kim@algorix.io",
+    "url": "https://github.com/cottons-kr"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://tapie.kr/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tapie-kr/web.git"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tapie-kr/inspire-react": "^0.1.48",
+    "@tapie-kr/web-shared": "workspace:*",
+    "@vanilla-extract/css": "^1.17.0",
+    "classnames": "^2.5.1",
+    "next": "15.1.6",
+    "next-themes": "^0.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4"
+  }
+}
