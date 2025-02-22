@@ -10,10 +10,10 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 
 type AwardItemProps = {
-  order: number;
-  name:  string;
-  label: string;
-};
+  order: number
+  name:  Array<string> | string
+  label: string
+}
 
 export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
   const { isInView } = useContext(ViewportDetectorContext);
@@ -49,10 +49,10 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
     >
       <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
       <Typo.Petite
-        color={colorVars.content.muted}
+        color={Color.Content.Muted}
         weight={Weight.SEMIBOLD}
-      >
-        {props.name}
+       >
+        {Array.isArray(props.name) ? props.name.join(', ') : props.name}
       </Typo.Petite>
     </motion.div>
   );

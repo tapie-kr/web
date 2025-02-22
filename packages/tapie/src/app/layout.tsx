@@ -68,6 +68,7 @@ export default function RootLayout(props: ILayoutProps) {
             <Footer />
           </InspireProvider>
         </ThemeProvider>
+        <ClarityProvider />
       </body>
     </html>
   );

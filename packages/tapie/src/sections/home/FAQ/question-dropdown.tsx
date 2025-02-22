@@ -33,9 +33,9 @@ export default function HomeFAQSectionQuestionDropdown(props: HomeFAQSectionQues
     const handleResize = () => {
       setTitleHeight(titleRef.current?.clientHeight ?? 0);
     };
-
+    
     window.addEventListener('resize', handleResize);
-
+    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
