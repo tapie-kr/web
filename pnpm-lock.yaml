@@ -71,10 +71,10 @@ importers:
     dependencies:
       '@cottons-kr/react-foundation':
         specifier: ^0.3.9
-        version: 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/inspire-react':
         specifier: ^0.1.46
-        version: 0.1.46(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.1.46(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@vanilla-extract/css':
         specifier: ^1.17.0
         version: 1.17.0
@@ -114,7 +114,7 @@ importers:
     dependencies:
       '@cottons-kr/react-foundation':
         specifier: ^0.3.9
-        version: 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.3)
@@ -175,7 +175,7 @@ importers:
     dependencies:
       '@cottons-kr/react-foundation':
         specifier: ^0.3.1
-        version: 0.3.1(next@15.1.3(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.3.9(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.2)
@@ -793,13 +793,6 @@ packages:
     resolution: {integrity: sha512-t8kDRGrKXyp6+tjUh7hw2RLyclsW4TRoRvRHtSyAX9Bb5ldlFh+90YAYY6awRXrlB4G5G2izNeGySpATlFzmOg==}
     engines: {node: '>=6.9.0'}
 
-  '@cottons-kr/react-foundation@0.3.1':
-    resolution: {integrity: sha512-Usihp6/5Kk5FpgPIG2RZuMi0X6Y1qf9FhP3YOsLmos6rU8QshCuKD7FmjdbDM2cpqIBGMd4YytzbZG+9iHkHkw==}
-    peerDependencies:
-      next: '>=14.0.0'
-      react: '>=18.0.0'
-      react-dom: '>=18.0.0'
-
   '@cottons-kr/react-foundation@0.3.9':
     resolution: {integrity: sha512-NmaSi/SXT0Fv8gfXGXGeyQzG5oCbFqOkORDF9KTPpUFrVJKyCcvCsplYQ8xytAQh9Dy9sGXXhepOyYwGcPXeVg==}
     peerDependencies:
@@ -1278,9 +1271,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
-
-  '@microsoft/clarity@1.0.0':
-    resolution: {integrity: sha512-2QY6SmXnqRj6dWhNY8NYCN3e53j4zCFebH4wGnNhdGV1mqAsQwql2fT0w8TISxCvwwfVp8idsWLIdrRHOms1PQ==}
 
   '@next/env@15.1.3':
     resolution: {integrity: sha512-Q1tXwQCGWyA3ehMph3VO+E6xFPHDKdHFYosadt0F78EObYxPio0S09H9UGYznDe6Wc8eLKLG89GqcFJJDiK5xw==}
@@ -4375,9 +4365,15 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@cottons-kr/react-foundation@0.3.1(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@cottons-kr/react-foundation@0.3.9(next@15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       next: 15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@cottons-kr/react-foundation@0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      next: 15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
@@ -4695,8 +4691,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  '@microsoft/clarity@1.0.0': {}
 
   '@next/env@15.1.3': {}
 
@@ -5125,6 +5119,17 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
+  '@tapie-kr/inspire-react@0.1.46(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      classnames: 2.5.1
+      framer-motion: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      jotai: 2.11.3(@types/react@19.0.8)(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    transitivePeerDependencies:
+      - next
+
   '@tapie-kr/inspire-react@0.1.46(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -5138,7 +5143,7 @@ snapshots:
 
   '@tapie-kr/inspire-react@0.1.48(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.10)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
       framer-motion: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       jotai: 2.11.3(@types/react@19.0.10)(react@19.0.0)
