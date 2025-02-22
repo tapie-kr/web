@@ -78,6 +78,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.17.0
         version: 1.17.0
+      '@vanilla-extract/next-plugin':
+        specifier: ^2.4.8
+        version: 2.4.8(@types/node@22.10.10)(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(sass@1.83.4)(terser@5.37.0)(webpack@5.97.1)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -103,9 +106,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.3
         version: 19.0.3(@types/react@19.0.8)
-      '@vanilla-extract/next-plugin':
-        specifier: ^2.4.8
-        version: 2.4.8(@types/node@22.10.10)(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(sass@1.83.4)(terser@5.37.0)(webpack@5.97.1)
       next:
         specifier: ^15.1.6
         version: 15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4)
