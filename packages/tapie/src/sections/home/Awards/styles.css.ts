@@ -1,66 +1,54 @@
-import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getResponsiveQuery,
+  getShorthandedValue,
+  radiusVars,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+
+import { style } from '@vanilla-extract/css';
 
 export const section = style({
   maxWidth: 1400,
-  padding: `${Spacing.Giant} ${Spacing.Moderate}`,
-  '@media': {
-    '(max-width: 1000px)': {
-      flexDirection: 'column',
-    },
-  },
-})
+  padding:  getShorthandedValue(spacingVars.giant, spacingVars.moderate),
+  ...getResponsiveQuery(1000, { flexDirection: 'column' }),
+});
 
-export const count = style({
-  '@media': {
-    '(max-width: 1000px)': {
-      display: 'none',
-    },
-  },
-})
+export const count = style({ ...getMobileMediaQuery({ display: 'none' }) });
 
 export const yearSelector = style({
   maxWidth: 800,
-  padding: `${Spacing.Micro} 0`,
-  '@media': {
-    '(max-width: 1000px)': {
-      maxWidth: '100%',
-    },
-  },
-})
+  padding:  getShorthandedValue(spacingVars.micro, 0),
+  ...getResponsiveQuery(1000, { maxWidth: '100%' }),
+});
 
 export const yearItem = style({
-  padding: `${Spacing.Micro} ${Spacing.Moderate}`,
-  background: Color.Surface.Elevated,
-  borderRadius: Radius.Smooth,
-})
+  padding:      getShorthandedValue(spacingVars.micro, spacingVars.moderate),
+  background:   colorVars.surface.elevated,
+  borderRadius: radiusVars.smooth,
+});
 
 export const yearItemActive = style({
-  background: Color.Surface.Inverted.Elevated,
-  color: Color.Content.Inverted.Emphasized,
-})
+  background: colorVars.surface.inverted.elevated,
+  color:      colorVars.content.inverted.emphasized,
+});
 
 export const awardList = style({
   maxWidth: 800,
-  '@media': {
-    '(max-width: 1000px)': {
-      maxWidth: '100%',
-    },
-  },
-})
+  ...getResponsiveQuery(1000, { maxWidth: '100%' }),
+});
 
 export const awardItem = style({
-  width: 'fit-content',
-  display: 'flex',
+  width:         'fit-content',
+  display:       'flex',
   flexDirection: 'column',
-  gap: Spacing.Micro,
-  padding: `${Spacing.Base} ${Spacing.Moderate}`,
-  border: `1px solid ${Color.Line.Border}`,
-  borderRadius: Radius.Rounded,
-  '@media': {
-    '(max-width: 500px)': {
-      width: '100%',
-      textAlign: 'center',
-    },
-  },
-})
+  gap:           spacingVars.micro,
+  padding:       getShorthandedValue(spacingVars.base, spacingVars.moderate),
+  border:        getShorthandedValue('1px', 'solid', colorVars.line.border),
+  borderRadius:  radiusVars.rounded,
+  ...getResponsiveQuery(500, {
+    width:     '100%',
+    textAlign: 'center',
+  }),
+});

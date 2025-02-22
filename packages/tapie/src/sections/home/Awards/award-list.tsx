@@ -1,16 +1,25 @@
-import * as s from './styles.css'
+import * as s from './styles.css';
 
-import { HStack } from '@cottons-kr/react-foundation'
-import { Spacing } from '@tapie-kr/inspire-react/variables'
-import AwardItem from './award-item'
-import awards from '@/../public/_awards.json'
+import { HStack } from '@cottons-kr/react-foundation';
+import { spacingVars } from '@tapie-kr/inspire-react';
+
+import awards from '@/../public/_awards.json';
+import AwardItem from './award-item';
 
 export default function HomeAwardsSectionAwardList() {
-  return <>
-    <HStack className={s.awardList} gap={Spacing.Base} wrap>
+  return (
+    <HStack
+      wrap
+      className={s.awardList}
+      gap={spacingVars.base}
+    >
       {awards.map((award, i) => (
-        <AwardItem key={i} {...award} order={i} />
+        <AwardItem
+          key={i}
+          {...award}
+          order={i}
+        />
       ))}
     </HStack>
-  </>
+  );
 }

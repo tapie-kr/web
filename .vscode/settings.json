@@ -8,6 +8,18 @@
     "**/Thumbs.db": true,
     "**/node_modules": false
   },
-  "typescript.format.semicolons": "remove",
-  "javascript.format.semicolons": "remove"
+  "cSpell.words": ["circlehollow", "multilines"],
+  "eslint.workingDirectories": ["./packages/tapie"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit",
+  },
+  "prettier.enable": false,
+  "eslint.enable": true,
+  "eslint.format.enable": false
 }

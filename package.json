@@ -5,6 +5,18 @@
   ],
   "version": "1.0.0",
   "description": "TAPIE Website",
+  "scripts": {
+    "format": "pnpm run lint && pnpm run prettier",
+    "prettier": "prettier --write . --log-level warn",
+    "lint": "eslint . --fix",
+    "lint:dry": "eslint . --fix-dry-run --ignore-pattern 'packages/under-construction/'"
+  },
+  "devDependencies": {
+    "@tapie-kr/code-guideline-base": "^0.1.20",
+    "@tapie-kr/code-guideline-react": "^0.0.7",
+    "eslint": "^9.19.0",
+    "prettier": "^3.4.2"
+  },
   "author": {
     "name": "Taeyeong Kim",
     "email": "taeyeong.kim@algorix.io",

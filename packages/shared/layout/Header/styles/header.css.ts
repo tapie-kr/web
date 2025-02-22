@@ -1,67 +1,71 @@
-import { Color, Spacing, Radius } from '@tapie-kr/inspire-react/variables'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getShorthandedValue,
+  radiusVars,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+
+import { style } from '@vanilla-extract/css';
 
 export const headerStyle = style({
-  position: 'fixed',
-  padding: `22px 30px`,
-  top: 0,
-  left: 0,
-  background: Color.Surface.Default,
-  zIndex: 100,
-})
+  position:   'fixed',
+  padding:    '22px 30px',
+  top:        0,
+  left:       0,
+  background: colorVars.surface.default,
+  zIndex:     100,
+  ...getMobileMediaQuery({ padding: spacingVars.moderate }),
+});
 
 export const menuButtonStyle = style({
-  width: 77,
-  height: 32,
-  display: 'flex',
-  alignItems: 'center',
+  width:          77,
+  height:         32,
+  display:        'flex',
+  alignItems:     'center',
   justifyContent: 'center',
-  gap: Spacing.Micro,
-  background: Color.Surface.Default,
-  border: `1.5px solid ${Color.Grayscale.Solid._90}`,
-  borderRadius: Radius.Pill,
-  ':hover': {
-    background: Color.Surface.Inverted.Default,
-    color: Color.Content.Inverted.Emphasized,
+  gap:            spacingVars.micro,
+  background:     colorVars.surface.default,
+  border:         getShorthandedValue('1.5px', 'solid', colorVars.grayscale.solid._90),
+  borderRadius:   radiusVars.pill,
+  ':hover':       {
+    background: colorVars.surface.inverted.default,
+    color:      colorVars.content.inverted.emphasized,
   },
-})
+});
 
 export const backdrop = style({
-  position: 'fixed',
-  width: '100%',
-  height: '100dvh',
-  background: Color.Solid.Translucent.Black._20,
+  position:       'fixed',
+  width:          '100%',
+  height:         '100dvh',
+  background:     colorVars.solid.translucent.black._20,
   backdropFilter: 'blur(10px)',
-  top: 0,
-  left: 0,
-  zIndex: 150,
-})
+  top:            0,
+  left:           0,
+  zIndex:         150,
+});
 
 export const frame = style({
   position: 'fixed',
-  width: '100%',
-  height: 414,
-  top: 0,
-  left: 0,
-  zIndex: 200,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      height: '100dvh',
-    },
-  },
-})
+  width:    '100%',
+  height:   414,
+  top:      0,
+  left:     0,
+  zIndex:   200,
+  ...getMobileMediaQuery({ height: '100dvh' }),
+});
 
 export const menu = style({
-  background: Color.Solid.Black,
-  padding: `0 ${Spacing.Large}`,
-  display: 'flex',
+  background:     colorVars.surface.default,
+  padding:        getShorthandedValue(0, spacingVars.large),
+  display:        'flex',
   justifyContent: 'center',
-  overflow: 'hidden',
-})
+  overflow:       'hidden',
+});
 
 export const content = style({
-  width: '100%',
+  width:    '100%',
   maxWidth: 1200,
-  height: '100%',
-  padding: `${Spacing.Large} 0`,
-})
+  height:   '100%',
+  padding:  getShorthandedValue(spacingVars.large, 0),
+});

@@ -1,56 +1,51 @@
-import { Color, Radius, Spacing } from '@tapie-kr/inspire-react/variables'
-import { style } from '@vanilla-extract/css'
+import {
+  colorVars,
+  getMobileMediaQuery,
+  getShorthandedValue,
+  radiusVars,
+  spacingVars,
+} from '@tapie-kr/inspire-react';
+
+import { style } from '@vanilla-extract/css';
 
 export const section = style({
-  padding: `${Spacing.Giant} 0`,
-  background: Color.Surface.Elevated,
-})
+  padding:    getShorthandedValue(spacingVars.giant, 0),
+  background: colorVars.surface.elevated,
+});
 
 export const title = style({
   maxWidth: 1400,
-  padding: `0 ${Spacing.Moderate}`
-})
+  padding:  getShorthandedValue(0, spacingVars.moderate),
+});
 
 export const content = style({
   maxWidth: 1400,
-  padding: `0 ${Spacing.Moderate}`,
-  gap: Spacing.Moderate,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      flexDirection: 'column',
-      gap: Spacing.Giant,
-    },
-  },
-})
+  padding:  getShorthandedValue(0, spacingVars.moderate),
+  gap:      spacingVars.moderate,
+  ...getMobileMediaQuery({
+    flexDirection: 'column',
+    gap:           spacingVars.giant,
+  }),
+});
 
 export const list = style({
   maxWidth: 624,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      maxWidth: '100%',
-    },
-  },
-})
+  ...getMobileMediaQuery({ maxWidth: '100%' }),
+});
 
 export const featureCard = style({
-  padding: Spacing.Medium,
-  background: Color.Surface.Default,
-  border: `1px solid ${Color.Line.Border}`,
-  borderRadius: Radius.Smooth,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      width: '100%',
-    },
-  },
-})
+  padding:      spacingVars.medium,
+  background:   colorVars.surface.default,
+  border:       getShorthandedValue('1px', 'solid', colorVars.line.border),
+  borderRadius: radiusVars.smooth,
+  ...getMobileMediaQuery({ width: '100%' }),
+});
 
 export const featureCardIcon = style({
-  width: 60,
+  width:  60,
   height: 60,
-  '@media': {
-    'screen and (max-width: 768px)': {
-      width: 40,
-      height: 40,
-    },
-  },
-})
+  ...getMobileMediaQuery({
+    width:  40,
+    height: 40,
+  }),
+});

@@ -4,6 +4,7 @@ COPY . /app
 WORKDIR /app
 
 ENV time_zone=Asia/Seoul
+ENV NODE_ENV=production
 
 RUN corepack enable
 RUN corepack prepare pnpm --activate
@@ -12,8 +13,6 @@ RUN pnpm install --frozen-lockfile
 # ===== Under Construction =====
 
 FROM builder AS under-construction
-
-ENV NODE_ENV=production
 
 WORKDIR /app/packages/under-construction
 
@@ -25,9 +24,17 @@ CMD ["pnpm", "start"]
 
 FROM builder AS tapie
 
-ENV NODE_ENV=production
-
 WORKDIR /app/packages/tapie
+
+RUN pnpm build
+
+CMD ["pnpm", "start"]
+
+# ===== AUTH =====
+
+FROM builder AS auth
+
+WORKDIR /app/packages/auth
 
 RUN pnpm build
 

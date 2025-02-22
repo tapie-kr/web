@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { createContext } from 'react'
+import { createContext } from 'react';
 
 type ViewportDetectorContextType = {
-  isInView: boolean
-}
+  isInView: boolean;
+};
 
-export const ViewportDetectorContext = createContext({} as ViewportDetectorContextType)
+export const ViewportDetectorContext = createContext({} as ViewportDetectorContextType);

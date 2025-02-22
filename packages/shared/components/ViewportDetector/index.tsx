@@ -1,25 +1,26 @@
-'use client'
+'use client';
 
-import { useInView } from 'framer-motion'
-import { ReactNode, RefObject, useRef } from 'react'
-import { ViewportDetectorContext } from './context'
+import { useInView } from 'framer-motion';
+import { type ReactNode, type RefObject, useRef } from 'react';
+import { ViewportDetectorContext } from './context';
 
 type ViewportDetectorProps = {
-  once?: boolean
-  ref?: RefObject<HTMLElement>
-  children?: ReactNode
-}
+  shouldOnce?: boolean;
+  ref?:        RefObject<HTMLElement>;
+  children?:   ReactNode;
+};
 
 export default function ViewportDetector(props: ViewportDetectorProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
+
   const isInView = useInView(props.ref ?? containerRef, {
     amount: 0.07,
-    once: props.once,
-  })
+    once:   props.shouldOnce,
+  });
 
-  return <>
+  return (
     <ViewportDetectorContext.Provider value={{ isInView }}>
       <section ref={containerRef}>{props.children}</section>
     </ViewportDetectorContext.Provider>
-  </>
+  );
 }

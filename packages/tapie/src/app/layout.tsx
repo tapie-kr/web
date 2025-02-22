@@ -1,63 +1,75 @@
-import { ILayoutProps } from '@cottons-kr/react-foundation'
-import ClarityProvider from '@tapie-kr/web-shared/providers/Clarity'
-import { ThemeProvider } from 'next-themes'
-import { Metadata, Viewport } from 'next'
-import Favicon from '@tapie-kr/web-shared/assets/favicon.png'
+import '@cottons-kr/react-foundation/styles.css';
 
-import Header from '@tapie-kr/web-shared/layout/Header'
-import Footer from '@tapie-kr/web-shared/layout/Footer'
+import { type ILayoutProps, Spacer } from '@cottons-kr/react-foundation';
+import { InspireProvider } from '@tapie-kr/inspire-react/provider';
 
-import '@tapie-kr/inspire-react/styles.css'
-import '@cottons-kr/react-foundation/styles.css'
+import Favicon from '@tapie-kr/web-shared/assets/favicon.png';
+import Footer from '@tapie-kr/web-shared/layout/Footer';
+import Header from '@tapie-kr/web-shared/layout/Header';
+import { type Metadata, type Viewport } from 'next';
+import { ThemeProvider } from 'next-themes';
+
+import 'swiper/css';
 
 export const metadata: Metadata = {
-  title: 'TAPIE',
+  title:       'TAPIE',
   description: '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE',
-  keywords: [
-    'TAPIE', 'tapie', '테이피',
-    '선린인터넷고등학교', 'sunrin', '선린',
-    '소프트웨어과', '동아리',
+  keywords:    [
+    'TAPIE',
+    'tapie',
+    '테이피',
+    '선린인터넷고등학교',
+    'sunrin',
+    '선린',
+    '소프트웨어과',
+    '동아리',
   ],
   openGraph: {
-    type: 'website',
-    url: 'https://tapie.kr',
-    title: 'TAPIE',
+    type:        'website',
+    url:         'https://tapie.kr',
+    title:       'TAPIE',
     description: '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE',
-    locale: 'ko_KR',
-    siteName: 'TAPIE',
-    images: [{
-      url: 'https://raw.githubusercontent.com/tapie-kr/.github/assets/cover.png',
-    }],
+    locale:      'ko_KR',
+    siteName:    'TAPIE',
+    images:      [{ url: 'https://raw.githubusercontent.com/tapie-kr/.github/assets/cover.png' }],
   },
-}
+};
 
-export const viewport: Viewport = {
-  themeColor: [
-    {
-      color: '#050505',
-      media: '(prefers-color-scheme: light)',
-    },
-    {
-      color: '#FAFAFA',
-      media: '(prefers-color-scheme: dark)',
-    },
-  ],
-}
+export const viewport: Viewport = { themeColor: [
+  {
+    color: '#050505',
+    media: '(prefers-color-scheme: light)',
+  },
+  {
+    color: '#FAFAFA',
+    media: '(prefers-color-scheme: dark)',
+  },
+] };
 
 export default function RootLayout(props: ILayoutProps) {
-  return <>
-    <html lang='ko' suppressHydrationWarning>
+  return (
+    <html
+      suppressHydrationWarning
+      lang='ko'
+    >
       <head>
-        <link rel='icon' type='image/png' href={Favicon.src} />
+        <link
+          rel='icon'
+          type='image/png'
+          href={Favicon.src}
+        />
       </head>
       <body>
         <ThemeProvider>
-          <Header />
-          {props.children}
-          <Footer />
+          <InspireProvider>
+            <Header />
+            <Spacer height='76px' />
+            {props.children}
+            <Footer />
+          </InspireProvider>
         </ThemeProvider>
         <ClarityProvider />
       </body>
     </html>
-  </>
+  );
 }
