@@ -1,4 +1,9 @@
-import { base, content, copyright } from './page.css';
+import {
+  base,
+  content,
+  copyright,
+  link,
+} from './page.css';
 
 import {
   BrandIcon,
@@ -9,6 +14,8 @@ import {
   Typo,
   VStack,
 } from '@tapie-kr/inspire-react';
+
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -25,11 +32,16 @@ export default function Page() {
           hasLabel
           size={TAPIESymbolSize._32}
         />
-        <Button.Default
-          fullWidth
-          leadingIcon={BrandIcon.GOOGLE}
-        >Google로 TAPIE 로그인
-        </Button.Default>
+        <Link
+          className={link}
+          href={process.env.NEXT_PUBLIC_API_URL + '/auth/google'}
+        >
+          <Button.Default
+            fullWidth
+            leadingIcon={BrandIcon.GOOGLE}
+          >Google로 TAPIE 로그인
+          </Button.Default>
+        </Link>
       </VStack>
       <VStack
         spacing={spacingVars.micro}

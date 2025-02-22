@@ -8,6 +8,7 @@ export const base = style({
 });
 
 export const content = style({ maxWidth: 300 });
+export const link = style({ width: '100%' });
 
 export const copyright = style({
   position:  'absolute',
