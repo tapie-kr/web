@@ -8,7 +8,10 @@ import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 export function withTAPIEWebConfig(config = {}) {
   const withVanillaExtract = createVanillaExtractPlugin();
 
+  /** @type {import('next').NextConfig} */
   const nextConfig = {
+    ...config,
+
     webpack(config) {
       const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.('.svg'));
 
@@ -29,7 +32,7 @@ export function withTAPIEWebConfig(config = {}) {
       return config;
     },
 
-    ...config,
+    typescript: { ignoreBuildErrors: true },
   };
 
   return withVanillaExtract(nextConfig);

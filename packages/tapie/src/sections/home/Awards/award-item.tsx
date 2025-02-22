@@ -2,7 +2,7 @@
 
 import * as s from './styles.css';
 
-import { Typo, Weight } from '@tapie-kr/inspire-react';
+import { colorVars, Typo, Weight } from '@tapie-kr/inspire-react';
 
 import { ViewportDetectorContext } from '@tapie-kr/web-shared/components/ViewportDetector/context';
 import { getTransition } from '@tapie-kr/web-shared/lib/animation';
@@ -49,7 +49,7 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
     >
       <Typo.Base weight={Weight.MEDIUM}>{props.label}</Typo.Base>
       <Typo.Petite
-        color={Color.Content.Muted}
+        color={colorVars.content.muted}
         weight={Weight.SEMIBOLD}
       >
         {Array.isArray(props.name) ? props.name.join(', ') : props.name}
