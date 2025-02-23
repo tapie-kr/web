@@ -33,6 +33,16 @@ export function withTAPIEWebConfig(config = {}) {
     },
 
     typescript: { ignoreBuildErrors: true },
+
+    env: { NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://tapie-api-dev.vport.dev' },
+
+    rewrites() {
+      return [
+        {
+          source: '/api/:path*', destination: `${this.env.NEXT_PUBLIC_API_URL}/:path*`,
+        },
+      ];
+    },
   };
 
   return withVanillaExtract(nextConfig);

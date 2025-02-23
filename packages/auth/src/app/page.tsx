@@ -37,7 +37,7 @@ export default async function Page(props: PageParams<'', 'service'>) {
         />
         <Link
           className={link}
-          href={process.env.NEXT_PUBLIC_API_URL + `/auth/google?service=${service || 'form'}`}
+          href={`/api/v1/auth/google?service=${service || 'form'}`}
         >
           <Button.Default
             fullWidth
