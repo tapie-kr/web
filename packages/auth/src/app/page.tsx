@@ -15,9 +15,12 @@ import {
   VStack,
 } from '@tapie-kr/inspire-react';
 
+import { type PageParams } from '@tapie-kr/web-shared/types/props';
 import Link from 'next/link';
 
-export default function Page() {
+export default async function Page(props: PageParams<'', 'service'>) {
+  const { service } = await props.searchParams;
+
   return (
     <VStack
       fullWidth
@@ -34,7 +37,7 @@ export default function Page() {
         />
         <Link
           className={link}
-          href={process.env.NEXT_PUBLIC_API_URL + '/auth/google'}
+          href={process.env.NEXT_PUBLIC_API_URL + `/auth/google?service=${service || 'form'}`}
         >
           <Button.Default
             fullWidth
