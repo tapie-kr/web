@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Button,
   FormField,
@@ -9,7 +11,53 @@ import {
   VStack,
 } from '@tapie-kr/inspire-react';
 
+import {
+  useCreateFormApplication,
+  useFormApplication,
+  useFormListPublic,
+  useMe,
+  useUpdateFormApplication,
+} from '@tapie-kr/api-client';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
 export function ApplyForm() {
+  const { data, fetch } = useMe();
+  const { data: myApplication, fetch: getMyApplication } = useFormApplication();
+  const { mutate: create } = useCreateFormApplication();
+  const { muatate: update } = useUpdateFormApplication();
+  const [hasApplication, setHasApplication] = useState(false);
+
+  const {
+    data: currentForm,
+    fetch: getCurrentForm,
+    isSuccess: isCurrentFormSuccess,
+  } = useFormListPublic();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch();
+
+    getCurrentForm();
+  }, []);
+
+  useEffect(() => {
+    if (isCurrentFormSuccess) {
+      if (currentForm?.data) {
+        getMyApplication(currentForm.data.id);
+      } else {
+        router.push('/');
+      }
+    }
+  }, [currentForm]);
+
+  useEffect(() => {
+    if (myApplication?.data) {
+      setHasApplication(true);
+    }
+  }, [myApplication]);
+
   return (
     <VStack
       fullWidth
@@ -33,6 +81,7 @@ export function ApplyForm() {
       >
         <Input.Text
           disabled
+          value={data?.data.name.slice(5)}
         />
       </FormField>
       <FormField
@@ -41,6 +90,7 @@ export function ApplyForm() {
       >
         <Input.Text
           disabled
+          value={data?.data.name.slice(0, 5)}
         />
       </FormField>
       <FormField
