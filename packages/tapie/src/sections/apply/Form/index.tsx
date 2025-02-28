@@ -13,8 +13,8 @@ import {
 
 import {
   useCreateFormApplication,
+  useForm,
   useFormApplication,
-  useFormListPublic,
   useMe,
   useUpdateFormApplication,
 } from '@tapie-kr/api-client';
@@ -32,7 +32,7 @@ export function ApplyForm() {
     data: currentForm,
     fetch: getCurrentForm,
     isSuccess: isCurrentFormSuccess,
-  } = useFormListPublic();
+  } = useForm();
 
   const router = useRouter();
 
@@ -45,7 +45,7 @@ export function ApplyForm() {
   useEffect(() => {
     if (isCurrentFormSuccess) {
       if (currentForm?.data) {
-        getMyApplication(currentForm.data.id);
+        getMyApplication({ param: { formId: currentForm.data.id } });
       } else {
         router.push('/');
       }
