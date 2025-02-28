@@ -22,7 +22,7 @@
   "dependencies": {
     "@cottons-kr/react-foundation": "^0.3.9",
     "@svgr/webpack": "^8.1.0",
-    "@tapie-kr/api-client": "0.1.5",
+    "@tapie-kr/api-client": "0.1.6",
     "@tapie-kr/api-database": "^0.0.3",
     "@tapie-kr/inspire-react": "^0.2.13",
     "@tapie-kr/web-shared": "workspace:*",
@@ -30,6 +30,7 @@
     "classnames": "^2.5.1",
     "framer-motion": "^11.18.2",
     "jotai": "^2.11.3",
+    "lodash": "^4.17.21",
     "next": "^15.1.6",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
@@ -39,6 +40,7 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.15",
     "@types/node": "^22.10.10",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3"
