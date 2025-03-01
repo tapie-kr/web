@@ -21,10 +21,11 @@ import {
   useUpdateFormApplication,
 } from '@tapie-kr/api-client';
 import { MemberUnit } from '@tapie-kr/api-client/enum';
-import { debounce } from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Regex } from '@tapie-kr/web-shared/constants/regex';
+import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
+import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
 
 export function ApplyForm() {
   const { data, fetch } = useMe();
@@ -41,6 +42,9 @@ export function ApplyForm() {
 
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
+
+  // formData의 디바운스된 버전 생성
+  const debouncedFormData = useDebounce(formData, 1000);
 
   useEffect(() => {
     fetch();
@@ -65,65 +69,33 @@ export function ApplyForm() {
       return false;
     }
 
-    if (!formData.introduction) {
-      return false;
-    }
-
-    if (!formData.motivation) {
-      return false;
-    }
-
-    if (!formData.expectedActivities) {
-      return false;
-    }
-
-    if (!formData.reasonToChoose) {
-      return false;
-    }
+    if (!formData.introduction) return false;
+    if (!formData.motivation) return false;
+    if (!formData.expectedActivities) return false;
+    if (!formData.reasonToChoose) return false;
 
     return true;
   }
 
-  function phoneNumberToInternational(phoneNumber: string | undefined) {
-    if (!phoneNumber) {
-      return undefined;
-    }
-
-    return '+82' + phoneNumber.slice(1);
-  }
-
-  function internationalToPhoneNumber(phoneNumber: string | undefined) {
-    if (!phoneNumber) {
-      return undefined;
-    }
-
-    return '0' + phoneNumber.slice(3);
-  }
-
-  const debouncedSubmit = debounce(() => {
+  // debounce 처리된 formData가 변경될 때만 API 호출
+  useEffect(() => {
+    // 초기 렌더링 시 불필요한 API 호출 방지
+    if (Object.keys(debouncedFormData).length <= 1) return;
+    
     if (validateForm()) {
       update({
         param: { formId: currentId },
-        data:  {
-          ...formData,
-          phoneNumber: phoneNumberToInternational(formData.phoneNumber),
+        data: {
+          ...debouncedFormData,
+          phoneNumber: phoneNumberToInternational(debouncedFormData.phoneNumber),
         },
       });
     }
-  }, 500);
-
-  useEffect(() => {
-    debouncedSubmit();
-
-    return () => debouncedSubmit.cancel();
-  }, [formData]);
+  }, [debouncedFormData, currentId]);
 
   useEffect(() => {
     console.log(myApplication);
-
     if (myApplication?.data) {
-      console.log(myApplication.data);
-
       setFormData({
         unit:               myApplication.data.unit,
         phoneNumber:        internationalToPhoneNumber(myApplication.data.phoneNumber),
@@ -138,13 +110,8 @@ export function ApplyForm() {
   }, [myApplication]);
 
   useEffect(() => {
-    if(formData.phoneNumber === '') return setPhoneNumberError(undefined);
-
-    if(!(Regex.phoneNumber).test(formData.phoneNumber || '')) {
-      setPhoneNumberError('전화번호가 형식에 맞지 않습니다.')
-    } else {
-      setPhoneNumberError(undefined)
-    }
+    const error = !isValidPhoneNumber(formData.phoneNumber) ? '전화번호가 형식에 맞지 않습니다.' : undefined;
+    setPhoneNumberError(error)
   }, [formData.phoneNumber]);
 
   return (
@@ -206,70 +173,26 @@ export function ApplyForm() {
         />
         {phoneNumberError && <Typo.Petite color={colorVars.solid.red}>{phoneNumberError}</Typo.Petite>}
       </FormField>
-      <FormField
-        isEssential
+      <TextareaField 
         label='자기소개'
-      >
-        <Input.Paragraph
-          placeholder='500자 이내로 입력해주세요'
-          height={200}
-          maxLength={500}
-          value={formData.introduction}
-          onChange={e => {
-            setFormData({
-              ...formData, introduction: e.target.value,
-            });
-          }}
-        />
-      </FormField>
-      <FormField
-        isEssential
+        value={formData.introduction}
+        onChange={value => setFormData({ ...formData, introduction: value })}
+      />
+      <TextareaField 
         label='지원동기'
-      >
-        <Input.Paragraph
-          placeholder='500자 이내로 입력해주세요'
-          height={200}
-          maxLength={500}
-          value={formData.motivation}
-          onChange={e => {
-            setFormData({
-              ...formData, motivation: e.target.value,
-            });
-          }}
-        />
-      </FormField>
-      <FormField
-        isEssential
+        value={formData.motivation}
+        onChange={value => setFormData({ ...formData, motivation: value })}
+      />
+      <TextareaField 
         label='기대되는 활동'
-      >
-        <Input.Paragraph
-          placeholder='500자 이내로 입력해주세요'
-          height={200}
-          maxLength={500}
-          value={formData.expectedActivities}
-          onChange={e => {
-            setFormData({
-              ...formData, expectedActivities: e.target.value,
-            });
-          }}
-        />
-      </FormField>
-      <FormField
-        isEssential
-        label='자신을 뽑아야할 이유'
-      >
-        <Input.Paragraph
-          placeholder='500자 이내로 입력해주세요'
-          height={200}
-          maxLength={500}
-          value={formData.reasonToChoose}
-          onChange={e => {
-            setFormData({
-              ...formData, reasonToChoose: e.target.value,
-            });
-          }}
-        />
-      </FormField>
+        value={formData.expectedActivities}
+        onChange={value => setFormData({ ...formData, expectedActivities: value })}
+      />
+      <TextareaField 
+        label='자신을 뽑아야 하는 이유'
+        value={formData.reasonToChoose}
+        onChange={value => setFormData({ ...formData, reasonToChoose: value })}
+      />
       <FormField
         isEssential
         label='포트폴리오'
@@ -289,3 +212,22 @@ export function ApplyForm() {
     </VStack>
   );
 }
+
+// Input.Paragraph 컴포넌트 공통화
+interface TextareaFieldProps {
+  label: string;
+  placeholder?: string;
+  value: string | undefined;
+  onChange: (value: string) => void;
+}
+const TextareaField = ({ label, placeholder, value, onChange }: TextareaFieldProps) => (
+  <FormField isEssential label={label}>
+    <Input.Paragraph
+      placeholder={placeholder || '500자 이내로 입력해주세요'}
+      height={200}
+      maxLength={500}
+      value={value}
+      onChange={e => onChange(e.target.value)}
+    />
+  </FormField>
+);
