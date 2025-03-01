@@ -2,12 +2,14 @@
 
 import {
   Button,
+  colorVars,
   FormField,
   GlyphIcon,
   Input,
   Segment,
   SegmentGroup,
   spacingVars,
+  Typo,
   VStack,
 } from '@tapie-kr/inspire-react';
 
@@ -22,12 +24,14 @@ import { MemberUnit } from '@tapie-kr/api-client/enum';
 import { debounce } from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Regex } from '@tapie-kr/web-shared/constants/regex';
 
 export function ApplyForm() {
   const { data, fetch } = useMe();
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
+  const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
 
   const {
     data: currentForm,
@@ -57,7 +61,7 @@ export function ApplyForm() {
   }, [currentForm]);
 
   function validateForm() {
-    if (!formData.phoneNumber || !(/^\d{3}-\d{3,4}-\d{4}$/).test(formData.phoneNumber)) {
+    if (!formData.phoneNumber || !(Regex.phoneNumber).test(formData.phoneNumber)) {
       return false;
     }
 
@@ -133,6 +137,16 @@ export function ApplyForm() {
     }
   }, [myApplication]);
 
+  useEffect(() => {
+    if(formData.phoneNumber === '') return setPhoneNumberError(undefined);
+
+    if(!(Regex.phoneNumber).test(formData.phoneNumber || '')) {
+      setPhoneNumberError('전화번호가 형식에 맞지 않습니다.')
+    } else {
+      setPhoneNumberError(undefined)
+    }
+  }, [formData.phoneNumber]);
+
   return (
     <VStack
       fullWidth
@@ -190,6 +204,7 @@ export function ApplyForm() {
             });
           }}
         />
+        {phoneNumberError && <Typo.Petite color={colorVars.solid.red}>{phoneNumberError}</Typo.Petite>}
       </FormField>
       <FormField
         isEssential
