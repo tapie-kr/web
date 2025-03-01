@@ -5,20 +5,28 @@ import {
   colorVars,
   FormField,
   GlyphIcon,
+  HStack,
+  Icon,
   Input,
+  Label,
   Segment,
   SegmentGroup,
   spacingVars,
+  StackAlign,
+  StackJustify,
   Typo,
   VStack,
 } from '@tapie-kr/inspire-react';
 
 import {
+  FormApplicationPortfolioType,
   type UpdateFormApplicationRequest,
+  useDeleteFormApplicationFile,
   useForm,
   useFormApplication,
   useMe,
   useUpdateFormApplication,
+  useUploadFormApplicationFile,
 } from '@tapie-kr/api-client';
 import { MemberUnit } from '@tapie-kr/api-client/enum';
 import { useRouter } from 'next/navigation';
@@ -26,13 +34,17 @@ import { useEffect, useState } from 'react';
 import { Regex } from '@tapie-kr/web-shared/constants/regex';
 import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
+import UploadedFile from '@/components/form/UploadedFile';
 
 export function ApplyForm() {
   const { data, fetch } = useMe();
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
+  const {mutate: uploadFile} = useUploadFormApplicationFile();
+  const {mutate: deleteFile} = useDeleteFormApplicationFile();
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
+  const [uploadedFiles, setUploadedFiles] = useState<FormApplicationPortfolioType[]>([]);
 
   const {
     data: currentForm,
@@ -46,12 +58,14 @@ export function ApplyForm() {
   // formData의 디바운스된 버전 생성
   const debouncedFormData = useDebounce(formData, 1000);
 
+  // 컴포넌트가 마운트될 때 API 호출
   useEffect(() => {
     fetch();
 
     getCurrentForm();
   }, []);
 
+  // currentForm이 성공적으로 로드되면 currentId를 설정하고 지원서 정보를 가져옴
   useEffect(() => {
     if (isCurrentFormSuccess) {
       if (currentForm?.data) {
@@ -93,8 +107,8 @@ export function ApplyForm() {
     }
   }, [debouncedFormData, currentId]);
 
+  // myApplication이 변경될 때 formData를 업데이트
   useEffect(() => {
-    console.log(myApplication);
     if (myApplication?.data) {
       setFormData({
         unit:               myApplication.data.unit,
@@ -104,15 +118,49 @@ export function ApplyForm() {
         expectedActivities: myApplication.data.expectedActivities,
         reasonToChoose:     myApplication.data.reasonToChoose,
       });
+
+      if (myApplication.data.portfolio) {
+        setUploadedFiles(Array.isArray(myApplication.data.portfolio) 
+          ? myApplication.data.portfolio 
+          : [myApplication.data.portfolio]);
+      }
     } else {
       setFormData({ unit: MemberUnit.DEVELOPER });
     }
   }, [myApplication]);
 
+  // 전화번호 형식 검증
   useEffect(() => {
     const error = !isValidPhoneNumber(formData.phoneNumber) ? '전화번호가 형식에 맞지 않습니다.' : undefined;
     setPhoneNumberError(error)
   }, [formData.phoneNumber]);
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if(currentId === 0) return alert('잠시후에 다시 시도해주세요');
+
+    if (!event.target.files || event.target.files.length === 0) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', event.target.files[0]);
+
+    await uploadFile({
+      param: { formId: currentId },
+      data: formData,
+    });
+  }
+
+  const handleDeleteFile = async (id: string) => {
+    if(currentId === 0) return alert('잠시후에 다시 시도해주세요');
+
+    await deleteFile({
+      param: { formId: currentId },
+    }).then(async () => {
+      await setUploadedFiles(uploadedFiles.filter(file => file.uuid !== id));
+      alert('포트폴리오가 성공적으로 삭제되었습니다.');
+    })
+  }
 
   return (
     <VStack
@@ -193,7 +241,8 @@ export function ApplyForm() {
         value={formData.reasonToChoose}
         onChange={value => setFormData({ ...formData, reasonToChoose: value })}
       />
-      <FormField
+      {uploadedFiles.length === 0 ? (
+        <FormField
         isEssential
         label='포트폴리오'
       >
@@ -203,8 +252,21 @@ export function ApplyForm() {
           placeholder='PDF 파일을 업로드해주세요'
           accept='.pdf'
           height={150}
+          onChange={handleFileUpload}
         />
       </FormField>
+      ): (
+        <VStack fullWidth align={StackAlign.START} spacing={6}>
+          <Label isEssential>포트폴리오</Label>
+          {uploadedFiles.map(file => (
+            <UploadedFile 
+              key={file.uuid}
+              file={file}
+              onDelete={handleDeleteFile}
+            />
+          ))}
+        </VStack>
+      )}
       <Button.Default
         fullWidth
       >제출하기

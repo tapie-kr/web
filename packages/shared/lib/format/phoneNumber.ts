@@ -32,9 +32,9 @@ export function internationalToPhoneNumber(phoneNumber: string | undefined) {
  * @returns boolean
  */
 export function isValidPhoneNumber(phoneNumber: string | undefined) {
-    if (!phoneNumber || phoneNumber.length === 0) {
-      return false;
-    }
+    // 빈 문자열인 경우 true
+    if((phoneNumber || '').length === 0) return true;
+    if (!phoneNumber) return false;
 
     return Regex.phoneNumber.test(phoneNumber);
 }
