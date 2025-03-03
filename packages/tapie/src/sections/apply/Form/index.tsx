@@ -78,14 +78,6 @@ export function ApplyForm() {
       return false;
     }
 
-    if (!formData.introduction) return false;
-
-    if (!formData.motivation) return false;
-
-    if (!formData.expectedActivities) return false;
-
-    if (!formData.reasonToChoose) return false;
-
     return true;
   }
 
