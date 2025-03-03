@@ -5,21 +5,19 @@ import {
   colorVars,
   FormField,
   GlyphIcon,
-  HStack,
-  Icon,
   Input,
   Label,
   Segment,
   SegmentGroup,
   spacingVars,
   StackAlign,
-  StackJustify,
   Typo,
   VStack,
 } from '@tapie-kr/inspire-react';
+import UploadedFile from '@/components/form/UploadedFile';
 
 import {
-  FormApplicationPortfolioType,
+  type FormApplicationPortfolioType,
   type UpdateFormApplicationRequest,
   useDeleteFormApplicationFile,
   useForm,
@@ -29,18 +27,17 @@ import {
   useUploadFormApplicationFile,
 } from '@tapie-kr/api-client';
 import { MemberUnit } from '@tapie-kr/api-client/enum';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { Regex } from '@tapie-kr/web-shared/constants/regex';
 import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
-import UploadedFile from '@/components/form/UploadedFile';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export function ApplyForm() {
   const { data, fetch } = useMe();
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
-  const {mutate: uploadFile} = useUploadFormApplicationFile();
-  const {mutate: deleteFile} = useDeleteFormApplicationFile();
+  const { mutate: uploadFile } = useUploadFormApplicationFile();
+  const { mutate: deleteFile } = useDeleteFormApplicationFile();
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
@@ -54,8 +51,6 @@ export function ApplyForm() {
 
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
-
-  // formData의 디바운스된 버전 생성
   const debouncedFormData = useDebounce(formData, 1000);
 
   // 컴포넌트가 마운트될 때 API 호출
@@ -79,13 +74,16 @@ export function ApplyForm() {
   }, [currentForm]);
 
   function validateForm() {
-    if (!formData.phoneNumber || !(Regex.phoneNumber).test(formData.phoneNumber)) {
+    if (!formData.phoneNumber || !Regex.phoneNumber.test(formData.phoneNumber)) {
       return false;
     }
 
     if (!formData.introduction) return false;
+
     if (!formData.motivation) return false;
+
     if (!formData.expectedActivities) return false;
+
     if (!formData.reasonToChoose) return false;
 
     return true;
@@ -95,11 +93,11 @@ export function ApplyForm() {
   useEffect(() => {
     // 초기 렌더링 시 불필요한 API 호출 방지
     if (Object.keys(debouncedFormData).length <= 1) return;
-    
+
     if (validateForm()) {
       update({
         param: { formId: currentId },
-        data: {
+        data:  {
           ...debouncedFormData,
           phoneNumber: phoneNumberToInternational(debouncedFormData.phoneNumber),
         },
@@ -120,8 +118,8 @@ export function ApplyForm() {
       });
 
       if (myApplication.data.portfolio) {
-        setUploadedFiles(Array.isArray(myApplication.data.portfolio) 
-          ? myApplication.data.portfolio 
+        setUploadedFiles(Array.isArray(myApplication.data.portfolio)
+          ? myApplication.data.portfolio
           : [myApplication.data.portfolio]);
       }
     } else {
@@ -132,35 +130,30 @@ export function ApplyForm() {
   // 전화번호 형식 검증
   useEffect(() => {
     const error = !isValidPhoneNumber(formData.phoneNumber) ? '전화번호가 형식에 맞지 않습니다.' : undefined;
-    setPhoneNumberError(error)
+
+    setPhoneNumberError(error);
   }, [formData.phoneNumber]);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(currentId === 0) return alert('잠시후에 다시 시도해주세요');
-
     if (!event.target.files || event.target.files.length === 0) {
       return;
     }
 
-    const formData = new FormData();
+    const formData = new FormData;
+
     formData.append('file', event.target.files[0]);
 
     await uploadFile({
       param: { formId: currentId },
-      data: formData,
+      data:  formData,
     });
-  }
+  };
 
   const handleDeleteFile = async (id: string) => {
-    if(currentId === 0) return alert('잠시후에 다시 시도해주세요');
-
-    await deleteFile({
-      param: { formId: currentId },
-    }).then(async () => {
+    await deleteFile({ param: { formId: currentId } }).then(async () => {
       await setUploadedFiles(uploadedFiles.filter(file => file.uuid !== id));
-      alert('포트폴리오가 성공적으로 삭제되었습니다.');
-    })
-  }
+    });
+  };
 
   return (
     <VStack
@@ -221,52 +214,66 @@ export function ApplyForm() {
         />
         {phoneNumberError && <Typo.Petite color={colorVars.solid.red}>{phoneNumberError}</Typo.Petite>}
       </FormField>
-      <TextareaField 
+      <TextareaField
         label='자기소개'
         value={formData.introduction}
-        onChange={value => setFormData({ ...formData, introduction: value })}
+        onChange={value => setFormData({
+          ...formData, introduction: value,
+        })}
       />
-      <TextareaField 
+      <TextareaField
         label='지원동기'
         value={formData.motivation}
-        onChange={value => setFormData({ ...formData, motivation: value })}
+        onChange={value => setFormData({
+          ...formData, motivation: value,
+        })}
       />
-      <TextareaField 
+      <TextareaField
         label='기대되는 활동'
         value={formData.expectedActivities}
-        onChange={value => setFormData({ ...formData, expectedActivities: value })}
+        onChange={value => setFormData({
+          ...formData, expectedActivities: value,
+        })}
       />
-      <TextareaField 
+      <TextareaField
         label='자신을 뽑아야 하는 이유'
         value={formData.reasonToChoose}
-        onChange={value => setFormData({ ...formData, reasonToChoose: value })}
+        onChange={value => setFormData({
+          ...formData, reasonToChoose: value,
+        })}
       />
-      {uploadedFiles.length === 0 ? (
-        <FormField
-        isEssential
-        label='포트폴리오'
-      >
-        <Input.DraggableFile
-          multiple
-          leadingIcon={GlyphIcon.UPLOAD}
-          placeholder='PDF 파일을 업로드해주세요'
-          accept='.pdf'
-          height={150}
-          onChange={handleFileUpload}
-        />
-      </FormField>
-      ): (
-        <VStack fullWidth align={StackAlign.START} spacing={6}>
-          <Label isEssential>포트폴리오</Label>
-          {uploadedFiles.map(file => (
-            <UploadedFile 
-              key={file.uuid}
-              file={file}
-              onDelete={handleDeleteFile}
+      {uploadedFiles.length === 0
+        ? (
+          <FormField
+            isEssential
+            label='포트폴리오'
+          >
+            <Input.DraggableFile
+              multiple
+              leadingIcon={GlyphIcon.UPLOAD}
+              placeholder='PDF 파일을 업로드해주세요'
+              accept='.pdf'
+              height={150}
+              onChange={handleFileUpload}
             />
-          ))}
-        </VStack>
-      )}
+          </FormField>
+        )
+        : (
+          <VStack
+            fullWidth
+            align={StackAlign.START}
+            spacing={6}
+          >
+            <Label isEssential>포트폴리오</Label>
+            {uploadedFiles.map(file => (
+              <UploadedFile
+                key={file.uuid}
+                file={file}
+                onDelete={handleDeleteFile}
+              />
+            ))}
+          </VStack>
+        )}
       <Button.Default
         fullWidth
       >제출하기
@@ -277,13 +284,22 @@ export function ApplyForm() {
 
 // Input.Paragraph 컴포넌트 공통화
 interface TextareaFieldProps {
-  label: string;
+  label:        string;
   placeholder?: string;
-  value: string | undefined;
-  onChange: (value: string) => void;
+  value:        string | undefined;
+  onChange:     (value: string) => void;
 }
-const TextareaField = ({ label, placeholder, value, onChange }: TextareaFieldProps) => (
-  <FormField isEssential label={label}>
+
+const TextareaField = ({
+  label,
+  placeholder,
+  value,
+  onChange,
+}: TextareaFieldProps) => (
+  <FormField
+    isEssential
+    label={label}
+  >
     <Input.Paragraph
       placeholder={placeholder || '500자 이내로 입력해주세요'}
       height={200}
