@@ -127,13 +127,21 @@ export function ApplyForm() {
   }, [formData.phoneNumber]);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files || event.target.files.length === 0) {
+    const files = event.target.files;
+
+    console.log(files);
+
+    if (!files || files.length === 0) {
+      await deleteFile({ param: { formId: currentId } }).then(async () => {
+        await setUploadedFiles([]);
+      });
+
       return;
     }
 
     const formData = new FormData;
 
-    formData.append('file', event.target.files[0]);
+    formData.append('file', files[0]);
 
     await uploadFile({
       param: { formId: currentId },
