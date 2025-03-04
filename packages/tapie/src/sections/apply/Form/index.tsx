@@ -18,9 +18,9 @@ import UploadedFile from '@/components/form/UploadedFile';
 
 import {
   type FormApplicationPortfolioType,
+  FormResponse,
   type UpdateFormApplicationRequest,
   useDeleteFormApplicationFile,
-  useForm,
   useFormApplication,
   useMe,
   useUpdateFormApplication,
@@ -33,7 +33,13 @@ import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternatio
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export function ApplyForm() {
+interface ApplyFormProps {
+  currentForm: FormResponse | null;
+  getCurrentForm: () => void;
+  isCurrentFormSuccess: boolean;
+}
+
+export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: ApplyFormProps) {
   const { data, fetch } = useMe();
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
   const { mutate: uploadFile } = useUploadFormApplicationFile();
@@ -42,12 +48,6 @@ export function ApplyForm() {
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
   const [uploadedFiles, setUploadedFiles] = useState<FormApplicationPortfolioType[]>([]);
-
-  const {
-    data: currentForm,
-    fetch: getCurrentForm,
-    isSuccess: isCurrentFormSuccess,
-  } = useForm();
 
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
