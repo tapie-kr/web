@@ -7,7 +7,7 @@ import {
 
 import {
   BrandIcon,
-  Button,
+  Button, colorVars, GlyphIcon, HStack, Icon,
   spacingVars,
   TAPIESymbol,
   TAPIESymbolSize,
@@ -35,16 +35,28 @@ export default async function Page(props: PageParams<'', 'service'>) {
           hasLabel
           size={TAPIESymbolSize._32}
         />
-        <Link
-          className={link}
-          href={`/api/v1/auth/google?service=${service || 'form'}`}
+        <VStack
+          fullWidth
+          spacing={spacingVars.base}
         >
-          <Button.Default
-            fullWidth
-            leadingIcon={BrandIcon.GOOGLE}
-          >Google로 TAPIE 로그인
-          </Button.Default>
-        </Link>
+          <Link
+              className={link}
+              href={`/api/v1/auth/google?service=${service || 'form'}`}
+          >
+            <Button.Default
+                fullWidth
+                leadingIcon={BrandIcon.GOOGLE}
+            >Google로 TAPIE 로그인
+            </Button.Default>
+          </Link>
+          <HStack
+            spacing={spacingVars.mini}
+          >
+            <Icon name={GlyphIcon.ASTERISK} size={12} color={colorVars.solid.red}/>
+            <Typo.Micro color={colorVars.content.default}>선린 계정으로만 로그인이 가능합니다.</Typo.Micro>
+          </HStack>
+        </VStack>
+
       </VStack>
       <VStack
         spacing={spacingVars.micro}
