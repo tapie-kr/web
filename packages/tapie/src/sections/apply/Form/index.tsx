@@ -2,9 +2,12 @@
 
 import {
   Button,
+  ButtonVariant,
   colorVars,
+  Dialog,
   FormField,
   GlyphIcon,
+  HStack,
   Input,
   Label,
   Segment,
@@ -12,7 +15,9 @@ import {
   spacingVars,
   StackAlign,
   Typo,
+  useToggle,
   VStack,
+  Weight,
 } from '@tapie-kr/inspire-react';
 import UploadedFile from '@/components/form/UploadedFile';
 
@@ -22,6 +27,7 @@ import {
   type UpdateFormApplicationRequest,
   useDeleteFormApplicationFile,
   useFormApplication,
+  useFormApplicationSubmit,
   useMe,
   useUpdateFormApplication,
   useUploadFormApplicationFile,
@@ -32,6 +38,8 @@ import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import * as s from './style.css';
 
 interface ApplyFormProps {
   currentForm: FormResponse | null;
@@ -44,14 +52,19 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
   const { mutate: uploadFile } = useUploadFormApplicationFile();
   const { mutate: deleteFile } = useDeleteFormApplicationFile();
+  const {mutate: submitForm} = useFormApplicationSubmit();
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
   const [uploadedFiles, setUploadedFiles] = useState<FormApplicationPortfolioType[]>([]);
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
   const debouncedFormData = useDebounce(formData, 1000);
+
+  const submitModalToggler = useToggle();
+  const [_isSubmitModalVisible, submitToggle, setSubmitModalVisible] = submitModalToggler;
 
   // 컴포넌트가 마운트될 때 API 호출
   useEffect(() => {
@@ -109,6 +122,8 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
         reasonToChoose:     myApplication.data.reasonToChoose,
       });
 
+      setIsFormSubmitted(myApplication.data.submitted);
+
       if (myApplication.data.portfolio) {
         setUploadedFiles(Array.isArray(myApplication.data.portfolio)
           ? myApplication.data.portfolio
@@ -152,6 +167,17 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
       await setUploadedFiles([]);
     });
   };
+
+  const handleSubmit = async () => {
+    await submitForm({ param: { formId: currentId } }).then(() => {
+      alert('지원서가 제출되었습니다.');
+      router.push('/');
+    }).catch((err) => {
+      if(err.response.status === 400) {
+        alert('모든 항목을 작성해주세요.');
+      }
+    })
+  }
 
   return (
     <VStack
@@ -271,8 +297,29 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
         )}
       <Button.Default
         fullWidth
-      >제출하기
+        disabled={isFormSubmitted}
+        onClick={submitToggle}
+      >{isFormSubmitted ? '이미 지원서가 제출 되었습니다' : '지원서 제출'}
       </Button.Default>
+      <Typo.Petite color={colorVars.solid.red}>지원서 제출 후에는 수정이 불가능합니다.</Typo.Petite>
+      <Dialog
+        toggler={submitModalToggler}
+      >
+        <VStack spacing={spacingVars.medium} className={s.submitDialog}>
+          <VStack spacing={spacingVars.micro}>
+            <Typo.Moderate weight={Weight.SEMIBOLD}>정말로 제출하시겠습니까?</Typo.Moderate>
+            <Typo.Base
+              weight={Weight.MEDIUM}
+              color={colorVars.content.default}
+            >지원서 제출 후에는 수정이 불가능합니다.
+            </Typo.Base>
+          </VStack>
+          <HStack spacing={spacingVars.mini} fullWidth>
+            <Button.Default fullWidth leadingIcon={GlyphIcon.UPLOAD} onClick={handleSubmit}>제출하기</Button.Default>
+            <Button.Default fullWidth variant={ButtonVariant.SECONDARY} onClick={() => setSubmitModalVisible(false)}>닫기</Button.Default>
+          </HStack>
+        </VStack>
+      </Dialog>
     </VStack>
   );
 }
