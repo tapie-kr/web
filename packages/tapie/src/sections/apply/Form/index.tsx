@@ -2,9 +2,12 @@
 
 import {
   Button,
+  ButtonVariant,
   colorVars,
+  Dialog,
   FormField,
   GlyphIcon,
+  HStack,
   Input,
   Label,
   Segment,
@@ -12,16 +15,19 @@ import {
   spacingVars,
   StackAlign,
   Typo,
+  useToggle,
   VStack,
+  Weight,
 } from '@tapie-kr/inspire-react';
 import UploadedFile from '@/components/form/UploadedFile';
 
 import {
   type FormApplicationPortfolioType,
+  FormResponse,
   type UpdateFormApplicationRequest,
   useDeleteFormApplicationFile,
-  useForm,
   useFormApplication,
+  useFormApplicationSubmit,
   useMe,
   useUpdateFormApplication,
   useUploadFormApplicationFile,
@@ -33,25 +39,32 @@ import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternatio
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export function ApplyForm() {
+import * as s from './style.css';
+
+interface ApplyFormProps {
+  currentForm: FormResponse | null;
+  getCurrentForm: () => void;
+  isCurrentFormSuccess: boolean;
+}
+
+export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: ApplyFormProps) {
   const { data, fetch } = useMe();
   const { data: myApplication, fetch: getMyApplication } = useFormApplication();
   const { mutate: uploadFile } = useUploadFormApplicationFile();
   const { mutate: deleteFile } = useDeleteFormApplicationFile();
+  const {mutate: submitForm} = useFormApplicationSubmit();
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
   const [uploadedFiles, setUploadedFiles] = useState<FormApplicationPortfolioType[]>([]);
-
-  const {
-    data: currentForm,
-    fetch: getCurrentForm,
-    isSuccess: isCurrentFormSuccess,
-  } = useForm();
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
   const debouncedFormData = useDebounce(formData, 1000);
+
+  const submitModalToggler = useToggle();
+  const [_isSubmitModalVisible, submitToggle, setSubmitModalVisible] = submitModalToggler;
 
   // 컴포넌트가 마운트될 때 API 호출
   useEffect(() => {
@@ -109,6 +122,8 @@ export function ApplyForm() {
         reasonToChoose:     myApplication.data.reasonToChoose,
       });
 
+      setIsFormSubmitted(myApplication.data.submitted);
+
       if (myApplication.data.portfolio) {
         setUploadedFiles(Array.isArray(myApplication.data.portfolio)
           ? myApplication.data.portfolio
@@ -127,13 +142,19 @@ export function ApplyForm() {
   }, [formData.phoneNumber]);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files || event.target.files.length === 0) {
+    const files = event.target.files;
+
+    if (!files || files.length === 0) {
+      await deleteFile({ param: { formId: currentId } }).then(async () => {
+        await setUploadedFiles([]);
+      });
+
       return;
     }
 
     const formData = new FormData;
 
-    formData.append('file', event.target.files[0]);
+    formData.append('file', files[0]);
 
     await uploadFile({
       param: { formId: currentId },
@@ -141,21 +162,28 @@ export function ApplyForm() {
     });
   };
 
-  const handleDeleteFile = async (id: string) => {
+  const handleDeleteFile = async () => {
     await deleteFile({ param: { formId: currentId } }).then(async () => {
-      await setUploadedFiles(uploadedFiles.filter(file => file.uuid !== id));
+      await setUploadedFiles([]);
     });
   };
+
+  const handleSubmit = async () => {
+    await submitForm({ param: { formId: currentId } }).then(() => {
+      alert('지원서가 제출되었습니다.');
+      router.push('/');
+    }).catch((err) => {
+      if(err.response.status === 400) {
+        alert('모든 항목을 작성해주세요.');
+      }
+    })
+  }
 
   return (
     <VStack
       fullWidth
       spacing={spacingVars.moderate}
     >
-      {JSON.stringify(formData)}
-      {
-        validateForm() ? 'true' : 'false'
-      }
       <SegmentGroup
         defaultValue={formData.unit || MemberUnit.DEVELOPER}
         onChange={unit => setFormData({
@@ -243,10 +271,11 @@ export function ApplyForm() {
             <Input.DraggableFile
               multiple
               leadingIcon={GlyphIcon.UPLOAD}
-              placeholder='PDF 파일을 업로드해주세요'
-              accept='.pdf'
+              placeholder='압축 파일을 업로드해주세요'
+              accept='.zip, .rar'
               height={150}
               onChange={handleFileUpload}
+              onDelete={handleDeleteFile}
             />
           </FormField>
         )
@@ -268,8 +297,29 @@ export function ApplyForm() {
         )}
       <Button.Default
         fullWidth
-      >제출하기
+        disabled={isFormSubmitted}
+        onClick={submitToggle}
+      >{isFormSubmitted ? '이미 지원서가 제출 되었습니다' : '지원서 제출'}
       </Button.Default>
+      <Typo.Petite color={colorVars.solid.red}>지원서 제출 후에는 수정이 불가능합니다.</Typo.Petite>
+      <Dialog
+        toggler={submitModalToggler}
+      >
+        <VStack spacing={spacingVars.medium} className={s.submitDialog}>
+          <VStack spacing={spacingVars.micro}>
+            <Typo.Moderate weight={Weight.SEMIBOLD}>정말로 제출하시겠습니까?</Typo.Moderate>
+            <Typo.Base
+              weight={Weight.MEDIUM}
+              color={colorVars.content.default}
+            >지원서 제출 후에는 수정이 불가능합니다.
+            </Typo.Base>
+          </VStack>
+          <HStack spacing={spacingVars.mini} fullWidth>
+            <Button.Default fullWidth leadingIcon={GlyphIcon.UPLOAD} onClick={handleSubmit}>제출하기</Button.Default>
+            <Button.Default fullWidth variant={ButtonVariant.SECONDARY} onClick={() => setSubmitModalVisible(false)}>닫기</Button.Default>
+          </HStack>
+        </VStack>
+      </Dialog>
     </VStack>
   );
 }
