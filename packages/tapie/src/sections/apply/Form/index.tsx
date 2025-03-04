@@ -129,8 +129,6 @@ export function ApplyForm() {
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
 
-    console.log(files);
-
     if (!files || files.length === 0) {
       await deleteFile({ param: { formId: currentId } }).then(async () => {
         await setUploadedFiles([]);
@@ -149,9 +147,9 @@ export function ApplyForm() {
     });
   };
 
-  const handleDeleteFile = async (id: string) => {
+  const handleDeleteFile = async () => {
     await deleteFile({ param: { formId: currentId } }).then(async () => {
-      await setUploadedFiles(uploadedFiles.filter(file => file.uuid !== id));
+      await setUploadedFiles([]);
     });
   };
 
@@ -255,6 +253,7 @@ export function ApplyForm() {
               accept='.pdf'
               height={150}
               onChange={handleFileUpload}
+              onDelete={handleDeleteFile}
             />
           </FormField>
         )
