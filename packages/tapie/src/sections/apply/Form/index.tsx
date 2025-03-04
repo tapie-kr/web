@@ -249,8 +249,8 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
             <Input.DraggableFile
               multiple
               leadingIcon={GlyphIcon.UPLOAD}
-              placeholder='PDF 파일을 업로드해주세요'
-              accept='.pdf'
+              placeholder='압축 파일을 업로드해주세요'
+              accept='.zip, .rar'
               height={150}
               onChange={handleFileUpload}
               onDelete={handleDeleteFile}
