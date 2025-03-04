@@ -158,10 +158,6 @@ export function ApplyForm({currentForm, getCurrentForm, isCurrentFormSuccess}: A
       fullWidth
       spacing={spacingVars.moderate}
     >
-      {JSON.stringify(formData)}
-      {
-        validateForm() ? 'true' : 'false'
-      }
       <SegmentGroup
         defaultValue={formData.unit || MemberUnit.DEVELOPER}
         onChange={unit => setFormData({
