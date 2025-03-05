@@ -17,11 +17,24 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-export default function HeroTitle() {
-  const isMobile = useMediaQuery();
-  const isPending = true;
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 
-  if (isPending) {
+type Props = Pick<PortfolioDetail, 'name' | 'summary' | 'tags' | 'award'> & {
+  pending: boolean;
+};
+
+export default function HeroTitle(_props: Props) {
+  const {
+    name,
+    summary,
+    tags,
+    pending,
+    award,
+  } = _props;
+
+  const isMobile = useMediaQuery();
+
+  if (pending) {
     return (
       <VStack
         spacing={spacingVars.base}
@@ -44,7 +57,6 @@ export default function HeroTitle() {
           />
         </VStack>
         <HStack spacing={spacingVars.tiny}>
-
           <Skeleton
             width={210}
             height={26}
@@ -68,25 +80,30 @@ export default function HeroTitle() {
           weight={Weight.BOLD}
           variant={isMobile ? TypographyVariant.MEDIUM : TypographyVariant.LARGE}
         >
-          Plock
+          {name}
         </Typo>
         <Typo
           weight={isMobile ? Weight.MEDIUM : Weight.SEMIBOLD}
           color={colorVars.content.default}
           variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
         >
-          함께하는 사이드프로젝트를 위하여
+          {summary}
         </Typo>
       </VStack>
       <HStack spacing={spacingVars.tiny}>
-        <Badge.Default
-          theme={BadgeTheme.RED}
-          leadingIcon={GlyphIcon.TROPHY}
-          label='수상작'
-        />
-        <Badge.Default label='앱' />
-        <Badge.Default label='출품작' />
-        <Badge.Default label='해커톤' />
+        {award && Object.keys(award).length > 0 && (
+          <Badge.Default
+            theme={BadgeTheme.RED}
+            leadingIcon={GlyphIcon.TROPHY}
+            label='수상작'
+          />
+        )}
+        {tags?.map((tag: string) => (
+          <Badge.Default
+            key={tag}
+            label={tag}
+          />
+        ))}
       </HStack>
     </VStack>
   );

@@ -12,12 +12,17 @@ import {
   VStack,
 } from '@tapie-kr/inspire-react';
 
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 import HeroActions from '@/sections/portfolios/detail/Hero/components/actions';
 import HeroDescription from '@/sections/portfolios/detail/Hero/components/description';
 import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
 import Carousel from './carousel';
 
-export default function InstagramHero() {
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
+
+export default function InstagramHero(_props: Props) {
   return (
     <VStack fullWidth>
       <Member />
@@ -28,9 +33,9 @@ export default function InstagramHero() {
         spacing={spacingVars.medium}
         align={StackAlign.START}
       >
-        <HeroTitle />
-        <HeroActions />
-        <HeroDescription />
+        <HeroTitle {..._props} />
+        <HeroActions {..._props} />
+        <HeroDescription {..._props} />
       </VStack>
     </VStack>
   );

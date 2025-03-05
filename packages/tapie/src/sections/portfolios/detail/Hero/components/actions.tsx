@@ -1,6 +1,5 @@
 import {
   Button,
-  ButtonVariant,
   GlyphIcon,
   HStack,
   radiusVars,
@@ -8,10 +7,17 @@ import {
   spacingVars,
 } from '@tapie-kr/inspire-react';
 
-export default function HeroActions() {
-  const isPending = true;
+import Link from 'next/link';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 
-  if (isPending) {
+interface Props extends Pick<PortfolioDetail, 'hyperlink'> {
+  pending: boolean;
+}
+
+export default function HeroActions(_props: Props) {
+  const { pending, hyperlink } = _props;
+
+  if (pending) {
     return (
       <HStack
         fullWidth
@@ -26,21 +32,30 @@ export default function HeroActions() {
     );
   }
 
+  if (!hyperlink) {
+    return null;
+  }
+
   return (
-    <HStack
-      fullWidth
-      spacing={spacingVars.micro}
+    <Link
+      href={hyperlink ?? ''}
+      style={{ width: '100%' }}
     >
-      <Button.Default
+      <HStack
         fullWidth
-        leadingIcon={GlyphIcon.LINK}
+        spacing={spacingVars.micro}
       >
-        프로젝트 바로가기
-      </Button.Default>
-      <Button.Icon
-        variant={ButtonVariant.SECONDARY}
-        icon={GlyphIcon.SHARE}
-      />
-    </HStack>
+        <Button.Default
+          fullWidth
+          leadingIcon={GlyphIcon.LINK}
+        >
+          프로젝트 바로가기
+        </Button.Default>
+        {/* <Button.Icon
+          variant={ButtonVariant.SECONDARY}
+          icon={GlyphIcon.SHARE}
+        /> */}
+      </HStack>
+    </Link>
   );
 }

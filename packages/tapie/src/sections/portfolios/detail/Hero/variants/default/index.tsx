@@ -1,7 +1,7 @@
 import { introContainer } from './styles.css';
 
 import {
-  BrandIcon,
+  GlyphIcon,
   HStack,
   Icon,
   radiusVars,
@@ -17,12 +17,17 @@ import {
 import PortfolioCarousel from '@/components/portfolio/Carousel';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 import HeroActions from '@/sections/portfolios/detail/Hero/components/actions';
 import HeroDescription from '@/sections/portfolios/detail/Hero/components/description';
 import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
 
-export default function DefaultHero() {
-  const isPending = true;
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
+
+export default function DefaultHero(_props: Props) {
+  const { pending } = _props;
 
   return (
     <ContentSection
@@ -45,8 +50,8 @@ export default function DefaultHero() {
             spacing={spacingVars.moderate}
             align={StackAlign.START}
           >
-            <HeroTitle />
-            <HeroDescription />
+            <HeroTitle {..._props} />
+            <HeroDescription {..._props} />
           </VStack>
           <VStack
             fullWidth
@@ -54,7 +59,7 @@ export default function DefaultHero() {
             align={StackAlign.START}
           >
             <HStack spacing={spacingVars.tiny}>
-              {isPending
+              {pending
                 ?                   (
                   <Skeleton
                     width={200}
@@ -64,14 +69,18 @@ export default function DefaultHero() {
                 )
                 : (
                   <>
-                    <Icon name={BrandIcon.GITHUB} />
-                    <Typo.Petite weight={Weight.SEMIBOLD}>
-                      https://github.com/jijiwon
-                    </Typo.Petite>
+                    {_props.hyperlink && (
+                      <>
+                        <Icon name={GlyphIcon.LINK} />
+                        <Typo.Petite weight={Weight.SEMIBOLD}>
+                          {_props.hyperlink}
+                        </Typo.Petite>
+                      </>
+                    )}
                   </>
                 )}
             </HStack>
-            <HeroActions />
+            <HeroActions {..._props} />
           </VStack>
         </VStack>
       </Stack>
