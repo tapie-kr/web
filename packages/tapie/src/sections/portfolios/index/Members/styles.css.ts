@@ -1,6 +1,6 @@
 import { colorVars, getResponsiveQuery, radiusVars } from '@tapie-kr/inspire-react';
 
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 export const profileImage = style({
   width:        80,
@@ -12,3 +12,5 @@ export const profileImage = style({
     height: 70,
   }),
 });
+
+globalStyle(`${profileImage} img`, { borderRadius: radiusVars.full });
