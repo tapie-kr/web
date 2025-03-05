@@ -13,9 +13,20 @@ import {
 } from '@tapie-kr/inspire-react';
 
 type AwardCardProps = {
+  name:         string;
+  organization: string;
+  year:         string;
+  projectName:  string;
 };
 
 export default function AwardCard(_props: AwardCardProps) {
+  const {
+    organization,
+    year,
+    name,
+    projectName,
+  } = _props;
+
   return (
     <VStack
       spacing={spacingVars.micro}
@@ -29,14 +40,14 @@ export default function AwardCard(_props: AwardCardProps) {
           weight={Weight.MEDIUM}
           color={colorVars.content.default}
         >
-          어디어디재단
+          {organization}
         </Typo.Micro>
         <HStack spacing={spacingVars.micro}>
           <Typo.Medium
             nowrap
             weight={Weight.SEMIBOLD}
           >
-            2025 무슨무슨대회
+            {year} {name}
           </Typo.Medium>
           <Badge.Default
             theme={BadgeTheme.RED}
@@ -49,7 +60,7 @@ export default function AwardCard(_props: AwardCardProps) {
         spacing={spacingVars.mini}
         style={{ color: colorVars.content.default }}
       >
-        <Typo.Base weight={Weight.MEDIUM}>프로젝트 이름</Typo.Base>
+        <Typo.Base weight={Weight.MEDIUM}>{projectName}</Typo.Base>
         <Icon
           name={GlyphIcon.ARROW_FORWARD}
           size={20}

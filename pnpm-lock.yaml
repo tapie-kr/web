@@ -31,7 +31,7 @@ importers:
         version: 0.0.1(@tanstack/react-query-devtools@5.66.9(@tanstack/react-query@5.66.9(react@19.0.0))(react@19.0.0))(@tanstack/react-query@5.66.9(react@19.0.0))(axios@1.7.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
       '@tapie-kr/inspire-react':
         specifier: ^0.1.48
-        version: 0.1.48(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.10)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.1.48(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.10)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/web-shared':
         specifier: workspace:*
         version: link:../shared
@@ -119,14 +119,14 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.3)
       '@tapie-kr/api-client':
-        specifier: 0.1.12
-        version: 0.1.12(axios@1.7.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
+        specifier: 0.1.16
+        version: 0.1.16(axios@1.7.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
       '@tapie-kr/api-database':
         specifier: ^0.0.3
         version: 0.0.3(@prisma/client@6.2.1(prisma@6.2.1))(prisma@6.2.1)
       '@tapie-kr/inspire-react':
         specifier: ^0.2.15
-        version: 0.2.15(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 0.2.15(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tapie-kr/web-shared':
         specifier: workspace:*
         version: link:../shared
@@ -1714,8 +1714,8 @@ packages:
       react-dom: ^19.0.0
       zod: ^3.24.2
 
-  '@tapie-kr/api-client@0.1.12':
-    resolution: {integrity: sha512-jbq7T6s05FJhxIrFO5xwXEPu4Qw/xwg0yOAJyW9/gdi1r/0Q7MyKmQ8wrIF2qSnBl+YlMVOrpGLj/f3MXosBhQ==}
+  '@tapie-kr/api-client@0.1.16':
+    resolution: {integrity: sha512-d6QIfh6HO5u7Ni65/b5gzm6ZGcSLgjo4UTYgQp0cvaw3S3Nl/N7Xjd7Pf1ZYgGSv4VIL6kwNgbSeBnoB08+48Q==}
     peerDependencies:
       axios: ^1.7.9
       react: ^19.0.0
@@ -5104,7 +5104,7 @@ snapshots:
       rimraf: 6.0.1
       zod: 3.24.2
 
-  '@tapie-kr/api-client@0.1.12(axios@1.7.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)':
+  '@tapie-kr/api-client@0.1.16(axios@1.7.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)':
     dependencies:
       axios: 1.7.9
       react: 19.0.0
@@ -5150,9 +5150,9 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@tapie-kr/inspire-react@0.1.48(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.10)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tapie-kr/inspire-react@0.1.48(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.10)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
       framer-motion: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       jotai: 2.11.3(@types/react@19.0.10)(react@19.0.0)
@@ -5164,18 +5164,6 @@ snapshots:
   '@tapie-kr/inspire-react@0.2.15(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@js-temporal/polyfill': 0.4.4
-      classnames: 2.5.1
-      framer-motion: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      jotai: 2.11.3(@types/react@19.0.8)(react@19.0.0)
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-    transitivePeerDependencies:
-      - next
-
-  '@tapie-kr/inspire-react@0.2.15(framer-motion@11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(jotai@2.11.3(@types/react@19.0.8)(react@19.0.0))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@cottons-kr/react-foundation': 0.3.9(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@js-temporal/polyfill': 0.4.4
       classnames: 2.5.1
       framer-motion: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
