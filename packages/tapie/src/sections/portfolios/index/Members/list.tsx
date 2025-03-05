@@ -14,20 +14,33 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-import { useMemberList } from '@tapie-kr/api-client';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { client } from '@/utils/api';
 import MemberSkeleton from './skeleton';
 
+interface Member {
+  uuid:       string;
+  name:       string;
+  studentID:  number;
+  username:   string;
+  role:       string;
+  unit:       string;
+  generation: number;
+  profileUri: string;
+}
+
 export default function PortfoliosMembersSectionList() {
-  const {
-    data: members,
-    fetch: getMembers,
-    isPending,
-  } = useMemberList();
+  const [data, setData] = useState<Member[]>();
+  const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
-    getMembers();
+    client.get('/members/').then(res => {
+      setData(res.data.data as Member[]);
+    })
+      .finally(() => {
+        setIsPending(false);
+      });
   }, []);
 
   if (isPending) {
@@ -41,7 +54,7 @@ export default function PortfoliosMembersSectionList() {
         spacing={spacingVars.moderate}
         justify={StackJustify.START}
       >
-        {members?.data.map(member => (
+        {data?.map(member => (
           <Member
             key={member.uuid}
             profileUri={member.profileUri}
