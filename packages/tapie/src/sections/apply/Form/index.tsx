@@ -129,8 +129,6 @@ export function ApplyForm() {
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
 
-    console.log(files);
-
     if (!files || files.length === 0) {
       await deleteFile({ param: { formId: currentId } }).then(async () => {
         await setUploadedFiles([]);
