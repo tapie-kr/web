@@ -20,6 +20,7 @@ import PortfolioSectionLabel from '@/components/portfolio/SectionLabel';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
+import RecentProjectCardSkeleton from './skeleton';
 
 export default function PortfoliosRecentProjectsSection() {
   const isMobile = useMediaQuery();
@@ -41,7 +42,9 @@ export default function PortfoliosRecentProjectsSection() {
             spacing={spacingVars.petite}
             justify={StackJustify.START}
           >
-            <RecentProjectCard />
+            {/* <RecentProjectCard />
+            {!isMobile && <RecentProjectCard />} */}
+            <RecentProjectCardSkeleton />
             {!isMobile && <RecentProjectCard />}
           </HStack>
         </Scroll>
