@@ -11,11 +11,11 @@ import Technology from '@/sections/portfolios/detail/Technology';
 import { client } from '@/utils/api';
 
 export interface User {
-  uuid:       string;
-  name?:      string;
-  role:       string;
-  profileUri: string;
-  username:   string;
+  uuid?:       string;
+  name?:       string;
+  role?:       string;
+  profileUri?: string;
+  username?:   string;
 }
 
 export interface Link {
@@ -84,7 +84,10 @@ export default function PortfoliosDetailPage() {
         pending={isPending}
         {...data}
       />
-      <Team />
+      <Team
+        pending={isPending}
+        {...data}
+      />
       <Technology />
       <Award />
       <Download />

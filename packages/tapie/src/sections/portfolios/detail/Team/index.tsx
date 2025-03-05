@@ -10,9 +10,14 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 import TeamMember from './member';
 
-export default function PortfoliosDetailTeamSection() {
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
+
+export default function PortfoliosDetailTeamSection(_props: Props) {
   const isMobile = useMediaQuery();
 
   return (
@@ -26,9 +31,13 @@ export default function PortfoliosDetailTeamSection() {
         align={StackAlign.START}
         justify={StackJustify.START}
       >
-        <TeamMember />
-        <TeamMember />
-        <TeamMember />
+        {_props.users?.map(user => (
+          <TeamMember
+            key={user.uuid}
+            {...user}
+            pending={_props.pending}
+          />
+        ))}
       </HStack>
     </ContentSection>
   );
