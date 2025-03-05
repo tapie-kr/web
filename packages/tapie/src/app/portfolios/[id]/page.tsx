@@ -88,7 +88,10 @@ export default function PortfoliosDetailPage() {
         pending={isPending}
         {...data}
       />
-      <Technology />
+      <Technology
+        pending={isPending}
+        {...data}
+      />
       <Award />
       <Download />
       <SeeMore />

@@ -1,8 +1,8 @@
 'use client';
 
 import {
+  BrandIcon,
   getShorthandedValue,
-  GlyphIcon,
   Grid,
   HStack,
   Icon,
@@ -19,15 +19,22 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import { type ReactNode } from 'react';
+import { type SkillItem } from '@/app/portfolios/[id]/page';
 
 type ListProps = {
-  title: string;
+  pending?: boolean;
+  title:    string;
+  items:    SkillItem[];
 };
 
-export function List(props: ListProps) {
-  const isPending = true;
+export function List(_props: ListProps) {
+  const {
+    pending,
+    title,
+    items,
+  } = _props;
 
-  if (isPending) {
+  if (pending) {
     return (
       <VStack
         spacing={spacingVars.petite}
@@ -57,22 +64,22 @@ export function List(props: ListProps) {
       spacing={spacingVars.petite}
       align={StackAlign.START}
     >
-      <Typo.Moderate weight={Weight.SEMIBOLD}>{props.title}</Typo.Moderate>
+      <Typo.Moderate weight={Weight.SEMIBOLD}>{title}</Typo.Moderate>
       <ListWrapper>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {items.map((item, index) => (
           <HStack
             key={index}
             spacing={spacingVars.tiny}
           >
             <Icon
-              name={GlyphIcon.DEFAULT}
+              name={item.icon as keyof typeof BrandIcon in BrandIcon ? BrandIcon[item.icon as keyof typeof BrandIcon] : undefined}
               size={28}
             />
             <Typo.Base
               nowrap
               weight={Weight.MEDIUM}
             >
-              기술 이름
+              {item.label}
             </Typo.Base>
           </HStack>
         ))}

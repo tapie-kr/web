@@ -11,9 +11,14 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 import { List } from './list';
 
-export default function PortfoliosDetailTechnologySection() {
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
+
+export default function PortfoliosDetailTechnologySection(_props: Props) {
   const isMobile = useMediaQuery();
 
   return (
@@ -28,9 +33,14 @@ export default function PortfoliosDetailTechnologySection() {
         align={StackAlign.START}
         justify={StackJustify.START}
       >
-        <List title='개발' />
-        <List title='운영' />
-        <List title='기타' />
+        {_props.skills?.map(skill => (
+          <List
+            key={skill.name}
+            pending={_props.pending}
+            title={skill.name}
+            items={skill.items}
+          />
+        ))}
       </Stack>
     </ContentSection>
   );
