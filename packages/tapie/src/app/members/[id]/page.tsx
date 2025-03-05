@@ -17,6 +17,7 @@ import Projects from '@/sections/members/detail/Projects';
 import RepresentativeAward from '@/sections/members/detail/RepresentativeAward';
 import RepresentativePortfolio from '@/sections/members/detail/RepresentativePortfolio';
 import Skills from '@/sections/members/detail/Skills';
+import HistoryListSkeleton from '@/sections/members/detail/History/skeleton';
 
 export default function MembersDetailPage() {
   return (

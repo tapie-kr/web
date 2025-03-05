@@ -19,6 +19,7 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import ProjectSkeleton from './Skeleton';
 
 export default function MembersDetailProjectsSection() {
   return (
@@ -42,12 +43,7 @@ export default function MembersDetailProjectsSection() {
           columnCount={2}
           gap={spacingVars.micro}
         >
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
-          <Project />
+          <ProjectSkeleton />
         </Grid>
       </VStack>
     </ContentSection>

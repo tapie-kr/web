@@ -9,6 +9,7 @@ import {
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import List from './list';
+import HistoryListSkeleton from './skeleton';
 
 export default function MembersDetailHistorySection() {
   return (
@@ -30,8 +31,10 @@ export default function MembersDetailHistorySection() {
           fullWidth
           spacing={spacingVars.moderate}
         >
-          <List />
-          <List />
+          <HistoryListSkeleton />
+          <HistoryListSkeleton />
+          {/* <List />
+          <List /> */}
         </VStack>
       </VStack>
     </ContentSection>
