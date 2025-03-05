@@ -1,32 +1,32 @@
 'use client';
 
-import { stat } from './styles.css';
-
 import {
   Button,
   ButtonVariant,
   DStack,
   GlyphIcon,
   HStack,
-  Icon,
-  type IconName,
   radiusVars,
   Skeleton,
   spacingVars,
   StackAlign,
   StackDirection,
-  Typo,
   useMediaQuery,
-  Weight,
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import Link from 'next/link';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 
-export default function PortfoliosDetailDownloadSection() {
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
+
+export default function PortfoliosDetailDownloadSection(_props: Props) {
   const isMobile = useMediaQuery();
-  const isPending = true;
+  const { pending, award } = _props;
 
-  if (isPending) {
+  if (pending) {
     return (
       <ContentSection
         maxWidth={1400}
@@ -89,21 +89,25 @@ export default function PortfoliosDetailDownloadSection() {
           defaultDirection={StackDirection.ROW}
           spacing={spacingVars.micro}
         >
-          <Button.Default
-            leadingIcon={GlyphIcon.DOWNLOAD}
-            fullWidth={isMobile}
-          >
-            발표자료 다운로드
-          </Button.Default>
-          <Button.Default
-            variant={ButtonVariant.SECONDARY}
-            leadingIcon={GlyphIcon.CODE}
-            fullWidth={isMobile}
-          >
-            소스코드 다운로드
-          </Button.Default>
+          <Link href={award?.download.presentationUri ?? '#'}>
+            <Button.Default
+              leadingIcon={GlyphIcon.DOWNLOAD}
+              fullWidth={isMobile}
+            >
+              발표자료 다운로드
+            </Button.Default>
+          </Link>
+          <Link href={award?.download.sourceCodeUri ?? '#'}>
+            <Button.Default
+              variant={ButtonVariant.SECONDARY}
+              leadingIcon={GlyphIcon.CODE}
+              fullWidth={isMobile}
+            >
+              소스코드 다운로드
+            </Button.Default>
+          </Link>
         </DStack>
-        <HStack spacing={spacingVars.moderate}>
+        {/* <HStack spacing={spacingVars.moderate}>
           <Stat
             icon={GlyphIcon.VISIBILITY}
             value={831}
@@ -112,28 +116,32 @@ export default function PortfoliosDetailDownloadSection() {
             icon={GlyphIcon.DOWNLOAD}
             value={182}
           />
-        </HStack>
+        </HStack> */}
       </DStack>
     </ContentSection>
   );
 }
 
-type StatProps = {
-  icon:  IconName;
-  value: number;
-};
+/*
+ * type StatProps = {
+ *   icon:  IconName;
+ *   value: number;
+ * };
+ */
 
-function Stat(props: StatProps) {
-  return (
-    <HStack
-      className={stat}
-      spacing={spacingVars.tiny}
-    >
-      <Icon
-        name={props.icon}
-        size={20}
-      />
-      <Typo.Petite weight={Weight.MEDIUM}>{props.value}</Typo.Petite>
-    </HStack>
-  );
-}
+/*
+ * function Stat(props: StatProps) {
+ *   return (
+ *     <HStack
+ *       className={stat}
+ *       spacing={spacingVars.tiny}
+ *     >
+ *       <Icon
+ *         name={props.icon}
+ *         size={20}
+ *       />
+ *       <Typo.Petite weight={Weight.MEDIUM}>{props.value}</Typo.Petite>
+ *     </HStack>
+ *   );
+ * }
+ */

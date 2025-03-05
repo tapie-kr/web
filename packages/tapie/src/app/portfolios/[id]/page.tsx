@@ -96,7 +96,10 @@ export default function PortfoliosDetailPage() {
         pending={isPending}
         {...data}
       />
-      <Download />
+      <Download
+        pending={isPending}
+        {...data}
+      />
       <SeeMore />
     </>
   );
