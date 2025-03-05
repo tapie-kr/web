@@ -115,6 +115,10 @@ export default function MembersDetailPage() {
       });
   }, []);
 
+  useEffect(() => {
+    console.log(data?.representAward);
+  }, [data]);
+
   return (
     <Stack
       fullWidth
@@ -157,26 +161,36 @@ export default function MembersDetailPage() {
           pending={isPending}
           {...data}
         />
-        <RepresentativePortfolio
-          pending={isPending}
-          {...data?.representProject}
-        />
-        <RepresentativeAward
-          pending={isPending}
-          {...data?.representAward}
-        />
-        <Skills
-          pending={isPending}
-          skills={data?.skills}
-        />
-        <Projects
-          pending={isPending}
-          projects={data?.projects}
-        />
-        <History
-          pending={isPending}
-          history={data?.history}
-        />
+        {data?.representProject && Object.keys(data?.representProject).length > 0 && (
+          <RepresentativePortfolio
+            pending={isPending}
+            {...data?.representProject}
+          />
+        )}
+        {data?.representAward && Object.keys(data?.representAward).length > 0 && (
+          <RepresentativeAward
+            pending={isPending}
+            {...data?.representAward}
+          />
+        )}
+        {data?.skills && data.skills.length > 0 && (
+          <Skills
+            pending={isPending}
+            skills={data.skills}
+          />
+        )}
+        {data?.projects && data.projects.length > 0 && (
+          <Projects
+            pending={isPending}
+            projects={data?.projects}
+          />
+        )}
+        {data?.history && data.history.length > 0 && (
+          <History
+            pending={isPending}
+            history={data?.history}
+          />
+        )}
       </VStack>
     </Stack>
   );
