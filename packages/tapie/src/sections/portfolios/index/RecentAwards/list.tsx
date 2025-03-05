@@ -21,6 +21,10 @@ export default function PortfoliosRecentAwardsSectionList() {
     fetchAwards({ param: { year } });
   }, []);
 
+  if (isPending) {
+    return <AwardCardSkeleton />;
+  }
+
   return (
     <Scroll direction='row'>
       {awards?.data.toString()}
@@ -29,8 +33,6 @@ export default function PortfoliosRecentAwardsSectionList() {
         spacing={spacingVars.giant}
         justify={StackJustify.START}
       >
-        {Array(10).fill(0)
-          .map((_, index) => <AwardCardSkeleton key={index} />)}
         {/* <AwardCard />
         <AwardCard />
         <AwardCard />
