@@ -1,16 +1,19 @@
 'use client';
 
-import { right, thumbnail } from './styles.css';
+import { right, thumbnail, winnerBadge } from './styles.css';
 
 import {
   AspectRatio,
+  Badge,
+  BadgeSize,
+  BadgeTheme,
+  Box,
   Button,
   ButtonSize,
   colorVars,
   GlyphIcon,
   HStack,
-  radiusVars,
-  Skeleton,
+  Image,
   spacingVars,
   StackAlign,
   StackJustify,
@@ -21,11 +24,30 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import { type Temporal } from '@js-temporal/polyfill';
+import Link from 'next/link';
+import { toDateString } from '@/utils/date';
+
 type PortfolioItemProps = {
   isWinner?: boolean;
+
+  name:         string;
+  catchPhrase:  string;
+  thumbnailUri: string;
+  releasedAt:   Temporal.PlainDateTime;
+  portfolioUri: string;
 };
 
 export default function PortfolioItem(_props: PortfolioItemProps) {
+  const {
+    isWinner,
+    name,
+    catchPhrase,
+    thumbnailUri,
+    releasedAt,
+    portfolioUri,
+  } = _props;
+
   const isMobile = useMediaQuery();
 
   return (
@@ -38,10 +60,20 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           className={thumbnail}
           ratio={16 / 9}
         >
-          <Skeleton
+          {isWinner && (
+            <Box className={winnerBadge}>
+              <Badge.Default
+                size={BadgeSize.LARGE}
+                theme={BadgeTheme.RED}
+                label='수상작'
+              />
+            </Box>
+          )}
+          <Image
             fullWidth
             fullHeight
-            borderRadius={radiusVars.default}
+            src={thumbnailUri}
+            alt={name}
           />
         </AspectRatio>
         <VStack
@@ -51,14 +83,14 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           <Typo
             variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
             weight={Weight.MEDIUM}
-          >프로젝트 이름
+          >{name}
           </Typo>
           <Typo
             variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
           >
-            프로젝트 설명
+            {catchPhrase}
           </Typo>
         </VStack>
       </HStack>
@@ -68,12 +100,14 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
       >
         <Typo.Base
           weight={Weight.MEDIUM}
-        >2025-01-01
+        >{toDateString(releasedAt)}
         </Typo.Base>
-        <Button.Icon
-          icon={GlyphIcon.ARROW_FORWARD}
-          size={ButtonSize.MEDIUM}
-        />
+        <Link href={portfolioUri}>
+          <Button.Icon
+            icon={GlyphIcon.ARROW_FORWARD}
+            size={ButtonSize.MEDIUM}
+          />
+        </Link>
       </HStack>
     </HStack>
   );

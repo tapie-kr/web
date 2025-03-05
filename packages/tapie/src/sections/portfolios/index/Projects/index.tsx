@@ -1,4 +1,8 @@
+import { loadMoreButton } from './styles.css';
+
 import {
+  Button,
+  GlyphIcon,
   spacingVars,
   StackAlign,
   Typo,
@@ -28,6 +32,13 @@ export default function PortfolioProjectsSection() {
           spacing={spacingVars.medium}
         >
           <List />
+          <Button.Default
+            fullWidth
+            className={loadMoreButton}
+            leadingIcon={GlyphIcon.REFRESH}
+          >
+            더 불러오기
+          </Button.Default>
         </VStack>
       </VStack>
     </ContentSection>

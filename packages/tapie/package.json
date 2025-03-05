@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@cottons-kr/react-foundation": "^0.3.9",
+    "@js-temporal/polyfill": "^0.4.4",
     "@svgr/webpack": "^8.1.0",
     "@tapie-kr/api-client": "0.1.16",
     "@tapie-kr/api-database": "^0.0.3",
