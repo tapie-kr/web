@@ -92,7 +92,10 @@ export default function PortfoliosDetailPage() {
         pending={isPending}
         {...data}
       />
-      <Award />
+      <Award
+        pending={isPending}
+        {...data}
+      />
       <Download />
       <SeeMore />
     </>

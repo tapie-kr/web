@@ -13,13 +13,19 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import GradeBadge from '@/components/badge/GradeBadge';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 
-export default function PortfoliosDetailAwardSection() {
-  const isPending = true;
+interface Props extends PortfolioDetail {
+  pending: boolean;
+}
 
-  if (isPending) {
+export default function PortfoliosDetailAwardSection(_props: Props) {
+  const { pending, award } = _props;
+
+  if (pending) {
     return (
       <ContentSection
         maxWidth={1400}
@@ -66,19 +72,23 @@ export default function PortfoliosDetailAwardSection() {
         align={StackAlign.START}
       >
         <HStack spacing={spacingVars.petite}>
-          <Typo.Medium weight={Weight.SEMIBOLD}>2025 무슨무슨대회</Typo.Medium>
+          <Typo.Medium weight={Weight.SEMIBOLD}>{award?.name}</Typo.Medium>
           <Badge.Default
             theme={BadgeTheme.RED}
             leadingIcon={GlyphIcon.TROPHY}
             label='최우수상'
+          />
+          <GradeBadge
+            grade={award?.grade ?? 0}
+            label={award?.gradeLabel ?? ''}
           />
         </HStack>
         <HStack
           className={description}
           spacing={spacingVars.tiny}
         >
-          <Typo.Petite weight={Weight.MEDIUM}>2025 08-31</Typo.Petite>
-          <Typo.Petite weight={Weight.MEDIUM}>어디어디 재단</Typo.Petite>
+          <Typo.Petite weight={Weight.MEDIUM}>(여기 Date인데 API 반영 안됨 ㅅㅂ)</Typo.Petite>
+          <Typo.Petite weight={Weight.MEDIUM}>{award?.organization}</Typo.Petite>
         </HStack>
       </VStack>
     </ContentSection>
