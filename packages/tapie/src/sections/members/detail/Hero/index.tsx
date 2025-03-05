@@ -16,7 +16,13 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import MembersDetailHeroSectionSkeleton from './Skeleton';
+
 export default function MembersDetailHeroSection() {
+  return (
+    <MembersDetailHeroSectionSkeleton />
+  );
+
   return (
     <VStack
       fullWidth

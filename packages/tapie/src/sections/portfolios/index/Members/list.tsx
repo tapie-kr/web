@@ -66,6 +66,7 @@ function Member(_props: MemberProps) {
       <AspectRatio
         ratio={1}
         width={80}
+        className={s.profileImage}
       >
         <Image
           fullHeight
