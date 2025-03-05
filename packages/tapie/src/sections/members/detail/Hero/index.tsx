@@ -3,6 +3,7 @@ import { section } from './styles.css';
 import {
   Badge,
   BadgeTheme,
+  BrandIcon,
   colorVars,
   GlyphIcon,
   HStack,
@@ -16,12 +17,34 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import { MemberUnit } from '@tapie-kr/api-client/enum';
+import NextLink from 'next/link';
+import { type Link as LinkType } from '@/app/members/[id]/page';
+import { memberEnumKorean } from '@/utils/enum';
 import MembersDetailHeroSectionSkeleton from './Skeleton';
 
-export default function MembersDetailHeroSection() {
-  return (
-    <MembersDetailHeroSectionSkeleton />
-  );
+interface Props {
+  pending: boolean;
+  name?:   string;
+  unit?:   MemberUnit;
+  role?:   string;
+  links?:  LinkType[];
+}
+
+export default function MembersDetailHeroSection(_props: Props) {
+  const {
+    pending,
+    name,
+    unit,
+    role,
+    links,
+  } = _props;
+
+  if (pending) {
+    return (
+      <MembersDetailHeroSectionSkeleton />
+    );
+  }
 
   return (
     <VStack
@@ -34,18 +57,20 @@ export default function MembersDetailHeroSection() {
         spacing={spacingVars.petite}
         justify={StackJustify.START}
       >
-        <Typo.Large weight={Weight.SEMIBOLD}>이름</Typo.Large>
+        <Typo.Large weight={Weight.SEMIBOLD}>{name}</Typo.Large>
         <Typo.Medium
           weight={Weight.SEMIBOLD}
           color={colorVars.content.default}
         >
-          유닛
+          {memberEnumKorean(unit ?? MemberUnit.DEVELOPER)}
         </Typo.Medium>
-        <Badge.Default
-          theme={BadgeTheme.GREEN}
-          leadingIcon={GlyphIcon.VERIFIED}
-          label='부장'
-        />
+        {role === 'MANAGER' && (
+          <Badge.Default
+            theme={BadgeTheme.GREEN}
+            leadingIcon={GlyphIcon.VERIFIED}
+            label={role}
+          />
+        )}
       </HStack>
       <HStack
         fullWidth
@@ -53,19 +78,33 @@ export default function MembersDetailHeroSection() {
         wrap={StackWrap.WRAP}
         justify={StackJustify.START}
       >
-        <Link />
-        <Link />
-        <Link />
+        {links?.map(link => (
+          <Link
+            key={link.name}
+            name={link.name}
+            url={link.url}
+          />
+        ))}
       </HStack>
     </VStack>
   );
 }
 
-function Link() {
+interface LinkProps {
+  name: string;
+  url:  string;
+}
+
+function Link(_props: LinkProps) {
+  const { name, url } = _props;
+
   return (
-    <HStack spacing={spacingVars.mini}>
-      <Icon name={GlyphIcon.DEFAULT} />
-      <Typo.Base weight={Weight.MEDIUM}>링크</Typo.Base>
-    </HStack>
+    <NextLink href={url}>
+      <HStack spacing={spacingVars.mini}>
+        <Icon name={BrandIcon.GITHUB} />
+        <Icon name={name as keyof typeof BrandIcon in BrandIcon ? BrandIcon[name.toUpperCase() as keyof typeof BrandIcon] : undefined} />
+        <Typo.Base weight={Weight.MEDIUM}>{name}</Typo.Base>
+      </HStack>
+    </NextLink>
   );
 }
