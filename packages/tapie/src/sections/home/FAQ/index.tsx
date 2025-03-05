@@ -104,7 +104,7 @@ export default function HomeFAQSection() {
                 question='동아리 시연회는 언제인가요?'
               >
                 <Typo.Base>
-                  정확히 정해진 것은 아니지만, 3월 12일에 예정되어 있습니다.
+                  소프트웨어과는 3월 6일에, 콘텐츠디자인과는 3월 7일에 진행됩니다.
                 </Typo.Base>
               </QuestionDropdown>
             </VStack>
