@@ -39,7 +39,7 @@ export default function DefaultHero(_props: Props) {
         spacing={spacingVars.base}
         align={StackAlign.START}
       >
-        <PortfolioCarousel />
+        <PortfolioCarousel {..._props} />
         <VStack
           fullHeight
           className={introContainer}

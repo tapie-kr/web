@@ -1,5 +1,7 @@
 'use client';
 
+import {description as descriptionStyle} from './style.css';
+
 import {
   colorVars,
   radiusVars,
@@ -36,6 +38,7 @@ export default function HeroDescription(_props: Props) {
       variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
       weight={Weight.MEDIUM}
       color={colorVars.content.default}
+      className={descriptionStyle}
     >
       {description}
     </Typo>
