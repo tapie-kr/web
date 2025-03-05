@@ -1,4 +1,4 @@
-import { description } from './styles.css';
+import { description as descriptionStyle } from './styles.css';
 
 import {
   Badge,
@@ -15,52 +15,74 @@ import {
 import PortfolioGradientCard from '@/components/portfolio/GradientCard';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import Link from 'next/link';
+import { type RepresentProject } from '@/app/members/[id]/page';
 import { MembersDetailRepresentativePortfolioSectionSkeleton } from './skeleton';
 
-export default function MembersDetailRepresentativePortfolioSection() {
-  return (
-    <MembersDetailRepresentativePortfolioSectionSkeleton />
-  );
+interface Props extends RepresentProject {
+  pending: boolean;
+}
+
+export default function MembersDetailRepresentativePortfolioSection(_props: Props) {
+  const {
+    pending,
+    name,
+    description,
+    thumbnailUri,
+    uuid,
+  } = _props;
+
+  if (pending) {
+    return (
+      <MembersDetailRepresentativePortfolioSectionSkeleton />
+    );
+  }
 
   return (
-    <ContentSection
-      verticalPadding={spacingVars.moderate}
-      horizontalPadding={spacingVars.none}
+    <Link
+      href={`/portfolios/${uuid}`}
+      style={{ width: '100%' }}
     >
-      <PortfolioGradientCard
-        height={200}
-        padding={spacingVars.base}
+      <ContentSection
+        verticalPadding={spacingVars.moderate}
+        horizontalPadding={spacingVars.none}
       >
-        <VStack
-          fullWidth
-          spacing={spacingVars.micro}
-          align={StackAlign.START}
-          data-theme='dark'
+        <PortfolioGradientCard
+          height={200}
+          padding={spacingVars.base}
+          thumbnailUri={thumbnailUri ?? ''}
         >
-          <Badge.Default
-            leadingIcon={GlyphIcon.CROWN}
-            label='대표작'
-          />
-          <HStack spacing={spacingVars.petite}>
-            <Typo.Moderate
-              weight={Weight.SEMIBOLD}
-              color={colorVars.content.emphasized}
-            >
-              프로젝트 이름
-            </Typo.Moderate>
-            <HStack
-              spacing={spacingVars.mini}
-              className={description}
-            >
-              <Typo.Petite weight={Weight.MEDIUM}>캐치프라이즈</Typo.Petite>
-              <Icon
-                name={GlyphIcon.ARROW_FORWARD}
-                size={16}
-              />
+          <VStack
+            fullWidth
+            spacing={spacingVars.micro}
+            align={StackAlign.START}
+            data-theme='dark'
+          >
+            <Badge.Default
+              leadingIcon={GlyphIcon.CROWN}
+              label='대표작'
+            />
+            <HStack spacing={spacingVars.petite}>
+              <Typo.Moderate
+                weight={Weight.SEMIBOLD}
+                color={colorVars.content.emphasized}
+              >
+                {name}
+              </Typo.Moderate>
+              <HStack
+                spacing={spacingVars.mini}
+                className={descriptionStyle}
+              >
+                <Typo.Petite weight={Weight.MEDIUM}>{description}</Typo.Petite>
+                <Icon
+                  name={GlyphIcon.ARROW_FORWARD}
+                  size={16}
+                />
+              </HStack>
             </HStack>
-          </HStack>
-        </VStack>
-      </PortfolioGradientCard>
-    </ContentSection>
+          </VStack>
+        </PortfolioGradientCard>
+      </ContentSection>
+    </Link>
   );
 }

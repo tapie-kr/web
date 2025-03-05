@@ -6,11 +6,19 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import AwardCard from '@/components/award/Card';
 import AwardCardSkeleton from '@/components/award/Card/skeleton';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type RepresentAward } from '@/app/members/[id]/page';
 
-export default function MembersDetailRepresentativeAwardSection() {
+interface Props extends RepresentAward {
+  pending: boolean;
+}
+
+export default function MembersDetailRepresentativeAwardSection(_props: Props) {
+  const { pending } = _props;
+
   return (
     <ContentSection
       verticalPadding={spacingVars.moderate}
@@ -26,8 +34,13 @@ export default function MembersDetailRepresentativeAwardSection() {
         >
           대표 수상 내역
         </Typo.Petite>
-        {/* <AwardCard /> */}
-        <AwardCardSkeleton count={1} />
+        {pending
+          ?           <AwardCardSkeleton count={1} />
+          : (
+            <AwardCard
+              {..._props}
+            />
+          )}
       </VStack>
     </ContentSection>
   );

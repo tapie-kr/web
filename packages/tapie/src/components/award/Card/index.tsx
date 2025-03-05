@@ -1,6 +1,4 @@
 import {
-  Badge,
-  BadgeTheme,
   colorVars,
   GlyphIcon,
   HStack,
@@ -11,20 +9,26 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+import GradeBadge from '@/components/badge/GradeBadge';
+
+import Link from 'next/link';
+import { type ProjectReference } from '@/app/members/[id]/page';
 
 type AwardCardProps = {
-  name:         string;
-  organization: string;
-  year:         string;
-  projectName:  string;
+  name?:         string;
+  organization?: string;
+  gradeLabel?:   string;
+  grade?:        number;
+  project?:      ProjectReference;
 };
 
 export default function AwardCard(_props: AwardCardProps) {
   const {
     organization,
-    year,
     name,
-    projectName,
+    gradeLabel,
+    grade,
+    project,
   } = _props;
 
   return (
@@ -47,25 +51,26 @@ export default function AwardCard(_props: AwardCardProps) {
             nowrap
             weight={Weight.SEMIBOLD}
           >
-            {year} {name}
+            {name}
           </Typo.Medium>
-          <Badge.Default
-            theme={BadgeTheme.RED}
-            leadingIcon={GlyphIcon.TROPHY}
-            label='최우수상'
+          <GradeBadge
+            grade={grade ?? 0}
+            label={gradeLabel ?? ''}
           />
         </HStack>
       </VStack>
-      <HStack
-        spacing={spacingVars.mini}
-        style={{ color: colorVars.content.default }}
-      >
-        <Typo.Base weight={Weight.MEDIUM}>{projectName}</Typo.Base>
-        <Icon
-          name={GlyphIcon.ARROW_FORWARD}
-          size={20}
-        />
-      </HStack>
+      <Link href={project?.uuid ?? ''}>
+        <HStack
+          spacing={spacingVars.mini}
+          style={{ color: colorVars.content.default }}
+        >
+          <Typo.Base weight={Weight.MEDIUM}>{project?.name}</Typo.Base>
+          <Icon
+            name={GlyphIcon.ARROW_FORWARD}
+            size={20}
+          />
+        </HStack>
+      </Link>
     </VStack>
   );
 }

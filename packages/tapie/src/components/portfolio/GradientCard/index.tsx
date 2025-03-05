@@ -4,13 +4,13 @@ import { HStack, StackAlign } from '@tapie-kr/inspire-react';
 
 import cn from 'classnames';
 import { type ReactNode } from 'react';
-import Thumbnail from '@/../public/thumbnails/artnect.webp';
 
 type PortfolioGradientCardProps = {
-  height?:    string | number;
-  padding?:   string | number;
-  className?: string;
-  children?:  ReactNode;
+  height?:      string | number;
+  padding?:     string | number;
+  className?:   string;
+  children?:    ReactNode;
+  thumbnailUri: string;
 };
 
 export default function PortfolioGradientCard(props: PortfolioGradientCardProps) {
@@ -19,6 +19,7 @@ export default function PortfolioGradientCard(props: PortfolioGradientCardProps)
     padding = '1rem',
     className,
     children,
+    thumbnailUri,
   } = props;
 
   return (
@@ -29,7 +30,7 @@ export default function PortfolioGradientCard(props: PortfolioGradientCardProps)
     >
       <img
         className={s.thumbnail}
-        src={Thumbnail.src}
+        src={thumbnailUri}
         alt='ArtNect'
       />
       <HStack

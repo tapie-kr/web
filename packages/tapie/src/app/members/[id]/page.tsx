@@ -32,10 +32,10 @@ export interface Link {
 }
 
 export interface RepresentProject {
-  uuid:         string;
-  name:         string;
-  description:  string;
-  thumbnailUri: string;
+  uuid?:         string;
+  name?:         string;
+  description?:  string;
+  thumbnailUri?: string;
 }
 
 export interface ProjectReference {
@@ -44,11 +44,11 @@ export interface ProjectReference {
 }
 
 export interface RepresentAward {
-  name:         string;
-  grade:        number;
-  gradeLabel:   string;
-  organization: string;
-  project:      ProjectReference;
+  name?:         string;
+  grade?:        number;
+  gradeLabel?:   string;
+  organization?: string;
+  project?:      ProjectReference;
 }
 
 export interface Skill {
@@ -154,8 +154,14 @@ export default function MembersDetailPage() {
           pending={isPending}
           {...data}
         />
-        <RepresentativePortfolio />
-        <RepresentativeAward />
+        <RepresentativePortfolio
+          pending={isPending}
+          {...data?.representProject}
+        />
+        <RepresentativeAward
+          pending={isPending}
+          {...data?.representAward}
+        />
         <Skills />
         <Projects />
         <History />
