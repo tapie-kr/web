@@ -1,6 +1,6 @@
 'use client';
 
-import {description as descriptionStyle} from './style.css';
+import { description as descriptionStyle } from './style.css';
 
 import {
   colorVars,
