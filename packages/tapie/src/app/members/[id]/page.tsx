@@ -115,10 +115,6 @@ export default function MembersDetailPage() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(data?.representAward);
-  }, [data]);
-
   return (
     <Stack
       fullWidth
