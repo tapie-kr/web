@@ -3,7 +3,9 @@
 import * as s from './styles.css';
 
 import {
+  AspectRatio,
   HStack,
+  Image,
   spacingVars,
   StackJustify,
   Tag,
@@ -12,9 +14,26 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import { useMemberList } from '@tapie-kr/api-client';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
+import { useEffect } from 'react';
+import MemberSkeleton from './skeleton';
 
 export default function PortfoliosMembersSectionList() {
+  const {
+    data: members,
+    fetch: getMembers,
+    isPending,
+  } = useMemberList();
+
+  useEffect(() => {
+    getMembers();
+  }, []);
+
+  if (isPending) {
+    return <MemberSkeleton />;
+  }
+
   return (
     <Scroll direction='row'>
       <HStack
@@ -22,30 +41,45 @@ export default function PortfoliosMembersSectionList() {
         spacing={spacingVars.moderate}
         justify={StackJustify.START}
       >
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
-        <Member />
+        {members?.data.map(member => (
+          <Member
+            key={member.uuid}
+            profileUri={member.profileUri}
+            name={member.name}
+          />
+        ))}
       </HStack>
     </Scroll>
   );
 }
 
-function Member() {
+type MemberProps = {
+  profileUri: string;
+  name:       string;
+};
+
+function Member(_props: MemberProps) {
+  const { profileUri, name } = _props;
+
   return (
     <VStack spacing={spacingVars.micro}>
-      <div className={s.profileImage} />
+      <AspectRatio
+        ratio={1}
+        width={80}
+      >
+        <Image
+          fullHeight
+          fullWidth
+          src={profileUri}
+          alt={`${name}의 프로필 이미지`}
+          className={s.profileImage}
+        />
+      </AspectRatio>
       <Typo.Base
         tag={Tag.SPAN}
         weight={Weight.MEDIUM}
       >
-        이름
+        {name}
       </Typo.Base>
     </VStack>
   );
