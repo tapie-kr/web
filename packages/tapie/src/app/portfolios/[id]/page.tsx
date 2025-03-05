@@ -100,7 +100,7 @@ export default function PortfoliosDetailPage() {
         pending={isPending}
         {...data}
       />
-      <SeeMore />
+      <SeeMore currentUUID={data?.uuid} />
     </>
   );
 }

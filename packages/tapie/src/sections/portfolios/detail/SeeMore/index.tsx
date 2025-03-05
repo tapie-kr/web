@@ -1,9 +1,9 @@
-import { card, overlay } from './styles.css';
+import { card } from './styles.css';
 
 import {
   AspectRatio,
-  colorVars,
   HStack,
+  Image,
   radiusVars,
   Skeleton,
   spacingVars,
@@ -16,9 +16,37 @@ import {
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { client } from '@/utils/api';
 
-export default function PortfoliosDetailSeeMoreSection() {
-  const isPending = true;
+interface Portfolio {
+  uuid:         string;
+  name:         string;
+  slug:         string;
+  summary:      string;
+  tags:         string[];
+  thumbnailUri: string;
+  description:  string;
+}
+
+interface Props {
+  currentUUID?: string;
+}
+
+export default function PortfoliosDetailSeeMoreSection(_props: Props) {
+  const { currentUUID } = _props;
+  const [data, setData] = useState<Portfolio[]>([]);
+  const [pending, setPending] = useState(true);
+
+  useEffect(() => {
+    client.get('/projects').then(res => {
+      setData(res.data.data as Portfolio[]);
+    })
+      .finally(() => {
+        setPending(false);
+      });
+  }, []);
 
   return (
     <ContentSection
@@ -37,11 +65,17 @@ export default function PortfoliosDetailSeeMoreSection() {
             spacing={spacingVars.micro}
             justify={StackJustify.START}
           >
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {data
+              .filter(item => item.uuid !== currentUUID)
+              .map(item => (
+                <Card
+                  key={item.uuid}
+                  pending={pending}
+                  name={item.name}
+                  slug={item.slug}
+                  thumbnailUri={item.thumbnailUri}
+                />
+              ))}
           </HStack>
         </Scroll>
       </VStack>
@@ -49,38 +83,46 @@ export default function PortfoliosDetailSeeMoreSection() {
   );
 }
 
-function Card() {
+interface CardProps {
+  pending:      boolean;
+  name:         string;
+  slug:         string;
+  thumbnailUri: string;
+}
+
+function Card(_props: CardProps) {
+  const {
+    pending,
+    name,
+    slug,
+    thumbnailUri,
+  } = _props;
+
   return (
-    <AspectRatio
-      className={card}
-      width={250}
-      ratio={16 / 9}
-    >
-      <VStack
-        fullWidth
-        fullHeight
-        className={overlay}
-        align={StackAlign.START}
-        justify={StackJustify.END}
+    <Link href={`/portfolios/${slug}`}>
+      <AspectRatio
+        className={card}
+        width={250}
+        ratio={16 / 9}
       >
-        <Typo.Moderate
-          weight={Weight.SEMIBOLD}
-          color={colorVars.solid.translucent.white._90}
-        >
-          Plock
-        </Typo.Moderate>
-        <Typo.Petite
-          weight={Weight.MEDIUM}
-          color={colorVars.solid.translucent.white._60}
-        >
-          함께하는 사이드프로젝트를 위하여
-        </Typo.Petite>
-      </VStack>
-      <Skeleton
-        fullWidth
-        fullHeight
-        borderRadius={radiusVars.none}
-      />
-    </AspectRatio>
+        {pending
+          ? (
+            <Skeleton
+              fullWidth
+              fullHeight
+              borderRadius={radiusVars.none}
+            />
+          )
+          : (
+            <Image
+              fullHeight
+              fullWidth
+              alt={name ?? ''}
+              className={card}
+              src={thumbnailUri ?? 'https://images.unsplash.com/photo-1684275299096-1c9f3f7d5e8b'}
+            />
+          )}
+      </AspectRatio>
+    </Link>
   );
 }
