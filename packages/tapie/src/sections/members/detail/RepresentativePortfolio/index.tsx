@@ -29,7 +29,7 @@ export default function MembersDetailRepresentativePortfolioSection(_props: Prop
     name,
     description,
     thumbnailUri,
-    uuid,
+    slug,
   } = _props;
 
   if (pending) {
@@ -40,7 +40,7 @@ export default function MembersDetailRepresentativePortfolioSection(_props: Prop
 
   return (
     <Link
-      href={`/portfolios/${uuid}`}
+      href={`/portfolios/${slug}`}
       style={{ width: '100%' }}
     >
       <ContentSection

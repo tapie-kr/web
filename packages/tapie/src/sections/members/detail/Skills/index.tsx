@@ -1,6 +1,9 @@
+import { icon } from '@tapie-kr/web-shared/layout/Header/styles/theme-switch.css';
+
 import {
   Badge,
   BadgeTheme,
+  BrandIcon,
   colorVars,
   GlyphIcon,
   HStack,
@@ -14,9 +17,17 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { type Skill } from '@/app/members/[id]/page';
 import SkillSkeleton from './skeleton';
 
-export default function MembersDetailSkillsSection() {
+interface Props extends Skill {
+  pending: boolean;
+  skills?: Skill[];
+}
+
+export default function MembersDetailSkillsSection(_props: Props) {
+  const { pending, skills } = _props;
+
   return (
     <ContentSection
       verticalPadding={spacingVars.moderate}
@@ -37,15 +48,20 @@ export default function MembersDetailSkillsSection() {
           spacing={spacingVars.moderate}
           wrap={StackWrap.WRAP}
         >
-          <SkillSkeleton />
-          <SkillSkeleton />
-          <SkillSkeleton />
-          <SkillSkeleton />
-          {/* <Skill type={SkillType.VERIFIED} />
-          <Skill />
-          <Skill />
-          <Skill />
-          <Skill type={SkillType.LEARNING} /> */}
+          {pending
+            ?           <SkillSkeleton />
+            : (
+              <>
+                {skills?.map((skill: Skill) => (
+                  <Skill
+                    key={skill.label}
+                    name={skill.label}
+                    type={skill.verified ? SkillType.VERIFIED : skill.learning ? SkillType.LEARNING : undefined}
+                    icon={skill.icon}
+                  />
+                ))}
+              </>
+            )}
         </HStack>
       </VStack>
     </ContentSection>
@@ -59,13 +75,15 @@ enum SkillType {
 
 type SkillProps = {
   type?: SkillType;
+  name?: string;
+  icon?: string;
 };
 
 function Skill(props: SkillProps) {
   return (
     <HStack spacing={spacingVars.tiny}>
-      <Icon name={GlyphIcon.DEFAULT} />
-      <Typo.Base weight={Weight.MEDIUM}>기술 이름</Typo.Base>
+      <Icon name={icon as keyof typeof BrandIcon in BrandIcon ? BrandIcon[icon as keyof typeof BrandIcon] : undefined} />
+      <Typo.Base weight={Weight.MEDIUM}>{props.name}</Typo.Base>
       {props.type === SkillType.VERIFIED && (
         <Badge.Default
           theme={BadgeTheme.BLUE}

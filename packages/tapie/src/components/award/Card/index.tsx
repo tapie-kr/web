@@ -59,7 +59,7 @@ export default function AwardCard(_props: AwardCardProps) {
           />
         </HStack>
       </VStack>
-      <Link href={project?.uuid ?? ''}>
+      <Link href={`/portfolios/${project?.slug}`}>
         <HStack
           spacing={spacingVars.mini}
           style={{ color: colorVars.content.default }}

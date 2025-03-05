@@ -1,9 +1,6 @@
 import { historyItem } from './styles.css';
 
 import {
-  Badge,
-  BadgeSize,
-  BadgeTheme,
   colorVars,
   GlyphIcon,
   HStack,
@@ -14,6 +11,9 @@ import {
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
+
+import Link from 'next/link';
+import { type History, type HistoryItem } from '@/app/members/[id]/page';
 
 /*
  * type Event = {
@@ -31,57 +31,55 @@ import {
  * };
  */
 
-export default function MembersDetailHistorySectionList() {
+export default function MembersDetailHistorySectionList(_props: History) {
   return (
     <HStack
       fullWidth
       spacing={spacingVars.moderate}
       align={StackAlign.START}
     >
-      <Typo.Moderate weight={Weight.MEDIUM}>2025</Typo.Moderate>
+      <Typo.Moderate weight={Weight.MEDIUM}>{_props.year}</Typo.Moderate>
       <VStack
         fullWidth
         spacing={spacingVars.petite}
         align={StackAlign.START}
       >
-        <Item />
-        <Item />
-        <Item isImportant />
-        <Item />
+        {_props.items.map((event: HistoryItem) => (
+          <Item
+            key={event.label}
+            {...event}
+          />
+        ))}
       </VStack>
     </HStack>
   );
 }
 
-type ItemProps = {
+interface Props extends HistoryItem {
   isImportant?: boolean;
-};
+}
 
-function Item(props: ItemProps) {
+function Item(props: Props) {
   return (
-    <HStack
-      className={historyItem}
-      spacing={spacingVars.petite}
-    >
-      <Typo.Petite>08-31</Typo.Petite>
-      <Typo.Base
-        color={props.isImportant ? colorVars.content.emphasized : undefined}
-        weight={props.isImportant ? Weight.BOLD : undefined}
+    <Link href={props.internalLink?.includes('internal://') ? props.internalLink.replace('internal:/', '') : props.internalLink ?? ''}>
+      <HStack
+        className={historyItem}
+        spacing={spacingVars.petite}
       >
-        무슨무슨대회
-      </Typo.Base>
-      {props.isImportant && (
-        <Badge.Default
-          theme={BadgeTheme.RED}
-          size={BadgeSize.SMALL}
-          leadingIcon={GlyphIcon.ASTERISK}
-          label='주요'
-        />
-      )}
-      <Icon
-        name={GlyphIcon.ARROW_FORWARD}
-        size={16}
-      />
-    </HStack>
+        <Typo.Petite>{props.date}</Typo.Petite>
+        <Typo.Base
+          color={props.isImportant ? colorVars.content.emphasized : undefined}
+          weight={props.isImportant ? Weight.BOLD : undefined}
+        >
+          {props.label}
+        </Typo.Base>
+        {props.internalLink && (
+          <Icon
+            name={GlyphIcon.ARROW_FORWARD}
+            size={16}
+          />
+        )}
+      </HStack>
+    </Link>
   );
 }

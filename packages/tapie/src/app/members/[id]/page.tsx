@@ -36,11 +36,13 @@ export interface RepresentProject {
   name?:         string;
   description?:  string;
   thumbnailUri?: string;
+  slug?:         string;
 }
 
 export interface ProjectReference {
   name: string;
   uuid: string;
+  slug: string;
 }
 
 export interface RepresentAward {
@@ -52,17 +54,18 @@ export interface RepresentAward {
 }
 
 export interface Skill {
-  icon:     string;
-  label:    string;
-  verified: boolean;
-  learning: boolean;
+  icon?:     string;
+  label?:    string;
+  verified?: boolean;
+  learning?: boolean;
 }
 
 export interface Project {
-  uuid:         string;
-  name:         string;
-  role:         string;
-  thumbnailUri: string;
+  uuid?:         string;
+  name?:         string;
+  role?:         string;
+  thumbnailUri?: string;
+  slug?:         string;
 }
 
 export interface HistoryItem {
@@ -162,9 +165,18 @@ export default function MembersDetailPage() {
           pending={isPending}
           {...data?.representAward}
         />
-        <Skills />
-        <Projects />
-        <History />
+        <Skills
+          pending={isPending}
+          skills={data?.skills}
+        />
+        <Projects
+          pending={isPending}
+          projects={data?.projects}
+        />
+        <History
+          pending={isPending}
+          history={data?.history}
+        />
       </VStack>
     </Stack>
   );

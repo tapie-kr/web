@@ -1,13 +1,15 @@
-import { project } from './styles.css';
+import { project, projectContainer } from './styles.css';
 
 import {
   AspectRatio,
+  Box,
   Button,
   ButtonSize,
   colorVars,
   GlyphIcon,
   Grid,
   HStack,
+  Image,
   radiusVars,
   Skeleton,
   spacingVars,
@@ -19,9 +21,18 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
-import ProjectSkeleton from './Skeleton';
+import Link from 'next/link';
+import { type Project as ProjectType } from '@/app/members/[id]/page';
+import ProjectSkeleton from './skeleton';
 
-export default function MembersDetailProjectsSection() {
+interface Project {
+  pending:   boolean;
+  projects?: ProjectType[];
+}
+
+export default function MembersDetailProjectsSection(_props: Project) {
+  const { pending, projects } = _props;
+
   return (
     <ContentSection
       verticalPadding={spacingVars.moderate}
@@ -43,48 +54,74 @@ export default function MembersDetailProjectsSection() {
           columnCount={2}
           gap={spacingVars.micro}
         >
-          <ProjectSkeleton />
+          {pending
+            ?           <ProjectSkeleton />
+            : projects?.map((project: ProjectType) => (
+              <Project
+                key={project.name}
+                pending={pending}
+                {...project}
+              />
+            ))}
         </Grid>
       </VStack>
     </ContentSection>
   );
 }
 
-function Project() {
+interface ProjectProps extends ProjectType {
+  pending: boolean;
+}
+
+function Project(props: ProjectProps) {
   return (
-    <HStack
-      fullWidth
-      justify={StackJustify.BETWEEN}
-      className={project}
-    >
-      <HStack spacing={spacingVars.base}>
-        <AspectRatio
-          ratio={16 / 9}
-          width={150}
-        >
-          <Skeleton
-            fullWidth
-            fullHeight
-            borderRadius={radiusVars.default}
-          />
-        </AspectRatio>
-        <VStack
-          spacing={spacingVars.optical}
-          align={StackAlign.START}
-        >
-          <Typo.Base weight={Weight.SEMIBOLD}>프로젝트 이름</Typo.Base>
-          <Typo.Petite
-            weight={Weight.MEDIUM}
-            color={colorVars.content.default}
+    <Link href={`/portfolios/${props.slug}`}>
+      <HStack
+        fullWidth
+        justify={StackJustify.BETWEEN}
+        className={project}
+      >
+        <HStack spacing={spacingVars.base}>
+          <Box className={projectContainer}>
+            <AspectRatio
+              ratio={16 / 9}
+              width={150}
+            >
+              {props.pending
+                ?           (
+                  <Skeleton
+                    fullWidth
+                    fullHeight
+                    borderRadius={radiusVars.default}
+                  />
+                )
+                : (
+                  <Image
+                    src={props.thumbnailUri ?? ''}
+                    alt='thumbnail'
+                    className={project}
+                  />
+                )}
+            </AspectRatio>
+          </Box>
+          <VStack
+            spacing={spacingVars.optical}
+            align={StackAlign.START}
           >
-            역할
-          </Typo.Petite>
-        </VStack>
+            <Typo.Base weight={Weight.SEMIBOLD}>{props.name}</Typo.Base>
+            <Typo.Petite
+              weight={Weight.MEDIUM}
+              color={colorVars.content.default}
+            >
+              {props.role}
+            </Typo.Petite>
+          </VStack>
+        </HStack>
+        <Button.Icon
+          icon={GlyphIcon.ARROW_FORWARD}
+          size={ButtonSize.SMALL}
+        />
       </HStack>
-      <Button.Icon
-        icon={GlyphIcon.ARROW_FORWARD}
-        size={ButtonSize.SMALL}
-      />
-    </HStack>
+    </Link>
   );
 }
