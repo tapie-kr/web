@@ -12,7 +12,8 @@ import {
 import { type FormApplicationPortfolioType } from '@tapie-kr/api-client';
 
 export default function UploadedFile({ file, onDelete }: {
-  file: FormApplicationPortfolioType; onDelete: (id: string) => void;
+  file:     FormApplicationPortfolioType;
+  onDelete: (id: string) => void;
 }) {
   return (
     <HStack

@@ -7,7 +7,11 @@ import {
 
 import {
   BrandIcon,
-  Button, colorVars, GlyphIcon, HStack, Icon,
+  Button,
+  colorVars,
+  GlyphIcon,
+  HStack,
+  Icon,
   spacingVars,
   TAPIESymbol,
   TAPIESymbolSize,
@@ -40,30 +44,37 @@ export default async function Page(props: PageParams<'', 'service'>) {
           spacing={spacingVars.base}
         >
           <Link
-              className={link}
-              href={`/api/v1/auth/google?service=${service || 'form'}`}
+            className={link}
+            href={`/api/v1/auth/google?service=${service || 'form'}`}
           >
             <Button.Default
-                fullWidth
-                leadingIcon={BrandIcon.GOOGLE}
-            >Google로 TAPIE 로그인
+              fullWidth
+              leadingIcon={BrandIcon.GOOGLE}
+            >
+              Google로 TAPIE 로그인
             </Button.Default>
           </Link>
-          <HStack
-            spacing={spacingVars.mini}
-          >
-            <Icon name={GlyphIcon.ASTERISK} size={12} color={colorVars.solid.red}/>
-            <Typo.Micro color={colorVars.content.default}>선린 계정으로만 로그인이 가능합니다.</Typo.Micro>
+          <HStack spacing={spacingVars.mini}>
+            <Icon
+              name={GlyphIcon.ASTERISK}
+              size={12}
+              color={colorVars.solid.red}
+            />
+            <Typo.Micro color={colorVars.content.default}>
+              선린 계정으로만 로그인이 가능합니다.
+            </Typo.Micro>
           </HStack>
         </VStack>
-
       </VStack>
       <VStack
         spacing={spacingVars.micro}
         className={copyright}
       >
         <Typo.Micro>© 2025 TAPIE. All rights reserved.</Typo.Micro>
-        <Typo.Mini>로그인 시도 및 접속 기록은 모두 수집되며 비정상적인 활동 감지시 TAPIE는 대응을 위해 해당 기록을 활용할 수 있습니다.</Typo.Mini>
+        <Typo.Mini>
+          로그인 시도 및 접속 기록은 모두 수집되며 비정상적인 활동 감지시
+          TAPIE는 대응을 위해 해당 기록을 활용할 수 있습니다.
+        </Typo.Mini>
       </VStack>
     </VStack>
   );

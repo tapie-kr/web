@@ -33,15 +33,16 @@ export default function PortfoliosHeroSection() {
           align={StackAlign.START}
         >
           <Typo
-            variant={isMobile ? TypographyVariant.MEDIUM : TypographyVariant.JUMBO}
             weight={Weight.BOLD}
-          >포트폴리오
+            variant={isMobile ? TypographyVariant.MEDIUM : TypographyVariant.JUMBO}
+          >
+            포트폴리오
           </Typo>
           <Typo
-            variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.MEDIUM}
             tag={Tag.P}
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
+            variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.MEDIUM}
           >
             TAPIE의 부원들이 이루어낸 성과들을 관람해보세요
           </Typo>

@@ -12,7 +12,10 @@ type SectionLabelProps = {
 
 export default function PortfolioSectionLabel(props: SectionLabelProps) {
   const Text = props.isEmphasized ? Typo.Moderate : Typo.Petite;
-  const color = props.isEmphasized ? colorVars.content.emphasized : colorVars.content.default;
+
+  const color = props.isEmphasized
+    ? colorVars.content.emphasized
+    : colorVars.content.default;
 
   return (
     <Text

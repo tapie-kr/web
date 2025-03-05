@@ -1,22 +1,13 @@
 'use client';
 
-import { loadMoreButton } from './styles.css';
-
-import {
-  Button,
-  GlyphIcon,
-  Grid,
-  spacingVars,
-} from '@tapie-kr/inspire-react';
+import { Grid, spacingVars } from '@tapie-kr/inspire-react';
 import PortfolioItem from '@/components/portfolio/Item';
 import PortfolioItemSkeleton from '@/components/portfolio/Item/skeleton';
 
 import { Temporal } from '@js-temporal/polyfill';
 
 export default function PortfolioProjectsSectionList() {
-  return (
-    <PortfolioItemSkeleton />
-  );
+  return <PortfolioItemSkeleton />;
 
   return (
     <Grid

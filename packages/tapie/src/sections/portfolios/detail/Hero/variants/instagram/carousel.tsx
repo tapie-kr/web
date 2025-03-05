@@ -32,8 +32,8 @@ export default function InstagramCarousel() {
 
   return (
     <Box className={carousel}>
-      <Swiper {...swiperProps}>{
-        images.map((src, index) => (
+      <Swiper {...swiperProps}>
+        {images.map((src, index) => (
           <SwiperSlide key={index}>
             <Image
               fullWidth
@@ -43,8 +43,7 @@ export default function InstagramCarousel() {
               alt='placeholder'
             />
           </SwiperSlide>
-        ))
-      }
+        ))}
       </Swiper>
     </Box>
   );

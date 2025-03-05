@@ -3,10 +3,29 @@ import {
   ButtonVariant,
   GlyphIcon,
   HStack,
+  radiusVars,
+  Skeleton,
   spacingVars,
 } from '@tapie-kr/inspire-react';
 
 export default function HeroActions() {
+  const isPending = true;
+
+  if (isPending) {
+    return (
+      <HStack
+        fullWidth
+        spacing={spacingVars.micro}
+      >
+        <Skeleton
+          fullWidth
+          height={48}
+          borderRadius={radiusVars.default}
+        />
+      </HStack>
+    );
+  }
+
   return (
     <HStack
       fullWidth

@@ -6,6 +6,8 @@ import {
   colorVars,
   GlyphIcon,
   HStack,
+  radiusVars,
+  Skeleton,
   spacingVars,
   StackAlign,
   Typo,
@@ -17,6 +19,41 @@ import {
 
 export default function HeroTitle() {
   const isMobile = useMediaQuery();
+  const isPending = true;
+
+  if (isPending) {
+    return (
+      <VStack
+        spacing={spacingVars.base}
+        align={StackAlign.START}
+      >
+        <VStack
+          spacing={isMobile ? spacingVars.none : spacingVars.tiny}
+          align={StackAlign.START}
+        >
+
+          <Skeleton
+            width={84}
+            height={46}
+            borderRadius={radiusVars.default}
+          />
+          <Skeleton
+            width={274}
+            height={26}
+            borderRadius={radiusVars.default}
+          />
+        </VStack>
+        <HStack spacing={spacingVars.tiny}>
+
+          <Skeleton
+            width={210}
+            height={26}
+            borderRadius={radiusVars.default}
+          />
+        </HStack>
+      </VStack>
+    );
+  }
 
   return (
     <VStack
@@ -28,15 +65,15 @@ export default function HeroTitle() {
         align={StackAlign.START}
       >
         <Typo
-          variant={isMobile ? TypographyVariant.MEDIUM : TypographyVariant.LARGE}
           weight={Weight.BOLD}
+          variant={isMobile ? TypographyVariant.MEDIUM : TypographyVariant.LARGE}
         >
           Plock
         </Typo>
         <Typo
-          variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
           weight={isMobile ? Weight.MEDIUM : Weight.SEMIBOLD}
           color={colorVars.content.default}
+          variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
         >
           함께하는 사이드프로젝트를 위하여
         </Typo>

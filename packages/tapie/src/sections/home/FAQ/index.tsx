@@ -49,10 +49,14 @@ export default function HomeFAQSection() {
             delayGap={0.06}
             duration={0.8}
             initial={{
-              y: 20, opacity: 0, scale: 0.98,
+              y:       20,
+              opacity: 0,
+              scale:   0.98,
             }}
             animate={{
-              y: 0, opacity: 1, scale: 1,
+              y:       0,
+              opacity: 1,
+              scale:   1,
             }}
           >
             <VStack
@@ -94,9 +98,8 @@ export default function HomeFAQSection() {
                 question='대회 참여는 필수인가요?'
               >
                 <Typo.Base>
-                  대회 참여는 본인의 선택이지만 협업 능력과 실력을 키울 수
-                  있는 더할 나위 없는 좋은 방법이므로 대회에 참여하는걸
-                  권장합니다.
+                  대회 참여는 본인의 선택이지만 협업 능력과 실력을 키울 수 있는
+                  더할 나위 없는 좋은 방법이므로 대회에 참여하는걸 권장합니다.
                 </Typo.Base>
               </QuestionDropdown>
               <QuestionDropdown
@@ -104,7 +107,8 @@ export default function HomeFAQSection() {
                 question='동아리 시연회는 언제인가요?'
               >
                 <Typo.Base>
-                  소프트웨어과는 3월 6일에, 콘텐츠디자인과는 3월 7일에 진행됩니다.
+                  소프트웨어과는 3월 6일에, 콘텐츠디자인과는 3월 7일에
+                  진행됩니다.
                 </Typo.Base>
               </QuestionDropdown>
             </VStack>

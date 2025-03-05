@@ -28,7 +28,7 @@ export function Animate(props: AnimateProps) {
 
   const transition = getTransition({
     duration: 0.65,
-    delay:    (props.order * 0.2) + 0.2,
+    delay:    props.order * 0.2 + 0.2,
   });
 
   const resetTransition = getTransition({ duration: 0 });

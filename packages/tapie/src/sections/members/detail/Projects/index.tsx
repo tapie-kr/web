@@ -80,7 +80,8 @@ function Project() {
           <Typo.Petite
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
-          >역할
+          >
+            역할
           </Typo.Petite>
         </VStack>
       </HStack>

@@ -31,7 +31,9 @@ export default function Page() {
               withLabel
               size={TAPIESymbolSize._32}
             />
-            <Typo.Jumbo weight={TypographyWeight.Semibold}>Under Construction</Typo.Jumbo>
+            <Typo.Jumbo weight={TypographyWeight.Semibold}>
+              Under Construction
+            </Typo.Jumbo>
           </VStack>
           <Typo.Base>리뉴얼된 사이트로 2025년에 돌아오겠습니다.</Typo.Base>
         </VStack>
@@ -61,7 +63,9 @@ export default function Page() {
           </Link>
         </HStack>
       </VStack>
-      <Typo.Micro className={copyrightStyle}>© 2025 TAPIE. All rights reserved.</Typo.Micro>
+      <Typo.Micro className={copyrightStyle}>
+        © 2025 TAPIE. All rights reserved.
+      </Typo.Micro>
     </>
   );
 }

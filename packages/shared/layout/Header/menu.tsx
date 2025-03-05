@@ -91,7 +91,7 @@ function LinkList(props: LinkListProps) {
           }}
           transition={getTransition({
             duration: 0.4,
-            delay:    (i * 0.03) + 0.18,
+            delay:    i * 0.03 + 0.18,
           })}
           onClick={handleLinkClick}
         >

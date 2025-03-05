@@ -18,7 +18,8 @@ export default function MemberSkeleton() {
         spacing={spacingVars.moderate}
         justify={StackJustify.START}
       >
-        {Array(10).fill(0)
+        {Array(10)
+          .fill(0)
           .map((_, index) => (
             <VStack
               key={index}

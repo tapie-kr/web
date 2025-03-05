@@ -43,7 +43,9 @@ export default function HomeDescriptionSection() {
           <VStack className={s.content}>
             <VStack tag={Tag.P}>
               <Animate order={0}>
-                <ParagraphText>TAPIE는 기존 선린인터넷고등학교에 있던</ParagraphText>
+                <ParagraphText>
+                  TAPIE는 기존 선린인터넷고등학교에 있던
+                </ParagraphText>
               </Animate>
               <Animate order={1}>
                 <HStack
@@ -71,17 +73,22 @@ export default function HomeDescriptionSection() {
                 </HStack>
               </Animate>
               <Animate order={2}>
-                <ParagraphText>2024년에 새롭게 만들어진 동아리입니다.</ParagraphText>
+                <ParagraphText>
+                  2024년에 새롭게 만들어진 동아리입니다.
+                </ParagraphText>
               </Animate>
             </VStack>
             <VStack>
               <Animate order={3}>
                 <ParagraphText>
-                  세상에 존재하는 다양한 간극을 소프트웨어로 이어붙이자는 신념 아래,{' '}
+                  세상에 존재하는 다양한 간극을 소프트웨어로 이어붙이자는 신념
+                  아래,{' '}
                 </ParagraphText>
               </Animate>
               <Animate order={4}>
-                <ParagraphText>우리들의 전공을 활용하여 오늘도 노력하고 있습니다.</ParagraphText>
+                <ParagraphText>
+                  우리들의 전공을 활용하여 오늘도 노력하고 있습니다.
+                </ParagraphText>
               </Animate>
             </VStack>
           </VStack>

@@ -8,7 +8,10 @@ import { Button, ButtonVariant, GlyphIcon } from '@tapie-kr/inspire-react';
 import cn from 'classnames';
 import { useCallback, useRef, useState } from 'react';
 
-type OnScrollChangeMiddleware = Exclude<ViewportProps['onScrollChange'], undefined>;
+type OnScrollChangeMiddleware = Exclude<
+  ViewportProps['onScrollChange'],
+  undefined
+>;
 
 export default function Scroll(props: ViewportProps) {
   const { onScrollChange, ...rest } = props;

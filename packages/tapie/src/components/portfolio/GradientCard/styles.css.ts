@@ -16,12 +16,13 @@ export const thumbnail = style({
 });
 
 export const content = style({
-  position:       'absolute',
-  top:            0,
-  left:           0,
-  width:          '100%',
-  height:         '100%',
-  padding:        spacingVars.moderate,
-  background:     'linear-gradient(180deg, rgba(78, 78, 78, 0.35) 0%, rgba(78, 78, 78, 0.80) 100%)',
+  position: 'absolute',
+  top:      0,
+  left:     0,
+  width:    '100%',
+  height:   '100%',
+  padding:  spacingVars.moderate,
+  background:
+    'linear-gradient(180deg, rgba(78, 78, 78, 0.35) 0%, rgba(78, 78, 78, 0.80) 100%)',
   backdropFilter: 'blur(4px)',
 });

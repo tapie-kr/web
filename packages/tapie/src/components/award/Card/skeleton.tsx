@@ -11,10 +11,9 @@ import Scroll from '@tapie-kr/web-shared/components/Scroll';
 export default function AwardCardSkeleton() {
   return (
     <Scroll direction='row'>
-      <HStack
-        spacing={spacingVars.giant}
-      >
-        {Array(4).fill(0)
+      <HStack spacing={spacingVars.giant}>
+        {Array(4)
+          .fill(0)
           .map((_, index) => (
             <VStack
               key={index}

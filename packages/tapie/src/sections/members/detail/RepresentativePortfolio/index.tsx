@@ -40,16 +40,14 @@ export default function MembersDetailRepresentativePortfolioSection() {
             <Typo.Moderate
               weight={Weight.SEMIBOLD}
               color={colorVars.content.emphasized}
-            >프로젝트 이름
+            >
+              프로젝트 이름
             </Typo.Moderate>
             <HStack
               spacing={spacingVars.mini}
               className={description}
             >
-              <Typo.Petite
-                weight={Weight.MEDIUM}
-              >캐치프라이즈
-              </Typo.Petite>
+              <Typo.Petite weight={Weight.MEDIUM}>캐치프라이즈</Typo.Petite>
               <Icon
                 name={GlyphIcon.ARROW_FORWARD}
                 size={16}

@@ -15,7 +15,9 @@ export default function PortfoliosRecentAwardsSection() {
         spacing={spacingVars.petite}
         align={StackAlign.START}
       >
-        <PortfolioSectionLabel isEmphasized>최신 수상 내역</PortfolioSectionLabel>
+        <PortfolioSectionLabel isEmphasized>
+          최신 수상 내역
+        </PortfolioSectionLabel>
         <List />
       </VStack>
     </ContentSection>

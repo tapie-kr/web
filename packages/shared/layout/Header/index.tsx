@@ -50,7 +50,9 @@ export default function Header() {
           <Typo.Petite weight={TypographyWeight.SEMIBOLD}>메뉴</Typo.Petite>
         </button>
       </HStack>
-      <AnimatePresence>{showMenu && <HeaderMenu hide={toggleMenu} />}</AnimatePresence>
+      <AnimatePresence>
+        {showMenu && <HeaderMenu hide={toggleMenu} />}
+      </AnimatePresence>
     </>
   );
 }

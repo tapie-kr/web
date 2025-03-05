@@ -24,10 +24,11 @@ export default function HomeAwardsSection() {
   const [selectedYear, setSelectedYear] = useState(2024);
 
   return (
-    <HomeAwardsSectionContext.Provider value={{
-      selectedYear,
-      setSelectedYear,
-    }}
+    <HomeAwardsSectionContext.Provider
+      value={{
+        selectedYear,
+        setSelectedYear,
+      }}
     >
       <ViewportDetector shouldOnce>
         <VStack
@@ -49,7 +50,9 @@ export default function HomeAwardsSection() {
               <VStack gap={spacingVars.moderate}>
                 <div className={utilityClass.hideOverflow}>
                   <Animate order={0}>
-                    <Typo.Jumbo weight={Weight.SEMIBOLD}>2024년 테이피의 항해</Typo.Jumbo>
+                    <Typo.Jumbo weight={Weight.SEMIBOLD}>
+                      2024년 테이피의 항해
+                    </Typo.Jumbo>
                   </Animate>
                 </div>
                 <div className={cn(utilityClass.hideOverflow, s.count)}>

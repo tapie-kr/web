@@ -67,7 +67,8 @@ function Item(props: ItemProps) {
       <Typo.Base
         color={props.isImportant ? colorVars.content.emphasized : undefined}
         weight={props.isImportant ? Weight.BOLD : undefined}
-      >무슨무슨대회
+      >
+        무슨무슨대회
       </Typo.Base>
       {props.isImportant && (
         <Badge.Default

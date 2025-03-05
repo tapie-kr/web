@@ -60,7 +60,11 @@ export function ApplyForm({
   const { mutate: update } = useUpdateFormApplication();
   const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
-  const [uploadedFiles, setUploadedFiles] = useState<FormApplicationPortfolioType[]>([]);
+
+  const [uploadedFiles, setUploadedFiles] = useState<
+    FormApplicationPortfolioType[]
+  >([]);
+
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const router = useRouter();
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
@@ -71,7 +75,8 @@ export function ApplyForm({
     _isSubmitModalVisible,
     submitToggle,
     setSubmitModalVisible,
-  ] = submitModalToggler;
+  ] =
+    submitModalToggler;
 
   // 컴포넌트가 마운트될 때 API 호출
   useEffect(() => {
@@ -94,7 +99,10 @@ export function ApplyForm({
   }, [currentForm]);
 
   function validateForm() {
-    if (!formData.phoneNumber || !Regex.phoneNumber.test(formData.phoneNumber)) {
+    if (
+      !formData.phoneNumber ||
+      !Regex.phoneNumber.test(formData.phoneNumber)
+    ) {
       return false;
     }
 
@@ -143,7 +151,9 @@ export function ApplyForm({
 
   // 전화번호 형식 검증
   useEffect(() => {
-    const error = !isValidPhoneNumber(formData.phoneNumber) ? '전화번호가 형식에 맞지 않습니다.' : undefined;
+    const error = !isValidPhoneNumber(formData.phoneNumber)
+      ? '전화번호가 형식에 맞지 않습니다.'
+      : undefined;
 
     setPhoneNumberError(error);
   }, [formData.phoneNumber]);
@@ -177,11 +187,12 @@ export function ApplyForm({
 
   /* eslint-disable no-alert */
   const handleSubmit = async () => {
-    await submitForm({ param: { formId: currentId } }).then(() => {
-      alert('지원서가 제출되었습니다.');
+    await submitForm({ param: { formId: currentId } })
+      .then(() => {
+        alert('지원서가 제출되었습니다.');
 
-      router.push('/');
-    })
+        router.push('/');
+      })
       .catch(err => {
         if (err.response.status === 400) {
           alert('모든 항목을 작성해주세요.');
@@ -199,7 +210,8 @@ export function ApplyForm({
       <SegmentGroup
         defaultValue={formData.unit || MemberUnit.DEVELOPER}
         onChange={unit => setFormData({
-          ...formData, unit: unit as MemberUnit,
+          ...formData,
+          unit: unit as MemberUnit,
         })}
       >
         <Segment
@@ -240,38 +252,47 @@ export function ApplyForm({
           value={formData.phoneNumber}
           onChange={e => {
             setFormData({
-              ...formData, phoneNumber: e.target.value,
+              ...formData,
+              phoneNumber: e.target.value,
             });
           }}
         />
-        {phoneNumberError && <Typo.Petite color={colorVars.solid.red}>{phoneNumberError}</Typo.Petite>}
+        {phoneNumberError && (
+          <Typo.Petite color={colorVars.solid.red}>
+            {phoneNumberError}
+          </Typo.Petite>
+        )}
       </FormField>
       <TextareaField
         label='자기소개'
         value={formData.introduction}
         onChange={value => setFormData({
-          ...formData, introduction: value,
+          ...formData,
+          introduction: value,
         })}
       />
       <TextareaField
         label='지원동기'
         value={formData.motivation}
         onChange={value => setFormData({
-          ...formData, motivation: value,
+          ...formData,
+          motivation: value,
         })}
       />
       <TextareaField
         label='기대되는 활동'
         value={formData.expectedActivities}
         onChange={value => setFormData({
-          ...formData, expectedActivities: value,
+          ...formData,
+          expectedActivities: value,
         })}
       />
       <TextareaField
         label='자신을 뽑아야 하는 이유'
         value={formData.reasonToChoose}
         onChange={value => setFormData({
-          ...formData, reasonToChoose: value,
+          ...formData,
+          reasonToChoose: value,
         })}
       />
       {uploadedFiles.length === 0
@@ -311,22 +332,26 @@ export function ApplyForm({
         fullWidth
         disabled={isFormSubmitted}
         onClick={submitToggle}
-      >{isFormSubmitted ? '이미 지원서가 제출 되었습니다' : '지원서 제출'}
-      </Button.Default>
-      <Typo.Petite color={colorVars.solid.red}>지원서 제출 후에는 수정이 불가능합니다.</Typo.Petite>
-      <Dialog
-        toggler={submitModalToggler}
       >
+        {isFormSubmitted ? '이미 지원서가 제출 되었습니다' : '지원서 제출'}
+      </Button.Default>
+      <Typo.Petite color={colorVars.solid.red}>
+        지원서 제출 후에는 수정이 불가능합니다.
+      </Typo.Petite>
+      <Dialog toggler={submitModalToggler}>
         <VStack
           spacing={spacingVars.medium}
           className={s.submitDialog}
         >
           <VStack spacing={spacingVars.micro}>
-            <Typo.Moderate weight={Weight.SEMIBOLD}>정말로 제출하시겠습니까?</Typo.Moderate>
+            <Typo.Moderate weight={Weight.SEMIBOLD}>
+              정말로 제출하시겠습니까?
+            </Typo.Moderate>
             <Typo.Base
               weight={Weight.MEDIUM}
               color={colorVars.content.default}
-            >지원서 제출 후에는 수정이 불가능합니다.
+            >
+              지원서 제출 후에는 수정이 불가능합니다.
             </Typo.Base>
           </VStack>
           <HStack
@@ -337,13 +362,15 @@ export function ApplyForm({
               fullWidth
               leadingIcon={GlyphIcon.UPLOAD}
               onClick={handleSubmit}
-            >제출하기
+            >
+              제출하기
             </Button.Default>
             <Button.Default
               fullWidth
               variant={ButtonVariant.SECONDARY}
               onClick={() => setSubmitModalVisible(false)}
-            >닫기
+            >
+              닫기
             </Button.Default>
           </HStack>
         </VStack>

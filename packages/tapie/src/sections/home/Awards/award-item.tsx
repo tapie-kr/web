@@ -20,7 +20,7 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
 
   const transition = getTransition({
     duration: 0.85,
-    delay:    (props.order * 0.03) + 0.55,
+    delay:    props.order * 0.03 + 0.55,
   });
 
   const resetTransition = getTransition({ duration: 0 });

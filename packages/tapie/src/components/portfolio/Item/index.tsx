@@ -81,14 +81,15 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
           align={StackAlign.START}
         >
           <Typo
-            variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
             weight={Weight.MEDIUM}
-          >{name}
+            variant={isMobile ? TypographyVariant.BASE : TypographyVariant.MODERATE}
+          >
+            {name}
           </Typo>
           <Typo
-            variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
             weight={Weight.MEDIUM}
             color={colorVars.content.default}
+            variant={isMobile ? TypographyVariant.PETITE : TypographyVariant.BASE}
           >
             {catchPhrase}
           </Typo>
@@ -98,10 +99,7 @@ export default function PortfolioItem(_props: PortfolioItemProps) {
         className={right}
         spacing={spacingVars.moderate}
       >
-        <Typo.Base
-          weight={Weight.MEDIUM}
-        >{toDateString(releasedAt)}
-        </Typo.Base>
+        <Typo.Base weight={Weight.MEDIUM}>{toDateString(releasedAt)}</Typo.Base>
         <Link href={portfolioUri}>
           <Button.Icon
             icon={GlyphIcon.ARROW_FORWARD}

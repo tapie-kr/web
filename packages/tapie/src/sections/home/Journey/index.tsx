@@ -18,7 +18,9 @@ import Marquee from './marquee';
 
 export default async function HomeJourneySection() {
   const { default: thumbnailList } = await import('@/../public/thumbnails/_list.json');
-  const [first, second] = splitArray(thumbnailList, thumbnailList.length / 2).map(shuffle);
+
+  const [first, second] = splitArray(thumbnailList,
+    thumbnailList.length / 2).map(shuffle);
 
   return (
     <ViewportDetector shouldOnce>
@@ -43,7 +45,9 @@ export default async function HomeJourneySection() {
             justify='between'
           >
             <Animate order={1}>
-              <Typo.Jumbo weight={Weight.SEMIBOLD}>그동안 우리들의 여정</Typo.Jumbo>
+              <Typo.Jumbo weight={Weight.SEMIBOLD}>
+                그동안 우리들의 여정
+              </Typo.Jumbo>
             </Animate>
             <VStack
               className={s.viewMore}
@@ -55,7 +59,8 @@ export default async function HomeJourneySection() {
                   color={colorVars.content.default}
                   weight={Weight.MEDIUM}
                 >
-                  TAPIE의 부원들이 제작해온 멋진 작품들입니다. 자유롭게 관람해주세요!
+                  TAPIE의 부원들이 제작해온 멋진 작품들입니다. 자유롭게
+                  관람해주세요!
                 </Typo.Moderate>
               </Animate>
               <Animate

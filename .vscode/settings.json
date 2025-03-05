@@ -17,7 +17,7 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": "never",
-    "source.fixAll.eslint": "explicit",
+    "source.fixAll.eslint": "explicit"
   },
   "prettier.enable": false,
   "eslint.enable": true,

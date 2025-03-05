@@ -87,9 +87,10 @@ export default function HomeUnitsSection() {
               title='개발자'
               features={[
                 {
-                  title:       'HTML CSS JS 기초',
-                  description: 'React를 본격적으로 시작하기 전에 HTML CSS JS 기초를 배워요.',
-                  icon:        Html5,
+                  title: 'HTML CSS JS 기초',
+                  description:
+                    'React를 본격적으로 시작하기 전에 HTML CSS JS 기초를 배워요.',
+                  icon: Html5,
                 },
                 {
                   title: 'React 생태계',
@@ -137,19 +138,22 @@ export default function HomeUnitsSection() {
                   icon:        Figma,
                 },
                 {
-                  title:       'UI·UX 기초',
-                  description: '앱 UI·UX 제작을 통해 UI에 대한 이해도를 높여나가요.',
-                  icon:        MobilePhone,
+                  title: 'UI·UX 기초',
+                  description:
+                    '앱 UI·UX 제작을 통해 UI에 대한 이해도를 높여나가요.',
+                  icon: MobilePhone,
                 },
                 {
-                  title:       '방학 프로젝트',
-                  description: '여름방학 시즌에 개발자와 함께 프로젝트를 진행해요.',
-                  icon:        BeachWithUmbrella,
+                  title: '방학 프로젝트',
+                  description:
+                    '여름방학 시즌에 개발자와 함께 프로젝트를 진행해요.',
+                  icon: BeachWithUmbrella,
                 },
                 {
-                  title:       'UI·UX 심화',
-                  description: '디자인 시스템 등을 이용하여 UI·UX를 더욱 심화적으로 탐구해요.',
-                  icon:        Artist,
+                  title: 'UI·UX 심화',
+                  description:
+                    '디자인 시스템 등을 이용하여 UI·UX를 더욱 심화적으로 탐구해요.',
+                  icon: Artist,
                 },
               ]}
             />

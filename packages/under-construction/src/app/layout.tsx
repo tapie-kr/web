@@ -8,9 +8,10 @@ import { type Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
-  title:       'TAPIE',
-  description: '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE. 현재 사이트 준비 중입니다.',
-  keywords:    [
+  title: 'TAPIE',
+  description:
+    '선린인터넷고등학교 소프트웨어과 웹앱동아리, TAPIE. 현재 사이트 준비 중입니다.',
+  keywords: [
     'TAPIE',
     'tapie',
     '테이피',

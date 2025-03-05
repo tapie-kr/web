@@ -6,6 +6,8 @@ import {
   Grid,
   HStack,
   Icon,
+  radiusVars,
+  Skeleton,
   spacingVars,
   StackAlign,
   StackJustify,
@@ -23,6 +25,33 @@ type ListProps = {
 };
 
 export function List(props: ListProps) {
+  const isPending = true;
+
+  if (isPending) {
+    return (
+      <VStack
+        spacing={spacingVars.petite}
+        align={StackAlign.START}
+      >
+        {/* <Typo.Moderate weight={Weight.SEMIBOLD}>{props.title}</Typo.Moderate>*/}
+        <Skeleton
+          width={35}
+          height={26}
+          borderRadius={radiusVars.default}
+        />
+        <ListWrapper>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Skeleton
+              width={94}
+              height={28}
+              borderRadius={radiusVars.default}
+            />
+          ))}
+        </ListWrapper>
+      </VStack>
+    );
+  }
+
   return (
     <VStack
       spacing={spacingVars.petite}
@@ -42,7 +71,8 @@ export function List(props: ListProps) {
             <Typo.Base
               nowrap
               weight={Weight.MEDIUM}
-            >기술 이름
+            >
+              기술 이름
             </Typo.Base>
           </HStack>
         ))}
@@ -63,8 +93,9 @@ function ListWrapper(props: ListWrapperProps) {
       <HStack
         wrap={StackWrap.WRAP}
         justify={StackJustify.START}
-        spacing={getShorthandedValue(spacingVars.base, spacingVars.moderate)}
-      >{props.children}
+        spacing={getShorthandedValue(spacingVars.tiny, spacingVars.tiny)}
+      >
+        {props.children}
       </HStack>
     )
     : (
@@ -72,7 +103,8 @@ function ListWrapper(props: ListWrapperProps) {
         rowGap={spacingVars.base}
         columnGap={spacingVars.moderate}
         columnCount={3}
-      >{props.children}
+      >
+        {props.children}
       </Grid>
     );
 }

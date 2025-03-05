@@ -35,13 +35,18 @@ export function withTAPIEWebConfig(config = {}) {
     typescript: { ignoreBuildErrors: true },
 
     env: {
-      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://tapie-api-dev.vport.dev', AUTH_SERVICE: 'form', API_HOSTNAME: 'http://localhost:8765', API_VERSION: 'api/v1',
+      NEXT_PUBLIC_API_URL:
+        process.env.NEXT_PUBLIC_API_URL || 'https://tapie-api-dev.vport.dev',
+      AUTH_SERVICE: 'form',
+      API_HOSTNAME: 'http://localhost:8765',
+      API_VERSION:  'api/v1',
     },
 
     rewrites() {
       return [
         {
-          source: '/api/:path*', destination: `${this.env.NEXT_PUBLIC_API_URL}/:path*`,
+          source:      '/api/:path*',
+          destination: `${this.env.NEXT_PUBLIC_API_URL}/:path*`,
         },
       ];
     },

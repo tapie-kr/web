@@ -38,7 +38,7 @@ export default function Animate(props: AnimateProps) {
 
   const transition = getTransition({
     duration,
-    delay: (initialDelay || 0) + ((order || 0) * (delayGap || 0)),
+    delay: (initialDelay || 0) + (order || 0) * (delayGap || 0),
   });
 
   const classNames = [

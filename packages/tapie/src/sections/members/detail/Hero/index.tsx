@@ -32,7 +32,8 @@ export default function MembersDetailHeroSection() {
         <Typo.Medium
           weight={Weight.SEMIBOLD}
           color={colorVars.content.default}
-        >유닛
+        >
+          유닛
         </Typo.Medium>
         <Badge.Default
           theme={BadgeTheme.GREEN}

@@ -43,7 +43,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
       x:
         props.direction === 'left'
           ? i * (cardWidth + gapWidth)
-          : viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
+          : viewportWidth - (i + 1) * (cardWidth + gapWidth),
       isVisible: true,
     }));
   }, [
@@ -96,7 +96,11 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
         const updated = prev
           .map(card => {
             const movement = (speed * delta) / 1000;
-            const nextX = props.direction === 'left' ? card.x - movement : card.x + movement;
+
+            const nextX =
+              props.direction === 'left'
+                ? card.x - movement
+                : card.x + movement;
 
             const isVisible =
               props.direction === 'left'

@@ -28,14 +28,17 @@ export default function PortfoliosNotFoundPage() {
           name={GlyphIcon.FOLDER_OPEN}
           color={colorVars.content.muted}
         />
-        <Typo.Base color={colorVars.content.muted}>포트폴리오를 찾을 수 없습니다.</Typo.Base>
+        <Typo.Base color={colorVars.content.muted}>
+          포트폴리오를 찾을 수 없습니다.
+        </Typo.Base>
       </VStack>
       <Button.Default
         leadingIcon={GlyphIcon.ARROW_BACK}
         size={ButtonSize.SMALL}
         variant={ButtonVariant.SECONDARY}
         onClick={handleBackward}
-      >눌러서 뒤로가기
+      >
+        눌러서 뒤로가기
       </Button.Default>
     </VStack>
   );

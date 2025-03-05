@@ -3,7 +3,13 @@ import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams.entries().toArray();
-  const apiURL = 'http://localhost:9876/api/v1/auth/google/callback?' + searchParams.map(([key, value]) => `&${key}=${decodeURI(value.replaceAll(' ', '+'))}`).join('');
+
+  const apiURL =
+    'http://localhost:9876/api/v1/auth/google/callback?' +
+    searchParams
+      .map(([key, value]) => `&${key}=${decodeURI(value.replaceAll(' ', '+'))}`)
+      .join('');
+
   const res = await fetch(apiURL);
 
   if (res.ok) {

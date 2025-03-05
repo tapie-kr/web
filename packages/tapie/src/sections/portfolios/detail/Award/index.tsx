@@ -5,6 +5,8 @@ import {
   BadgeTheme,
   GlyphIcon,
   HStack,
+  radiusVars,
+  Skeleton,
   spacingVars,
   StackAlign,
   Typo,
@@ -15,6 +17,45 @@ import {
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
 
 export default function PortfoliosDetailAwardSection() {
+  const isPending = true;
+
+  if (isPending) {
+    return (
+      <ContentSection
+        maxWidth={1400}
+        verticalPadding={spacingVars.base}
+      >
+        <VStack
+          spacing={spacingVars.mini}
+          align={StackAlign.START}
+        >
+          <HStack spacing={spacingVars.petite}>
+            <Skeleton
+              width={188}
+              height={32}
+              borderRadius={radiusVars.default}
+            />
+            <Skeleton
+              width={50}
+              height={32}
+              borderRadius={radiusVars.default}
+            />
+          </HStack>
+          <HStack
+            className={description}
+            spacing={spacingVars.tiny}
+          >
+            <Skeleton
+              width={152}
+              height={20}
+              borderRadius={radiusVars.default}
+            />
+          </HStack>
+        </VStack>
+      </ContentSection>
+    );
+  }
+
   return (
     <ContentSection
       maxWidth={1400}

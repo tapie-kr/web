@@ -4,6 +4,8 @@ import {
   BrandIcon,
   HStack,
   Icon,
+  radiusVars,
+  Skeleton,
   spacingVars,
   Stack,
   StackAlign,
@@ -20,6 +22,8 @@ import HeroDescription from '@/sections/portfolios/detail/Hero/components/descri
 import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
 
 export default function DefaultHero() {
+  const isPending = true;
+
   return (
     <ContentSection
       maxWidth={1400}
@@ -50,8 +54,22 @@ export default function DefaultHero() {
             align={StackAlign.START}
           >
             <HStack spacing={spacingVars.tiny}>
-              <Icon name={BrandIcon.GITHUB} />
-              <Typo.Petite weight={Weight.SEMIBOLD}>https://github.com/jijiwon</Typo.Petite>
+              {isPending
+                ?                   (
+                  <Skeleton
+                    width={200}
+                    height={24}
+                    borderRadius={radiusVars.default}
+                  />
+                )
+                : (
+                  <>
+                    <Icon name={BrandIcon.GITHUB} />
+                    <Typo.Petite weight={Weight.SEMIBOLD}>
+                      https://github.com/jijiwon
+                    </Typo.Petite>
+                  </>
+                )}
             </HStack>
             <HeroActions />
           </VStack>
