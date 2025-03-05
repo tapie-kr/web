@@ -15,8 +15,13 @@ import {
 import PortfolioGradientCard from '@/components/portfolio/GradientCard';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { MembersDetailRepresentativePortfolioSectionSkeleton } from './skeleton';
 
 export default function MembersDetailRepresentativePortfolioSection() {
+  return (
+    <MembersDetailRepresentativePortfolioSectionSkeleton />
+  );
+
   return (
     <ContentSection
       verticalPadding={spacingVars.moderate}

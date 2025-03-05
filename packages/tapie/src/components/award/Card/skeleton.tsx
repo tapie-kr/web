@@ -8,11 +8,17 @@ import {
 
 import Scroll from '@tapie-kr/web-shared/components/Scroll';
 
-export default function AwardCardSkeleton() {
+type AwardCardSkeletonProps = {
+  count?: number;
+};
+
+export default function AwardCardSkeleton(_props: AwardCardSkeletonProps) {
+  const { count = 4 } = _props;
+
   return (
     <Scroll direction='row'>
       <HStack spacing={spacingVars.giant}>
-        {Array(4)
+        {Array(count)
           .fill(0)
           .map((_, index) => (
             <VStack

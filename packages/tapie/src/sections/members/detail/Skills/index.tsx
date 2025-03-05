@@ -14,6 +14,7 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import SkillSkeleton from './skeleton';
 
 export default function MembersDetailSkillsSection() {
   return (
@@ -36,11 +37,15 @@ export default function MembersDetailSkillsSection() {
           spacing={spacingVars.moderate}
           wrap={StackWrap.WRAP}
         >
-          <Skill type={SkillType.VERIFIED} />
+          <SkillSkeleton />
+          <SkillSkeleton />
+          <SkillSkeleton />
+          <SkillSkeleton />
+          {/* <Skill type={SkillType.VERIFIED} />
           <Skill />
           <Skill />
           <Skill />
-          <Skill type={SkillType.LEARNING} />
+          <Skill type={SkillType.LEARNING} /> */}
         </HStack>
       </VStack>
     </ContentSection>
