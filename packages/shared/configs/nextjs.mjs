@@ -37,9 +37,10 @@ export function withTAPIEWebConfig(config = {}) {
     env: {
       NEXT_PUBLIC_API_URL:
         process.env.NEXT_PUBLIC_API_URL || 'https://tapie-api-dev.vport.dev',
-      AUTH_SERVICE: 'form',
-      API_HOSTNAME: 'http://localhost:8765',
-      API_VERSION:  'api/v1',
+      AUTH_SERVICE:               'form',
+      API_HOSTNAME:               'http://localhost:8765',
+      API_VERSION:                'api/v1',
+      NEXT_PUBLIC_API_URL_SECOND: 'https://portfolio-api.tapie.kr',
     },
 
     rewrites() {
