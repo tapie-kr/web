@@ -110,9 +110,10 @@ export default function MembersDetailPage() {
       setIsPending(false);
     })
       .catch(err => {
-        if (err.response.status === 404) {
-          setError(true);
-        }
+        // if (err.response.status === 404) {
+        setError(true);
+
+        // }
       });
   }, []);
 

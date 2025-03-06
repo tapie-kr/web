@@ -73,9 +73,10 @@ export default function PortfoliosDetailPage() {
       setData(res.data.data as PortfolioDetail);
     })
       .catch(err => {
-        if (err.response.status === 404) {
-          setError(true);
-        }
+        // if (err.response.status === 404) {
+        setError(true);
+
+        // }
       })
       .finally(() => {
         setIsPending(false);
