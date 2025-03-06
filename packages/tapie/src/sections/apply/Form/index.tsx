@@ -38,7 +38,6 @@ import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 type Props = {
   formId:      number;
@@ -66,7 +65,6 @@ export function ApplyForm({
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
   const debouncedFormData = useDebounce(formData, 1000);
   const submitModalToggler = useToggle();
-  const { register } = useForm<UpdateFormApplicationRequest>({ defaultValues: { unit: MemberUnit.DEVELOPER } });
 
   const [
     _isSubmitModalVisible,
