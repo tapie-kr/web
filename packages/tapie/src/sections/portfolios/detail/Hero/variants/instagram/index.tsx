@@ -1,8 +1,10 @@
-import { content, member } from './styles.css';
+import { content, member, profileImage } from './styles.css';
 
 import {
   AspectRatio,
+  Box,
   HStack,
+  Image,
   radiusVars,
   Skeleton,
   spacingVars,
@@ -16,6 +18,7 @@ import { type PortfolioDetail } from '@/app/portfolios/[id]/page';
 import HeroActions from '@/sections/portfolios/detail/Hero/components/actions';
 import HeroDescription from '@/sections/portfolios/detail/Hero/components/description';
 import HeroTitle from '@/sections/portfolios/detail/Hero/components/title';
+import { formatParticipants } from '@/utils/participants';
 import Carousel from './carousel';
 
 interface Props extends PortfolioDetail {
@@ -25,8 +28,12 @@ interface Props extends PortfolioDetail {
 export default function InstagramHero(_props: Props) {
   return (
     <VStack fullWidth>
-      <Member />
-      <Carousel />
+      <Member
+        pending={_props.pending}
+        memberNames={_props.users?.map(user => user.name).filter((name): name is string => Boolean(name)) || []}
+        profileUri={_props.users?.[0]?.profileUri}
+      />
+      <Carousel images={[_props.thumbnailUri ?? '']} />
       <VStack
         fullWidth
         className={content}
@@ -41,7 +48,13 @@ export default function InstagramHero(_props: Props) {
   );
 }
 
-function Member() {
+interface MemberProps {
+  memberNames: string[];
+  profileUri?: string;
+  pending:     boolean;
+}
+
+function Member(_props: MemberProps) {
   return (
     <HStack
       fullWidth
@@ -49,17 +62,33 @@ function Member() {
       spacing={spacingVars.petite}
       justify={StackJustify.START}
     >
-      <AspectRatio
-        ratio={1}
-        width={28}
+      <Box
+        className={profileImage}
       >
-        <Skeleton
-          fullWidth
-          fullHeight
-          borderRadius={radiusVars.full}
-        />
-      </AspectRatio>
-      <Typo.Petite>jeewon__k 외 3명</Typo.Petite>
+        <AspectRatio
+          ratio={1}
+          width={28}
+        >
+          {_props.pending
+            ? (
+              <Skeleton
+                fullWidth
+                fullHeight
+                borderRadius={radiusVars.full}
+              />
+            )
+            : (
+              <Image
+                fullHeight
+                fullWidth
+                src={_props.profileUri ?? ''}
+                alt={_props.memberNames.join(', ') ?? ''}
+                className={profileImage}
+              />
+            )}
+        </AspectRatio>
+      </Box>
+      <Typo.Petite>{formatParticipants(_props.memberNames)}</Typo.Petite>
     </HStack>
   );
 }
