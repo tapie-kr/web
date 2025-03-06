@@ -25,12 +25,10 @@ import UploadedFile from '@/components/form/UploadedFile';
 
 import {
   type FormApplicationPortfolioType,
-  type FormResponse,
+  type FormApplicationType,
   type UpdateFormApplicationRequest,
   useDeleteFormApplicationFile,
-  useFormApplication,
   useFormApplicationSubmit,
-  useMe,
   useUpdateFormApplication,
   useUploadFormApplicationFile,
 } from '@tapie-kr/api-client';
@@ -40,25 +38,23 @@ import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-interface ApplyFormProps {
-  currentForm:          FormResponse | null;
-  getCurrentForm:       () => void;
-  isCurrentFormSuccess: boolean;
-}
+type Props = {
+  formId:      number;
+  username:    string;
+  application: FormApplicationType;
+};
 
 export function ApplyForm({
-  currentForm,
-  getCurrentForm,
-  isCurrentFormSuccess,
-}: ApplyFormProps) {
-  const { data, fetch } = useMe();
-  const { data: myApplication, fetch: getMyApplication } = useFormApplication();
+  formId,
+  username,
+  application,
+}: Props) {
   const { mutate: uploadFile } = useUploadFormApplicationFile();
   const { mutate: deleteFile } = useDeleteFormApplicationFile();
   const { mutate: submitForm } = useFormApplicationSubmit();
   const { mutate: update } = useUpdateFormApplication();
-  const [currentId, setCurrentId] = useState<number>(0);
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
 
   const [uploadedFiles, setUploadedFiles] = useState<
@@ -70,6 +66,7 @@ export function ApplyForm({
   const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
   const debouncedFormData = useDebounce(formData, 1000);
   const submitModalToggler = useToggle();
+  const { register } = useForm<UpdateFormApplicationRequest>({ defaultValues: { unit: MemberUnit.DEVELOPER } });
 
   const [
     _isSubmitModalVisible,
@@ -77,26 +74,6 @@ export function ApplyForm({
     setSubmitModalVisible,
   ] =
     submitModalToggler;
-
-  // 컴포넌트가 마운트될 때 API 호출
-  useEffect(() => {
-    fetch();
-
-    getCurrentForm();
-  }, []);
-
-  // currentForm이 성공적으로 로드되면 currentId를 설정하고 지원서 정보를 가져옴
-  useEffect(() => {
-    if (isCurrentFormSuccess) {
-      if (currentForm?.data) {
-        setCurrentId(currentForm.data.id);
-
-        getMyApplication({ param: { formId: currentForm.data.id } });
-      } else {
-        router.push('/');
-      }
-    }
-  }, [currentForm]);
 
   function validateForm() {
     if (
@@ -116,38 +93,38 @@ export function ApplyForm({
 
     if (validateForm()) {
       update({
-        param: { formId: currentId },
+        param: { formId },
         data:  {
           ...debouncedFormData,
           phoneNumber: phoneNumberToInternational(debouncedFormData.phoneNumber),
         },
       });
     }
-  }, [debouncedFormData, currentId]);
+  }, [debouncedFormData, formId]);
 
   // myApplication이 변경될 때 formData를 업데이트
   useEffect(() => {
-    if (myApplication?.data) {
+    if (application) {
       setFormData({
-        unit:               myApplication.data.unit,
-        phoneNumber:        internationalToPhoneNumber(myApplication.data.phoneNumber),
-        introduction:       myApplication.data.introduction,
-        motivation:         myApplication.data.motivation,
-        expectedActivities: myApplication.data.expectedActivities,
-        reasonToChoose:     myApplication.data.reasonToChoose,
+        unit:               application.unit,
+        phoneNumber:        internationalToPhoneNumber(application.phoneNumber),
+        introduction:       application.introduction,
+        motivation:         application.motivation,
+        expectedActivities: application.expectedActivities,
+        reasonToChoose:     application.reasonToChoose,
       });
 
-      setIsFormSubmitted(myApplication.data.submitted);
+      setIsFormSubmitted(application.submitted);
 
-      if (myApplication.data.portfolio) {
-        setUploadedFiles(Array.isArray(myApplication.data.portfolio)
-          ? myApplication.data.portfolio
-          : [myApplication.data.portfolio]);
+      if (application.portfolio) {
+        setUploadedFiles(Array.isArray(application.portfolio)
+          ? application.portfolio
+          : [application.portfolio]);
       }
     } else {
       setFormData({ unit: MemberUnit.DEVELOPER });
     }
-  }, [myApplication]);
+  }, [application]);
 
   // 전화번호 형식 검증
   useEffect(() => {
@@ -162,7 +139,7 @@ export function ApplyForm({
     const files = event.target.files;
 
     if (!files || files.length === 0) {
-      await deleteFile({ param: { formId: currentId } }).then(async () => {
+      await deleteFile({ param: { formId } }).then(async () => {
         await setUploadedFiles([]);
       });
 
@@ -174,20 +151,20 @@ export function ApplyForm({
     formData.append('file', files[0]);
 
     await uploadFile({
-      param: { formId: currentId },
+      param: { formId },
       data:  formData,
     });
   };
 
   const handleDeleteFile = async () => {
-    await deleteFile({ param: { formId: currentId } }).then(async () => {
+    await deleteFile({ param: { formId } }).then(async () => {
       await setUploadedFiles([]);
     });
   };
 
   /* eslint-disable no-alert */
   const handleSubmit = async () => {
-    await submitForm({ param: { formId: currentId } })
+    await submitForm({ param: { formId } })
       .then(() => {
         alert('지원서가 제출되었습니다.');
 
@@ -231,7 +208,7 @@ export function ApplyForm({
       >
         <Input.Text
           disabled
-          value={data?.data.name.slice(5)}
+          value={username.slice(5)}
         />
       </FormField>
       <FormField
@@ -240,7 +217,7 @@ export function ApplyForm({
       >
         <Input.Text
           disabled
-          value={data?.data.name.slice(0, 5)}
+          value={username.slice(0, 5)}
         />
       </FormField>
       <FormField
