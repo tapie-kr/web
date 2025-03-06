@@ -1,9 +1,6 @@
 import { description } from './styles.css';
 
 import {
-  Badge,
-  BadgeTheme,
-  GlyphIcon,
   HStack,
   radiusVars,
   Skeleton,
@@ -73,11 +70,6 @@ export default function PortfoliosDetailAwardSection(_props: Props) {
       >
         <HStack spacing={spacingVars.petite}>
           <Typo.Medium weight={Weight.SEMIBOLD}>{award?.name}</Typo.Medium>
-          <Badge.Default
-            theme={BadgeTheme.RED}
-            leadingIcon={GlyphIcon.TROPHY}
-            label='최우수상'
-          />
           <GradeBadge
             grade={award?.grade ?? 0}
             label={award?.gradeLabel ?? ''}
@@ -87,7 +79,6 @@ export default function PortfoliosDetailAwardSection(_props: Props) {
           className={description}
           spacing={spacingVars.tiny}
         >
-          <Typo.Petite weight={Weight.MEDIUM}>(여기 Date인데 API 반영 안됨 ㅅㅂ)</Typo.Petite>
           <Typo.Petite weight={Weight.MEDIUM}>{award?.organization}</Typo.Petite>
         </HStack>
       </VStack>

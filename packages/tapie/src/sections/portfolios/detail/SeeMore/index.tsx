@@ -40,7 +40,7 @@ export default function PortfoliosDetailSeeMoreSection(_props: Props) {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
-    client.get('/projects').then(res => {
+    client.get('/projects/').then(res => {
       setData(res.data.data as Portfolio[]);
     })
       .finally(() => {

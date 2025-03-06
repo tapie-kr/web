@@ -9,14 +9,12 @@ import { type Swiper as SwiperType } from 'swiper';
 import { Controller } from 'swiper/modules';
 import { Swiper, type SwiperProps, SwiperSlide } from 'swiper/react';
 
-const images = [
-  'https://placehold.co/500x500',
-  'https://placehold.co/500x500',
-  'https://placehold.co/500x500',
-  'https://placehold.co/500x500',
-];
+interface Props {
+  images: string[];
+}
 
-export default function InstagramCarousel() {
+export default function InstagramCarousel(_props: Props) {
+  const { images } = _props;
   const [controlledSwiper, setControlledSwiper] = useState<SwiperType | null>(null);
 
   const swiperProps: SwiperProps = {
