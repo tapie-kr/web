@@ -11,7 +11,6 @@ import {
 } from '@tapie-kr/inspire-react';
 
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
-import Filter from './filter';
 import List from './list';
 
 export default function PortfolioProjectsSection() {
@@ -26,7 +25,7 @@ export default function PortfolioProjectsSection() {
         align={StackAlign.START}
       >
         <Typo.Moderate weight={Weight.SEMIBOLD}>작품</Typo.Moderate>
-        <Filter />
+        {/* <Filter /> */}
         <VStack
           fullWidth
           spacing={spacingVars.medium}
