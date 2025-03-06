@@ -40,7 +40,7 @@ export function withTAPIEWebConfig(config = {}) {
       AUTH_SERVICE:               'form',
       API_HOSTNAME:               'http://localhost:8765',
       API_VERSION:                'api/v1',
-      NEXT_PUBLIC_API_URL_SECOND: 'https://portfolio-api.tapie.kr',
+      NEXT_PUBLIC_API_URL_SECOND: 'https://texas-subdivision-implications-code.trycloudflare.com/',
     },
 
     rewrites() {
