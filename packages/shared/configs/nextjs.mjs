@@ -38,6 +38,7 @@ export function withTAPIEWebConfig(config = {}) {
       NEXT_PUBLIC_API_URL:
         process.env.NEXT_PUBLIC_API_URL || 'https://tapie-api-dev.vport.dev',
       AUTH_SERVICE:               'form',
+      AUTH_URL:                   process.env.AUTH_URL || 'http://localhost:9876',
       API_HOSTNAME:               process.env.API_HOSTNAME || 'http://localhost:8765',
       API_VERSION:                process.env.API_VERSION || 'api/v1',
       NEXT_PUBLIC_API_URL_SECOND: process.env.NEXT_PUBLIC_API_URL_SECOND || 'https://texas-subdivision-implications-code.trycloudflare.com/',
