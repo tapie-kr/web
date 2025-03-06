@@ -23,7 +23,7 @@ export default function PortfolioProjectsSectionList() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    client.get('/projects').then(res => {
+    client.get('/projects/').then(res => {
       setData(res.data.data as Project[]);
     })
       .finally(() => {
