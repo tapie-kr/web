@@ -36,7 +36,7 @@ export default function PortfoliosMembersSectionList() {
   const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
-    client.get('api/v1/members').then(res => {
+    client.get('/members').then(res => {
       setData(res.data.data as Member[]);
     })
       .finally(() => {
