@@ -24,7 +24,7 @@ import Link from 'next/link';
 
 export default async function Page(props: PageParams<'', 'service'>) {
   const { service } = await props.searchParams;
-  const baseURL = process.env.NODE_ENV === 'production' ? 'https://tapie-api-dev.vport.dev' : '';
+  const baseURL = process.env.NODE_ENV === 'production' ? 'https://tapie-api-dev.vport.dev' : '/api';
 
   return (
     <VStack
@@ -46,7 +46,7 @@ export default async function Page(props: PageParams<'', 'service'>) {
         >
           <Link
             className={link}
-            href={`${baseURL}/api/v1/auth/google?service=${service || 'form'}`}
+            href={`${baseURL}/v1/auth/google?service=${service || 'form'}`}
           >
             <Button.Default
               fullWidth
