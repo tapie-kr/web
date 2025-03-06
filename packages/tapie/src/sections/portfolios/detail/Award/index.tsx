@@ -1,9 +1,6 @@
 import { description } from './styles.css';
 
 import {
-  Badge,
-  BadgeTheme,
-  GlyphIcon,
   HStack,
   radiusVars,
   Skeleton,
