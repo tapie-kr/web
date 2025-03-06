@@ -1,8 +1,4 @@
-import { loadMoreButton } from './styles.css';
-
 import {
-  Button,
-  GlyphIcon,
   spacingVars,
   StackAlign,
   Typo,
