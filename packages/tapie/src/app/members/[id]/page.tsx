@@ -99,6 +99,7 @@ export interface MemberDetail {
 export default function MembersDetailPage() {
   const [data, setData] = useState<MemberDetail>();
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(false);
   const pathname = usePathname();
   const id = pathname.split('/')[2];
 
@@ -110,10 +111,14 @@ export default function MembersDetailPage() {
     })
       .catch(err => {
         if (err.response.status === 404) {
-          notFound();
+          setError(true);
         }
       });
   }, []);
+
+  if (error) {
+    notFound();
+  }
 
   return (
     <Stack

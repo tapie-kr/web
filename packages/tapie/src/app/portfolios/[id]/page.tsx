@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { notFound, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Award from '@/sections/portfolios/detail/Award';
 import Download from '@/sections/portfolios/detail/Download';
@@ -64,6 +64,7 @@ export interface PortfolioDetail {
 export default function PortfoliosDetailPage() {
   const [data, setData] = useState<PortfolioDetail>();
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(false);
   const pathname = usePathname();
   const id = pathname.split('/')[2];
 
@@ -71,12 +72,19 @@ export default function PortfoliosDetailPage() {
     client.get(`/projects/${id}`).then(res => {
       setData(res.data.data as PortfolioDetail);
     })
+      .catch(err => {
+        if (err.response.status === 404) {
+          setError(true);
+        }
+      })
       .finally(() => {
         setIsPending(false);
       });
   }, []);
 
-  // notFound();
+  if (error) {
+    notFound();
+  }
 
   return (
     <>

@@ -7,3 +7,5 @@ export const content = style({ maxWidth: 738 });
 export const profileImage = style({ objectFit: 'cover' });
 
 globalStyle(`${profileImage} img`, { borderRadius: radiusVars.full });
+
+export const notFoundBase = style({ height: 'calc(100vh - 290px)' });

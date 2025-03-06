@@ -89,7 +89,10 @@ export default function PortfoliosDetailDownloadSection(_props: Props) {
           defaultDirection={StackDirection.ROW}
           spacing={spacingVars.micro}
         >
-          <Link href={award?.download.presentationUri ?? '#'}>
+          <Link
+            download
+            href={award?.download.presentationUri ?? '#'}
+          >
             <Button.Default
               leadingIcon={GlyphIcon.DOWNLOAD}
               fullWidth={isMobile}
@@ -97,7 +100,10 @@ export default function PortfoliosDetailDownloadSection(_props: Props) {
               발표자료 다운로드
             </Button.Default>
           </Link>
-          <Link href={award?.download.sourceCodeUri ?? '#'}>
+          <Link
+            download
+            href={award?.download.sourceCodeUri ?? '#'}
+          >
             <Button.Default
               variant={ButtonVariant.SECONDARY}
               leadingIcon={GlyphIcon.CODE}

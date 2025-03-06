@@ -101,8 +101,8 @@ function Link(_props: LinkProps) {
   return (
     <NextLink href={url}>
       <HStack spacing={spacingVars.mini}>
-        <Icon name={BrandIcon.GITHUB} />
-        <Icon name={name as keyof typeof BrandIcon in BrandIcon ? BrandIcon[name.toUpperCase() as keyof typeof BrandIcon] : undefined} />
+        {/* <Icon name={BrandIcon.GITHUB} /> */}
+        <Icon name={Object.keys(BrandIcon).includes(name.toUpperCase()) ? BrandIcon[name.toUpperCase() as keyof typeof BrandIcon] : undefined} />
         <Typo.Base weight={Weight.MEDIUM}>{name}</Typo.Base>
       </HStack>
     </NextLink>

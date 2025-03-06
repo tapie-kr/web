@@ -1,6 +1,7 @@
 'use client';
 
-import { notFoundBase } from '@/app/members/[id]/page.css';
+import { notFoundBase } from './page.css';
+
 import {
   Button,
   ButtonSize,
@@ -27,11 +28,11 @@ export default function PortfoliosNotFoundPage() {
     >
       <VStack spacing={spacingVars.micro}>
         <Icon
-          name={GlyphIcon.FOLDER_OPEN}
+          name={GlyphIcon.FACE}
           color={colorVars.content.muted}
         />
         <Typo.Base color={colorVars.content.muted}>
-          포트폴리오를 찾을 수 없습니다.
+          유저를 찾을 수 없습니다.
         </Typo.Base>
       </VStack>
       <Button.Default
