@@ -4,8 +4,10 @@ import { spacingVars, VStack } from '@tapie-kr/inspire-react';
 
 import { useForm } from '@tapie-kr/api-client';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { useEffect } from 'react';
 import { ApplyForm } from '@/sections/apply/Form';
 import ApplyTitle from '@/sections/apply/Title';
+import ApplyLoading from './loading';
 
 export default function ApplyPage() {
   const {
@@ -13,6 +15,14 @@ export default function ApplyPage() {
     fetch: getCurrentForm,
     isSuccess: isCurrentFormSuccess,
   } = useForm();
+
+  useEffect(() => {
+    getCurrentForm();
+  }, []);
+
+  if (!currentForm) {
+    return <ApplyLoading />;
+  }
 
   return (
     <ContentSection

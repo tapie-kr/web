@@ -8,11 +8,13 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-interface ApplyTitleProps {
-  title: string | undefined;
-}
+type Props = {
+  title: string;
+};
 
-export default function ApplyTitle({ title }: ApplyTitleProps) {
+export default function ApplyTitle(_props: Props) {
+  const { title } = _props;
+
   return (
     <VStack spacing={spacingVars.base}>
       <TAPIESymbol size={TAPIESymbolSize._32} />
@@ -24,7 +26,7 @@ export default function ApplyTitle({ title }: ApplyTitleProps) {
           세상의 간극을 같이 이어붙일
         </Typo.Moderate>
         <Typo.Medium weight={Weight.SEMIBOLD}>
-          {title ?? '불러오는 중...'}
+          {title}
         </Typo.Medium>
       </VStack>
     </VStack>
