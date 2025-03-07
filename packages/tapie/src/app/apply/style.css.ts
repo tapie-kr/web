@@ -28,3 +28,4 @@ export const loadingBase = style({
 
 export const loadingContentBase = style({ animation: `${loading} 1.5s ease-in-out infinite alternate` });
 export const rotatingIcon = style({ animation: `${rotate} 2s linear infinite` });
+export const notFoundBase = style({ height: 'calc(100vh - 290px)' });
