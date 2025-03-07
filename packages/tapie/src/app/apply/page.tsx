@@ -9,6 +9,7 @@ import {
   useMe,
 } from '@tapie-kr/api-client';
 import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
+import { notFound } from 'next/navigation';
 import { useEffect } from 'react';
 import { ApplyForm } from '@/sections/apply/Form';
 import ApplyTitle from '@/sections/apply/Title';
@@ -20,18 +21,16 @@ export default function ApplyPage() {
   const { data: sessionData, fetch: getSessionData } = useMe();
 
   useEffect(() => {
+    getSessionData();
+
+    getCurrentForm();
+  }, []);
+
+  useEffect(() => {
+    if (currentForm?.data === null) notFound();
+
     if (currentForm?.data.id) {
       getMyApplication({ param: { formId: currentForm?.data.id } });
-    } else {
-      const fetch = async () => {
-        getSessionData();
-
-        getCurrentForm().catch(() => {
-          throw new Error('Failed to fetch form');
-        });
-      };
-
-      fetch();
     }
   }, [currentForm]);
 
