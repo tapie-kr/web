@@ -28,4 +28,7 @@ export const loadingBase = style({
 
 export const loadingContentBase = style({ animation: `${loading} 1.5s ease-in-out infinite alternate` });
 export const rotatingIcon = style({ animation: `${rotate} 2s linear infinite` });
-export const notFoundBase = style({ height: 'calc(100vh - 290px)' });
+
+export const notFoundBase = style({
+  position: 'absolute', top: 0, left: 0, height: '100vh', backgroundColor: colorVars.surface.default,
+});
