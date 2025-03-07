@@ -29,7 +29,7 @@ export default function ApplyBanner() {
   const startAt = toTemporalDateTime(data.data.startsAt);
   const endAt = toTemporalDateTime(data.data.endsAt);
   const now = toTemporalDateTime(currentTime.toISOString());
-  const isEarly = Temporal.PlainDateTime.compare(startAt, now) > 0;
+  const isEarly = Temporal.PlainDateTime.compare(now, startAt) < 0;
 
   return (
     <>
