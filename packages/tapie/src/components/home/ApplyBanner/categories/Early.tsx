@@ -11,7 +11,7 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-export default function ApplyBannerNotYet() {
+export default function ApplyBannerEarly() {
   return (
     <HStack
       fullWidth

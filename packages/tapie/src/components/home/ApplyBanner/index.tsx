@@ -1,7 +1,12 @@
-import ApplyBannerNotYet from './categories/Early';
+import { Spacer } from '@cottons-kr/react-foundation';
+
+import ApplyBannerNow from './categories/Now';
 
 export default function ApplyBanner() {
   return (
-    <ApplyBannerNotYet />
+    <>
+      <Spacer height='95px' />
+      <ApplyBannerNow />
+    </>
   );
 }
