@@ -26,6 +26,7 @@ export default function ApplyPage() {
     getCurrentForm();
   }, []);
 
+  // 기본 Form 정보를 가져온 후 Application 정보를 가져옴
   useEffect(() => {
     if (currentForm?.data === null) notFound();
 
