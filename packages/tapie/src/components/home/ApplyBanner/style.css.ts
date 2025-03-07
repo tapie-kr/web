@@ -3,7 +3,6 @@ import { colorVars, radiusVars, spacingVars } from '@tapie-kr/inspire-react';
 import { style } from '@vanilla-extract/css';
 
 export const base = style({
-  height:          95,
   paddingBlock:    spacingVars.base,
   backgroundColor: colorVars.surface.inverted.default,
   marginBottom:    spacingVars.medium,

@@ -1,4 +1,4 @@
-import ApplyBannerNow from '@/components/home/ApplyBanner/categories/Now';
+import ApplyBanner from '@/components/home/ApplyBanner';
 
 import Awards from '@/sections/home/Awards';
 import Description from '@/sections/home/Description';
@@ -10,7 +10,7 @@ import Units from '@/sections/home/Units';
 export default function HomePage() {
   return (
     <>
-      <ApplyBannerNow />
+      <ApplyBanner />
       <Hero />
       <Description />
       <Journey />

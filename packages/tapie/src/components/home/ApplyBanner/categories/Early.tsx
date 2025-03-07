@@ -11,7 +11,16 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
-export default function ApplyBannerEarly() {
+import { type Temporal } from '@js-temporal/polyfill';
+
+interface Props {
+  startAt: Temporal.PlainDateTime;
+}
+
+export default function ApplyBannerEarly(_props: Props) {
+  const { startAt } = _props;
+  const formattedDate = `${startAt.month.toString().padStart(2, '0')}월 ${startAt.day.toString().padStart(2, '0')}일 ${startAt.hour.toString().padStart(2, '0')}시`;
+
   return (
     <HStack
       fullWidth
@@ -22,7 +31,7 @@ export default function ApplyBannerEarly() {
         <Typo.Petite
           color={colorVars.content.inverted.default}
           weight={Weight.SEMIBOLD}
-        >신청기간 - 04월 02일 08시
+        >신청기간 - {formattedDate}
         </Typo.Petite>
       </Box>
       <Typo.Base

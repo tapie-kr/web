@@ -16,18 +16,28 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import { type Temporal } from '@js-temporal/polyfill';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { useCountdown } from '@/hooks/useCountdown';
+import { formatCountdown } from '@/utils/formatters';
 
-export default function ApplyBannerNow() {
+interface Props {
+  endAt:     Temporal.PlainDateTime;
+  formTitle: string;
+}
+
+export default function ApplyBannerNow({ endAt, formTitle }: Props) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const remainingTime = useCountdown(endAt);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Determine symbol theme based on current theme
   const symbolTheme = mounted ? (theme === 'dark' ? 'light' : 'dark') : 'light';
 
   return (
@@ -44,12 +54,12 @@ export default function ApplyBannerNow() {
               weight={Weight.SEMIBOLD}
               color={colorVars.content.inverted.default}
             >
-              00:00:00
+              {formatCountdown(remainingTime)}
             </Typo.Medium>
           </VStack>
-          <HStack
+          <VStack
             align={StackAlign.CENTER}
-            spacing={spacingVars.petite}
+            spacing={spacingVars.tiny}
           >
             <div
               data-theme={symbolTheme}
@@ -57,11 +67,11 @@ export default function ApplyBannerNow() {
             >
               <TAPIESymbol
                 hasLabel
-                size={TAPIESymbolSize._24}
+                size={TAPIESymbolSize._20}
               />
             </div>
-            <Typo.Moderate color={colorVars.content.inverted.default}>3기</Typo.Moderate>
-          </HStack>
+            <Typo.Base color={colorVars.content.inverted.default}>{formTitle}</Typo.Base>
+          </VStack>
           <Button.Default leadingIcon={GlyphIcon.SEND}>눌러서 TAPIE 지원하기</Button.Default>
         </HStack>
       </VStack>
