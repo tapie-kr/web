@@ -2,6 +2,7 @@ import '@cottons-kr/react-foundation/styles.css';
 
 import { type ILayoutProps, Spacer } from '@cottons-kr/react-foundation';
 import { InspireProvider } from '@tapie-kr/inspire-react/provider';
+import ApplyBanner from '@/components/home/ApplyBanner';
 
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png';
 import Footer from '@tapie-kr/web-shared/layout/Footer';
@@ -64,6 +65,7 @@ export default function RootLayout(props: ILayoutProps) {
           <InspireProvider>
             <Header />
             <Spacer height='76px' />
+            <ApplyBanner />
             {props.children}
             <Footer />
           </InspireProvider>
