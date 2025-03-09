@@ -65,10 +65,9 @@ export default function ApplyBannerEarly(_props: Props) {
       spacing={spacingVars.base}
       className={s.base}
     >
-      <VStack>
+      <VStack spacing={spacingVars.tiny}>
         <VStack
           className={s.applyDateBox}
-          spacing={spacingVars.tiny}
         >
           <Typo.Petite
             color={colorVars.content.inverted.default}
