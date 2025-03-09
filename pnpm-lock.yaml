@@ -128,8 +128,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.7.3)
       '@tapie-kr/api-client':
-        specifier: 0.1.16
-        version: 0.1.16(axios@1.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
+        specifier: 0.1.17
+        version: 0.1.17(axios@1.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)
       '@tapie-kr/api-database':
         specifier: ^0.0.3
         version: 0.0.3(@prisma/client@6.2.1(prisma@6.2.1))(prisma@6.2.1)
@@ -2102,8 +2102,8 @@ packages:
       react-dom: ^19.0.0
       zod: ^3.24.2
 
-  '@tapie-kr/api-client@0.1.16':
-    resolution: {integrity: sha512-d6QIfh6HO5u7Ni65/b5gzm6ZGcSLgjo4UTYgQp0cvaw3S3Nl/N7Xjd7Pf1ZYgGSv4VIL6kwNgbSeBnoB08+48Q==}
+  '@tapie-kr/api-client@0.1.17':
+    resolution: {integrity: sha512-Pm2rLd0b0SoYnWxtyyk7Qg3fC+kF17FvHOU2XKzl9Oue5YFmlXbEu+mxw3ip99LgKsU6i10lvZkTQeVbAIQ/xQ==}
     peerDependencies:
       axios: ^1.7.9
       react: ^19.0.0
@@ -6176,7 +6176,7 @@ snapshots:
       rimraf: 6.0.1
       zod: 3.24.2
 
-  '@tapie-kr/api-client@0.1.16(axios@1.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)':
+  '@tapie-kr/api-client@0.1.17(axios@1.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(zod@3.24.2)':
     dependencies:
       axios: 1.8.1
       react: 19.0.0
