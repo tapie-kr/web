@@ -126,7 +126,7 @@ export default function Menu(props: DesktopMenuProps) {
             },
             {
               label: '포트폴리오',
-              href:  '/portfolios',
+              href:  '#journey',
             },
             {
               label: '수상실적',
