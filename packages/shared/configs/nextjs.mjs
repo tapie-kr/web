@@ -49,10 +49,12 @@ export function withTAPIEWebConfig(config = {}) {
         return [];
       }
 
+      const apiUrl = nextConfig.env.NEXT_PUBLIC_API_URL;
+
       return [
         {
           source:      '/api/:path*',
-          destination: `${this.env.NEXT_PUBLIC_API_URL}/:path*`,
+          destination: `${apiUrl}/:path*`,
         },
       ];
     },
