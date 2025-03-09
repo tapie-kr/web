@@ -72,7 +72,7 @@ export default function PortfoliosDetailPage() {
     client.get(`/projects/${id}`).then(res => {
       setData(res.data.data as PortfolioDetail);
     })
-      .catch(err => {
+      .catch(() => {
         // if (err.response.status === 404) {
         setError(true);
 
