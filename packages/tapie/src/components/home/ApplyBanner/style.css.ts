@@ -6,6 +6,7 @@ export const base = style({
   paddingBlock:    spacingVars.base,
   backgroundColor: colorVars.surface.inverted.default,
   marginBottom:    spacingVars.medium,
+  '@media':        { 'screen and (max-width: 500px)': { flexDirection: 'column' } },
 });
 
 export const applyDateBox = style({
