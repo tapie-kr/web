@@ -24,7 +24,7 @@ import Link from 'next/link';
 
 export default async function Page(props: PageParams<'', 'service'>) {
   const { service } = await props.searchParams;
-  const baseURL = process.env.NODE_ENV === 'production' ? 'https://tapie-api-dev.vport.dev' : '/api';
+  const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.tapie.kr' : '/api';
 
   return (
     <VStack
