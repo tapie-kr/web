@@ -65,18 +65,20 @@ export default function ApplyBannerEarly(_props: Props) {
       spacing={spacingVars.base}
       className={s.base}
     >
-      <VStack
-        className={s.applyDateBox}
-        spacing={spacingVars.micro}
-      >
-        <Typo.Petite
-          color={colorVars.content.inverted.default}
-          weight={Weight.SEMIBOLD}
+      <VStack>
+        <VStack
+          className={s.applyDateBox}
+          spacing={spacingVars.tiny}
         >
-          신청기간 -
-          {' '}
-          {formattedDate}
-        </Typo.Petite>
+          <Typo.Petite
+            color={colorVars.content.inverted.default}
+            weight={Weight.SEMIBOLD}
+          >
+            신청기간 -
+            {' '}
+            {formattedDate}
+          </Typo.Petite>
+        </VStack>
         <Box>
           <Typo.Micro
             color={colorVars.content.inverted.disabled}
