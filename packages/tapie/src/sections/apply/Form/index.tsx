@@ -305,7 +305,6 @@ export function ApplyForm({
               multiple
               leadingIcon={GlyphIcon.UPLOAD}
               placeholder='압축 파일을 업로드해주세요'
-              accept='.zip, .rar'
               height={150}
               onChange={handleFileUpload}
               onDelete={handleDeleteFile}
