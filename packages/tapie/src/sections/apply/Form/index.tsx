@@ -50,7 +50,7 @@ export function ApplyForm({
   username,
   application,
 }: Props) {
-  const { mutate: uploadFile } = useUploadFormApplicationFile();
+  const { mutate: uploadFile, isPending: isUploadingFile } = useUploadFormApplicationFile();
   const { mutate: deleteFile } = useDeleteFormApplicationFile();
   const { mutate: submitForm } = useFormApplicationSubmit();
   const { mutate: update } = useUpdateFormApplication();
@@ -284,9 +284,9 @@ export function ApplyForm({
             <Input.DraggableFile
               multiple
               leadingIcon={GlyphIcon.UPLOAD}
-              placeholder='압축 파일을 업로드해주세요'
+              placeholder={isUploadingFile ? '파일을 업로드 중입니다...' : '압축 파일을 업로드해주세요'}
               height={150}
-              disabled={isFormSubmitted}
+              disabled={isUploadingFile || isFormSubmitted}
               onChange={handleFileUpload}
               onDelete={handleDeleteFile}
             />
