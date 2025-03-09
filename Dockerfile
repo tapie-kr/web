@@ -10,6 +10,11 @@ RUN corepack enable
 RUN corepack prepare pnpm --activate
 RUN pnpm install --frozen-lockfile
 
+ENV NEXT_PUBLIC_API_URL=https://api.tapie.kr
+ENV API_HOSTNAME=api.tapie.kr
+ENV API_VERSION=v1
+ENV AUTH_URL=https://auth.tapie.kr
+
 # ===== Under Construction =====
 
 FROM builder AS under-construction
@@ -19,6 +24,7 @@ WORKDIR /app/packages/under-construction
 RUN pnpm build
 
 CMD ["pnpm", "start"]
+
 
 # ===== TAPIE =====
 
@@ -35,8 +41,6 @@ CMD ["pnpm", "start"]
 FROM builder AS auth
 
 WORKDIR /app/packages/auth
-
-ENV NEXT_PUBLIC_API_URL=https://api.tapie.kr
 
 RUN pnpm build
 
