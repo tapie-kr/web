@@ -81,7 +81,7 @@ export default function ApplyBannerEarly(_props: Props) {
         </VStack>
         <Box>
           <Typo.Micro
-            color={colorVars.content.inverted.disabled}
+            color={colorVars.content.inverted.muted}
             weight={Weight.MEDIUM}
           >
             {`${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남음`}
