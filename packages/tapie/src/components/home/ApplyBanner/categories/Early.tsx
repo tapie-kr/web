@@ -93,10 +93,6 @@ export default function ApplyBannerEarly(_props: Props) {
       >
         아직 신청기간이 아닙니다.
       </Typo.Base>
-      <Icon
-        name={GlyphIcon.ARROW_FORWARD}
-        color={colorVars.content.inverted.default}
-      />
     </HStack>
   );
 }
