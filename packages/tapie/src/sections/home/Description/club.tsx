@@ -22,7 +22,7 @@ export default function HomeDescriptionSectionClub(props: ClubProps) {
 
   const transition = getTransition({
     duration: 0.5,
-    delay:    props.order * 0.12 + 0.4,
+    delay:    (props.order * 0.12) + 0.4,
   });
 
   const resetTransition = getTransition({ duration: 0 });

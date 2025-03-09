@@ -49,6 +49,7 @@ export function List(_props: ListProps) {
         <ListWrapper>
           {Array.from({ length: 5 }).map((_, index) => (
             <Skeleton
+              key={index}
               width={94}
               height={28}
               borderRadius={radiusVars.default}

@@ -43,7 +43,7 @@ export default function HomeJourneySectionMarquee(props: HomeJourneySectionMarqu
       x:
         props.direction === 'left'
           ? i * (cardWidth + gapWidth)
-          : viewportWidth - (i + 1) * (cardWidth + gapWidth),
+          : viewportWidth - ((i + 1) * (cardWidth + gapWidth)),
       isVisible: true,
     }));
   }, [

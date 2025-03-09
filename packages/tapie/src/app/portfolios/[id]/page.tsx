@@ -73,7 +73,8 @@ export default function PortfoliosDetailPage() {
       setData(res.data.data as PortfolioDetail);
     })
       .catch(err => {
-        // if (err.response.status === 404) {
+        console.error(err);
+
         setError(true);
 
         // }

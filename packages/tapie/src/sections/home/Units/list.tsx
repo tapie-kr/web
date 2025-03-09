@@ -43,7 +43,7 @@ export default function HomeUnitsSectionList(props: HomeUnitsSectionListProps) {
             transition: resetTransition,
           }}
         transition={getTransition({
-          delay:    props.order * 0.3 + 0.4,
+          delay:    (props.order * 0.3) + 0.4,
           duration: 0.7,
         })}
       >
