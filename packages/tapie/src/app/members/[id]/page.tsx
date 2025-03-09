@@ -109,7 +109,7 @@ export default function MembersDetailPage() {
 
       setIsPending(false);
     })
-      .catch(err => {
+      .catch(() => {
         // if (err.response.status === 404) {
         setError(true);
 

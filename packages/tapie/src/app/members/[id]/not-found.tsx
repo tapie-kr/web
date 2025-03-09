@@ -26,10 +26,9 @@ export default function PortfoliosNotFoundPage() {
       spacing={spacingVars.base}
       className={notFoundBase}
     >
-      <VStack spacing={spacingVars.micro}>
+      <VStack spacing={spacingVars.petite}>
         <Icon
           name={GlyphIcon.FACE}
-          color={colorVars.content.muted}
         />
         <Typo.Base color={colorVars.content.muted}>
           유저를 찾을 수 없습니다.
