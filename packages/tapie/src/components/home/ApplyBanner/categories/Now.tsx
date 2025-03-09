@@ -47,7 +47,7 @@ export default function ApplyBannerNow({ endAt, formTitle }: Props) {
         className={s.base}
         spacing={spacingVars.base}
       >
-        <HStack spacing={spacingVars.jumbo}>
+        <HStack spacing={spacingVars.jumbo} className={s.media}>
           <VStack>
             <Typo.Base color={colorVars.content.inverted.default}>남은 신청 기간</Typo.Base>
             <Typo.Medium

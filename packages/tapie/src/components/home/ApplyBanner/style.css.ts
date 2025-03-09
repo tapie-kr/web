@@ -9,6 +9,10 @@ export const base = style({
   '@media':        { 'screen and (max-width: 500px)': { flexDirection: 'column' } },
 });
 
+export const media = style({
+  '@media':        { 'screen and (max-width: 500px)': { flexDirection: 'column' } },
+})
+
 export const applyDateBox = style({
   paddingBlock:    spacingVars.optical,
   paddingInline:   spacingVars.tiny,
