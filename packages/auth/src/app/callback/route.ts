@@ -18,9 +18,16 @@ export async function GET(request: NextRequest) {
     const { data } = await res.json();
     const cookieStore = await cookies();
 
-    cookieStore.set('accessToken', data.accessToken);
+    const cookieOptions = {
+      httpOnly: true,
+      secure:   true,
+      sameSite: 'lax' as const,
+      path:     '/',
+    };
 
-    cookieStore.set('refreshToken', data.refreshToken);
+    cookieStore.set('accessToken', data.accessToken, cookieOptions);
+
+    cookieStore.set('refreshToken', data.refreshToken, cookieOptions);
 
     if (process.env.NODE_ENV === 'production') {
       if (service === 'form') {
