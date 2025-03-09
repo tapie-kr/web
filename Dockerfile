@@ -36,6 +36,8 @@ FROM builder AS auth
 
 WORKDIR /app/packages/auth
 
+ENV NEXT_PUBLIC_API_URL=https://api.tapie.kr
+
 RUN pnpm build
 
 CMD ["pnpm", "start"]
