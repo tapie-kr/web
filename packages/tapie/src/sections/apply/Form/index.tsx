@@ -225,6 +225,7 @@ export function ApplyForm({
         <Input.Text
           placeholder='전화번호를 입력해주세요 (ex. 010-1234-5678)'
           value={formData.phoneNumber}
+          disabled={isFormSubmitted}
           onChange={e => {
             setFormData({
               ...formData,
@@ -241,6 +242,7 @@ export function ApplyForm({
       <TextareaField
         label='자기소개'
         value={formData.introduction}
+        disabled={isFormSubmitted}
         onChange={value => setFormData({
           ...formData,
           introduction: value,
@@ -249,6 +251,7 @@ export function ApplyForm({
       <TextareaField
         label='지원동기'
         value={formData.motivation}
+        disabled={isFormSubmitted}
         onChange={value => setFormData({
           ...formData,
           motivation: value,
@@ -257,6 +260,7 @@ export function ApplyForm({
       <TextareaField
         label='기대되는 활동'
         value={formData.expectedActivities}
+        disabled={isFormSubmitted}
         onChange={value => setFormData({
           ...formData,
           expectedActivities: value,
@@ -265,6 +269,7 @@ export function ApplyForm({
       <TextareaField
         label='자신을 뽑아야 하는 이유'
         value={formData.reasonToChoose}
+        disabled={isFormSubmitted}
         onChange={value => setFormData({
           ...formData,
           reasonToChoose: value,
@@ -281,6 +286,7 @@ export function ApplyForm({
               leadingIcon={GlyphIcon.UPLOAD}
               placeholder='압축 파일을 업로드해주세요'
               height={150}
+              disabled={isFormSubmitted}
               onChange={handleFileUpload}
               onDelete={handleDeleteFile}
             />
@@ -359,6 +365,7 @@ interface TextareaFieldProps {
   placeholder?: string;
   value:        string | undefined;
   onChange:     (value: string) => void;
+  disabled:     boolean;
 }
 
 const TextareaField = ({
@@ -366,6 +373,7 @@ const TextareaField = ({
   placeholder,
   value,
   onChange,
+  disabled,
 }: TextareaFieldProps) => (
   <FormField
     isEssential
@@ -376,6 +384,7 @@ const TextareaField = ({
       height={200}
       maxLength={500}
       value={value}
+      disabled={disabled}
       onChange={e => onChange(e.target.value)}
     />
   </FormField>
