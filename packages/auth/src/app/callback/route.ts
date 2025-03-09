@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
       httpOnly: true,
       secure:   true,
       sameSite: 'lax' as const,
-      domain:   '*.tapie.kr',
+      domain:   '.tapie.kr',
       path:     '/',
     };
 
