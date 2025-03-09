@@ -3,9 +3,7 @@ import * as s from '@/components/home/ApplyBanner/style.css';
 import {
   Box,
   colorVars,
-  GlyphIcon,
   HStack,
-  Icon,
   spacingVars,
   Typo,
   VStack,

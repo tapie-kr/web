@@ -298,7 +298,7 @@ export function ApplyForm({
             align={StackAlign.START}
             spacing={6}
           >
-            <Label isEssential>포트폴리오</Label>
+            <Label>포트폴리오</Label>
             {uploadedFiles.map(file => (
               <UploadedFile
                 key={file.uuid}
