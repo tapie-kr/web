@@ -9,18 +9,32 @@ import ApplyBannerNow from './categories/Now';
 
 export default function ApplyBanner() {
   const { fetch: getForm, data } = useForm();
-  const [currentTime, setCurrentTime] = useState(new Date);
+  const [isEarly, setIsEarly] = useState(true);
 
   useEffect(() => {
     getForm();
-
-    // Update current time
-    const timer = setInterval(() => {
-      setCurrentTime(new Date);
-    }, 1000);
-
-    return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (data?.data) {
+      const startAt = toTemporalDateTime(data.data.startsAt);
+
+      // 초기 상태 설정
+      const checkTime = () => {
+        const now = Temporal.Now.plainDateTimeISO();
+
+        setIsEarly(Temporal.PlainDateTime.compare(now, startAt) < 0);
+      };
+
+      // 처음 한 번 체크
+      checkTime();
+
+      // 1초마다 체크
+      const intervalId = setInterval(checkTime, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [data]);
 
   if (data?.data === null || !data) {
     return null;
@@ -28,8 +42,6 @@ export default function ApplyBanner() {
 
   const startAt = toTemporalDateTime(data.data.startsAt);
   const endAt = toTemporalDateTime(data.data.endsAt);
-  const now = toTemporalDateTime(currentTime.toISOString());
-  const isEarly = Temporal.PlainDateTime.compare(now, startAt) < 0;
 
   return (
     <>
