@@ -3,10 +3,10 @@ import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams.entries().toArray();
-  const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.tapie.kr' : 'http://localhost:9876';
+  const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.tapie.kr' : 'http://localhost:9876/api';
 
   const apiURL =
-    `${baseURL}/api/v1/auth/google/callback?` +
+    `${baseURL}/v1/auth/google/callback?` +
     searchParams
       .map(([key, value]) => `&${key}=${decodeURI(value.replaceAll(' ', '+'))}`)
       .join('');
