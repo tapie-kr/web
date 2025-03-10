@@ -12,8 +12,6 @@ import {
   HStack,
   Input,
   Label,
-  Segment,
-  SegmentGroup,
   spacingVars,
   StackAlign,
   Typo,
@@ -32,7 +30,6 @@ import {
   useUpdateFormApplication,
   useUploadFormApplicationFile,
 } from '@tapie-kr/api-client';
-import { MemberUnit } from '@tapie-kr/api-client/enum';
 import { Regex } from '@tapie-kr/web-shared/constants/regex';
 import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
@@ -62,7 +59,7 @@ export function ApplyForm({
 
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const router = useRouter();
-  const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
+  const [formData, setFormData] = useState<UpdateFormApplicationRequest>({});
   const debouncedFormData = useDebounce(formData, 1000);
   const submitModalToggler = useToggle();
 
@@ -104,7 +101,6 @@ export function ApplyForm({
   useEffect(() => {
     if (application) {
       setFormData({
-        unit:               application.unit,
         phoneNumber:        internationalToPhoneNumber(application.phoneNumber),
         introduction:       application.introduction,
         motivation:         application.motivation,
@@ -118,7 +114,7 @@ export function ApplyForm({
         setUploadedFile(application.portfolio);
       }
     } else {
-      setFormData({ unit: MemberUnit.DEVELOPER });
+      setFormData({});
     }
   }, [application]);
 
@@ -180,24 +176,6 @@ export function ApplyForm({
       fullWidth
       spacing={spacingVars.moderate}
     >
-      <SegmentGroup
-        defaultValue={formData.unit || MemberUnit.DEVELOPER}
-        onChange={unit => setFormData({
-          ...formData,
-          unit: unit as MemberUnit,
-        })}
-      >
-        <Segment
-          leadingIcon={GlyphIcon.CODE}
-          label='개발자'
-          value={MemberUnit.DEVELOPER}
-        />
-        <Segment
-          leadingIcon={GlyphIcon.BRUSH}
-          label='디자이너'
-          value={MemberUnit.DESIGNER}
-        />
-      </SegmentGroup>
       <FormField
         isEssential
         label='이름'
