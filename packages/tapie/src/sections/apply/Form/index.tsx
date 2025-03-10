@@ -325,7 +325,7 @@ export function ApplyForm({
         >
           <VStack spacing={spacingVars.micro}>
             <Typo.Moderate weight={Weight.SEMIBOLD}>
-              정말로 제출하시겠습니까?
+              {uploadedFiles ? '정말로 제출하시겠습니까?' : '포트폴리오 없이 제출하시겠습니까?'}
             </Typo.Moderate>
             <Typo.Base
               weight={Weight.MEDIUM}
