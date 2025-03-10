@@ -1,24 +1,27 @@
 'use client';
 
-import { spacingVars, VStack } from '@tapie-kr/inspire-react';
+import * as s from './page.css';
 
 import {
-  type FormApplicationType,
-  useForm,
-  useFormApplication,
-  useMe,
-} from '@tapie-kr/api-client';
-import ContentSection from '@tapie-kr/web-shared/components/ContentSection';
-import { notFound } from 'next/navigation';
+  GlyphIcon,
+  HStack,
+  Icon,
+  spacingVars,
+  StackJustify,
+  Typo,
+  VStack,
+  Weight,
+} from '@tapie-kr/inspire-react';
+
+import { useForm, useMe } from '@tapie-kr/api-client';
+import { notFound, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { ApplyForm } from '@/sections/apply/Form';
-import ApplyTitle from '@/sections/apply/Title';
 import ApplyLoading from './loading';
 
 export default function ApplyPage() {
   const { data: currentForm, fetch: getCurrentForm } = useForm();
-  const { data: myApplication, fetch: getMyApplication } = useFormApplication();
   const { data: sessionData, fetch: getSessionData } = useMe();
+  const router = useRouter();
 
   useEffect(() => {
     getSessionData();
@@ -28,33 +31,47 @@ export default function ApplyPage() {
 
   // 기본 Form 정보를 가져온 후 Application 정보를 가져옴
   useEffect(() => {
-    if (currentForm?.data === null || currentForm?.data.available === false) notFound();
+    const hasAvailableForm = currentForm?.data.some(form => form.available === true);
 
-    if (currentForm?.data.id) {
-      getMyApplication({ param: { formId: currentForm?.data.id } });
-    }
+    if (currentForm?.data.length === 0 || hasAvailableForm === false) notFound();
   }, [currentForm]);
 
-  if (!currentForm || !sessionData || !myApplication) {
+  if (!currentForm || !sessionData) {
     return <ApplyLoading />;
   }
 
   return (
-    <ContentSection
-      maxWidth={450}
-      verticalPadding={spacingVars.large}
+    <VStack
+      fullWidth
+      fullHeight
+      spacing={spacingVars.moderate}
+      className={s.container}
     >
+      <Typo.Medium weight={Weight.SEMIBOLD}>신청 분야를 선택해주세요</Typo.Medium>
       <VStack
         fullWidth
-        spacing={spacingVars.large}
+        spacing={spacingVars.micro}
       >
-        <ApplyTitle title={currentForm?.data.name} />
-        <ApplyForm
-          username={sessionData?.data.name}
-          formId={currentForm.data.id}
-          application={myApplication?.data as FormApplicationType}
-        />
+        {
+          currentForm.data.map(form => (
+            <HStack
+              key={form.id}
+              fullWidth
+              justify={StackJustify.BETWEEN}
+              className={s.form}
+              onClick={() => {
+                router.push(`/apply/${form.id}`);
+              }}
+            >
+              <Typo.Base weight={Weight.MEDIUM}>{form.name}</Typo.Base>
+              <Icon
+                name={GlyphIcon.CHEVRON_RIGHT}
+                size={16}
+              />
+            </HStack>
+          ))
+        }
       </VStack>
-    </ContentSection>
+    </VStack>
   );
 }
