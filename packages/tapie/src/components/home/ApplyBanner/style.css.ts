@@ -7,7 +7,7 @@ export const base = style({
   paddingBlock:    spacingVars.base,
   paddingInline:   spacingVars.moderate,
   backgroundColor: colorVars.surface.inverted.default,
-  marginBottom:    spacingVars.medium,
+  marginBottom:    spacingVars.mini,
   borderRadius:    radiusVars.smooth,
   '@media':        { 'screen and (max-width: 500px)': { flexDirection: 'column' } },
 });
