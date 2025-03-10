@@ -276,7 +276,6 @@ export function ApplyForm({
       {uploadedFile === undefined
         ? (
           <FormField
-            isEssential
             label='포트폴리오'
           >
             <Input.DraggableFile
