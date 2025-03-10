@@ -277,10 +277,11 @@ export function ApplyForm({
         ? (
           <FormField
             label='포트폴리오'
+            description={isUploadingFile ? '파일을 업로드 중입니다... 제출하거나 새로고침하지 마세요.' : undefined}
           >
             <Input.DraggableFile
               leadingIcon={GlyphIcon.UPLOAD}
-              placeholder={isUploadingFile ? '파일을 업로드 중입니다...' : '압축 파일을 업로드해주세요'}
+              placeholder='압축 파일을 업로드해주세요'
               height={150}
               disabled={isUploadingFile || isFormSubmitted}
               onChange={handleFileUpload}
