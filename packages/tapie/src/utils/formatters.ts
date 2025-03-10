@@ -19,8 +19,8 @@ export function formatCountdown({
   const formattedSeconds = String(seconds).padStart(2, '0');
 
   if (days > 0) {
-    return `${days}일 ${formattedHours}시 ${formattedMinutes}분 ${formattedSeconds}초`;
+    return `${days}일 ${formattedHours}시간 ${formattedMinutes}분 ${formattedSeconds}초`;
   }
 
-  return `${formattedHours}시 ${formattedMinutes}분 ${formattedSeconds}초`;
+  return `${formattedHours}시간 ${formattedMinutes}분 ${formattedSeconds}초`;
 }
