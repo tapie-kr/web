@@ -48,7 +48,7 @@ export default function ApplyBannerNow({
           <Typo.Base color={colorVars.content.inverted.default}>{formTitle}</Typo.Base>
           <Typo.Medium
             weight={Weight.SEMIBOLD}
-            color={colorVars.content.inverted.default}
+            color={colorVars.content.inverted.emphasized}
           >
             {formatCountdown(remainingTime)}
           </Typo.Medium>
