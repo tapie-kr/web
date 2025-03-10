@@ -1,7 +1,9 @@
 'use client';
 
+import { HStack } from '@tapie-kr/inspire-react';
+
 import { Temporal } from '@js-temporal/polyfill';
-import { useForm } from '@tapie-kr/api-client';
+import { type FormType, useForm } from '@tapie-kr/api-client';
 import { useEffect, useState } from 'react';
 import { toTemporalDateTime } from '@/utils/date';
 import ApplyBannerEarly from './categories/Early';
@@ -10,6 +12,7 @@ import ApplyBannerNow from './categories/Now';
 export default function ApplyBanner() {
   const { fetch: getForm, data } = useForm();
   const [isEarly, setIsEarly] = useState(true);
+  const formData = data?.data as unknown as FormType[];
 
   useEffect(() => {
     getForm();
@@ -44,15 +47,25 @@ export default function ApplyBanner() {
   const endAt = toTemporalDateTime(data.data.endsAt);
 
   return (
-    <>
-      {isEarly
-        ? <ApplyBannerEarly startAt={startAt} />
-        : (
-          <ApplyBannerNow
-            formTitle={data.data.name}
-            endAt={endAt}
-          />
-        )}
-    </>
+    <HStack fullWidth>
+      {formData.map(form => {
+        if (isEarly) {
+          return (
+            <ApplyBannerEarly
+              key={form.id}
+              name={form.name}
+              startAt={startAt}
+            />
+          );
+        } else {
+          return (
+            <ApplyBannerNow
+              formTitle={form.name}
+              endAt={endAt}
+            />
+          );
+        }
+      })}
+    </HStack>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import ApplyBanner from '@/components/home/ApplyBanner';
 
 import Awards from '@/sections/home/Awards';

@@ -1,24 +1,29 @@
 import * as s from '@/components/home/ApplyBanner/style.css';
 
 import {
-  Box,
   colorVars,
+  GlyphIcon,
   HStack,
+  Icon,
   spacingVars,
+  StackAlign,
+  StackJustify,
   Typo,
   VStack,
   Weight,
 } from '@tapie-kr/inspire-react';
 
 import { Temporal } from '@js-temporal/polyfill';
+import cn from 'classnames';
 import { useEffect, useState } from 'react';
 
 interface Props {
+  name:    string;
   startAt: Temporal.PlainDateTime;
 }
 
 export default function ApplyBannerEarly(_props: Props) {
-  const { startAt } = _props;
+  const { startAt, name } = _props;
   const formattedDate = `${startAt.month.toString().padStart(2, '0')}월 ${startAt.day.toString().padStart(2, '0')}일 ${startAt.hour.toString().padStart(2, '0')}시`;
 
   const [timeLeft, setTimeLeft] = useState({
@@ -61,36 +66,29 @@ export default function ApplyBannerEarly(_props: Props) {
     <HStack
       fullWidth
       spacing={spacingVars.base}
-      className={s.base}
+      className={cn(s.base)}
+      justify={StackJustify.BETWEEN}
     >
-      <VStack spacing={spacingVars.tiny}>
-        <VStack
-          className={s.applyDateBox}
-        >
-          <Typo.Petite
-            color={colorVars.content.inverted.default}
-            weight={Weight.SEMIBOLD}
-          >
-            신청기간 -
-            {' '}
-            {formattedDate}
-          </Typo.Petite>
-        </VStack>
-        <Box>
-          <Typo.Micro
-            color={colorVars.content.inverted.muted}
-            weight={Weight.MEDIUM}
-          >
-            {`${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남음`}
-          </Typo.Micro>
-        </Box>
-      </VStack>
-      <Typo.Base
-        color={colorVars.content.inverted.default}
-        weight={Weight.MEDIUM}
+      <VStack
+        spacing={spacingVars.mini}
+        align={StackAlign.START}
       >
-        아직 신청기간이 아닙니다.
-      </Typo.Base>
+        <Typo.Base
+          color={colorVars.content.inverted.default}
+          weight={Weight.SEMIBOLD}
+        >{name}
+        </Typo.Base>
+        <Typo.Moderate
+          color={colorVars.content.inverted.muted}
+          weight={Weight.SEMIBOLD}
+        >{formattedDate} - {`${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남음`}
+        </Typo.Moderate>
+      </VStack>
+      <Icon
+        name={GlyphIcon.NORTH_EAST}
+        size={42}
+        color={colorVars.content.inverted.default}
+      />
     </HStack>
   );
 }
