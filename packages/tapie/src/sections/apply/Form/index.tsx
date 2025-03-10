@@ -255,7 +255,7 @@ export function ApplyForm({
         ? (
           <FormField
             label='포트폴리오'
-            description={isUploadingFile ? '파일을 업로드 중입니다... 제출하거나 새로고침하지 마세요.' : undefined}
+            description={isUploadingFile ? '파일을 업로드 중입니다... 제출하거나 새로고침하지 마세요.' : '포트폴리오는 프레젠테이션 형식으로 제출하는 것을 추천드립니다 (.pdf 권장)'}
           >
             <Input.DraggableFile
               leadingIcon={GlyphIcon.UPLOAD}
@@ -279,6 +279,7 @@ export function ApplyForm({
               file={uploadedFile}
               onDelete={handleDeleteFile}
             />
+            <Typo.Petite color={colorVars.content.muted}>포트폴리오는 프레젠테이션 형식으로 제출하는 것을 추천드립니다 (.pdf 권장)</Typo.Petite>
           </VStack>
         )}
       <Button.Default
