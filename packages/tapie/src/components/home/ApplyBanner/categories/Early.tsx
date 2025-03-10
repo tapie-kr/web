@@ -2,9 +2,7 @@ import * as s from '@/components/home/ApplyBanner/style.css';
 
 import {
   colorVars,
-  GlyphIcon,
   HStack,
-  Icon,
   spacingVars,
   StackAlign,
   StackJustify,
@@ -66,7 +64,7 @@ export default function ApplyBannerEarly(_props: Props) {
     <HStack
       fullWidth
       spacing={spacingVars.base}
-      className={cn(s.base)}
+      className={cn(s.base, s.early)}
       justify={StackJustify.BETWEEN}
     >
       <VStack
@@ -74,21 +72,16 @@ export default function ApplyBannerEarly(_props: Props) {
         align={StackAlign.START}
       >
         <Typo.Base
-          color={colorVars.content.inverted.default}
+          color={colorVars.content.default}
           weight={Weight.SEMIBOLD}
         >{name}
         </Typo.Base>
         <Typo.Moderate
-          color={colorVars.content.inverted.muted}
+          color={colorVars.content.muted}
           weight={Weight.SEMIBOLD}
         >{formattedDate} - {`${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남음`}
         </Typo.Moderate>
       </VStack>
-      <Icon
-        name={GlyphIcon.NORTH_EAST}
-        size={42}
-        color={colorVars.content.inverted.default}
-      />
     </HStack>
   );
 }

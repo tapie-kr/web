@@ -1,6 +1,8 @@
 'use client';
 
-import { HStack } from '@tapie-kr/inspire-react';
+import * as s from './style.css';
+
+import { DStack } from '@tapie-kr/inspire-react';
 
 import { Temporal } from '@js-temporal/polyfill';
 import { type FormType, useForm } from '@tapie-kr/api-client';
@@ -11,7 +13,7 @@ import ApplyBannerNow from './categories/Now';
 
 export default function ApplyBanner() {
   const { fetch: getForm, data } = useForm();
-  const [isEarly, setIsEarly] = useState(true);
+  const [formStatuses, setFormStatuses] = useState<Record<string, boolean>>({});
   const formData = data?.data as unknown as FormType[];
 
   useEffect(() => {
@@ -19,36 +21,42 @@ export default function ApplyBanner() {
   }, []);
 
   useEffect(() => {
-    if (data?.data) {
-      const startAt = toTemporalDateTime(data.data.startsAt);
-
-      // 초기 상태 설정
-      const checkTime = () => {
+    if (formData) {
+      const checkTimes = () => {
         const now = Temporal.Now.plainDateTimeISO();
+        const newStatuses: Record<string, boolean> = {};
 
-        setIsEarly(Temporal.PlainDateTime.compare(now, startAt) < 0);
+        formData.forEach(form => {
+          const startAt = toTemporalDateTime(form.startsAt);
+
+          newStatuses[form.id] = Temporal.PlainDateTime.compare(now, startAt) < 0;
+        });
+
+        setFormStatuses(newStatuses);
       };
 
-      // 처음 한 번 체크
-      checkTime();
+      checkTimes();
 
-      // 1초마다 체크
-      const intervalId = setInterval(checkTime, 1000);
+      const intervalId = setInterval(checkTimes, 1000);
 
       return () => clearInterval(intervalId);
     }
-  }, [data]);
+  }, [formData]);
 
   if (data?.data === null || !data) {
     return null;
   }
 
-  const startAt = toTemporalDateTime(data.data.startsAt);
-  const endAt = toTemporalDateTime(data.data.endsAt);
-
   return (
-    <HStack fullWidth>
+    <DStack
+      fullWidth
+      className={s.listContainer}
+    >
       {formData.map(form => {
+        const isEarly = formStatuses[form.id];
+        const startAt = toTemporalDateTime(form.startsAt);
+        const endAt = toTemporalDateTime(form.endsAt);
+
         if (isEarly) {
           return (
             <ApplyBannerEarly
@@ -60,12 +68,14 @@ export default function ApplyBanner() {
         } else {
           return (
             <ApplyBannerNow
+              key={form.id}
+              id={form.id}
               formTitle={form.name}
               endAt={endAt}
             />
           );
         }
       })}
-    </HStack>
+    </DStack>
   );
 }
