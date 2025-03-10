@@ -2,7 +2,7 @@
 
 import * as s from './style.css';
 
-import { DStack, HStack } from '@tapie-kr/inspire-react';
+import { DStack } from '@tapie-kr/inspire-react';
 
 import { Temporal } from '@js-temporal/polyfill';
 import { type FormType, useForm } from '@tapie-kr/api-client';
