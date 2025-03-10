@@ -56,9 +56,9 @@ export function ApplyForm({
   const { mutate: update } = useUpdateFormApplication();
   const [phoneNumberError, setPhoneNumberError] = useState<string | undefined>(undefined);
 
-  const [uploadedFiles, setUploadedFiles] = useState<
-    FormApplicationPortfolioType[]
-  >([]);
+  const [uploadedFile, setUploadedFile] = useState<
+    FormApplicationPortfolioType
+  >();
 
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const router = useRouter();
@@ -115,9 +115,7 @@ export function ApplyForm({
       setIsFormSubmitted(application.submitted);
 
       if (application.portfolio) {
-        setUploadedFiles(Array.isArray(application.portfolio)
-          ? application.portfolio
-          : [application.portfolio]);
+        setUploadedFile(application.portfolio);
       }
     } else {
       setFormData({ unit: MemberUnit.DEVELOPER });
@@ -138,7 +136,7 @@ export function ApplyForm({
 
     if (!files || files.length === 0) {
       await deleteFile({ param: { formId } }).then(async () => {
-        await setUploadedFiles([]);
+        await setUploadedFile(undefined);
       });
 
       return;
@@ -156,7 +154,7 @@ export function ApplyForm({
 
   const handleDeleteFile = async () => {
     await deleteFile({ param: { formId } }).then(async () => {
-      await setUploadedFiles([]);
+      await setUploadedFile(undefined);
     });
   };
 
@@ -275,14 +273,13 @@ export function ApplyForm({
           reasonToChoose: value,
         })}
       />
-      {uploadedFiles.length === 0
+      {uploadedFile === undefined
         ? (
           <FormField
             isEssential
             label='포트폴리오'
           >
             <Input.DraggableFile
-              multiple
               leadingIcon={GlyphIcon.UPLOAD}
               placeholder={isUploadingFile ? '파일을 업로드 중입니다...' : '압축 파일을 업로드해주세요'}
               height={150}
@@ -299,13 +296,11 @@ export function ApplyForm({
             spacing={6}
           >
             <Label>포트폴리오</Label>
-            {uploadedFiles.map(file => (
-              <UploadedFile
-                key={file.uuid}
-                file={file}
-                onDelete={handleDeleteFile}
-              />
-            ))}
+            <UploadedFile
+              key={uploadedFile.uuid}
+              file={uploadedFile}
+              onDelete={handleDeleteFile}
+            />
           </VStack>
         )}
       <Button.Default
@@ -325,7 +320,7 @@ export function ApplyForm({
         >
           <VStack spacing={spacingVars.micro}>
             <Typo.Moderate weight={Weight.SEMIBOLD}>
-              {uploadedFiles ? '정말로 제출하시겠습니까?' : '포트폴리오 없이 제출하시겠습니까?'}
+              {uploadedFile ? '정말로 제출하시겠습니까?' : '포트폴리오 없이 제출하시겠습니까?'}
             </Typo.Moderate>
             <Typo.Base
               weight={Weight.MEDIUM}
