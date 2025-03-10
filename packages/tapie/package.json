@@ -24,7 +24,7 @@
     "@js-temporal/polyfill": "^0.4.4",
     "@sentry/nextjs": "^9",
     "@svgr/webpack": "^8.1.0",
-    "@tapie-kr/api-client": "0.1.22",
+    "@tapie-kr/api-client": "0.1.24",
     "@tapie-kr/api-database": "^0.0.3",
     "@tapie-kr/inspire-react": "^0.2.15",
     "@tapie-kr/web-shared": "workspace:*",
