@@ -13,6 +13,7 @@ import {
   Weight,
 } from '@tapie-kr/inspire-react';
 
+import { tracker } from '@openreplay/tracker';
 import { useForm, useMe } from '@tapie-kr/api-client';
 import { notFound, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -22,6 +23,14 @@ export default function ApplyPage() {
   const { data: currentForm, fetch: getCurrentForm } = useForm();
   const { data: sessionData, fetch: getSessionData } = useMe();
   const router = useRouter();
+
+  useEffect(() => {
+    if (sessionData?.data) {
+      tracker.setUserID(sessionData.data.email);
+
+      tracker.setMetadata('name', `${sessionData.data.id} ${sessionData.data.name}`);
+    }
+  }, [sessionData]);
 
   useEffect(() => {
     getSessionData();
