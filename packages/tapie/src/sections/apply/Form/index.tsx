@@ -21,6 +21,7 @@ import {
 } from '@tapie-kr/inspire-react';
 import UploadedFile from '@/components/form/UploadedFile';
 
+import { tracker } from '@openreplay/tracker';
 import {
   type FormApplicationPortfolioType,
   type FormApplicationType,
@@ -159,6 +160,8 @@ export function ApplyForm({
     await submitForm({ param: { formId } })
       .then(() => {
         alert('지원서가 제출되었습니다.');
+
+        tracker.event('apply_form_submit', formId);
 
         router.push('/');
       })
