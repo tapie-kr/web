@@ -2,7 +2,9 @@ import '@cottons-kr/react-foundation/styles.css';
 
 import { type ILayoutProps, Spacer } from '@cottons-kr/react-foundation';
 import { InspireProvider } from '@tapie-kr/inspire-react/provider';
+import OpenReplay from '@/components/openReplay';
 
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import Favicon from '@tapie-kr/web-shared/assets/favicon.png';
 import Footer from '@tapie-kr/web-shared/layout/Footer';
 import Header from '@tapie-kr/web-shared/layout/Header';
@@ -66,6 +68,9 @@ export default function RootLayout(props: ILayoutProps) {
             <Spacer height='76px' />
             {props.children}
             <Footer />
+            <GoogleAnalytics gaId='G-8W2ZQH6JKX' />
+            <GoogleTagManager gtmId='GTM-K39B4WR2' />
+            <OpenReplay />
           </InspireProvider>
         </ThemeProvider>
       </body>
