@@ -4,8 +4,8 @@ import Tracker from '@openreplay/tracker';
 import { useEffect } from 'react';
 
 const tracker = new Tracker({
-  projectKey:  '',
-  ingestPoint: '',
+  projectKey:            'B7f9fQcoF6UR6cWd6bS9',
+  __DISABLE_SECURE_MODE: true,
 });
 
 const OpenReplay = () => {
