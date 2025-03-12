@@ -143,9 +143,19 @@ export function ApplyForm({
 
     formData.append('file', files[0]);
 
+    if (files[0] === undefined) return false;
+
     await uploadFile({
       param: { formId },
       data:  formData,
+    });
+
+    setUploadedFile({
+      createdAt:     '',
+      filename:      files[0].name,
+      path:          '',
+      portfolioUuid: '',
+      uuid:          '',
     });
   };
 
