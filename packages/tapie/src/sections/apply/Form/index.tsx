@@ -12,8 +12,6 @@ import {
   HStack,
   Input,
   Label,
-  Segment,
-  SegmentGroup,
   spacingVars,
   StackAlign,
   Typo,
@@ -32,7 +30,6 @@ import {
   useUpdateFormApplication,
   useUploadFormApplicationFile,
 } from '@tapie-kr/api-client';
-import { MemberUnit } from '@tapie-kr/api-client/enum';
 import { Regex } from '@tapie-kr/web-shared/constants/regex';
 import { useDebounce } from '@tapie-kr/web-shared/hooks/use-debounce';
 import { internationalToPhoneNumber, isValidPhoneNumber, phoneNumberToInternational } from '@tapie-kr/web-shared/lib/format/phoneNumber';
@@ -62,7 +59,7 @@ export function ApplyForm({
 
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const router = useRouter();
-  const [formData, setFormData] = useState<UpdateFormApplicationRequest>({ unit: MemberUnit.DEVELOPER });
+  const [formData, setFormData] = useState<UpdateFormApplicationRequest>({});
   const debouncedFormData = useDebounce(formData, 1000);
   const submitModalToggler = useToggle();
 
@@ -104,7 +101,6 @@ export function ApplyForm({
   useEffect(() => {
     if (application) {
       setFormData({
-        unit:               application.unit,
         phoneNumber:        internationalToPhoneNumber(application.phoneNumber),
         introduction:       application.introduction,
         motivation:         application.motivation,
@@ -118,7 +114,7 @@ export function ApplyForm({
         setUploadedFile(application.portfolio);
       }
     } else {
-      setFormData({ unit: MemberUnit.DEVELOPER });
+      setFormData({});
     }
   }, [application]);
 
@@ -180,24 +176,6 @@ export function ApplyForm({
       fullWidth
       spacing={spacingVars.moderate}
     >
-      <SegmentGroup
-        defaultValue={formData.unit || MemberUnit.DEVELOPER}
-        onChange={unit => setFormData({
-          ...formData,
-          unit: unit as MemberUnit,
-        })}
-      >
-        <Segment
-          leadingIcon={GlyphIcon.CODE}
-          label='개발자'
-          value={MemberUnit.DEVELOPER}
-        />
-        <Segment
-          leadingIcon={GlyphIcon.BRUSH}
-          label='디자이너'
-          value={MemberUnit.DESIGNER}
-        />
-      </SegmentGroup>
       <FormField
         isEssential
         label='이름'
@@ -277,7 +255,7 @@ export function ApplyForm({
         ? (
           <FormField
             label='포트폴리오'
-            description={isUploadingFile ? '파일을 업로드 중입니다... 제출하거나 새로고침하지 마세요.' : undefined}
+            description={isUploadingFile ? '파일을 업로드 중입니다... 제출하거나 새로고침하지 마세요.' : '포트폴리오는 프레젠테이션 형식으로 제출하는 것을 추천드립니다 (.pdf 권장)'}
           >
             <Input.DraggableFile
               leadingIcon={GlyphIcon.UPLOAD}
@@ -301,6 +279,7 @@ export function ApplyForm({
               file={uploadedFile}
               onDelete={handleDeleteFile}
             />
+            <Typo.Petite color={colorVars.content.muted}>포트폴리오는 프레젠테이션 형식으로 제출하는 것을 추천드립니다 (.pdf 권장)</Typo.Petite>
           </VStack>
         )}
       <Button.Default
