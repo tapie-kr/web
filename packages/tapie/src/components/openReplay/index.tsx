@@ -3,8 +3,8 @@
 import Tracker from '@openreplay/tracker';
 import { useEffect } from 'react';
 
-const tracker = new Tracker({
-  projectKey:            'G3eFeNnjoiZZHBjbKpsl',
+export const tracker = new Tracker({
+  projectKey:            'tpTmMUZMMAzsNvbX4d8U',
   __DISABLE_SECURE_MODE: true,
   network:               {
     capturePayload:     true,
