@@ -6,44 +6,59 @@ import { DStack } from '@tapie-kr/inspire-react';
 
 import { Temporal } from '@js-temporal/polyfill';
 import { type FormType, useForm } from '@tapie-kr/api-client';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { toTemporalDateTime } from '@/utils/date';
 import ApplyBannerEarly from './categories/Early';
 import ApplyBannerNow from './categories/Now';
 
 export default function ApplyBanner() {
   const { fetch: getForm, data } = useForm();
-  const [formStatuses, setFormStatuses] = useState<Record<string, boolean>>({});
-  const formData = data?.data as unknown as FormType[];
+  const [formStatusMap, setFormStatusMap] = useState<Record<string, boolean>>({});
+  const [allFormsEnded, setAllFormsEnded] = useState<boolean>(false);
+  const forms = useMemo(() => data?.data as FormType[] | undefined, [data]);
 
   useEffect(() => {
     getForm();
-  }, []);
+  }, [getForm]);
 
   useEffect(() => {
-    if (formData) {
-      const checkTimes = () => {
-        const now = Temporal.Now.plainDateTimeISO();
-        const newStatuses: Record<string, boolean> = {};
+    if (!forms?.length) return;
 
-        formData.forEach(form => {
-          const startAt = toTemporalDateTime(form.startsAt);
+    const updateFormStatuses = () => {
+      const now = Temporal.Now.plainDateTimeISO();
+      const newStatusMap: Record<string, boolean> = {};
 
-          newStatuses[form.id] = Temporal.PlainDateTime.compare(now, startAt) < 0;
-        });
+      let hasActiveForm = false;
 
-        setFormStatuses(newStatuses);
-      };
+      forms.forEach(form => {
+        const startAt = toTemporalDateTime(form.startsAt);
+        const endAt = toTemporalDateTime(form.endsAt);
 
-      checkTimes();
+        // Form is in "early" state if current time is before start time
+        newStatusMap[form.id] = Temporal.PlainDateTime.compare(now, startAt) < 0;
 
-      const intervalId = setInterval(checkTimes, 1000);
+        // Form is still active if current time is before end time
+        if (Temporal.PlainDateTime.compare(now, endAt) < 0) {
+          hasActiveForm = true;
+        }
+      });
 
-      return () => clearInterval(intervalId);
-    }
-  }, [formData]);
+      setFormStatusMap(newStatusMap);
 
-  if (data?.data === null || !data) {
+      setAllFormsEnded(!hasActiveForm);
+    };
+
+    // Update immediately and then set up interval
+    updateFormStatuses();
+
+    // Check every minute instead of every second for better performance
+    const intervalId = setInterval(updateFormStatuses, 60000);
+
+    return () => clearInterval(intervalId);
+  }, [forms]);
+
+  // Return null if data is not available or all forms have ended
+  if (!forms?.length || allFormsEnded) {
     return null;
   }
 
@@ -52,8 +67,8 @@ export default function ApplyBanner() {
       fullWidth
       className={s.listContainer}
     >
-      {formData.map(form => {
-        const isEarly = formStatuses[form.id];
+      {forms.map(form => {
+        const isEarly = formStatusMap[form.id];
         const startAt = toTemporalDateTime(form.startsAt);
         const endAt = toTemporalDateTime(form.endsAt);
 
@@ -65,16 +80,16 @@ export default function ApplyBanner() {
               startAt={startAt}
             />
           );
-        } else {
-          return (
-            <ApplyBannerNow
-              key={form.id}
-              id={form.id}
-              formTitle={form.name}
-              endAt={endAt}
-            />
-          );
         }
+
+        return (
+          <ApplyBannerNow
+            key={form.id}
+            id={form.id}
+            formTitle={form.name}
+            endAt={endAt}
+          />
+        );
       })}
     </DStack>
   );
