@@ -13,7 +13,7 @@ import {
 import ViewportDetector from '@tapie-kr/web-shared/components/ViewportDetector';
 import Image from 'next/image';
 import MetallicTape from './assets/metallic-tape.webp';
-import TapieGroup from './assets/tapie-group.webp';
+import TapieGroup from './assets/tapie-group.jpg';
 import { Animate, HeroText } from './shared';
 
 export default function HomeHeroSection() {
