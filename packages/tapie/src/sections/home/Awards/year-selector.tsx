@@ -10,6 +10,7 @@ import { getTransition } from '@tapie-kr/web-shared/lib/animation';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useContext, useMemo } from 'react';
+import awards from '@/../public/_awards.json';
 import { HomeAwardsSectionContext } from './shared';
 
 export default function HomeAwardsSectionYearSelector() {
@@ -19,7 +20,13 @@ export default function HomeAwardsSectionYearSelector() {
       className={yearSelector}
       gap={spacingVars.petite}
     >
-      <YearItem year={2024} />
+      {Object.keys(awards).toReversed()
+        .map(year => (
+          <YearItem
+            key={year}
+            year={Number(year)}
+          />
+        ))}
     </HStack>
   );
 }

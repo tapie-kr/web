@@ -21,6 +21,7 @@ import { HomeAwardsSectionContext } from './shared';
 import YearSelector from './year-selector';
 
 export default function HomeAwardsSection() {
+  // const years = Object.keys(awards).sort((a, b) => Number(b) - Number(a));
   const [selectedYear, setSelectedYear] = useState(2024);
 
   return (
@@ -51,7 +52,7 @@ export default function HomeAwardsSection() {
                 <div className={utilityClass.hideOverflow}>
                   <Animate order={0}>
                     <Typo.Jumbo weight={Weight.SEMIBOLD}>
-                      2024년 테이피의 항해
+                      2025년 테이피의 항해
                     </Typo.Jumbo>
                   </Animate>
                 </div>

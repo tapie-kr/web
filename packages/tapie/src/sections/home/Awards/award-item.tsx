@@ -10,17 +10,18 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 
 type AwardItemProps = {
-  order: number;
-  name:  Array<string> | string;
-  label: string;
+  order:         number;
+  name:          Array<string> | string;
+  label:         string;
+  selectedYear?: number;
 };
 
 export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
   const { isInView } = useContext(ViewportDetectorContext);
 
   const transition = getTransition({
-    duration: 0.85,
-    delay:    (props.order * 0.03) + 0.55,
+    duration: 0.5,
+    delay:    (props.order * 0.02) + 0.1,
   });
 
   const resetTransition = getTransition({ duration: 0 });
@@ -42,6 +43,7 @@ export default function HomeAwardsSectionAwardItem(props: AwardItemProps) {
 
   return (
     <motion.div
+      key={`${props.selectedYear}-${props.order}`}
       className={s.awardItem}
       initial={initial}
       animate={animate}
