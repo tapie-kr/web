@@ -21,4 +21,7 @@ WORKDIR /app/packages/under-construction
 
 RUN pnpm build
 
+ENV PORT=3002
+EXPOSE 3002
+
 CMD ["pnpm", "start"]
