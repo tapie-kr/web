@@ -4,7 +4,7 @@
   "description": "TAPIE Landing Page",
   "scripts": {
     "start": "next start",
-    "build": "next build",
+    "build": "next build --webpack",
     "dev": "next dev -p 8765"
   },
   "author": {
@@ -31,6 +31,7 @@
     "@tapie-kr/inspire-react": "^0.2.15",
     "@tapie-kr/web-shared": "workspace:*",
     "@vanilla-extract/css": "^1.18.0",
+    "@vanilla-extract/next-plugin": "^2.4.8",
     "axios": "^1.13.2",
     "classnames": "^2.5.1",
     "framer-motion": "^11.18.2",

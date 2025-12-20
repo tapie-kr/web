@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -19,9 +23,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@tapie-kr/web-shared/*": ["../shared/*"],
-      "~/*": ["../shared/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@tapie-kr/web-shared/*": [
+        "../shared/*"
+      ],
+      "~/*": [
+        "../shared/*"
+      ]
     }
   },
   "include": [
@@ -31,7 +41,10 @@
     "src/types/**/*.d.ts",
     ".next/types/**/*.ts",
     "../shared/**/*.ts",
-    "../shared/**/*.tsx"
+    "../shared/**/*.tsx",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
