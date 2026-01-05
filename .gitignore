@@ -8,3 +8,5 @@ dist/
 .next/
 
 .env.sentry-build-plugin
+
+/.github
