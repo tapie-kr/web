@@ -1,7 +1,11 @@
 FROM node:23-bookworm-slim AS builder
 
-COPY . /app
-WORKDIR /app
+COPY packages/tapie /app/packages/tapie
+COPY packages/shared /app/packages/shared
+COPY packages/tapie/pnpm-workspace.yaml /app/packages/tapie/pnpm-workspace.yaml
+COPY packages/tapie/pnpm-lock.yaml /app/packages/tapie/pnpm-lock.yaml
+
+WORKDIR /app/packages/tapie
 
 ENV time_zone=Asia/Seoul
 ENV NODE_ENV=production
