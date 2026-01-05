@@ -8,11 +8,11 @@ COPY packages/tapie/pnpm-lock.yaml /app/packages/tapie/pnpm-lock.yaml
 WORKDIR /app/packages/tapie
 
 ENV time_zone=Asia/Seoul
-ENV NODE_ENV=production
 
 RUN corepack enable
 RUN corepack prepare pnpm@9.15.1 --activate
-RUN pnpm install --frozen-lockfile
+# devDependencies도 설치하기 위해 --prod=false 명시
+RUN pnpm install --frozen-lockfile --prod=false
 
 ENV NEXT_PUBLIC_API_URL=https://api.tapie.kr
 ENV API_HOSTNAME=https://api.tapie.kr
@@ -23,6 +23,7 @@ FROM builder AS production
 
 WORKDIR /app/packages/tapie
 
+ENV NODE_ENV=production
 RUN pnpm build
 
 ENV PORT=3000
