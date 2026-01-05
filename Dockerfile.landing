@@ -11,7 +11,7 @@ ENV time_zone=Asia/Seoul
 ENV NODE_ENV=production
 
 RUN corepack enable
-RUN corepack prepare pnpm --activate
+RUN corepack prepare pnpm@9.15.1 --activate
 RUN pnpm install --frozen-lockfile
 
 ENV NEXT_PUBLIC_API_URL=https://api.tapie.kr
