@@ -2,3 +2,8 @@ node_modules/
 .git/
 .next/
 .vscode/
+# 루트의 lockfile은 제외 (tapie 워크스페이스의 독립적인 lockfile 사용)
+pnpm-lock.yaml
+# 다른 패키지들은 제외 (tapie와 shared만 필요)
+packages/auth/
+packages/under-construction/
