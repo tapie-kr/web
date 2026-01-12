@@ -22,7 +22,7 @@ import YearSelector from './year-selector';
 
 export default function HomeAwardsSection() {
   // const years = Object.keys(awards).sort((a, b) => Number(b) - Number(a));
-  const [selectedYear, setSelectedYear] = useState(2024);
+  const [selectedYear, setSelectedYear] = useState(2025);
 
   return (
     <HomeAwardsSectionContext.Provider
