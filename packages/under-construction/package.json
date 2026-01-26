@@ -4,7 +4,7 @@
   "description": "Under Construction",
   "scripts": {
     "start": "next start",
-    "build": "next build",
+    "build": "next build --webpack",
     "dev": "next dev -p 7654"
   },
   "author": {

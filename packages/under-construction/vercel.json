@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm --filter @tapie-kr/web-under-construction build",
   "outputDirectory": ".next",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
   "framework": "nextjs"
