@@ -44,7 +44,7 @@ function YearItem(props: YearSelectorItemProps) {
 
   const transition = getTransition({
     duration: 0.65,
-    delay:    ((2024 - props.year) * 0.05) + 0.4,
+    delay:    ((2025 - props.year) * 0.05) + 0.4,
   });
 
   const resetTransition = getTransition({ duration: 0 });
