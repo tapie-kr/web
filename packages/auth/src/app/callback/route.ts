@@ -2,14 +2,16 @@ import { cookies } from 'next/headers';
 import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams.entries().toArray();
+  const searchParams = request.nextUrl.searchParams;
   const baseURL = process.env.NODE_ENV === 'production' ? 'https://api.tapie.kr' : 'http://localhost:9876/api';
 
-  const apiURL =
-    `${baseURL}/v1/auth/google/callback?` +
-    searchParams
-      .map(([key, value]) => `&${key}=${decodeURI(value.replaceAll(' ', '+'))}`)
-      .join('');
+  // URLSearchParams를 사용하여 올바른 쿼리 문자열 생성
+  const apiSearchParams = new URLSearchParams();
+  searchParams.forEach((value, key) => {
+    apiSearchParams.append(key, value);
+  });
+
+  const apiURL = `${baseURL}/v1/auth/google/callback?${apiSearchParams.toString()}`;
 
   const res = await fetch(apiURL);
   const service = request.nextUrl.searchParams.get('service');
@@ -43,7 +45,19 @@ export async function GET(request: NextRequest) {
     return Response.json({ success: true });
   }
 
-  console.log(res);
+  // 에러 응답의 body를 읽어서 더 자세한 정보 확인
+  let errorMessage = 'Failed to authenticate';
+  try {
+    const errorData = await res.json();
+    errorMessage = errorData.message || errorData.error || errorMessage;
+    console.error('API Error:', errorData);
+  } catch {
+    const errorText = await res.text();
+    console.error('API Error Response:', errorText);
+  }
 
-  throw new Error('Failed to authenticate');
+  console.error('Response status:', res.status, res.statusText);
+  console.error('Request URL:', apiURL);
+
+  throw new Error(errorMessage);
 }
