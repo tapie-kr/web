@@ -107,6 +107,7 @@ export function ApplyForm({
         motivation:         application.motivation,
         expectedActivities: application.expectedActivities,
         reasonToChoose:     application.reasonToChoose,
+        creatorQuestion:    application.creatorQuestion ?? '',
       });
 
       setIsFormSubmitted(application.submitted);
@@ -262,6 +263,15 @@ export function ApplyForm({
         onChange={value => setFormData({
           ...formData,
           reasonToChoose: value,
+        })}
+      />
+      <TextareaField
+        label='지금까지 사용해 본 서비스 중 한 가지를 떠올리고, 해당 서비스를 만든 개발자, 기획자, 디자이너 등에게 직접 질문할 수 있다면 누구에게 무엇을 묻고 싶은지 작성해 주세요.'
+        value={formData.creatorQuestion}
+        disabled={isFormSubmitted}
+        onChange={value => setFormData({
+          ...formData,
+          creatorQuestion: value,
         })}
       />
       {uploadedFile === undefined
